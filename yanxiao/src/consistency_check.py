@@ -43,7 +43,7 @@ class ConsistencyChecker:
         results = []
         
         for (season, week), est in estimates.items():
-            # 获取实际淘汰者
+            # 获取实际淘汰者（可能有多人）
             actual_elim = elimination_info[
                 (elimination_info['season'] == season) &
                 (elimination_info['week'] == week)
@@ -53,7 +53,9 @@ class ConsistencyChecker:
                 # 无淘汰的周次
                 continue
             
-            actual_name = actual_elim.iloc[0]['eliminated_name']
+            # 获取所有实际被淘汰者的名字列表
+            actual_names = actual_elim['eliminated_name'].tolist()
+            n_eliminated = len(actual_names)
             
             names = est['names']
             scores = est['scores']
@@ -65,52 +67,68 @@ class ConsistencyChecker:
             else:
                 use_method = method
             
-            # 计算预测淘汰者
+            # 计算综合得分并预测淘汰者
             if use_method == 'rank':
                 combined = compute_rank_combined_score(scores, votes)
-                pred_idx = get_eliminated_index_rank(combined)
+                # 预测底N名（N=实际淘汰人数）
+                pred_indices = np.argsort(-combined)[:n_eliminated]  # 综合排名最高（最差）的N人
             else:
                 combined = compute_percent_combined_score(scores, votes)
-                pred_idx = get_eliminated_index_percent(combined)
+                # 预测底N名
+                pred_indices = np.argsort(combined)[:n_eliminated]  # 综合百分比最低的N人
             
-            pred_name = names[pred_idx]
+            pred_names = [names[i] for i in pred_indices]
             
-            # 获取实际淘汰者的索引
-            actual_idx = None
-            for i, name in enumerate(names):
-                if name == actual_name:
-                    actual_idx = i
-                    break
+            # 获取实际淘汰者的索引列表
+            actual_indices = []
+            for actual_name in actual_names:
+                for i, name in enumerate(names):
+                    if name == actual_name:
+                        actual_indices.append(i)
+                        break
             
-            # 计算排名差异
+            # 计算准确性：预测的淘汰者是否都在实际淘汰者中
+            # 使用集合交集来判断
+            pred_set = set(pred_names)
+            actual_set = set(actual_names)
+            
+            # 完全正确：预测集合与实际集合完全相同
+            is_correct = (pred_set == actual_set)
+            
+            # 部分正确：预测集合与实际集合有交集
+            correct_count = len(pred_set & actual_set)
+            
+            # 计算底N+1准确性（实际淘汰者是否都在预测的底N+1中）
             if use_method == 'rank':
-                pred_rank = combined[pred_idx]
-                actual_rank = combined[actual_idx] if actual_idx is not None else None
+                bottom_n_plus_1_idx = set(np.argsort(-combined)[:n_eliminated + 1])
             else:
-                pred_rank = len(names) - np.argsort(np.argsort(combined))[pred_idx]
-                actual_rank = len(names) - np.argsort(np.argsort(combined))[actual_idx] if actual_idx is not None else None
+                bottom_n_plus_1_idx = set(np.argsort(combined)[:n_eliminated + 1])
             
-            is_correct = (pred_name == actual_name)
+            in_bottom_n_plus_1 = all(idx in bottom_n_plus_1_idx for idx in actual_indices if idx is not None)
             
-            # 计算底2准确性
+            # 计算排名
             if use_method == 'rank':
-                bottom_two_idx = np.argsort(-combined)[:2]
+                pred_rank = combined[pred_indices[0]] if len(pred_indices) > 0 else None
+                actual_rank = combined[actual_indices[0]] if len(actual_indices) > 0 else None
             else:
-                bottom_two_idx = np.argsort(combined)[:2]
-            
-            in_bottom_two = actual_idx in bottom_two_idx if actual_idx is not None else False
+                sorted_indices = np.argsort(combined)
+                rank_map = {idx: rank + 1 for rank, idx in enumerate(sorted_indices)}
+                pred_rank = rank_map.get(pred_indices[0]) if len(pred_indices) > 0 else None
+                actual_rank = rank_map.get(actual_indices[0]) if len(actual_indices) > 0 else None
             
             results.append({
                 'season': season,
                 'week': week,
                 'method': use_method,
                 'n_contestants': len(names),
-                'actual_eliminated': actual_name,
-                'predicted_eliminated': pred_name,
+                'n_eliminated': n_eliminated,
+                'actual_eliminated': ', '.join(actual_names),
+                'predicted_eliminated': ', '.join(pred_names),
                 'is_correct': is_correct,
-                'in_bottom_two': in_bottom_two,
-                'actual_idx': actual_idx,
-                'pred_idx': pred_idx,
+                'correct_count': correct_count,
+                'in_bottom_two': in_bottom_n_plus_1,  # 保持字段名兼容，但实际是底N+1
+                'actual_idx': actual_indices[0] if actual_indices else None,
+                'pred_idx': pred_indices[0] if len(pred_indices) > 0 else None,
                 'actual_combined_rank': actual_rank,
                 'pred_combined_rank': pred_rank
             })
@@ -199,8 +217,8 @@ class ConsistencyChecker:
         correlations = []
         
         for (season, week), est in estimates.items():
-            scores = est['scores']
-            votes = est['votes']
+            scores = np.array(est['scores'])
+            votes = np.array(est['votes'])
             
             # 计算评委排名和投票排名的相关性
             score_ranks = np.argsort(np.argsort(-scores)) + 1
@@ -244,8 +262,8 @@ class ConsistencyChecker:
         
         for (season, week), est in estimates.items():
             names = est['names']
-            scores = est['scores']
-            votes = est['votes']
+            scores = np.array(est['scores'])
+            votes = np.array(est['votes'])
             
             # 计算各种排名
             score_ranks = np.argsort(np.argsort(-scores)) + 1

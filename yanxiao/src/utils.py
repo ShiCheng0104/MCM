@@ -121,6 +121,7 @@ def rank_scores(scores: np.ndarray, ascending: bool = False) -> np.ndarray:
     Returns:
         排名数组
     """
+    scores = np.asarray(scores, dtype=float)
     if ascending:
         return np.argsort(np.argsort(scores)) + 1
     else:
@@ -139,6 +140,8 @@ def compute_rank_combined_score(judge_scores: np.ndarray,
     Returns:
         综合排名得分（越高越差）
     """
+    judge_scores = np.asarray(judge_scores, dtype=float)
+    fan_votes = np.asarray(fan_votes, dtype=float)
     judge_ranks = rank_scores(judge_scores, ascending=False)
     fan_ranks = rank_scores(fan_votes, ascending=False)
     return judge_ranks + fan_ranks
@@ -156,6 +159,8 @@ def compute_percent_combined_score(judge_scores: np.ndarray,
     Returns:
         综合百分比得分（越高越好）
     """
+    judge_scores = np.asarray(judge_scores, dtype=float)
+    fan_votes = np.asarray(fan_votes, dtype=float)
     judge_pct = judge_scores / judge_scores.sum() if judge_scores.sum() > 0 else np.zeros_like(judge_scores)
     fan_pct = fan_votes / fan_votes.sum() if fan_votes.sum() > 0 else np.zeros_like(fan_votes)
     return judge_pct + fan_pct

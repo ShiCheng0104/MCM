@@ -13,9 +13,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from config import DATA_DIR, OUTPUT_DIR, ModelConfig, EvalConfig
 from src.data_preprocessing import DataPreprocessor, load_and_preprocess
-from src.vote_estimator import VoteEstimator
 from src.consistency_check import ConsistencyChecker, run_consistency_check
 from src.uncertainty_measure import UncertaintyAnalyzer, run_uncertainty_analysis
+from models.advanced_vote_model import AdvancedVoteModel
 from visualization.plots import VotePlotter
 
 
@@ -54,46 +54,38 @@ def main():
     print()
     
     # ========================================
-    # 2. 模型拟合
+    # 2. 训练高级投票模型
     # ========================================
-    print("[2/5] 拟合投票估计模型...")
+    print("[2/5] 训练高级投票模型...")
     print("-" * 50)
     
-    # 使用约束优化模型作为主要模型
-    estimator = VoteEstimator(
-        model_type='constrained',
-        config={
-            'opt_method': ModelConfig.OPTIMIZATION_METHOD,
-            'max_iter': ModelConfig.OPTIMIZATION_MAX_ITER,
-            'prior_weight': 0.5,
-            'random_seed': ModelConfig.RANDOM_SEED
-        }
-    )
+    # 使用高级模型（丰富特征 + 优化权重）
+    model = AdvancedVoteModel(random_seed=ModelConfig.RANDOM_SEED)
+    model.fit(weekly_data, elimination_info)
     
-    # 拟合模型
-    estimator.fit(weekly_data, season_week_data, elimination_info)
+    # 预测淘汰结果
+    elim_results = model.predict_elimination(weekly_data, elimination_info)
     print()
     
     # ========================================
-    # 3. 估计观众投票
+    # 3. 获取投票估计结果
     # ========================================
-    print("[3/5] 估计所有周次的观众投票...")
+    print("[3/5] 获取投票估计结果...")
     print("-" * 50)
     
-    estimates = estimator.estimate(
-        season_week_data,
-        elimination_info,
-        total_votes=1e6
-    )
-    
-    # 导出估计结果
-    estimates_df = estimator.get_all_estimates_df()
+    # 获取投票估计
+    estimates_df = model.get_vote_estimates()
     estimates_df.to_csv(os.path.join(OUTPUT_DIR, 'vote_estimates.csv'), index=False)
     print(f"  投票估计结果已保存到: {OUTPUT_DIR}/vote_estimates.csv")
+    print(f"  共 {len(estimates_df)} 条估计记录")
+    
+    # 获取consistency_check需要的格式
+    estimates = model.get_estimates_dict()
+    
     print()
     
     # ========================================
-    # 4. 一致性检验
+    # 4. 一致性检验（验证估计结果）
     # ========================================
     print("[4/5] 进行一致性检验...")
     print("-" * 50)
@@ -120,21 +112,9 @@ def main():
     print("[5/5] 进行不确定性分析...")
     print("-" * 50)
     
-    # 生成投票样本用于不确定性分析
-    samples_dict = {}
-    if hasattr(estimator, 'bayesian') and hasattr(estimator.bayesian, 'samples'):
-        samples_dict = estimator.bayesian.samples
-    else:
-        # 使用约束优化模型生成样本
-        print("  生成投票样本...")
-        for (season, week), contestants in list(season_week_data.items())[:50]:  # 限制数量
-            if len(contestants) > 1:
-                scores = contestants['total_score'].values
-                eliminated_idx = np.argmin(scores)  # 简化假设
-                samples = estimator.constrained.generate_vote_samples(
-                    scores, eliminated_idx, season, n_samples=100
-                )
-                samples_dict[(season, week)] = samples
+    # 获取投票样本用于不确定性分析
+    samples_dict = model.get_samples_dict()
+    print(f"  获取样本: {len(samples_dict)} 个选手-周次")
     
     analyzer, uncertainty_summary = run_uncertainty_analysis(
         estimates,
@@ -175,16 +155,33 @@ def main():
     print("\n" + "="*70)
     print("  分析完成！结果汇总")
     print("="*70)
-    print(f"  淘汰预测准确率: {consistency_summary['elimination_accuracy']:.2%}")
-    print(f"  底2预测准确率: {consistency_summary['bottom_two_accuracy']:.2%}")
-    print(f"  平均变异系数(CV): {uncertainty_summary['mean_cv']:.4f}")
-    print(f"  高确定性估计占比: {uncertainty_summary['high_certainty_pct']:.2%}")
-    print()
-    print(f"  所有输出文件保存在: {OUTPUT_DIR}")
+    
+    print(f"\n  【贝叶斯淘汰概率模型预测结果】")
+    print(f"  ├─ 淘汰预测准确率: {elim_results['accuracy']:.2%}")
+    print(f"  ├─ 底N预测准确率: {elim_results['bottom_accuracy']:.2%}")
+    print(f"  └─ 验证周次数: {elim_results['total']}")
+    
+    print(f"\n  【模型参数】")
+    if hasattr(model, 'w_score_rank'):
+        print(f"  ├─ 评分排名权重 = {model.w_score_rank:.3f}")
+        print(f"  ├─ 历史表现权重 = {model.w_avg_rank:.3f}")
+        print(f"  └─ 舞伴效应权重 = {model.w_partner:.3f}")
+    elif hasattr(model, 'params') and 'beta_score' in model.params:
+        print(f"  ├─ β_score = {model.params['beta_score']:.3f}")
+        if 'beta_age' in model.params:
+            print(f"  ├─ β_age = {model.params['beta_age']:.3f}")
+    
+    print(f"\n  【不确定性分析】")
+    print(f"  ├─ 平均变异系数(CV): {uncertainty_summary['mean_cv']:.4f}")
+    print(f"  └─ 高确定性估计占比: {uncertainty_summary['high_certainty_pct']:.2%}")
+    
+    print(f"\n  所有输出文件保存在: {OUTPUT_DIR}")
     print("="*70 + "\n")
     
     return {
         'estimates': estimates,
+        'model': model,
+        'elim_results': elim_results,
         'consistency_summary': consistency_summary,
         'uncertainty_summary': uncertainty_summary,
         'checker': checker,

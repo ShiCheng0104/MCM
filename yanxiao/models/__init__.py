@@ -1,6 +1,6 @@
 """
 模型模块
 """
-from .constrained_optimization import ConstrainedOptimizationModel
-from .bayesian_model import BayesianVoteModel
 from .baseline_model import BaselineModel
+from .bayesian_elimination_model import BayesianEliminationModel
+from .vote_model import VoteModel

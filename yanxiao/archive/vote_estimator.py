@@ -5,9 +5,6 @@
 import numpy as np
 import pandas as pd
 from typing import Dict, Tuple, List, Optional
-from models.baseline_model import BaselineModel
-from models.constrained_optimization import ConstrainedOptimizationModel
-from models.bayesian_model import BayesianVoteModel
 
 
 class VoteEstimator:
@@ -26,6 +23,11 @@ class VoteEstimator:
             model_type: 模型类型 ('baseline', 'constrained', 'bayesian', 'ensemble')
             config: 模型配置参数
         """
+        # 延迟导入以避免循环导入
+        from models.baseline_model import BaselineModel
+        from models.constrained_optimization import ConstrainedOptimizationModel
+        from models.bayesian_model import BayesianVoteModel
+        
         self.model_type = model_type
         self.config = config or {}
         
@@ -96,9 +98,15 @@ class VoteEstimator:
             self.estimates = self.baseline.estimate_all_weeks(season_week_data, total_votes)
             
         elif self.model_type == 'constrained':
+            # 将贝叶斯参数传递给约束优化模型以改进先验
+            if self.bayesian.is_fitted:
+                self.constrained.set_bayesian_params(self.bayesian)
+            
             self.estimates = self.constrained.estimate_all_weeks(
                 season_week_data, elimination_info, total_votes
             )
+            # 获取约束优化模型生成的样本
+            self.samples = getattr(self.constrained, 'samples', {})
             
         elif self.model_type == 'bayesian':
             self.estimates = self.bayesian.estimate_all_weeks(season_week_data, total_votes)

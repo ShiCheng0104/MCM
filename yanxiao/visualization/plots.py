@@ -65,8 +65,8 @@ class VotePlotter:
         
         est = estimates[key]
         names = est['names']
-        votes = est['votes']
-        scores = est['scores']
+        votes = np.array(est['votes'])
+        scores = np.array(est['scores'])
         
         fig, ax = plt.subplots(figsize=self.figsize)
         

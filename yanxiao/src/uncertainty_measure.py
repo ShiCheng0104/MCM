@@ -85,7 +85,7 @@ class UncertaintyAnalyzer:
         
         Args:
             estimates: 估计结果字典
-            samples_dict: 样本字典
+            samples_dict: 样本字典（可以是真实样本或元数据）
             confidence: 置信水平
         
         Returns:
@@ -95,42 +95,83 @@ class UncertaintyAnalyzer:
         
         for (season, week), est in estimates.items():
             key = (season, week)
+            names = est['names']
+            votes = est['votes']
             
             if key in samples_dict:
-                samples = samples_dict[key]
-                names = est['names']
+                sample_data = samples_dict[key]
+                
+                # 检查是真实样本还是元数据
+                if isinstance(sample_data, dict) and 'votes' in sample_data:
+                    # 元数据格式：基于点估计快速生成样本
+                    samples = self._generate_quick_samples(
+                        sample_data['votes'], 
+                        sample_data.get('scores', votes),
+                        n_samples=100
+                    )
+                elif isinstance(sample_data, np.ndarray):
+                    samples = sample_data
+                else:
+                    samples = self._generate_quick_samples(votes, est.get('scores', votes))
                 
                 stats_df = self.compute_uncertainty_from_samples(samples, names, confidence)
                 stats_df['season'] = season
                 stats_df['week'] = week
-                
                 self.uncertainty_stats[key] = stats_df
             else:
-                # 如果没有样本，使用估计值的简单统计
-                names = est['names']
-                votes = est['votes']
-                
-                # 假设10%的相对不确定性
-                std_assumed = votes * 0.1
-                
-                records = []
-                for i in range(len(names)):
-                    cv = 0.1  # 假设值
-                    records.append({
-                        'celebrity_name': names[i],
-                        'mean': votes[i],
-                        'std': std_assumed[i],
-                        'cv': cv,
-                        'ci_lower': votes[i] * 0.8,
-                        'ci_upper': votes[i] * 1.2,
-                        'ci_width': votes[i] * 0.4,
-                        'ci_relative_width': 0.4,
-                        'certainty_level': 'Medium',
-                        'season': season,
-                        'week': week
-                    })
-                
-                self.uncertainty_stats[key] = pd.DataFrame(records)
+                # 如果没有样本数据，基于评分差异估计不确定性
+                scores = est.get('scores', votes)
+                samples = self._generate_quick_samples(votes, scores)
+                stats_df = self.compute_uncertainty_from_samples(samples, names, confidence)
+                stats_df['season'] = season
+                stats_df['week'] = week
+                self.uncertainty_stats[key] = stats_df
+        
+        return self.uncertainty_stats
+    
+    def _generate_quick_samples(self, 
+                                votes: np.ndarray, 
+                                scores: np.ndarray,
+                                n_samples: int = 100) -> np.ndarray:
+        """
+        基于点估计快速生成样本
+        
+        不确定性来源：
+        1. 评分接近的选手，投票差异不确定性更大
+        2. 使用自适应的噪声水平
+        
+        Args:
+            votes: 点估计投票
+            scores: 评分
+            n_samples: 样本数
+        
+        Returns:
+            样本数组 (n_samples, n_contestants)
+        """
+        n = len(votes)
+        samples = np.zeros((n_samples, n))
+        
+        # 计算评分的标准差来衡量选手间差异
+        score_std = np.std(scores) if np.std(scores) > 0 else 1.0
+        
+        for i in range(n):
+            # 根据该选手评分与平均的距离调整不确定性
+            # 评分接近平均的选手，投票不确定性更大
+            score_diff = abs(scores[i] - np.mean(scores)) / score_std
+            # 不确定性范围: 5% - 20%
+            uncertainty = max(0.05, 0.20 - 0.10 * min(score_diff, 1.5))
+            
+            # 生成样本（对数正态分布保证正值）
+            log_mean = np.log(votes[i]) if votes[i] > 0 else 0
+            log_std = uncertainty
+            samples[:, i] = np.exp(np.random.normal(log_mean, log_std, n_samples))
+        
+        # 归一化每个样本使总投票数一致
+        total_votes = np.sum(votes)
+        for j in range(n_samples):
+            samples[j] = samples[j] / np.sum(samples[j]) * total_votes
+        
+        return samples
         
         return self.uncertainty_stats
     

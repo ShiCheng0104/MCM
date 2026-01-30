@@ -44,21 +44,24 @@ class BayesianVoteModel:
     
     def __init__(self, 
                  n_samples: int = 2000,
-                 n_tune: int = 1000,
-                 n_chains: int = 2,
+                 n_tune: int = 2000,
+                 n_chains: int = 4,
+                 target_accept: float = 0.95,
                  random_seed: int = 42):
         """
         初始化贝叶斯模型
         
         Args:
             n_samples: MCMC采样数量
-            n_tune: 调优步数
-            n_chains: 马尔可夫链数量
+            n_tune: 调优步数（增加以改善收敛）
+            n_chains: 马尔可夫链数量（增加以获得更可靠的收敛诊断）
+            target_accept: 目标接受率（提高以减少divergences）
             random_seed: 随机种子
         """
         self.n_samples = n_samples
         self.n_tune = n_tune
         self.n_chains = n_chains
+        self.target_accept = target_accept
         self.random_seed = random_seed
         np.random.seed(random_seed)
         
@@ -87,6 +90,10 @@ class BayesianVoteModel:
         self.samples = {}
         self.model = None
         self.is_fitted = False
+        
+        # 赛季内标准化参数
+        self.season_score_stats = {}  # {season: (mean, std)}
+        self.season_age_stats = {}    # {season: (mean, std)}
         
     def _encode_categorical(self, data: pd.DataFrame):
         """
@@ -119,13 +126,27 @@ class BayesianVoteModel:
         """
         self._encode_categorical(data)
         
-        # 标准化得分
-        scores = data['total_score'].values
-        scores_normalized = (scores - scores.mean()) / scores.std()
+        # 计算并存储每个赛季的统计量
+        for season in data['season'].unique():
+            season_data = data[data['season'] == season]
+            score_mean = season_data['total_score'].mean()
+            score_std = season_data['total_score'].std()
+            self.season_score_stats[season] = (score_mean, max(score_std, 1.0))
+            
+            age_mean = season_data['celebrity_age'].fillna(35).mean()
+            age_std = season_data['celebrity_age'].fillna(35).std()
+            self.season_age_stats[season] = (age_mean, max(age_std, 1.0))
         
-        # 标准化年龄
-        ages = data['celebrity_age'].fillna(35).values
-        ages_normalized = (ages - ages.mean()) / ages.std()
+        # 赛季内标准化得分（每个赛季单独计算均值和标准差）
+        scores_normalized = data.groupby('season')['total_score'].transform(
+            lambda x: (x - x.mean()) / x.std() if x.std() > 0 else 0
+        ).values
+        
+        # 赛季内标准化年龄（使用transform避免FutureWarning）
+        ages_filled = data['celebrity_age'].fillna(35)
+        ages_normalized = ages_filled.groupby(data['season']).transform(
+            lambda x: (x - x.mean()) / max(x.std(), 1.0)
+        ).values
         
         # 编码分类变量
         partner_idx = data['ballroom_partner'].map(self.partner_to_idx).values
@@ -133,6 +154,10 @@ class BayesianVoteModel:
         industry_idx = data['celebrity_industry'].map(
             lambda x: self.industry_to_idx.get(x, 0) if pd.notna(x) else 0
         ).values
+        
+        # 全局统计（用于fallback）
+        scores = data['total_score'].values
+        ages = data['celebrity_age'].fillna(35).values
         
         return {
             'scores': scores_normalized,
@@ -145,9 +170,9 @@ class BayesianVoteModel:
             'n_industries': max(len(self.industry_to_idx), 1),
             'n_obs': len(data),
             'scores_mean': scores.mean(),
-            'scores_std': scores.std(),
+            'scores_std': max(scores.std(), 1.0),
             'ages_mean': ages.mean(),
-            'ages_std': ages.std()
+            'ages_std': max(ages.std(), 1.0)
         }
     
     def fit(self, weekly_data: pd.DataFrame, elimination_info: pd.DataFrame):
@@ -175,53 +200,73 @@ class BayesianVoteModel:
         """
         使用PyMC进行MCMC采样
         
+        模型设计：
+        1. 预测"投票吸引力"（latent vote appeal）
+        2. 投票吸引力 = beta_score * 评分 + beta_age * 年龄 + 随机效应
+        3. 使用评分作为观测数据来识别随机效应
+        4. beta_score 通过先验知识设定（高分→高票）
+        
         Args:
             model_data: 格式化的数据
             weekly_data: 原始周级别数据
         """
         print("  使用PyMC进行MCMC采样...")
         
+        # 准备观测数据：使用标准化后的评分
+        observed_scores = model_data['scores']
+        
         with pm.Model() as self.model:
-            # ========== 超先验 ==========
+            # ========== 超先验（控制随机效应的方差）==========
             sigma_partner = pm.HalfNormal('sigma_partner', sigma=0.5)
             sigma_season = pm.HalfNormal('sigma_season', sigma=0.3)
             sigma_industry = pm.HalfNormal('sigma_industry', sigma=0.5)
             
             # ========== 固定效应先验 ==========
-            beta_0 = pm.Normal('beta_0', mu=10, sigma=2)
-            beta_score = pm.Normal('beta_score', mu=0, sigma=0.5)
+            # beta_0: 基准值
+            beta_0 = pm.Normal('beta_0', mu=0, sigma=1)
+            # beta_score: 评分对投票的影响（正值，高分→高票）
+            # 使用信息先验：评分效应应该是正的
+            beta_score = pm.TruncatedNormal('beta_score', mu=0.5, sigma=0.3, lower=0.1, upper=2.0)
+            # beta_age: 年龄效应
             beta_age = pm.Normal('beta_age', mu=0, sigma=0.1)
             
-            # ========== 随机效应 ==========
-            alpha_partner = pm.Normal('alpha_partner', mu=0, sigma=sigma_partner, 
-                                      shape=model_data['n_partners'])
-            gamma_season = pm.Normal('gamma_season', mu=0, sigma=sigma_season,
-                                     shape=model_data['n_seasons'])
-            delta_industry = pm.Normal('delta_industry', mu=0, sigma=sigma_industry,
-                                       shape=model_data['n_industries'])
+            # ========== 非中心化随机效应 ==========
+            alpha_partner_raw = pm.Normal('alpha_partner_raw', mu=0, sigma=1, 
+                                          shape=model_data['n_partners'])
+            alpha_partner = pm.Deterministic('alpha_partner', 
+                                             sigma_partner * alpha_partner_raw)
+            
+            gamma_season_raw = pm.Normal('gamma_season_raw', mu=0, sigma=1,
+                                         shape=model_data['n_seasons'])
+            gamma_season = pm.Deterministic('gamma_season', 
+                                            sigma_season * gamma_season_raw)
+            
+            delta_industry_raw = pm.Normal('delta_industry_raw', mu=0, sigma=1,
+                                           shape=model_data['n_industries'])
+            delta_industry = pm.Deterministic('delta_industry', 
+                                              sigma_industry * delta_industry_raw)
             
             # ========== 残差标准差 ==========
             sigma = pm.HalfNormal('sigma', sigma=1)
             
-            # ========== 线性预测器 ==========
-            mu = (beta_0 + 
-                  beta_score * model_data['scores'] +
-                  beta_age * model_data['ages'] +
-                  alpha_partner[model_data['partner_idx']] +
-                  gamma_season[model_data['season_idx']] +
-                  delta_industry[model_data['industry_idx']])
+            # ========== 预测评分（用于识别随机效应）==========
+            # 评分预测模型：score = beta_0 + random_effects + noise
+            mu_score = (beta_0 + 
+                        beta_age * model_data['ages'] +
+                        alpha_partner[model_data['partner_idx']] +
+                        gamma_season[model_data['season_idx']] +
+                        delta_industry[model_data['industry_idx']])
             
-            # ========== 似然函数 ==========
-            # 使用对数尺度的投票作为观测（由于真实投票未知，使用得分作为代理）
-            # 这里使用一个潜变量模型的思路
-            log_votes = pm.Normal('log_votes', mu=mu, sigma=sigma, 
-                                  shape=model_data['n_obs'])
+            # 使用评分作为观测数据约束随机效应
+            score_obs = pm.Normal('score_obs', mu=mu_score, sigma=sigma, 
+                                  observed=observed_scores)
             
             # ========== MCMC采样 ==========
             self.trace = pm.sample(
                 draws=self.n_samples,
                 tune=self.n_tune,
                 chains=self.n_chains,
+                target_accept=self.target_accept,
                 random_seed=self.random_seed,
                 return_inferencedata=True,
                 progressbar=True
@@ -232,8 +277,18 @@ class BayesianVoteModel:
         
         # 打印诊断信息
         print("\n  MCMC诊断:")
-        summary = az.summary(self.trace, var_names=['beta_0', 'beta_score', 'beta_age', 'sigma'])
+        summary = az.summary(self.trace, var_names=['beta_0', 'beta_score', 'beta_age', 'sigma', 
+                                                     'sigma_partner', 'sigma_season', 'sigma_industry'])
         print(summary[['mean', 'sd', 'hdi_3%', 'hdi_97%', 'r_hat']])
+    
+    def _check_numpyro(self) -> bool:
+        """检查numpyro是否可用"""
+        try:
+            import numpyro
+            import jax
+            return True
+        except ImportError:
+            return False
     
     def _fit_with_metropolis_hastings(self, model_data: Dict, 
                                        weekly_data: pd.DataFrame,
@@ -372,7 +427,7 @@ class BayesianVoteModel:
         posterior = self.trace.posterior
         
         self.beta_0_mean = float(posterior['beta_0'].mean())
-        self.beta_score_mean = float(posterior['beta_score'].mean())
+        self.beta_score_mean = float(posterior['beta_score'].mean())  # 评分对投票的影响
         self.beta_age_mean = float(posterior['beta_age'].mean())
         self.sigma_mean = float(posterior['sigma'].mean())
         
@@ -395,7 +450,7 @@ class BayesianVoteModel:
         
         print(f"\n  后验均值:")
         print(f"    β₀ = {self.beta_0_mean:.3f}")
-        print(f"    β_score = {self.beta_score_mean:.3f}")
+        print(f"    β_score = {self.beta_score_mean:.3f} (评分→投票效应)")
         print(f"    β_age = {self.beta_age_mean:.3f}")
         print(f"    σ = {self.sigma_mean:.3f}")
     
@@ -495,11 +550,17 @@ class BayesianVoteModel:
         n_contestants = len(contestants)
         samples = np.zeros((n_samples, n_contestants))
         
-        # 计算统计量
-        all_scores = contestants['total_score'].values
-        all_ages = contestants['celebrity_age'].fillna(35).values
-        scores_mean, scores_std = all_scores.mean(), max(all_scores.std(), 1)
-        ages_mean, ages_std = all_ages.mean(), max(all_ages.std(), 1)
+        # 获取赛季内标准化的统计量
+        season = contestants['season'].iloc[0]  # 同一周的选手都是同一赛季
+        if season in self.season_score_stats:
+            scores_mean, scores_std = self.season_score_stats[season]
+            ages_mean, ages_std = self.season_age_stats[season]
+        else:
+            # Fallback: 使用当前数据的统计量
+            all_scores = contestants['total_score'].values
+            all_ages = contestants['celebrity_age'].fillna(35).values
+            scores_mean, scores_std = all_scores.mean(), max(all_scores.std(), 1)
+            ages_mean, ages_std = all_ages.mean(), max(all_ages.std(), 1)
         
         if self.posterior_samples is not None:
             # 使用后验样本
