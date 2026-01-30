@@ -6,15 +6,24 @@
 
 
 
-\subsection{Literature Review}
-
-
-
 
 \subsection{The Description of the Problem}
 
+本问题聚焦于《与星共舞》(Dancing with the Stars, DWTS)节目的投票机制分析。在该竞技真人秀中，名人选手(celebrity contestants)与专业舞者(professional dancers)配对表演，通过评委打分(judge scores)和观众投票(fan votes)的组合决定每周淘汰结果。然而，观众投票数据作为商业机密从未公开，且节目在34季中采用了不同的投票组合规则(voting combination methods)。核心挑战在于：在观众投票未知的情况下，如何评估投票系统的公平性并提出优化方案。
 
+具体任务包括：
 
+\begin{itemize}
+    \item \textbf{观众投票估算：}构建数学模型，基于评委得分、选手特征和淘汰结果反向推断每位选手的观众投票数。评估估算结果与实际淘汰情况的一致性(consistency)，并量化估算的不确定性(uncertainty measures)。
+    
+    \item \textbf{投票方法对比：}对比分析节目使用的两种组合方法——基于排名法(rank-based method)和基于百分比法(percentage-based method)在各赛季产生的结果差异。针对争议案例(如Jerry Rice、Bobby Bones等评委低分但观众高票的选手)，评估方法选择和评委复议机制(judges choosing from bottom two)对最终排名的影响，并推荐未来赛季的最优方法。
+    
+    \item \textbf{影响因素分析：}构建模型量化专业舞者经验、名人年龄(age)、行业背景(industry)等因素对比赛结果的影响。分析这些因素对评委得分和观众投票的作用机制是否存在差异。
+    
+    \item \textbf{新系统设计：}提出一种更"公平"(fair)或更具观赏性(exciting)的投票组合系统。通过历史数据模拟验证新系统的有效性，并为制作方提供可操作的实施建议。
+    
+    \item \textbf{报告撰写：}提交不超过25页的分析报告及1-2页备忘录，为DWTS制作方提供关于投票组合方式影响的总结和未来赛季的决策建议。
+\end{itemize}
 
 
 \subsection{Our work}

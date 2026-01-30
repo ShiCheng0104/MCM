@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  30 JAN 2026 10:22
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  30 JAN 2026 11:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/shicheng/Desktop/论文/main/main
-(/Users/shicheng/Desktop/论文/main/main.tex
+**/Users/shicheng/Desktop/MCM/main/main
+(/Users/shicheng/Desktop/MCM/main/main.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (./mcmthesis.cls
@@ -592,50 +592,175 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \g__lipsum_par_int=\count326
 \l__lipsum_a_int=\count327
 \l__lipsum_b_int=\count328
- (/usr/local/texlive/2025/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex))
-LaTeX Font Info:    Trying to load font information for T1+txr on input line 55.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/t1txr.fd
-File: t1txr.fd 2000/12/15 v3.1
-) (./main.aux)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (/usr/local/texlive/2025/texmf-dist/tex/xelatex/xecjk/xeCJK.sty
+Package: xeCJK 2022/08/05 v3.9.1 Typesetting CJK scripts with XeLaTeX
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/ctex/ctexhook.sty
+Package: ctexhook 2022/07/14 v2.5.10 Document and package hooks (CTEX)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
+Package: xtemplate 2024-08-16 L3 Experimental prototype document functions
+)
+\l__xeCJK_tmp_int=\count329
+\l__xeCJK_tmp_box=\box67
+\l__xeCJK_tmp_dim=\dimen194
+\l__xeCJK_tmp_skip=\skip88
+\g__xeCJK_space_factor_int=\count330
+\l__xeCJK_begin_int=\count331
+\l__xeCJK_end_int=\count332
+\c__xeCJK_CJK_class_int=\XeTeXcharclass1
+\c__xeCJK_FullLeft_class_int=\XeTeXcharclass2
+\c__xeCJK_FullRight_class_int=\XeTeXcharclass3
+\c__xeCJK_HalfLeft_class_int=\XeTeXcharclass4
+\c__xeCJK_HalfRight_class_int=\XeTeXcharclass5
+\c__xeCJK_NormalSpace_class_int=\XeTeXcharclass6
+\c__xeCJK_CM_class_int=\XeTeXcharclass7
+\c__xeCJK_HangulJamo_class_int=\XeTeXcharclass8
+\l__xeCJK_last_skip=\skip89
+\c__xeCJK_none_node=\count333
+\g__xeCJK_node_int=\count334
+\c__xeCJK_CJK_node_dim=\dimen195
+\c__xeCJK_CJK-space_node_dim=\dimen196
+\c__xeCJK_default_node_dim=\dimen197
+\c__xeCJK_CJK-widow_node_dim=\dimen198
+\c__xeCJK_normalspace_node_dim=\dimen199
+\c__xeCJK_default-space_node_skip=\skip90
+\l__xeCJK_ccglue_skip=\skip91
+\l__xeCJK_ecglue_skip=\skip92
+\l__xeCJK_punct_kern_skip=\skip93
+\l__xeCJK_indent_box=\box68
+\l__xeCJK_last_penalty_int=\count335
+\l__xeCJK_last_bound_dim=\dimen256
+\l__xeCJK_last_kern_dim=\dimen257
+\l__xeCJK_widow_penalty_int=\count336
+
+LaTeX template Info: Declaring template type 'xeCJK/punctuation' taking 0
+(template)           argument(s) on line 2396.
+
+\l__xeCJK_fixed_punct_width_dim=\dimen258
+\l__xeCJK_mixed_punct_width_dim=\dimen259
+\l__xeCJK_middle_punct_width_dim=\dimen260
+\l__xeCJK_fixed_margin_width_dim=\dimen261
+\l__xeCJK_mixed_margin_width_dim=\dimen262
+\l__xeCJK_middle_margin_width_dim=\dimen263
+\l__xeCJK_bound_punct_width_dim=\dimen264
+\l__xeCJK_bound_margin_width_dim=\dimen265
+\l__xeCJK_margin_minimum_dim=\dimen266
+\l__xeCJK_kerning_total_width_dim=\dimen267
+\l__xeCJK_same_align_margin_dim=\dimen268
+\l__xeCJK_different_align_margin_dim=\dimen269
+\l__xeCJK_kerning_margin_width_dim=\dimen270
+\l__xeCJK_kerning_margin_minimum_dim=\dimen271
+\l__xeCJK_bound_dim=\dimen272
+\l__xeCJK_reverse_bound_dim=\dimen273
+\l__xeCJK_margin_dim=\dimen274
+\l__xeCJK_minimum_bound_dim=\dimen275
+\l__xeCJK_kerning_margin_dim=\dimen276
+\g__xeCJK_family_int=\count337
+\l__xeCJK_fam_int=\count338
+\g__xeCJK_fam_allocation_int=\count339
+\l__xeCJK_verb_case_int=\count340
+\l__xeCJK_verb_exspace_skip=\skip94
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2024-08-16 L3 Experimental document command parser
+)
+Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+Package: fontspec-xetex 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
+\l__fontspec_script_int=\count341
+\l__fontspec_language_int=\count342
+\l__fontspec_strnum_int=\count343
+\l__fontspec_tmp_int=\count344
+\l__fontspec_tmpa_int=\count345
+\l__fontspec_tmpb_int=\count346
+\l__fontspec_tmpc_int=\count347
+\l__fontspec_em_int=\count348
+\l__fontspec_emdef_int=\count349
+\l__fontspec_strong_int=\count350
+\l__fontspec_strongdef_int=\count351
+\l__fontspec_tmpa_dim=\dimen277
+\l__fontspec_tmpb_dim=\dimen278
+\l__fontspec_tmpc_dim=\dimen279
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/usr/local/texlive/2025/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
+Package: xeCJK-listings 2022/08/05 v3.9.1 xeCJK patch file for listings
+\l__xeCJK_listings_max_char_int=\count352
+\l__xeCJK_listings_flag_int=\count353
+) (/usr/local/texlive/2025/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg
+File: xeCJK.cfg 2022/08/05 v3.9.1 Configuration file for xeCJK package
+))
+
+Package fontspec Info: 
+(fontspec)             Script 'CJK' not explicitly supported within font
+(fontspec)             'STSong'. Check the typeset output, and if it is okay
+(fontspec)             then ignore this warning. Otherwise a different font
+(fontspec)             should be chosen.
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "STSong/BI" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "STSong/B" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "STSong/I" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'STSong(0)' created for font 'STSong' with
+(fontspec)             options [Script={CJK}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"STSong/OT:script=hani;language=dflt;"
+
+ (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 55.
-LaTeX Font Info:    Trying to load font information for OML+txmi on input line 55.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 62.
+LaTeX Font Info:    Trying to load font information for OML+txmi on input line 62.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 55.
-LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 55.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 62.
+LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 62.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 55.
-LaTeX Font Info:    Trying to load font information for OMX+txex on input line 55.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 62.
+LaTeX Font Info:    Trying to load font information for OMX+txex on input line 62.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 55.
-LaTeX Font Info:    Trying to load font information for U+txexa on input line 55.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 62.
+LaTeX Font Info:    Trying to load font information for U+txexa on input line 62.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-\c@lstlisting=\count329
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+\c@lstlisting=\count354
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -671,30 +796,23 @@ LaTeX Font Info:    ... okay on input line 55.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 55.
+Package hyperref Info: Link coloring OFF on input line 62.
 (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
  (../sections/0.abstract.tex)
-LaTeX Font Info:    Font shape `T1/txr/b/n' in size <12> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 60.
-LaTeX Font Info:    Font shape `T1/txr/b/n' in size <17.28> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 60.
-
 
 [1
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+txss on input line 61.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/t1txss.fd
-File: t1txss.fd 2000/12/15 v3.1
-)
-LaTeX Font Info:    Font shape `T1/txss/b/n' in size <17.28> not available
-(Font)              Font shape `T1/txss/bx/n' tried instead on input line 61.
-LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
-(Font)              scaled to size 16.41594pt on input line 61.
- (./main.toc
+
+Package xeCJK Warning: Unknown CJK family `\CJKsfdefault' is being ignored.
+(xeCJK)                
+(xeCJK)                Try to use `\setCJKsansfont[<...>]{<...>}' to define
+(xeCJK)                it.
+
+(./main.toc
 LaTeX Font Info:    Trying to load font information for OT1+txr on input line 2.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
@@ -722,19 +840,19 @@ File: utxmia.fd 2000/12/15 v3.1
 LaTeX Font Info:    Trying to load font information for U+txsyc on input line 2.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
-)
-
-LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 10.40245pt on input line 27.
-[1])
+))
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
 
 
+[1]
+
 [2] (../sections/1.Introduction.tex
-LaTeX Font Info:    Font shape `T1/txr/b/n' in size <14.4> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 4.
+
+LaTeX Font Warning: Font shape `TU/STSong(0)/b/n' undefined
+(Font)              using `TU/STSong(0)/m/n' instead on input line 17.
+
 )
 
 [3] (../sections/2.Assumptions.tex) (../sections/3.Notations.tex
@@ -744,20 +862,18 @@ LaTeX Font Info:    Font shape `T1/txr/b/n' in size <14.4> not available
 [5]) (../sections/5.Sensitivity Analysis.tex) (../sections/6.Model Evaluation and Promotion.tex) (../sections/7.Conclusions.tex) (../sections/8.References.tex) (../sections/9.Appendices.tex) (../sections/10.AI.tex
 
 [6]
-LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 13.67995pt on input line 3.
-LaTeX Font Info:    Font shape `T1/txss/b/n' in size <14.4> not available
-(Font)              Font shape `T1/txss/bx/n' tried instead on input line 3.
-LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
-(Font)              scaled to size 13.67995pt on input line 3.
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 8.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-LaTeX Font Info:    Trying to load font information for TS1+pcr on input line 52.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ts1pcr.fd
-File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
-)
+LaTeX Font Info:    Trying to load font information for TU+pcr on input line 8.
+LaTeX Font Info:    No file TUpcr.fd. on input line 8.
+
+
+LaTeX Font Warning: Font shape `TU/pcr/m/n' undefined
+(Font)              using `TU/lmr/m/n' instead on input line 8.
+
+
+LaTeX Font Warning: Font shape `TU/pcr/b/n' undefined
+(Font)              using `TU/pcr/m/n' instead on input line 9.
+
+
 
 [7
 
@@ -766,18 +882,22 @@ File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
 [8] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-01-18>
+L3 programming layer <2022/08/05>
  ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9393F4C412499EB577B5EA0C037D9028;3875.
+(rerunfilecheck)             Checksum: 02C5DA95E06F5D671EA780001DC6266B;3729.
  ) 
 Here is how much of TeX's memory you used:
- 15763 strings out of 473832
- 244419 string characters out of 5729482
- 955496 words of memory out of 5000000
- 38442 multiletter control sequences out of 15000+600000
- 615975 words of font info for 149 fonts, out of 8000000 for 9000
+ 19412 strings out of 473832
+ 378787 string characters out of 5729482
+ 1090459 words of memory out of 5000000
+ 42045 multiletter control sequences out of 15000+600000
+ 590601 words of font info for 151 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 87i,15n,93p,569b,1429s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,15n,93p,570b,2004s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on main.pdf (9 pages).
