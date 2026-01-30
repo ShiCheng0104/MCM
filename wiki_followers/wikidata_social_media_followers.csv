@@ -1,0 +1,409 @@
+celebrity_name,wikidata_qid,wikidata_label,wikidata_social_media_followers,wikidata_social_media_followers_point_in_time,error
+John O'Hurley,Q3142953,John O'Hurley,22469,2023-02-06T00:00:00Z,
+Kelly Monaco,Q451861,Kelly Monaco,214057,2023-02-08T00:00:00Z,
+Evander Holyfield,Q313451,Evander Holyfield,298359,2023-02-09T00:00:00Z,
+Rachel Hunter,Q259993,Rachel Hunter,20219,2023-02-04T00:00:00Z,
+Joey McIntyre,Q740877,Joey McIntyre,38400,2025-03-30T00:00:00Z,
+Trista Sutter,Q3734625,Trista Sutter,124677,2023-02-04T00:00:00Z,
+Tatum O'Neal,Q230138,Tatum O'Neal,,,no_followers
+Tia Carrere,Q286570,Tia Carrere,37994,2023-02-09T00:00:00Z,
+George Hamilton,Q359416,George Hamilton,,,no_followers
+Lisa Rinna,Q239576,Lisa Rinna,654728,2022-01-09T00:00:00Z,
+Stacy Keibler,Q238407,Stacy Keibler,382482,2023-02-10T00:00:00Z,
+Jerry Rice,Q505423,Jerry Rice,695228,2023-02-10T00:00:00Z,
+Giselle Fernandez,Q136430553,Giselle Fernandez,,,no_followers
+Master P,Q722042,Master P,199764,2023-02-04T00:00:00Z,
+Drew Lachey,Q5307215,Drew Lachey,,,no_followers
+Kenny Mayne,Q6391145,Kenny Mayne,,,no_followers
+Harry Hamlin,Q567830,Harry Hamlin,,,no_followers
+Vivica A. Fox,Q220396,Vivica A. Fox,659698,2023-02-08T00:00:00Z,
+Monique Coleman,Q230194,Monique Coleman,422803,2023-02-05T00:00:00Z,
+Joey Lawrence,Q550395,Joey Lawrence,,,no_followers
+Mario Lopez,Q372559,Mario Lopez,1332162,2022-02-26T00:00:00Z,
+Emmitt Smith,Q1338802,Emmitt Smith,783072,2023-02-09T00:00:00Z,
+Shanna Moakler,Q258736,Shanna Moakler,135346,2023-02-12T00:00:00Z,
+Willa Ford,Q262396,Willa Ford,8350,2025-05-11T00:00:00Z,
+Sara Evans,Q463989,Sara Evans,428000,2025-05-11T00:00:00Z,
+Jerry Springer,Q27214,Jerry Springer,89881,2023-02-04T00:00:00Z,
+Tucker Carlson,Q743162,Tucker Carlson,2180000,2024-06-08T00:00:00Z,
+John Ratzenberger,Q374093,John Ratzenberger,,,no_followers
+Ian Ziering,Q352233,Ian Ziering,98661,2023-02-06T00:00:00Z,
+Clyde Drexler,Q295340,Clyde Drexler,,,no_followers
+Laila Ali,Q255099,Laila Ali,136010,2023-02-11T00:00:00Z,
+Apolo Anton Ohno,,,,,no_wikidata_match
+Shandi Finnessey,Q2632936,Shandi Finnessey,11774,2023-02-11T00:00:00Z,
+Paulina Porizkova,Q236154,Paulina Porizkova,113299,2023-02-06T00:00:00Z,
+Heather Mills,Q266568,Heather Mills,12624,2023-02-10T00:00:00Z,
+Billy Ray Cyrus,Q231259,Billy Ray Cyrus,1567767,2021-01-05T00:00:00Z,
+Joey Fatone,Q1640877,Joey Fatone,197993,2023-02-07T00:00:00Z,
+Leeza Gibbons,Q512367,Leeza Gibbons,,,no_followers
+Cameron Mathison,Q3651353,Cameron Mathison,,,no_followers
+Jane Seymour,Q182637,Jane Seymour,,,no_followers
+Sabrina Bryan,Q256708,Sabrina Bryan,64454,2023-02-07T00:00:00Z,
+Jennie Garth,,,,,wikidata_error:SSLError
+Floyd Mayweather Jr.,,,,,wikidata_error:SSLError
+Josie Maran,Q241025,Josie Maran,40621,2023-02-12T00:00:00Z,
+Albert Reed,Q2681998,Albert Reed,,,no_followers
+Helio Castroneves,,,,,no_wikidata_match
+Mel B,,,,,no_wikidata_match
+Wayne Newton,Q552806,Wayne Newton,,,no_followers
+Marie Osmond,Q465641,Marie Osmond,240551,2023-02-11T00:00:00Z,
+Mark Cuban,Q318503,Mark Cuban,8891912,2023-02-09T00:00:00Z,
+Cristian de la Fuente,,,,,no_wikidata_match
+Steve Guttenberg,Q318685,Steve Guttenberg,31498,2023-02-09T00:00:00Z,
+Priscilla Presley,Q234773,Priscilla Presley,,,no_followers
+Marlee Matlin,Q213287,Marlee Matlin,410307,2023-02-05T00:00:00Z,
+Shannon Elizabeth,Q228882,Shannon Elizabeth,563212,2023-02-04T00:00:00Z,
+Marissa Jaret Winokur,,,,,wikidata_error:SSLError
+Jason Taylor,Q2786087,Jason Taylor,,,no_followers
+Kristi Yamaguchi,Q237651,Kristi Yamaguchi,59350,2023-02-07T00:00:00Z,
+Monica Seles,Q173633,Monica Seles,33927,2023-02-11T00:00:00Z,
+Penn Jillette,Q4129653,Penn Jillette,1695520,2023-02-04T00:00:00Z,
+Adam Carolla,Q4119,Adam Carolla,15219,2023-05-22T00:00:00Z,
+Mario,Q177131,Mario,,,no_followers
+Ted McGinley,Q617641,Ted McGinley,,,no_followers
+Cloris Leachman,Q230131,Cloris Leachman,72620,2023-02-03T00:00:00Z,
+Susan Lucci,Q242936,Susan Lucci,65422,2023-02-09T00:00:00Z,
+Cody Linley,Q313660,Cody Linley,125810,2023-02-07T00:00:00Z,
+Misty May-Treanor,Q182106,Misty May-Treanor,149046,2023-02-05T00:00:00Z,
+Maurice Greene,Q296309,Maurice Greene,,,no_followers
+Warren Sapp,Q180342,Warren Sapp,1028202,2023-02-10T00:00:00Z,
+Jeffrey Ross,,,,,wikidata_error:SSLError
+Toni Braxton,,,,,wikidata_error:SSLError
+Lance Bass,Q443120,Lance Bass,422040,2018-05-10T00:00:00Z,
+Kim Kardashian,,,,,wikidata_error:SSLError
+Rocco DiSpirito,Q14946761,Rocco DiSpirito,,,no_followers
+Brooke Burke,Q439927,Brooke Burke,2789829,2023-02-04T00:00:00Z,
+Gilles Marini,Q181997,Gilles Marini,,,no_followers
+Denise Richards,Q206833,Denise Richards,2131867,2023-02-09T00:00:00Z,
+David Alan Grier,Q562596,David Alan Grier,176765,2023-02-10T00:00:00Z,
+Lawrence Taylor,,,,,wikidata_error:SSLError
+Ty Murray,,,,,wikidata_error:SSLError
+Shawn Johnson,,,,,wikidata_error:SSLError
+Steve Wozniak,,,,,wikidata_error:SSLError
+Belinda Carlisle,,,,,wikidata_error:SSLError
+Chuck Wicks,,,,,wikidata_error:SSLError
+Lil' Kim,,,,,wikidata_error:SSLError
+Steve-O,,,,,wikidata_error:SSLError
+Holly Madison,,,,,wikidata_error:SSLError
+Melissa Rycroft,,,,,wikidata_error:SSLError
+Ashley Hamiliton,,,,,wikidata_error:SSLError
+Debi Mazar,,,,,wikidata_error:SSLError
+Melissa Joan Hart,,,,,wikidata_error:SSLError
+Mark Dacascos,,,,,wikidata_error:SSLError
+Chuck Liddell,,,,,wikidata_error:SSLError
+Natalie Coughlin,,,,,wikidata_error:SSLError
+Louie Vito,,,,,wikidata_error:SSLError
+Michael Irvin,,,,,wikidata_error:SSLError
+Joanna Krupa,,,,,wikidata_error:SSLError
+Kathy Ireland,,,,,wikidata_error:SSLError
+Tom DeLay,,,,,wikidata_error:SSLError
+Macy Gray,Q232456,Macy Gray,215000,2025-03-01T00:00:00Z,
+Aaron Carter,Q301818,Aaron Carter,195000,2025-02-22T00:00:00Z,
+Mya,,,,,wikidata_error:ReadTimeout
+Donny Osmond,Q386053,Donny Osmond,210377,2023-02-06T00:00:00Z,
+Kelly Osbourne,,,,,wikidata_error:SSLError
+Aiden Turner,,,,,wikidata_error:SSLError
+Shannen Doherty,,,,,wikidata_error:SSLError
+Niecy Nash,Q4328437,Niecy Nash,452178,2023-02-05T00:00:00Z,
+Buzz Aldrin,,,,,wikidata_error:SSLError
+Chad Ochocinco,,,,,wikidata_error:SSLError
+Evan Lysacek,,,,,wikidata_error:SSLError
+Pamela Anderson,,,,,wikidata_error:SSLError
+Nicole Scherzinger,,,,,wikidata_error:SSLError
+Erin Andrews,,,,,wikidata_error:SSLError
+Kate Gosselin,,,,,wikidata_error:SSLError
+Jake Pavelka,,,,,wikidata_error:SSLError
+David Hasselhoff,,,,,wikidata_error:SSLError
+Florence Henderson,Q452749,Florence Henderson,,,no_followers
+Kyle Massey,,,,,wikidata_error:SSLError
+Jennifer Grey,Q232927,Jennifer Grey,105907,2023-02-07T00:00:00Z,
+Rick Fox,,,,,wikidata_error:SSLError
+Kurt Warner,,,,,wikidata_error:SSLError
+Margaret Cho,,,,,wikidata_error:SSLError
+Michael Bolton,,,,,wikidata_error:SSLError
+Brandy,,,,,wikidata_error:SSLError
+The Situation,,,,,no_wikidata_match
+Audrina Patridge,,,,,wikidata_error:SSLError
+Bristol Palin,,,,,wikidata_error:SSLError
+Ralph Macchio,Q73346,Ralph Macchio,358610,2023-02-05T00:00:00Z,
+Chelsea Kane,,,,,wikidata_error:SSLError
+Kirstie Alley,Q151935,Kirstie Alley,1577810,2023-02-09T00:00:00Z,
+Hines Ward,Q482838,Hines Ward,491220,2023-02-05T00:00:00Z,
+Sugar Ray Leonard,Q335798,Sugar Ray Leonard,270712,2023-02-12T00:00:00Z,
+Chris Jericho,Q44144,Chris Jericho,232000,2025-04-27T00:00:00Z,
+Petra Nemcova,,,,,no_wikidata_match
+Mike Catherwood,,,,,no_wikidata_match
+Romeo,Q7363066,Romeo,105217,2023-02-03T00:00:00Z,
+Wendy Williams,Q618233,Wendy Williams,1490474,2022-02-27T00:00:00Z,
+Kendra Wilkinson,Q231744,Kendra Wilkinson,2211440,2023-02-02T00:00:00Z,
+Elisabetta Canalis,Q287122,Elisabetta Canalis,1463328,2023-02-08T00:00:00Z,
+David Arquette,Q294185,David Arquette,80515,2023-02-07T00:00:00Z,
+Ricki Lake,Q40128,Ricki Lake,236899,2023-02-12T00:00:00Z,
+J.R. Martinez,,,,,no_wikidata_match
+Metta World Peace (Ron),,,,,no_wikidata_match
+Hope Solo,Q229619,Hope Solo,1069360,2023-02-10T00:00:00Z,
+Chynna Phillips,Q3676126,Chynna Phillips,,,no_followers
+Kristin Cavallari,Q242802,Kristin Cavallari,1014942,2023-02-08T00:00:00Z,
+Carson Kressley,Q2470009,Carson Kressley,,,no_followers
+Chaz Bono,Q979387,Chaz Bono,150383,2023-02-05T00:00:00Z,
+Nancy Grace,Q451839,Nancy Grace,,,no_followers
+Rob Kardashian,Q26318,Rob Kardashian,7177195,2023-02-03T00:00:00Z,
+William Levy,Q559403,William Levy,2962166,2023-02-12T00:00:00Z,
+Jack Wagner,Q1293637,Jack Wagner,,,no_followers
+Sherri Sheperd,,,,,no_wikidata_match
+Jaleel White,Q358306,Jaleel White,116699,2023-02-09T00:00:00Z,
+Roshon Fegan,Q507999,Roshon Fegan,337741,2023-02-04T00:00:00Z,
+Melissa Gilbert,Q230929,Melissa Gilbert,168539,2023-02-05T00:00:00Z,
+Martina Navratilova,Q54545,Martina Navratilova,447000,2023-02-10T00:00:00Z,
+Donald Driver,Q1093571,Donald Driver,,,no_followers
+Gavin DeGraw,Q337722,Gavin DeGraw,352000,2025-05-18T00:00:00Z,
+Gladys Knight,Q235952,Gladys Knight,434074,2023-02-10T00:00:00Z,
+Katherine Jenkins,Q272581,Katherine Jenkins,91700,2025-05-18T00:00:00Z,
+Maria Menounos,Q233618,Maria Menounos,617139,2023-02-04T00:00:00Z,
+Ingo Rademacher,Q6032887,Ingo Rademacher,,,no_followers
+Zendaya,Q189489,Zendaya,4110000,2025-05-11T00:00:00Z,
+Dorothy Hamill,Q262573,Dorothy Hamill,,,no_followers
+Victor Ortiz,Q423205,Victor Ortiz,112716,2023-02-12T00:00:00Z,
+Alexandra Raisman,,,,,no_wikidata_match
+Jacoby Jones,Q3805829,Jacoby Jones,,,no_followers
+D. L. Hughley,Q536308,D. L. Hughley,761394,2023-02-10T00:00:00Z,
+Andy Dick,Q367094,Andy Dick,131313,2023-02-04T00:00:00Z,
+Wynonna Judd,Q465130,Wynonna Judd,128062,2023-02-05T00:00:00Z,
+Kellie Pickler,Q234445,Kellie Pickler,187000,2025-05-18T00:00:00Z,
+Lisa Vanderpump,Q15040601,Lisa Vanderpump,3100000,2023-10-21T00:00:00Z,
+Sean Lowe,Q7441167,Sean Lowe,878358,2023-02-08T00:00:00Z,
+Valerie Harper,Q239293,Valerie Harper,,,no_followers
+Brant Daugherty,Q1992569,Brant Daugherty,337046,2023-02-06T00:00:00Z,
+Elizabeth Berkley Lauren,,,,,no_wikidata_match
+Leah Remini,Q242580,Leah Remini,828481,2023-02-10T00:00:00Z,
+Corbin Bleu,Q4617,Corbin Bleu,36100,2025-05-18T00:00:00Z,
+Amber Riley,Q230420,Amber Riley,,,no_followers
+Keyshawn Johnson,Q2081596,Keyshawn Johnson,,,no_followers
+Bill Engvall,Q4908906,Bill Engvall,,,no_followers
+Christina Milian,Q230501,Christina Milian,219000,2025-05-25T00:00:00Z,
+"Nicole ""Snooki"" Polizzi",,,,,no_wikidata_match
+Jack Osbourne,Q724791,Jack Osbourne,473888,2023-02-05T00:00:00Z,
+Bill Nye,,,,,no_wikidata_match
+Billy Dee Williams,Q358345,Billy Dee Williams,231942,2023-02-08T00:00:00Z,
+Danica McKellar,Q242949,Danica McKellar,153759,2023-02-05T00:00:00Z,
+James Maslow,Q26058,James Maslow,540000,2025-05-11T00:00:00Z,
+Candace Cameron Bure,Q235694,Candace Cameron Bure,621422,2023-02-04T00:00:00Z,
+Sean Avery,Q725726,Sean Avery,,,no_followers
+Diana Nyad,Q5271254,Diana Nyad,38416,2023-02-08T00:00:00Z,
+Charlie White,Q512025,Charlie White,92078,2023-02-07T00:00:00Z,
+Amy Purdy,Q4749355,Amy Purdy,61953,2023-02-04T00:00:00Z,
+Meryl Davis,Q242921,Meryl Davis,141507,2023-02-11T00:00:00Z,
+Drew Carey,Q357402,Drew Carey,563264,2023-02-10T00:00:00Z,
+Cody Simpson,Q314319,Cody Simpson,1090000,2025-04-24T00:00:00Z,
+NeNe Leakes,Q6983877,NeNe Leakes,272000,2025-07-14T00:00:00Z,
+Antonio Sabato Jr.,,,,,no_wikidata_match
+Jonathan Bennett,Q471163,Jonathan Bennett,114897,2022-02-27T00:00:00Z,
+Lea Thompson,Q230605,Lea Thompson,219108,2023-02-09T00:00:00Z,
+Janel Parrish,Q242418,Janel Parrish,,,no_followers
+Alfonso Ribeiro,Q447691,Alfonso Ribeiro,155603,2023-02-07T00:00:00Z,
+Lolo Jones,Q466911,Lolo Jones,568833,2023-06-26T00:00:00Z,
+Randy Couture,Q352733,Randy Couture,629656,2023-02-06T00:00:00Z,
+Tommy Chong,Q369174,Tommy Chong,545918,2023-02-05T00:00:00Z,
+Betsey Johnson,Q467665,Betsey Johnson,405507,2023-02-02T00:00:00Z,
+Michael Waltrip,Q946057,Michael Waltrip,,,no_followers
+Tavis Smiley,Q164382,Tavis Smiley,307387,2023-02-07T00:00:00Z,
+Bethany Mota,Q16769657,Bethany Mota,9370000,2025-05-18T00:00:00Z,
+Sadie Robertson,Q16226085,Sadie Robertson,1703122,2023-02-04T00:00:00Z,
+Suzanne Somers,Q242939,Suzanne Somers,57295,2023-02-05T00:00:00Z,
+Willow Shields,,,,,wikidata_error:SSLError
+Riker Lynch,Q3935797,Riker Lynch,,,no_followers
+Rumer Willis,Q234566,Rumer Willis,256253,2023-02-11T00:00:00Z,
+Nastia Liukin,Q230164,Nastia Liukin,360789,2023-02-06T00:00:00Z,
+Michael Sam,Q15725594,Michael Sam,,,no_followers
+Robert Herjavec,Q324370,Robert Herjavec,311000,2025-11-22T00:00:00Z,
+Charlotte McKinney,Q19571502,Charlotte McKinney,141018,2023-02-02T00:00:00Z,
+Noah Galloway,Q19666198,Noah Galloway,,,no_followers
+Redfoo,Q2938630,Redfoo,2880000,2025-03-23T00:00:00Z,
+Patti LaBelle,Q31013,Patti LaBelle,371000,2025-02-01T00:00:00Z,
+Chris Soules,Q19867926,Chris Soules,,,no_followers
+Gary Busey,Q312081,Gary Busey,,,no_followers
+Alexa PenaVega,Q152555,Alexa PenaVega,404047,2023-02-03T00:00:00Z,
+Carlos PenaVega,Q26053,Carlos PenaVega,2541094,2023-02-11T00:00:00Z,
+Victor Espinoza,Q7925891,Victor Espinoza,27054,2018-05-10T00:00:00Z,
+Alek Skarlatos,Q21055237,Alek Skarlatos,35391,2023-02-05T00:00:00Z,
+Chaka Khan,Q229498,Chaka Khan,502000,2025-04-14T00:00:00Z,
+Andy Grammer,Q4299814,Andy Grammer,145751,2023-02-08T00:00:00Z,
+Tamar Braxton,Q437375,Tamar Braxton,832000,2025-05-11T00:00:00Z,
+Nick Carter,Q214466,Nick Carter,165000,2025-03-23T00:00:00Z,
+Hayes Grier,Q17411181,Hayes Grier,834000,2025-04-27T00:00:00Z,
+Bindi Irwin,Q2423081,Bindi Irwin,775779,2023-02-09T00:00:00Z,
+Kim Zolciak-Biermann,Q4193709,Kim Zolciak-Biermann,1008788,2023-02-09T00:00:00Z,
+Paula Deen,Q3071037,Paula Deen,1185880,2023-02-05T00:00:00Z,
+Mischa Barton,Q207458,Mischa Barton,92074,2023-02-12T00:00:00Z,
+Kim Fields,Q772031,Kim Fields,140834,2023-02-08T00:00:00Z,
+Jodie Sweetin,Q236861,Jodie Sweetin,351624,2022-01-27T00:00:00Z,
+Doug Flutie,Q1251736,Doug Flutie,53930,2023-02-04T00:00:00Z,
+Von Miller,Q1823140,Von Miller,546696,2023-02-07T00:00:00Z,
+Antonio Brown,Q4776474,Antonio Brown,430000,2025-01-25T00:00:00Z,
+Paige VanZant,Q10343583,Paige VanZant,703000,2025-04-25T00:00:00Z,
+Geraldo Rivera,Q1368995,Geraldo Rivera,16200,2025-11-08T00:00:00Z,
+Nyle DiMarco,Q21005632,Nyle DiMarco,366931,2023-02-07T00:00:00Z,
+Ginger Zee,Q5563073,Ginger Zee,2276325,2023-02-04T00:00:00Z,
+Wanya Morris,Q2548555,Wanya Morris,,,no_followers
+Marla Maples,Q2597050,Marla Maples,27907,2023-02-04T00:00:00Z,
+Jake T. Austin,Q312521,Jake T. Austin,2803618,2023-02-02T00:00:00Z,
+Maureen McCormick,Q454374,Maureen McCormick,,,no_followers
+Marilu Henner,Q270747,Marilu Henner,,,no_followers
+Ryan Lochte,Q201517,Ryan Lochte,914967,2023-02-09T00:00:00Z,
+Calvin Johnson Jr.,,,,,no_wikidata_match
+Laurie Hernandez,Q15710550,Laurie Hernandez,598540,2023-02-12T00:00:00Z,
+Amber Rose,Q290856,Amber Rose,3728074,2023-02-05T00:00:00Z,
+Rick Perry,Q215057,Rick Perry,,,no_followers
+James Hinchcliffe,Q1360560,James Hinchcliffe,158285,2023-02-05T00:00:00Z,
+Babyface,Q344983,Babyface,136483,2023-02-11T00:00:00Z,
+Vanilla Ice,Q313578,Vanilla Ice,1120000,2025-11-08T00:00:00Z,
+Jana Kramer,,,,,no_wikidata_match
+Terra Jole,,,,,no_wikidata_match
+Charo,Q453949,Charo,15071,2023-02-06T00:00:00Z,
+Mr. T,Q295107,Mr. T,360563,2023-02-11T00:00:00Z,
+Heather Morris,Q229349,Heather Morris,,,no_followers
+Nancy Kerrigan,Q239988,Nancy Kerrigan,,,no_followers
+Bonner Bolton,Q28976368,Bonner Bolton,14694,2023-02-07T00:00:00Z,
+Simone Biles,Q7520267,Simone Biles,1704285,2023-02-05T00:00:00Z,
+David Ross,Q3018729,David Ross,322711,2023-02-06T00:00:00Z,
+Rashad Jennings,Q3930379,Rashad Jennings,,,no_followers
+Chris Kattan,Q741909,Chris Kattan,66522,2023-02-09T00:00:00Z,
+Erika Jayne,Q867257,Erika Jayne,507693,2023-02-11T00:00:00Z,
+Normani,Q28148022,Normani,1980000,2025-04-14T00:00:00Z,
+Nick Viall,Q29000519,Nick Viall,297550,2023-02-11T00:00:00Z,
+Sasha Pieterse,Q238712,Sasha Pieterse,67900,2025-03-15T00:00:00Z,
+Frankie Muniz,Q310275,Frankie Muniz,333591,2023-02-06T00:00:00Z,
+Jordan Fisher,Q19955856,Jordan Fisher,394000,2025-05-11T00:00:00Z,
+Derek Fisher,Q314621,Derek Fisher,890215,2023-02-10T00:00:00Z,
+Nikki Bella,,,,,no_wikidata_match
+Terrell Owens,Q1395269,Terrell Owens,1391474,2023-02-08T00:00:00Z,
+Victoria Arlen,Q7926560,Victoria Arlen,,,no_followers
+Barbara Corcoran,Q4858830,Barbara Corcoran,739046,2023-02-04T00:00:00Z,
+Lindsey Stirling,Q128667,Lindsey Stirling,14300000,2025-05-01T00:00:00Z,
+Debbie Gibson,Q233817,Debbie Gibson,113000,2025-02-22T00:00:00Z,
+Nick Lachey,Q356109,Nick Lachey,56700,2025-05-18T00:00:00Z,
+Drew Scott,Q23881720,Drew Scott,906885,2023-02-04T00:00:00Z,
+Vanessa Lachey,Q270638,Vanessa Lachey,150838,2023-02-04T00:00:00Z,
+Jamie Anderson,Q2944286,Jamie Anderson,61322,2023-02-09T00:00:00Z,
+Johnny Damon,Q25720,Johnny Damon,,,no_followers
+Kareem Abdul-Jabbar,Q179051,Kareem Abdul-Jabbar,19100,2025-07-05T00:00:00Z,
+Arike Ogunbowale,Q51858305,Arike Ogunbowale,43775,2023-02-04T00:00:00Z,
+Jennie Finch Daigle,,,,,no_wikidata_match
+Chris Mazdzer,Q937658,Chris Mazdzer,17519,2023-02-05T00:00:00Z,
+Mirai Nagasu,Q628161,Mirai Nagasu,93295,2023-02-05T00:00:00Z,
+Tonya Harding,Q236278,Tonya Harding,,,no_followers
+Josh Norman,Q3810322,Josh Norman,186591,2023-02-06T00:00:00Z,
+Adam Rippon,Q350722,Adam Rippon,83900,2025-05-25T00:00:00Z,
+Juan Pablo Di Pace,Q6300659,Juan Pablo Di Pace,46789,2023-02-09T00:00:00Z,
+Evanna Lynch,Q211730,Evanna Lynch,1181183,2020-04-25T00:00:00Z,
+Nancy McKeon,Q2779246,Nancy McKeon,,,no_followers
+John Schneider,Q286642,John Schneider,70833,2023-02-10T00:00:00Z,
+Milo Manheim,Q47540917,Milo Manheim,81434,2023-02-03T00:00:00Z,
+Danelle Umstead,Q5215881,Danelle Umstead,3137,2021-01-03T00:00:00Z,
+Mary Lou Retton,Q235975,Mary Lou Retton,,,no_followers
+DeMarcus Ware,Q2761454,DeMarcus Ware,766734,2023-02-10T00:00:00Z,
+Nikki Glaser,Q7035226,Nikki Glaser,94000,2025-04-27T00:00:00Z,
+Bobby Bones,Q17385667,Bobby Bones,290000,2025-01-25T00:00:00Z,
+Tinashe,Q434745,Tinashe,2180000,2025-03-30T00:00:00Z,
+Alexis Ren,Q18637906,Alexis Ren,1120000,2025-05-18T00:00:00Z,
+Joe Amabile,Q102993171,Joe Amabile,101759,2023-02-05T00:00:00Z,
+Kate Flannery,Q3028200,Kate Flannery,314456,2023-02-06T00:00:00Z,
+James Van Der Beek,Q313392,James Van Der Beek,263127,2023-02-09T00:00:00Z,
+Kel Mitchell,Q2657882,Kel Mitchell,120138,2023-02-11T00:00:00Z,
+Ray Lewis,Q44428,Ray Lewis,,,no_followers
+Lamar Odom,Q296403,Lamar Odom,3607877,2023-02-11T00:00:00Z,
+Sailor Brinkley-Cook,,,,,no_wikidata_match
+Sean Spicer,Q27829251,Sean Spicer,190000,2025-11-22T00:00:00Z,
+Mary Wilson,Q2302368,Mary Wilson,,,no_followers
+Lauren Alaina,Q271796,Lauren Alaina,675448,2021-01-06T00:00:00Z,
+Ally Brooke,Q22965780,Ally Brooke,375000,2025-04-13T00:00:00Z,
+Karamo Brown,Q44870529,Karamo Brown,423817,2023-02-04T00:00:00Z,
+Hannah Brown,Q62050730,Hannah Brown,,,no_followers
+Anne Heche,Q234610,Anne Heche,18304,2022-08-23T00:00:00Z,
+Jesse Metcalfe,Q317740,Jesse Metcalfe,190215,2023-02-12T00:00:00Z,
+Chrishell Stause,Q5108579,Chrishell Stause,143740,2023-02-10T00:00:00Z,
+Skai Jackson,Q297724,Skai Jackson,1570000,2025-06-14T00:00:00Z,
+Justina Machado,Q270382,Justina Machado,72004,2023-02-07T00:00:00Z,
+Charles Oakley,Q608514,Charles Oakley,,,no_followers
+Veron Davis,,,,,wikidata_error:ReadTimeout
+Johnny Weir,Q352193,Johnny Weir,375316,2022-02-25T00:00:00Z,
+Nev Schulman,Q15142015,Nev Schulman,,,no_followers
+AJ McLean,,,,,no_wikidata_match
+Nelly,Q218992,Nelly,3698908,2023-02-06T00:00:00Z,
+Kaitlyn Bristowe,Q20090345,Kaitlyn Bristowe,454401,2023-02-07T00:00:00Z,
+Carole Baskin,Q88495947,Carole Baskin,,,no_followers
+Monica Aldama,Q83688538,Monica Aldama,49475,2023-02-04T00:00:00Z,
+Jeannie Mai,Q3176267,Jeannie Mai,791000,2025-05-11T00:00:00Z,
+Martin Kove,Q508795,Martin Kove,,,no_followers
+Brian Austin Green,Q313311,Brian Austin Green,,,no_followers
+Melora Hardin,Q269901,Melora Hardin,47921,2023-02-07T00:00:00Z,
+Matt James,Q96392273,Matt James,,,no_followers
+"Mike ""The Miz"" Mizanin",,,,,no_wikidata_match
+Suni Lee,,,,,no_wikidata_match
+Iman Shumpert,Q716081,Iman Shumpert,658986,2023-02-05T00:00:00Z,
+Cody Rigsby,Q109670980,Cody Rigsby,,,no_followers
+Melanie C,Q151830,Melanie C,222000,2025-04-25T00:00:00Z,
+Jimmie Allen,Q55584464,Jimmie Allen,320000,2025-05-31T00:00:00Z,
+Olivia Jade,Q62065482,Olivia Jade,1830000,2025-06-14T00:00:00Z,
+JoJo Siwa,Q24174947,JoJo Siwa,12100000,2025-04-27T00:00:00Z,
+Christine Chiu,Q105491159,Christine Chiu,,,no_followers
+Kenya Moore,Q447710,Kenya Moore,725672,2023-02-07T00:00:00Z,
+Amanda Kloots,Q102193042,Amanda Kloots,,,no_followers
+Jason Lewis,Q27322,Jason Lewis,,,no_followers
+Cheryl Ladd,Q218884,Cheryl Ladd,20852,2023-02-06T00:00:00Z,
+Selma Blair,Q264748,Selma Blair,172728,2023-02-03T00:00:00Z,
+Joseph Baena,Q23800185,Joseph Baena,,,no_followers
+Trevor Donovan,Q716071,Trevor Donovan,157856,2023-02-06T00:00:00Z,
+Daniel Durant,Q22046533,Daniel Durant,13782,2023-02-05T00:00:00Z,
+Wayne Brady,Q1397155,Wayne Brady,391437,2023-02-10T00:00:00Z,
+Sam Champion,Q7407306,Sam Champion,521167,2023-02-10T00:00:00Z,
+Jessie James Decker,Q436276,Jessie James Decker,265000,2025-05-18T00:00:00Z,
+Jordin Sparks,Q215300,Jordin Sparks,3538570,2023-02-06T00:00:00Z,
+Heidi D'Amelio,Q100791818,Heidi D'Amelio,573919,2023-02-07T00:00:00Z,
+Charli D'Amelio,Q83648587,Charli D'Amelio,156800141,2025-06-08T00:00:00Z,
+Teresa Giudice,Q7702149,Teresa Giudice,1032419,2023-02-06T00:00:00Z,
+Vinny Guadagnino,Q4013318,Vinny Guadagnino,2772774,2023-02-04T00:00:00Z,
+Shangela,,,,,no_wikidata_match
+Gabby Windey,Q111171299,Gabby Windey,,,no_followers
+Jamie Lynn Spears,Q55497,Jamie Lynn Spears,134000,2025-04-14T00:00:00Z,
+Mira Sorvino,Q212026,Mira Sorvino,188469,2023-02-03T00:00:00Z,
+Barry Williams,Q1255508,Barry Williams,2204,2021-01-02T00:00:00Z,
+Alyson Hannigan,Q199927,Alyson Hannigan,1089583,2023-02-04T00:00:00Z,
+Xochitl Gomez,Q102427314,Xochitl Gomez,,,no_followers
+Adrian Peterson,Q373983,Adrian Peterson,1041907,2023-02-07T00:00:00Z,
+Matt Walsh,Q2278533,Matt Walsh,153724,2023-02-06T00:00:00Z,
+Tyson Beckford,Q738212,Tyson Beckford,,,no_followers
+Jason Mraz,Q192515,Jason Mraz,3740000,2025-05-18T00:00:00Z,
+Lele Pons,Q12297196,Lele Pons,18000000,2025-03-23T00:00:00Z,
+Harry Jowsey,Q124809467,Harry Jowsey,,,no_followers
+Mauricio Umansky,Q22078255,Mauricio Umansky,253677,2023-02-07T00:00:00Z,
+Charity Lawson,Q117138689,Charity Lawson,,,no_followers
+Ariana Madix,Q64852987,Ariana Madix,,,no_followers
+Tori Spelling,Q229050,Tori Spelling,1773798,2023-10-29T00:00:00Z,
+Eric Roberts,Q207969,Eric Roberts,47896,2023-02-11T00:00:00Z,
+Reginald VelJohnson,Q470153,Reginald VelJohnson,,,no_followers
+Chandler Kinney,Q22670597,Chandler Kinney,29604,2023-02-04T00:00:00Z,
+Dwight Howard,Q25278,Dwight Howard,6346506,2023-02-10T00:00:00Z,
+Danny Amendola,Q3702263,Danny Amendola,404538,2023-02-07T00:00:00Z,
+Stephen Nedoroscik,Q107328953,Stephen Nedoroscik,,,no_followers
+Ilona Maher,Q106086464,Ilona Maher,,,no_followers
+Anna Delvey,,,,,no_wikidata_match
+Brooks Nader,Q118558462,Brooks Nader,,,no_followers
+Phaedra Parks,Q23417034,Phaedra Parks,,,no_followers
+Jenn Tran,Q125150795,Jenn Tran,,,no_followers
+Joey Graziadei,Q123469653,Joey Graziadei,,,no_followers
+Corey Feldman,Q375419,Corey Feldman,165459,2023-02-03T00:00:00Z,
+Danielle Fishel,Q129208,Danielle Fishel,327068,2023-02-06T00:00:00Z,
+Elaine Hendrix,Q271620,Elaine Hendrix,,,no_followers
+Baron Davis,Q313486,Baron Davis,1040511,2023-02-06T00:00:00Z,
+Jordan Chiles,Q17486476,Jordan Chiles,46414,2023-02-05T00:00:00Z,
+Andy Richter,Q497851,Andy Richter,1068357,2023-02-10T00:00:00Z,
+Robert Irwin,Q534258,Robert Irwin,,,no_followers
+Hilaria Baldwin,Q24702913,Hilaria Baldwin,,,no_followers
+Lauren Jauregui,Q18921974,Lauren Jauregui,4296896,2023-02-06T00:00:00Z,
+Scott Hoying,Q23009146,Scott Hoying,368000,2025-05-18T00:00:00Z,
+Alix Earle,Q121422393,Alix Earle,265000,2025-11-08T00:00:00Z,
+Jen Affleck,Q130278045,Jen Affleck,,,no_followers
+Whitney Leavitt,Q130278036,Whitney Leavitt,,,no_followers
+Dylan Efron,Q104902550,Dylan Efron,,,no_followers
