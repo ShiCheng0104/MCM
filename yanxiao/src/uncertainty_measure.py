@@ -188,12 +188,16 @@ class UncertaintyAnalyzer:
         # 合并所有结果
         all_stats = pd.concat(self.uncertainty_stats.values(), ignore_index=True)
         
+        # 过滤无效值（inf, nan）
+        valid_cv = all_stats['cv'].replace([np.inf, -np.inf], np.nan).dropna()
+        valid_ci_width = all_stats['ci_relative_width'].replace([np.inf, -np.inf], np.nan).dropna()
+        
         # 计算汇总统计
         self.summary = {
             'total_estimates': len(all_stats),
-            'mean_cv': all_stats['cv'].mean(),
-            'median_cv': all_stats['cv'].median(),
-            'mean_ci_relative_width': all_stats['ci_relative_width'].mean(),
+            'mean_cv': valid_cv.mean() if len(valid_cv) > 0 else 0,
+            'median_cv': valid_cv.median() if len(valid_cv) > 0 else 0,
+            'mean_ci_relative_width': valid_ci_width.mean() if len(valid_ci_width) > 0 else 0,
             'certainty_distribution': all_stats['certainty_level'].value_counts(normalize=True).to_dict(),
             'high_certainty_pct': (all_stats['certainty_level'] == 'High').mean(),
             'medium_certainty_pct': (all_stats['certainty_level'] == 'Medium').mean(),

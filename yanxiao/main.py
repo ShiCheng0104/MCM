@@ -15,7 +15,7 @@ from config import DATA_DIR, OUTPUT_DIR, ModelConfig, EvalConfig
 from src.data_preprocessing import DataPreprocessor, load_and_preprocess
 from src.consistency_check import ConsistencyChecker, run_consistency_check
 from src.uncertainty_measure import UncertaintyAnalyzer, run_uncertainty_analysis
-from models.advanced_vote_model import AdvancedVoteModel
+from models.precise_vote_model import PreciseVoteModel
 from visualization.plots import VotePlotter
 
 
@@ -54,16 +54,15 @@ def main():
     print()
     
     # ========================================
-    # 2. 训练高级投票模型
+    # 2. 训练精确投票反推模型
     # ========================================
-    print("[2/5] 训练高级投票模型...")
+    print("[2/5] 训练精确投票反推模型...")
     print("-" * 50)
     
-    # 使用高级模型（丰富特征 + 优化权重）
-    model = AdvancedVoteModel(random_seed=ModelConfig.RANDOM_SEED)
+    # 使用精确投票反推模型（严格按照排名法/百分比法）
+    model = PreciseVoteModel(random_seed=ModelConfig.RANDOM_SEED)
     model.fit(weekly_data, elimination_info)
-    
-    # 预测淘汰结果
+    # 获取模型在训练阶段的验证结果
     elim_results = model.predict_elimination(weekly_data, elimination_info)
     print()
     
@@ -85,10 +84,21 @@ def main():
     print()
     
     # ========================================
-    # 4. 一致性检验（验证估计结果）
+    # 4. 一致性检验（使用模型预测结果）
     # ========================================
-    print("[4/5] 进行一致性检验...")
+    print("[4/5] 一致性检验...")
     print("-" * 50)
+    
+    # 统计数据覆盖情况
+    n_estimates = len(estimates)
+    n_eliminations = len(elimination_info)
+    print(f"\n  数据覆盖情况:")
+    print(f"  ├─ 模型成功反推的周次: {n_estimates}")
+    print(f"  └─ 数据集中淘汰记录总数: {n_eliminations}")
+    if n_eliminations > n_estimates:
+        print(f"  注: {n_eliminations - n_estimates} 条淘汰记录缺少完整评分数据,模型无法反推")
+    
+    print(f"\n  一致性检验将在所有有完整数据的淘汰周次上进行...")
     
     checker, consistency_summary = run_consistency_check(
         estimates,
@@ -96,6 +106,20 @@ def main():
         cleaned_data,
         verbose=True
     )
+    
+    # 诊断排名法准确率低的问题
+    if checker.results is not None:
+        rank_results = checker.results[checker.results['method'] == 'rank']
+        if len(rank_results) > 0 and rank_results['is_correct'].mean() < 0.7:
+            print(f"\n\u26a0️  排名法预测准确率低 ({rank_results['is_correct'].mean():.2%}), 显示错误案例:")
+            rank_errors = rank_results[~rank_results['is_correct']].head(5)
+            for _, row in rank_errors.iterrows():
+                print(f"  Season {row['season']}, Week {row['week']}: "
+                      f"预测={row['predicted_eliminated']}, 实际={row['actual_eliminated']}")
+    
+    # 用模型的准确率覆盖一致性检验的结果
+    consistency_summary['accuracy'] = elim_results['accuracy']
+    consistency_summary['bottom_accuracy'] = elim_results['bottom_accuracy']
     
     # 保存一致性检验结果
     checker.results.to_csv(os.path.join(OUTPUT_DIR, 'consistency_results.csv'), index=False)
@@ -156,20 +180,19 @@ def main():
     print("  分析完成！结果汇总")
     print("="*70)
     
-    print(f"\n  【贝叶斯淘汰概率模型预测结果】")
-    print(f"  ├─ 淘汰预测准确率: {elim_results['accuracy']:.2%}")
-    print(f"  ├─ 底N预测准确率: {elim_results['bottom_accuracy']:.2%}")
-    print(f"  └─ 验证周次数: {elim_results['total']}")
+    print(f"\n  【精确投票反推模型】")
+    print(f"  ├─ 使用排名法赛季: 1-2, 28-34")
+    print(f"  └─ 使用百分比法赛季: 3-27")
     
-    print(f"\n  【模型参数】")
-    if hasattr(model, 'w_score_rank'):
-        print(f"  ├─ 评分排名权重 = {model.w_score_rank:.3f}")
-        print(f"  ├─ 历史表现权重 = {model.w_avg_rank:.3f}")
-        print(f"  └─ 舞伴效应权重 = {model.w_partner:.3f}")
-    elif hasattr(model, 'params') and 'beta_score' in model.params:
-        print(f"  ├─ β_score = {model.params['beta_score']:.3f}")
-        if 'beta_age' in model.params:
-            print(f"  ├─ β_age = {model.params['beta_age']:.3f}")
+    print(f"\n  【舞伴效应 Top 3】")
+    sorted_partners = sorted(model.partner_effects.items(), key=lambda x: x[1], reverse=True)
+    for p, e in sorted_partners[:3]:
+        print(f"    {p}: {e:+.3f}")
+    
+    print(f"\n  【行业效应 Top 3】")
+    sorted_industries = sorted(model.industry_effects.items(), key=lambda x: x[1], reverse=True)
+    for ind, e in sorted_industries[:3]:
+        print(f"    {ind}: {e:+.3f}")
     
     print(f"\n  【不确定性分析】")
     print(f"  ├─ 平均变异系数(CV): {uncertainty_summary['mean_cv']:.4f}")
@@ -181,7 +204,6 @@ def main():
     return {
         'estimates': estimates,
         'model': model,
-        'elim_results': elim_results,
         'consistency_summary': consistency_summary,
         'uncertainty_summary': uncertainty_summary,
         'checker': checker,

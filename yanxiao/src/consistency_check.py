@@ -41,6 +41,8 @@ class ConsistencyChecker:
             一致性检验结果DataFrame
         """
         results = []
+        skipped_no_elim = 0
+        skipped_no_votes = 0
         
         for (season, week), est in estimates.items():
             # 获取实际淘汰者（可能有多人）
@@ -51,6 +53,7 @@ class ConsistencyChecker:
             
             if len(actual_elim) == 0:
                 # 无淘汰的周次
+                skipped_no_elim += 1
                 continue
             
             # 获取所有实际被淘汰者的名字列表
@@ -60,6 +63,11 @@ class ConsistencyChecker:
             names = est['names']
             scores = est['scores']
             votes = est['votes']
+            
+            # 检查是否有有效投票估计
+            if all(pd.isna(v) or v == 0 for v in votes):
+                skipped_no_votes += 1
+                continue
             
             # 确定使用的方法
             if method == 'auto':
@@ -134,6 +142,16 @@ class ConsistencyChecker:
             })
         
         self.results = pd.DataFrame(results)
+        
+        # 打印诊断信息
+        total_in_estimates = len(estimates)
+        total_checked = len(results)
+        print(f"\n  一致性检验数据统计:")
+        print(f"  ├─ estimates字典中的周次: {total_in_estimates}")
+        print(f"  ├─ 跳过（无淘汰记录）: {skipped_no_elim}")
+        print(f"  ├─ 跳过（无有效投票估计）: {skipped_no_votes}")
+        print(f"  └─ 实际检验周次: {total_checked}")
+        
         return self.results
     
     def compute_summary_statistics(self) -> Dict:
@@ -179,12 +197,15 @@ class ConsistencyChecker:
             self.compute_summary_statistics()
         
         print("\n" + "="*60)
-        print("一致性检验汇总")
+        print("正向预测一致性检验")
         print("="*60)
-        print(f"总周次数: {self.summary['total_weeks']}")
+        print(f"检验周次数: {self.summary['total_weeks']}")
         print(f"正确预测数: {self.summary['correct_predictions']}")
         print(f"淘汰预测准确率: {self.summary['elimination_accuracy']:.2%}")
         print(f"底2准确率: {self.summary['bottom_two_accuracy']:.2%}")
+        print(f"")
+        print(f"说明: 此准确率衡量用模型估计的投票正向预测淘汰的能力")
+        print(f"      (仅包含有完整评分数据且模型成功反推投票的周次)")
         print("\n按方法分组统计:")
         print(self.summary['method_stats'])
         print("="*60 + "\n")

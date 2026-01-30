@@ -232,39 +232,56 @@ class VotePlotter:
             matplotlib Figure
         """
         all_stats = pd.concat(uncertainty_stats.values(), ignore_index=True)
-        
+
+        # 确保 cv 字段为数值并过滤掉非有限值（NaN, inf）以避免直方图报错
+        all_stats['cv'] = pd.to_numeric(all_stats.get('cv', pd.Series()), errors='coerce')
+        finite_mask = np.isfinite(all_stats['cv'].values)
+        all_stats_cv = all_stats[finite_mask].copy()
+
         fig, axes = plt.subplots(2, 2, figsize=(14, 10))
-        
+
         # 1. CV分布直方图
         ax1 = axes[0, 0]
-        ax1.hist(all_stats['cv'], bins=30, edgecolor='black', alpha=0.7)
-        ax1.axvline(0.1, color='green', linestyle='--', label='High threshold')
-        ax1.axvline(0.3, color='red', linestyle='--', label='Low threshold')
+        if not all_stats_cv.empty:
+            ax1.hist(all_stats_cv['cv'].values, bins=30, edgecolor='black', alpha=0.7)
+            ax1.axvline(0.1, color='green', linestyle='--', label='High threshold')
+            ax1.axvline(0.3, color='red', linestyle='--', label='Low threshold')
+        else:
+            ax1.text(0.5, 0.5, 'No finite CV data', transform=ax1.transAxes, ha='center')
         ax1.set_xlabel('Coefficient of Variation (CV)')
         ax1.set_ylabel('Frequency')
         ax1.set_title('Distribution of Uncertainty (CV)')
         ax1.legend()
-        
+
         # 2. 确定性等级饼图
         ax2 = axes[0, 1]
-        certainty_counts = all_stats['certainty_level'].value_counts()
+        certainty_counts = all_stats['certainty_level'].dropna().value_counts()
         colors = {'High': 'green', 'Medium': 'orange', 'Low': 'red'}
-        ax2.pie(certainty_counts.values, labels=certainty_counts.index, 
-               autopct='%1.1f%%', colors=[colors[c] for c in certainty_counts.index])
+        if not certainty_counts.empty:
+            ax2.pie(certainty_counts.values, labels=certainty_counts.index, 
+                   autopct='%1.1f%%', colors=[colors.get(c, 'gray') for c in certainty_counts.index])
+        else:
+            ax2.text(0.5, 0.5, 'No certainty data', transform=ax2.transAxes, ha='center')
         ax2.set_title('Certainty Level Distribution')
-        
+
         # 3. CV按赛季变化
         ax3 = axes[1, 0]
-        season_cv = all_stats.groupby('season')['cv'].mean()
-        ax3.plot(season_cv.index, season_cv.values, marker='o')
+        if not all_stats_cv.empty:
+            season_cv = all_stats_cv.groupby('season')['cv'].mean()
+            ax3.plot(season_cv.index, season_cv.values, marker='o')
+        else:
+            ax3.text(0.5, 0.5, 'No finite CV data', transform=ax3.transAxes, ha='center')
         ax3.set_xlabel('Season')
         ax3.set_ylabel('Mean CV')
         ax3.set_title('Uncertainty Trend by Season')
-        
+
         # 4. CV按周次变化
         ax4 = axes[1, 1]
-        week_cv = all_stats.groupby('week')['cv'].mean()
-        ax4.bar(week_cv.index, week_cv.values, edgecolor='black', alpha=0.7)
+        if not all_stats_cv.empty:
+            week_cv = all_stats_cv.groupby('week')['cv'].mean()
+            ax4.bar(week_cv.index, week_cv.values, edgecolor='black', alpha=0.7)
+        else:
+            ax4.text(0.5, 0.5, 'No finite CV data', transform=ax4.transAxes, ha='center')
         ax4.set_xlabel('Week')
         ax4.set_ylabel('Mean CV')
         ax4.set_title('Uncertainty by Week')
