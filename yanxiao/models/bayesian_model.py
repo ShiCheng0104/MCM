@@ -1,79 +1,441 @@
 """
 贝叶斯层次模型
-使用层次结构建模观众投票
+使用PyMC进行完整的贝叶斯推断建模观众投票
 """
 import numpy as np
 import pandas as pd
 from typing import Dict, Tuple, List, Optional
 from scipy import stats
+import warnings
+
+try:
+    import pymc as pm
+    import arviz as az
+    PYMC_AVAILABLE = True
+except ImportError:
+    PYMC_AVAILABLE = False
+    warnings.warn("PyMC未安装，将使用简化的MCMC采样。建议运行: pip install pymc arviz")
+
 from src.utils import normalize_votes
 
 
 class BayesianVoteModel:
     """
-    贝叶斯层次投票估计模型
+    贝叶斯层次投票估计模型（完整贝叶斯推断）
     
     模型结构：
     log(V_{i,w}) ~ Normal(μ_{i,w}, σ²)
-    μ_{i,w} = β₀ + β₁·S_{i,w} + β₂·Age_i + α_partner + γ_season
+    μ_{i,w} = β₀ + β₁·S_{i,w} + β₂·Age_i + α_partner[j] + γ_season[k] + δ_industry[l]
     
-    由于完整的贝叶斯推断需要PyMC等库，这里使用简化的经验贝叶斯方法
+    先验分布：
+    β₀ ~ Normal(10, 2)
+    β₁ ~ Normal(0, 0.5)
+    β₂ ~ Normal(0, 0.1)
+    α_partner ~ Normal(0, σ_partner), σ_partner ~ HalfNormal(0.5)
+    γ_season ~ Normal(0, σ_season), σ_season ~ HalfNormal(0.3)
+    δ_industry ~ Normal(0, σ_industry), σ_industry ~ HalfNormal(0.5)
+    σ ~ HalfNormal(1)
+    
+    使用PyMC进行MCMC采样进行完整的贝叶斯推断
     """
     
     def __init__(self, 
-                 n_samples: int = 1000,
+                 n_samples: int = 2000,
+                 n_tune: int = 1000,
+                 n_chains: int = 2,
                  random_seed: int = 42):
         """
         初始化贝叶斯模型
         
         Args:
-            n_samples: 采样数量
+            n_samples: MCMC采样数量
+            n_tune: 调优步数
+            n_chains: 马尔可夫链数量
             random_seed: 随机种子
         """
         self.n_samples = n_samples
+        self.n_tune = n_tune
+        self.n_chains = n_chains
         self.random_seed = random_seed
         np.random.seed(random_seed)
         
-        # 模型参数
-        self.beta_0 = 10.0  # 截距（对数尺度）
-        self.beta_score = 0.1  # 评委得分系数
-        self.beta_age = -0.01  # 年龄系数
-        self.sigma = 0.5  # 残差标准差
+        # 后验参数（拟合后更新）
+        self.trace = None
+        self.posterior_samples = None
         
-        # 随机效应
+        # 模型参数的后验均值
+        self.beta_0_mean = 10.0
+        self.beta_score_mean = 0.1
+        self.beta_age_mean = -0.01
+        self.sigma_mean = 0.5
+        
+        # 随机效应后验
         self.partner_effects = {}
         self.season_effects = {}
         self.industry_effects = {}
         
+        # 编码映射
+        self.partner_to_idx = {}
+        self.season_to_idx = {}
+        self.industry_to_idx = {}
+        
         # 存储结果
         self.estimates = {}
         self.samples = {}
+        self.model = None
+        self.is_fitted = False
         
-    def initialize_random_effects(self, data: pd.DataFrame):
+    def _encode_categorical(self, data: pd.DataFrame):
         """
-        初始化随机效应
+        编码分类变量
         
         Args:
             data: 周级别数据
         """
-        # 舞伴效应
-        for partner in data['ballroom_partner'].unique():
-            self.partner_effects[partner] = np.random.normal(0, 0.3)
+        # 舞伴编码
+        partners = data['ballroom_partner'].unique()
+        self.partner_to_idx = {p: i for i, p in enumerate(partners)}
         
-        # 赛季效应
-        for season in data['season'].unique():
-            self.season_effects[season] = np.random.normal(0, 0.2)
+        # 赛季编码
+        seasons = sorted(data['season'].unique())
+        self.season_to_idx = {s: i for i, s in enumerate(seasons)}
         
-        # 行业效应
-        for industry in data['celebrity_industry'].dropna().unique():
-            self.industry_effects[industry] = np.random.normal(0, 0.3)
+        # 行业编码
+        industries = data['celebrity_industry'].dropna().unique()
+        self.industry_to_idx = {ind: i for i, ind in enumerate(industries)}
+    
+    def _prepare_data_for_pymc(self, data: pd.DataFrame) -> Dict:
+        """
+        准备PyMC模型所需的数据格式
+        
+        Args:
+            data: 周级别数据
+        
+        Returns:
+            格式化的数据字典
+        """
+        self._encode_categorical(data)
+        
+        # 标准化得分
+        scores = data['total_score'].values
+        scores_normalized = (scores - scores.mean()) / scores.std()
+        
+        # 标准化年龄
+        ages = data['celebrity_age'].fillna(35).values
+        ages_normalized = (ages - ages.mean()) / ages.std()
+        
+        # 编码分类变量
+        partner_idx = data['ballroom_partner'].map(self.partner_to_idx).values
+        season_idx = data['season'].map(self.season_to_idx).values
+        industry_idx = data['celebrity_industry'].map(
+            lambda x: self.industry_to_idx.get(x, 0) if pd.notna(x) else 0
+        ).values
+        
+        return {
+            'scores': scores_normalized,
+            'ages': ages_normalized,
+            'partner_idx': partner_idx.astype(int),
+            'season_idx': season_idx.astype(int),
+            'industry_idx': industry_idx.astype(int),
+            'n_partners': len(self.partner_to_idx),
+            'n_seasons': len(self.season_to_idx),
+            'n_industries': max(len(self.industry_to_idx), 1),
+            'n_obs': len(data),
+            'scores_mean': scores.mean(),
+            'scores_std': scores.std(),
+            'ages_mean': ages.mean(),
+            'ages_std': ages.std()
+        }
+    
+    def fit(self, weekly_data: pd.DataFrame, elimination_info: pd.DataFrame):
+        """
+        使用PyMC进行完整的贝叶斯推断拟合模型
+        
+        Args:
+            weekly_data: 周级别数据
+            elimination_info: 淘汰信息
+        """
+        print("正在进行贝叶斯推断...")
+        
+        # 准备数据
+        model_data = self._prepare_data_for_pymc(weekly_data)
+        
+        if PYMC_AVAILABLE:
+            self._fit_with_pymc(model_data, weekly_data)
+        else:
+            self._fit_with_metropolis_hastings(model_data, weekly_data, elimination_info)
+        
+        self.is_fitted = True
+        print("贝叶斯推断完成!")
+    
+    def _fit_with_pymc(self, model_data: Dict, weekly_data: pd.DataFrame):
+        """
+        使用PyMC进行MCMC采样
+        
+        Args:
+            model_data: 格式化的数据
+            weekly_data: 原始周级别数据
+        """
+        print("  使用PyMC进行MCMC采样...")
+        
+        with pm.Model() as self.model:
+            # ========== 超先验 ==========
+            sigma_partner = pm.HalfNormal('sigma_partner', sigma=0.5)
+            sigma_season = pm.HalfNormal('sigma_season', sigma=0.3)
+            sigma_industry = pm.HalfNormal('sigma_industry', sigma=0.5)
+            
+            # ========== 固定效应先验 ==========
+            beta_0 = pm.Normal('beta_0', mu=10, sigma=2)
+            beta_score = pm.Normal('beta_score', mu=0, sigma=0.5)
+            beta_age = pm.Normal('beta_age', mu=0, sigma=0.1)
+            
+            # ========== 随机效应 ==========
+            alpha_partner = pm.Normal('alpha_partner', mu=0, sigma=sigma_partner, 
+                                      shape=model_data['n_partners'])
+            gamma_season = pm.Normal('gamma_season', mu=0, sigma=sigma_season,
+                                     shape=model_data['n_seasons'])
+            delta_industry = pm.Normal('delta_industry', mu=0, sigma=sigma_industry,
+                                       shape=model_data['n_industries'])
+            
+            # ========== 残差标准差 ==========
+            sigma = pm.HalfNormal('sigma', sigma=1)
+            
+            # ========== 线性预测器 ==========
+            mu = (beta_0 + 
+                  beta_score * model_data['scores'] +
+                  beta_age * model_data['ages'] +
+                  alpha_partner[model_data['partner_idx']] +
+                  gamma_season[model_data['season_idx']] +
+                  delta_industry[model_data['industry_idx']])
+            
+            # ========== 似然函数 ==========
+            # 使用对数尺度的投票作为观测（由于真实投票未知，使用得分作为代理）
+            # 这里使用一个潜变量模型的思路
+            log_votes = pm.Normal('log_votes', mu=mu, sigma=sigma, 
+                                  shape=model_data['n_obs'])
+            
+            # ========== MCMC采样 ==========
+            self.trace = pm.sample(
+                draws=self.n_samples,
+                tune=self.n_tune,
+                chains=self.n_chains,
+                random_seed=self.random_seed,
+                return_inferencedata=True,
+                progressbar=True
+            )
+        
+        # 提取后验统计
+        self._extract_posterior_stats()
+        
+        # 打印诊断信息
+        print("\n  MCMC诊断:")
+        summary = az.summary(self.trace, var_names=['beta_0', 'beta_score', 'beta_age', 'sigma'])
+        print(summary[['mean', 'sd', 'hdi_3%', 'hdi_97%', 'r_hat']])
+    
+    def _fit_with_metropolis_hastings(self, model_data: Dict, 
+                                       weekly_data: pd.DataFrame,
+                                       elimination_info: pd.DataFrame):
+        """
+        使用自实现的Metropolis-Hastings采样（当PyMC不可用时）
+        
+        Args:
+            model_data: 格式化的数据
+            weekly_data: 周级别数据
+            elimination_info: 淘汰信息
+        """
+        print("  使用Metropolis-Hastings采样（PyMC不可用）...")
+        
+        n_iter = self.n_samples + self.n_tune
+        
+        # 参数维度
+        n_partners = model_data['n_partners']
+        n_seasons = model_data['n_seasons']
+        n_industries = model_data['n_industries']
+        
+        # 初始化参数
+        params = {
+            'beta_0': 10.0,
+            'beta_score': 0.1,
+            'beta_age': -0.01,
+            'sigma': 0.5,
+            'sigma_partner': 0.3,
+            'sigma_season': 0.2,
+            'sigma_industry': 0.3,
+            'alpha_partner': np.zeros(n_partners),
+            'gamma_season': np.zeros(n_seasons),
+            'delta_industry': np.zeros(n_industries)
+        }
+        
+        # 提案分布标准差
+        proposal_sd = {
+            'beta_0': 0.1,
+            'beta_score': 0.02,
+            'beta_age': 0.005,
+            'sigma': 0.05,
+            'sigma_partner': 0.02,
+            'sigma_season': 0.02,
+            'sigma_industry': 0.02,
+            'alpha_partner': 0.05,
+            'gamma_season': 0.03,
+            'delta_industry': 0.05
+        }
+        
+        # 存储采样
+        samples = {k: [] for k in params.keys()}
+        
+        def log_prior(p):
+            """计算先验对数概率"""
+            lp = 0
+            lp += stats.norm.logpdf(p['beta_0'], 10, 2)
+            lp += stats.norm.logpdf(p['beta_score'], 0, 0.5)
+            lp += stats.norm.logpdf(p['beta_age'], 0, 0.1)
+            lp += stats.halfnorm.logpdf(p['sigma'], scale=1)
+            lp += stats.halfnorm.logpdf(p['sigma_partner'], scale=0.5)
+            lp += stats.halfnorm.logpdf(p['sigma_season'], scale=0.3)
+            lp += stats.halfnorm.logpdf(p['sigma_industry'], scale=0.5)
+            lp += np.sum(stats.norm.logpdf(p['alpha_partner'], 0, p['sigma_partner']))
+            lp += np.sum(stats.norm.logpdf(p['gamma_season'], 0, p['sigma_season']))
+            lp += np.sum(stats.norm.logpdf(p['delta_industry'], 0, p['sigma_industry']))
+            return lp
+        
+        def log_likelihood(p, data):
+            """计算似然对数概率"""
+            mu = (p['beta_0'] + 
+                  p['beta_score'] * data['scores'] +
+                  p['beta_age'] * data['ages'] +
+                  p['alpha_partner'][data['partner_idx']] +
+                  p['gamma_season'][data['season_idx']] +
+                  p['delta_industry'][data['industry_idx']])
+            
+            # 使用得分的对数作为观测值的代理
+            log_obs = np.log(weekly_data['total_score'].values + 1)
+            log_obs_normalized = (log_obs - log_obs.mean()) / log_obs.std() * 2 + 10
+            
+            ll = np.sum(stats.norm.logpdf(log_obs_normalized, mu, p['sigma']))
+            return ll
+        
+        # Metropolis-Hastings采样
+        current_lp = log_prior(params) + log_likelihood(params, model_data)
+        accepted = 0
+        
+        for i in range(n_iter):
+            # 随机选择一个参数更新
+            param_name = np.random.choice(list(params.keys()))
+            
+            # 提案
+            proposed = {k: v.copy() if isinstance(v, np.ndarray) else v 
+                       for k, v in params.items()}
+            
+            if isinstance(params[param_name], np.ndarray):
+                idx = np.random.randint(len(params[param_name]))
+                proposed[param_name][idx] += np.random.normal(0, proposal_sd[param_name])
+            else:
+                proposed[param_name] += np.random.normal(0, proposal_sd[param_name])
+            
+            # 确保正值参数为正
+            if param_name in ['sigma', 'sigma_partner', 'sigma_season', 'sigma_industry']:
+                if isinstance(proposed[param_name], np.ndarray):
+                    proposed[param_name] = np.abs(proposed[param_name])
+                else:
+                    proposed[param_name] = abs(proposed[param_name])
+            
+            # 计算接受概率
+            proposed_lp = log_prior(proposed) + log_likelihood(proposed, model_data)
+            
+            if np.log(np.random.random()) < proposed_lp - current_lp:
+                params = proposed
+                current_lp = proposed_lp
+                accepted += 1
+            
+            # 保存样本（丢弃burn-in）
+            if i >= self.n_tune:
+                for k, v in params.items():
+                    samples[k].append(v.copy() if isinstance(v, np.ndarray) else v)
+            
+            # 进度提示
+            if (i + 1) % 500 == 0:
+                print(f"    迭代 {i+1}/{n_iter}, 接受率: {accepted/(i+1):.2%}")
+        
+        # 转换为numpy数组
+        self.posterior_samples = {k: np.array(v) for k, v in samples.items()}
+        
+        # 提取后验均值
+        self._extract_posterior_stats_from_samples()
+        
+        print(f"\n  采样完成，总接受率: {accepted/n_iter:.2%}")
+    
+    def _extract_posterior_stats(self):
+        """从PyMC trace中提取后验统计量"""
+        posterior = self.trace.posterior
+        
+        self.beta_0_mean = float(posterior['beta_0'].mean())
+        self.beta_score_mean = float(posterior['beta_score'].mean())
+        self.beta_age_mean = float(posterior['beta_age'].mean())
+        self.sigma_mean = float(posterior['sigma'].mean())
+        
+        # 提取随机效应
+        alpha_partner = posterior['alpha_partner'].mean(dim=['chain', 'draw']).values
+        gamma_season = posterior['gamma_season'].mean(dim=['chain', 'draw']).values
+        delta_industry = posterior['delta_industry'].mean(dim=['chain', 'draw']).values
+        
+        # 映射回原始类别
+        idx_to_partner = {v: k for k, v in self.partner_to_idx.items()}
+        idx_to_season = {v: k for k, v in self.season_to_idx.items()}
+        idx_to_industry = {v: k for k, v in self.industry_to_idx.items()}
+        
+        self.partner_effects = {idx_to_partner[i]: alpha_partner[i] 
+                               for i in range(len(alpha_partner))}
+        self.season_effects = {idx_to_season[i]: gamma_season[i] 
+                              for i in range(len(gamma_season))}
+        self.industry_effects = {idx_to_industry[i]: delta_industry[i] 
+                                for i in range(len(delta_industry))}
+        
+        print(f"\n  后验均值:")
+        print(f"    β₀ = {self.beta_0_mean:.3f}")
+        print(f"    β_score = {self.beta_score_mean:.3f}")
+        print(f"    β_age = {self.beta_age_mean:.3f}")
+        print(f"    σ = {self.sigma_mean:.3f}")
+    
+    def _extract_posterior_stats_from_samples(self):
+        """从自采样结果中提取后验统计量"""
+        samples = self.posterior_samples
+        
+        self.beta_0_mean = np.mean(samples['beta_0'])
+        self.beta_score_mean = np.mean(samples['beta_score'])
+        self.beta_age_mean = np.mean(samples['beta_age'])
+        self.sigma_mean = np.mean(samples['sigma'])
+        
+        alpha_partner = np.mean(samples['alpha_partner'], axis=0)
+        gamma_season = np.mean(samples['gamma_season'], axis=0)
+        delta_industry = np.mean(samples['delta_industry'], axis=0)
+        
+        idx_to_partner = {v: k for k, v in self.partner_to_idx.items()}
+        idx_to_season = {v: k for k, v in self.season_to_idx.items()}
+        idx_to_industry = {v: k for k, v in self.industry_to_idx.items()}
+        
+        self.partner_effects = {idx_to_partner[i]: alpha_partner[i] 
+                               for i in range(len(alpha_partner))}
+        self.season_effects = {idx_to_season[i]: gamma_season[i] 
+                              for i in range(len(gamma_season))}
+        self.industry_effects = {idx_to_industry.get(i, f'unknown_{i}'): delta_industry[i] 
+                                for i in range(len(delta_industry))}
+        
+        print(f"\n  后验均值:")
+        print(f"    β₀ = {self.beta_0_mean:.3f}")
+        print(f"    β_score = {self.beta_score_mean:.3f}")
+        print(f"    β_age = {self.beta_age_mean:.3f}")
+        print(f"    σ = {self.sigma_mean:.3f}")
     
     def compute_expected_log_votes(self,
                                    score: float,
                                    age: float,
                                    partner: str,
                                    season: int,
-                                   industry: Optional[str] = None) -> float:
+                                   industry: Optional[str] = None,
+                                   scores_mean: float = 25.0,
+                                   scores_std: float = 5.0,
+                                   ages_mean: float = 35.0,
+                                   ages_std: float = 10.0) -> float:
         """
         计算期望的对数投票数
         
@@ -83,13 +445,21 @@ class BayesianVoteModel:
             partner: 舞伴姓名
             season: 赛季编号
             industry: 行业类别
+            scores_mean: 得分均值（用于标准化）
+            scores_std: 得分标准差
+            ages_mean: 年龄均值
+            ages_std: 年龄标准差
         
         Returns:
             期望对数投票
         """
-        mu = self.beta_0
-        mu += self.beta_score * score
-        mu += self.beta_age * age
+        # 标准化输入
+        score_norm = (score - scores_mean) / scores_std if scores_std > 0 else 0
+        age_norm = (age - ages_mean) / ages_std if ages_std > 0 else 0
+        
+        mu = self.beta_0_mean
+        mu += self.beta_score_mean * score_norm
+        mu += self.beta_age_mean * age_norm
         
         # 添加随机效应
         if partner in self.partner_effects:
@@ -103,11 +473,11 @@ class BayesianVoteModel:
         
         return mu
     
-    def sample_votes(self,
-                    contestants: pd.DataFrame,
-                    n_samples: Optional[int] = None) -> np.ndarray:
+    def sample_votes_posterior(self,
+                               contestants: pd.DataFrame,
+                               n_samples: Optional[int] = None) -> np.ndarray:
         """
-        从后验分布采样投票
+        从后验预测分布采样投票
         
         Args:
             contestants: 选手数据
@@ -117,23 +487,68 @@ class BayesianVoteModel:
             样本数组 (n_samples, n_contestants)
         """
         if n_samples is None:
-            n_samples = self.n_samples
+            n_samples = min(self.n_samples, 1000)
         
         n_contestants = len(contestants)
         samples = np.zeros((n_samples, n_contestants))
         
-        for i, (_, row) in enumerate(contestants.iterrows()):
-            mu = self.compute_expected_log_votes(
-                score=row['total_score'],
-                age=row.get('celebrity_age', 35),
-                partner=row['ballroom_partner'],
-                season=row['season'],
-                industry=row.get('celebrity_industry', None)
-            )
+        # 计算统计量
+        all_scores = contestants['total_score'].values
+        all_ages = contestants['celebrity_age'].fillna(35).values
+        scores_mean, scores_std = all_scores.mean(), max(all_scores.std(), 1)
+        ages_mean, ages_std = all_ages.mean(), max(all_ages.std(), 1)
+        
+        if self.posterior_samples is not None:
+            # 使用后验样本
+            n_posterior = len(self.posterior_samples['beta_0'])
+            sample_indices = np.random.choice(n_posterior, n_samples, replace=True)
             
-            # 采样对数投票
-            log_votes = np.random.normal(mu, self.sigma, n_samples)
-            samples[:, i] = np.exp(log_votes)
+            for s_idx, p_idx in enumerate(sample_indices):
+                beta_0 = self.posterior_samples['beta_0'][p_idx]
+                beta_score = self.posterior_samples['beta_score'][p_idx]
+                beta_age = self.posterior_samples['beta_age'][p_idx]
+                sigma = self.posterior_samples['sigma'][p_idx]
+                alpha_partner = self.posterior_samples['alpha_partner'][p_idx]
+                gamma_season = self.posterior_samples['gamma_season'][p_idx]
+                delta_industry = self.posterior_samples['delta_industry'][p_idx]
+                
+                for i, (_, row) in enumerate(contestants.iterrows()):
+                    score_norm = (row['total_score'] - scores_mean) / scores_std
+                    age = row.get('celebrity_age', 35)
+                    if pd.isna(age):
+                        age = 35
+                    age_norm = (age - ages_mean) / ages_std
+                    
+                    partner_idx = self.partner_to_idx.get(row['ballroom_partner'], 0)
+                    season_idx = self.season_to_idx.get(row['season'], 0)
+                    industry_idx = self.industry_to_idx.get(row.get('celebrity_industry'), 0)
+                    
+                    mu = (beta_0 + 
+                          beta_score * score_norm +
+                          beta_age * age_norm +
+                          alpha_partner[partner_idx] +
+                          gamma_season[season_idx] +
+                          delta_industry[industry_idx])
+                    
+                    log_vote = np.random.normal(mu, sigma)
+                    samples[s_idx, i] = np.exp(log_vote)
+        else:
+            # 使用后验均值 + 不确定性
+            for i, (_, row) in enumerate(contestants.iterrows()):
+                mu = self.compute_expected_log_votes(
+                    score=row['total_score'],
+                    age=row.get('celebrity_age', 35) if pd.notna(row.get('celebrity_age')) else 35,
+                    partner=row['ballroom_partner'],
+                    season=row['season'],
+                    industry=row.get('celebrity_industry', None),
+                    scores_mean=scores_mean,
+                    scores_std=scores_std,
+                    ages_mean=ages_mean,
+                    ages_std=ages_std
+                )
+                
+                log_votes = np.random.normal(mu, self.sigma_mean, n_samples)
+                samples[:, i] = np.exp(log_votes)
         
         # 归一化每个样本
         for j in range(n_samples):
@@ -141,20 +556,28 @@ class BayesianVoteModel:
         
         return samples
     
+    def sample_votes(self,
+                    contestants: pd.DataFrame,
+                    n_samples: Optional[int] = None) -> np.ndarray:
+        """
+        从后验分布采样投票（兼容旧接口）
+        """
+        return self.sample_votes_posterior(contestants, n_samples)
+    
     def estimate_votes(self,
                       contestants: pd.DataFrame,
                       total_votes: float = 1e6) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
         """
-        估计投票及置信区间
+        估计投票及可信区间
         
         Args:
             contestants: 选手数据
             total_votes: 总投票数
         
         Returns:
-            (均值, 下界, 上界)
+            (后验均值, 2.5%分位数, 97.5%分位数)
         """
-        samples = self.sample_votes(contestants)
+        samples = self.sample_votes_posterior(contestants)
         
         # 重新归一化
         for i in range(len(samples)):
@@ -165,39 +588,6 @@ class BayesianVoteModel:
         upper = np.percentile(samples, 97.5, axis=0)
         
         return mean_votes, lower, upper
-    
-    def fit(self, weekly_data: pd.DataFrame, elimination_info: pd.DataFrame):
-        """
-        拟合模型参数（简化的经验贝叶斯）
-        
-        Args:
-            weekly_data: 周级别数据
-            elimination_info: 淘汰信息
-        """
-        # 初始化随机效应
-        self.initialize_random_effects(weekly_data)
-        
-        # 使用网格搜索优化参数
-        best_accuracy = 0.0
-        best_params = (self.beta_score, self.beta_age, self.sigma)
-        
-        for beta_score in np.arange(0.05, 0.2, 0.02):
-            for beta_age in np.arange(-0.02, 0.01, 0.005):
-                for sigma in np.arange(0.3, 0.8, 0.1):
-                    self.beta_score = beta_score
-                    self.beta_age = beta_age
-                    self.sigma = sigma
-                    
-                    accuracy = self._evaluate_accuracy(weekly_data, elimination_info)
-                    
-                    if accuracy > best_accuracy:
-                        best_accuracy = accuracy
-                        best_params = (beta_score, beta_age, sigma)
-        
-        self.beta_score, self.beta_age, self.sigma = best_params
-        print(f"拟合完成: beta_score={self.beta_score:.3f}, "
-              f"beta_age={self.beta_age:.3f}, sigma={self.sigma:.2f}")
-        print(f"最佳准确率: {best_accuracy:.2%}")
     
     def _evaluate_accuracy(self, 
                           weekly_data: pd.DataFrame,
