@@ -4,6 +4,7 @@
 import numpy as np
 import pandas as pd
 from typing import List, Tuple, Optional, Dict
+from scipy.stats import rankdata
 import re
 
 
@@ -142,8 +143,9 @@ def compute_rank_combined_score(judge_scores: np.ndarray,
     """
     judge_scores = np.asarray(judge_scores, dtype=float)
     fan_votes = np.asarray(fan_votes, dtype=float)
-    judge_ranks = rank_scores(judge_scores, ascending=False)
-    fan_ranks = rank_scores(fan_votes, ascending=False)
+    # 使用rankdata确保与模型内部计算完全一致
+    judge_ranks = rankdata(-judge_scores, method='ordinal')  # 最高分=1
+    fan_ranks = rankdata(-fan_votes, method='ordinal')  # 最高票=1
     return judge_ranks + fan_ranks
 
 

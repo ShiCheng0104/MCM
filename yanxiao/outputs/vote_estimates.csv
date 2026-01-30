@@ -1,49 +1,49 @@
 season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminated
-1,1,John O'Hurley,20.0,,,rank,
-1,1,Kelly Monaco,13.0,,,rank,
-1,1,Evander Holyfield,18.0,,,rank,
-1,1,Rachel Hunter,20.0,,,rank,
-1,1,Joey McIntyre,20.0,,,rank,
-1,1,Trista Sutter,18.0,,,rank,
-1,2,John O'Hurley,26.0,210198.33976230267,0.21019833976230268,rank,False
-1,2,Kelly Monaco,17.0,131479.55887829897,0.13147955887829896,rank,False
-1,2,Evander Holyfield,14.0,124807.10098243305,0.12480710098243306,rank,False
-1,2,Rachel Hunter,24.0,174053.69134140052,0.17405369134140053,rank,False
-1,2,Joey McIntyre,21.0,192322.1896478889,0.1923221896478889,rank,False
-1,2,Trista Sutter,19.0,167139.1193876759,0.1671391193876759,rank,True
+1,1,John O'Hurley,20.0,184967.40890128378,0.18496740890128377,rank,False
+1,1,Kelly Monaco,13.0,112605.5095641752,0.1126055095641752,rank,False
+1,1,Evander Holyfield,18.0,166062.37635129248,0.16606237635129248,rank,False
+1,1,Rachel Hunter,20.0,182712.67483845403,0.18271267483845402,rank,False
+1,1,Joey McIntyre,20.0,187885.28676433355,0.18788528676433355,rank,False
+1,1,Trista Sutter,18.0,165766.74358046096,0.16576674358046095,rank,False
+1,2,John O'Hurley,26.0,210198.07863059512,0.21019807863059511,rank,False
+1,2,Kelly Monaco,17.0,131539.19921472296,0.13153919921472296,rank,False
+1,2,Evander Holyfield,14.0,124871.88995588143,0.12487188995588143,rank,False
+1,2,Rachel Hunter,24.0,173952.87480320808,0.17395287480320806,rank,False
+1,2,Joey McIntyre,21.0,192279.87935123467,0.19227987935123467,rank,False
+1,2,Trista Sutter,19.0,167158.0780443579,0.16715807804435792,rank,True
 1,3,John O'Hurley,24.0,224940.12579316852,0.22494012579316852,rank,False
 1,3,Kelly Monaco,21.0,188336.63535392334,0.18833663535392334,rank,False
 1,3,Evander Holyfield,13.0,134461.23615923605,0.13446123615923605,rank,True
 1,3,Rachel Hunter,26.0,218618.72692562072,0.21861872692562073,rank,False
 1,3,Joey McIntyre,22.0,233643.2757680513,0.2336432757680513,rank,False
-1,4,John O'Hurley,21.0,230858.6595133008,0.2308586595133008,rank,False
-1,4,Kelly Monaco,26.0,273482.847316955,0.273482847316955,rank,False
-1,4,Rachel Hunter,25.0,246550.13235416086,0.24655013235416084,rank,True
-1,4,Joey McIntyre,20.0,249108.36081558323,0.24910836081558324,rank,False
-1,5,John O'Hurley,27.0,,,rank,
-1,5,Kelly Monaco,23.5,,,rank,
-1,5,Joey McIntyre,22.5,,,rank,
-1,6,John O'Hurley,27.0,,,rank,
-1,6,Kelly Monaco,27.5,,,rank,
-2,1,Tatum O'Neal,23.0,105026.9760961665,0.1050269760961665,rank,False
-2,1,Tia Carrere,20.0,103953.4636546429,0.10395346365464289,rank,False
-2,1,George Hamilton,18.0,101007.32911258745,0.10100732911258745,rank,False
-2,1,Lisa Rinna,19.0,103941.72978306045,0.10394172978306045,rank,False
-2,1,Stacy Keibler,22.0,116851.64309352628,0.11685164309352628,rank,False
-2,1,Jerry Rice,21.0,115129.33169264841,0.11512933169264841,rank,False
-2,1,Giselle Fernandez,23.0,112524.13564152799,0.112524135641528,rank,False
-2,1,Master P,12.0,68433.90077739354,0.06843390077739354,rank,False
-2,1,Drew Lachey,24.0,125001.40906374097,0.12500140906374096,rank,False
-2,1,Kenny Mayne,13.0,48130.0810847056,0.0481300810847056,rank,True
-2,2,Tatum O'Neal,17.0,73633.49519344971,0.07363349519344971,rank,True
-2,2,Tia Carrere,22.0,108463.87860674685,0.10846387860674685,rank,False
-2,2,George Hamilton,22.0,117099.87846749858,0.11709987846749859,rank,False
-2,2,Lisa Rinna,20.0,103781.44675928497,0.10378144675928497,rank,False
-2,2,Stacy Keibler,29.0,146104.47253537446,0.14610447253537445,rank,False
-2,2,Jerry Rice,23.0,119604.57077695742,0.11960457077695742,rank,False
-2,2,Giselle Fernandez,24.0,111373.70302110349,0.11137370302110348,rank,False
-2,2,Master P,16.0,86549.33377127867,0.08654933377127867,rank,False
-2,2,Drew Lachey,27.0,133389.22086830589,0.13338922086830587,rank,False
+1,4,John O'Hurley,21.0,230840.4156820407,0.2308404156820407,rank,False
+1,4,Kelly Monaco,26.0,273495.58110916294,0.27349558110916294,rank,False
+1,4,Rachel Hunter,25.0,246543.547865468,0.24654354786546798,rank,True
+1,4,Joey McIntyre,20.0,249120.4553433283,0.2491204553433283,rank,False
+1,5,John O'Hurley,27.0,373904.9892779962,0.3739049892779962,rank,False
+1,5,Kelly Monaco,23.5,317478.3944696229,0.3174783944696229,rank,False
+1,5,Joey McIntyre,22.5,308616.61625238083,0.30861661625238085,rank,False
+1,6,John O'Hurley,27.0,496086.46239689004,0.49608646239689,rank,False
+1,6,Kelly Monaco,27.5,503913.53760310996,0.50391353760311,rank,False
+2,1,Tatum O'Neal,23.0,105027.37074340618,0.10502737074340618,rank,False
+2,1,Tia Carrere,20.0,103952.28885134193,0.10395228885134193,rank,False
+2,1,George Hamilton,18.0,101005.69912596706,0.10100569912596706,rank,False
+2,1,Lisa Rinna,19.0,103939.92531180657,0.10393992531180657,rank,False
+2,1,Stacy Keibler,22.0,116855.0499901232,0.1168550499901232,rank,False
+2,1,Jerry Rice,21.0,115128.61629675023,0.11512861629675024,rank,False
+2,1,Giselle Fernandez,23.0,112526.31867422447,0.11252631867422447,rank,False
+2,1,Master P,12.0,68436.22995222155,0.06843622995222155,rank,False
+2,1,Drew Lachey,24.0,124999.67658349298,0.12499967658349298,rank,False
+2,1,Kenny Mayne,13.0,48128.8244706658,0.0481288244706658,rank,True
+2,2,Tatum O'Neal,17.0,73632.97956144383,0.07363297956144384,rank,True
+2,2,Tia Carrere,22.0,108463.79851177326,0.10846379851177326,rank,False
+2,2,George Hamilton,22.0,117101.39229640987,0.11710139229640987,rank,False
+2,2,Lisa Rinna,20.0,103783.34544256494,0.10378334544256494,rank,False
+2,2,Stacy Keibler,29.0,146103.692683601,0.146103692683601,rank,False
+2,2,Jerry Rice,23.0,119603.15253861279,0.1196031525386128,rank,False
+2,2,Giselle Fernandez,24.0,111374.71560441438,0.11137471560441438,rank,False
+2,2,Master P,16.0,86548.05442345169,0.08654805442345169,rank,False
+2,2,Drew Lachey,27.0,133388.8689377283,0.13338886893772828,rank,False
 2,3,Tia Carrere,26.0,138023.17185896877,0.13802317185896876,rank,False
 2,3,George Hamilton,22.0,128775.952483773,0.128775952483773,rank,False
 2,3,Lisa Rinna,25.0,141856.37386605013,0.14185637386605013,rank,False
@@ -65,18 +65,18 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 2,5,Stacy Keibler,30.0,196270.5482054837,0.1962705482054837,rank,False
 2,5,Jerry Rice,23.0,155316.03254862138,0.1553160325486214,rank,False
 2,5,Drew Lachey,27.0,173216.5193659858,0.17321651936598578,rank,False
-2,6,George Hamilton,23.0,179625.3755516187,0.1796253755516187,rank,True
-2,6,Lisa Rinna,27.0,205597.90057253133,0.20559790057253133,rank,False
-2,6,Stacy Keibler,30.0,221780.90030143753,0.22178090030143754,rank,False
-2,6,Jerry Rice,23.0,175518.5125718761,0.17551851257187612,rank,False
-2,6,Drew Lachey,30.0,217477.31100253627,0.21747731100253628,rank,False
-2,7,Lisa Rinna,26.5,263897.0737555409,0.2638970737555409,rank,True
-2,7,Stacy Keibler,27.5,267816.40192969283,0.26781640192969286,rank,False
-2,7,Jerry Rice,20.5,204388.39661046767,0.20438839661046768,rank,False
-2,7,Drew Lachey,27.5,263898.1277042985,0.2638981277042985,rank,False
-2,8,Stacy Keibler,28.6665,,,rank,
-2,8,Jerry Rice,26.666600000000003,,,rank,
-2,8,Drew Lachey,28.9998,,,rank,
+2,6,George Hamilton,23.0,179652.90624661362,0.17965290624661362,rank,True
+2,6,Lisa Rinna,27.0,205576.03878771217,0.20557603878771216,rank,False
+2,6,Stacy Keibler,30.0,221782.69649182085,0.22178269649182086,rank,False
+2,6,Jerry Rice,23.0,175496.65078705695,0.17549665078705695,rank,False
+2,6,Drew Lachey,30.0,217491.7076867965,0.2174917076867965,rank,False
+2,7,Lisa Rinna,26.5,263859.4487912938,0.26385944879129375,rank,True
+2,7,Stacy Keibler,27.5,267769.27985273994,0.26776927985273996,rank,False
+2,7,Jerry Rice,20.5,204495.25216485868,0.2044952521648587,rank,False
+2,7,Drew Lachey,27.5,263876.0191911077,0.2638760191911077,rank,False
+2,8,Stacy Keibler,28.6665,340666.5188317668,0.3406665188317668,rank,False
+2,8,Jerry Rice,26.666600000000003,314979.009310794,0.314979009310794,rank,False
+2,8,Drew Lachey,28.9998,344354.47185743914,0.34435447185743917,rank,False
 3,1,Harry Hamlin,17.0,91282.31413454081,0.09128231413454081,percent,False
 3,1,Vivica A. Fox,22.0,90575.85122137703,0.09057585122137703,percent,False
 3,1,Monique Coleman,19.0,93714.41275910885,0.09371441275910884,percent,False
@@ -122,11 +122,11 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 3,5,Willa Ford,27.0,97268.30075061553,0.09726830075061553,percent,True
 3,5,Sara Evans,24.0,113842.99601326854,0.11384299601326854,percent,False
 3,5,Jerry Springer,24.0,171301.70626030135,0.17130170626030133,percent,False
-3,6,Monique Coleman,23.0,,,percent,
-3,6,Joey Lawrence,24.0,,,percent,
-3,6,Mario Lopez,28.0,,,percent,
-3,6,Emmitt Smith,25.0,,,percent,
-3,6,Jerry Springer,18.0,,,percent,
+3,6,Monique Coleman,23.0,194002.05719138312,0.1940020571913831,percent,False
+3,6,Joey Lawrence,24.0,204311.7816229936,0.20431178162299363,percent,False
+3,6,Mario Lopez,28.0,241964.4981508506,0.24196449815085058,percent,False
+3,6,Emmitt Smith,25.0,213017.09499962808,0.2130170949996281,percent,False
+3,6,Jerry Springer,18.0,146704.56803514442,0.14670456803514442,percent,False
 3,7,Monique Coleman,27.0,200659.6110241404,0.2006596110241404,percent,False
 3,7,Joey Lawrence,28.5,217262.69774725937,0.21726269774725937,percent,False
 3,7,Mario Lopez,28.0,202393.47505265777,0.20239347505265776,percent,False
@@ -136,22 +136,22 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 3,8,Joey Lawrence,27.0,255058.2105426933,0.2550582105426933,percent,False
 3,8,Mario Lopez,28.5,255281.04692832087,0.2552810469283209,percent,False
 3,8,Emmitt Smith,27.0,245611.58532551973,0.24561158532551974,percent,False
-3,9,Joey Lawrence,29.5,,,percent,
-3,9,Mario Lopez,29.5,,,percent,
-3,9,Emmitt Smith,29.5,,,percent,
-3,10,Mario Lopez,29.666600000000003,,,percent,
-3,10,Emmitt Smith,29.666600000000003,,,percent,
-4,1,John Ratzenberger,17.0,,,percent,
-4,1,Ian Ziering,21.0,,,percent,
-4,1,Clyde Drexler,16.0,,,percent,
-4,1,Laila Ali,23.0,,,percent,
-4,1,Apolo Anton Ohno,21.0,,,percent,
-4,1,Shandi Finnessey,19.0,,,percent,
-4,1,Paulina Porizkova,19.0,,,percent,
-4,1,Heather Mills,18.0,,,percent,
-4,1,Billy Ray Cyrus,13.0,,,percent,
-4,1,Joey Fatone,24.0,,,percent,
-4,1,Leeza Gibbons,15.0,,,percent,
+3,9,Joey Lawrence,29.5,334622.5737123295,0.3346225737123295,percent,False
+3,9,Mario Lopez,29.5,332367.27548485104,0.332367275484851,percent,False
+3,9,Emmitt Smith,29.5,333010.1508028194,0.3330101508028194,percent,False
+3,10,Mario Lopez,29.666600000000003,499514.71526816575,0.49951471526816577,percent,False
+3,10,Emmitt Smith,29.666600000000003,500485.2847318343,0.5004852847318343,percent,False
+4,1,John Ratzenberger,17.0,82141.33430485912,0.08214133430485912,percent,False
+4,1,Ian Ziering,21.0,104113.74288707745,0.10411374288707745,percent,False
+4,1,Clyde Drexler,16.0,77300.52634952158,0.07730052634952157,percent,False
+4,1,Laila Ali,23.0,114638.3677219131,0.1146383677219131,percent,False
+4,1,Apolo Anton Ohno,21.0,103413.94060655471,0.1034139406065547,percent,False
+4,1,Shandi Finnessey,19.0,91535.95232556273,0.09153595232556273,percent,False
+4,1,Paulina Porizkova,19.0,90400.83760403782,0.09040083760403782,percent,False
+4,1,Heather Mills,18.0,85376.77893621115,0.08537677893621115,percent,False
+4,1,Billy Ray Cyrus,13.0,59741.14738651626,0.059741147386516265,percent,False
+4,1,Joey Fatone,24.0,120498.47494883758,0.12049847494883759,percent,False
+4,1,Leeza Gibbons,15.0,70838.89692890852,0.07083889692890852,percent,False
 4,2,John Ratzenberger,21.0,93459.56642443204,0.09345956642443204,percent,False
 4,2,Ian Ziering,22.0,95363.36819903458,0.09536336819903458,percent,False
 4,2,Clyde Drexler,18.0,77577.98387085875,0.07757798387085875,percent,False
@@ -212,9 +212,9 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 4,9,Laila Ali,30.0,250128.1947561404,0.2501281947561404,percent,False
 4,9,Apolo Anton Ohno,29.5,246935.720784739,0.24693572078473902,percent,False
 4,9,Joey Fatone,30.0,251781.015373918,0.251781015373918,percent,False
-4,10,Laila Ali,28.333200000000005,,,percent,
-4,10,Apolo Anton Ohno,29.3332,,,percent,
-4,10,Joey Fatone,28.6665,,,percent,
+4,10,Laila Ali,28.333200000000005,327236.6150601805,0.3272366150601805,percent,False
+4,10,Apolo Anton Ohno,29.3332,340702.39760230354,0.34070239760230353,percent,False
+4,10,Joey Fatone,28.6665,332060.9873375159,0.33206098733751593,percent,False
 5,1,Cameron Mathison,21.0,89918.50154035434,0.08991850154035434,percent,False
 5,1,Jane Seymour,24.0,98320.17338592687,0.09832017338592687,percent,False
 5,1,Sabrina Bryan,26.0,99375.75517988075,0.09937575517988076,percent,False
@@ -287,21 +287,21 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 5,9,Helio Castroneves,30.0,291091.9089421297,0.2910919089421297,percent,False
 5,9,Mel B,30.0,234055.2127914357,0.2340552127914357,percent,False
 5,9,Marie Osmond,28.0,241700.03416296138,0.24170003416296137,percent,False
-5,10,Helio Castroneves,27.999900000000004,,,percent,
-5,10,Mel B,28.333199999999998,,,percent,
-5,10,Marie Osmond,23.0,,,percent,
-6,1,Cristian de la Fuente,21.0,,,percent,
-6,1,Steve Guttenberg,18.0,,,percent,
-6,1,Priscilla Presley,24.0,,,percent,
-6,1,Marlee Matlin,22.0,,,percent,
-6,1,Shannon Elizabeth,21.0,,,percent,
-6,1,Marissa Jaret Winokur,18.0,,,percent,
-6,1,Jason Taylor,22.0,,,percent,
-6,1,Kristi Yamaguchi,27.0,,,percent,
-6,1,Monica Seles,15.0,,,percent,
-6,1,Penn Jillette,16.0,,,percent,
-6,1,Adam Carolla,15.0,,,percent,
-6,1,Mario,24.0,,,percent,
+5,10,Helio Castroneves,27.999900000000004,357364.3573995835,0.3573643573995835,percent,False
+5,10,Mel B,28.333199999999998,360084.93572992156,0.36008493572992156,percent,False
+5,10,Marie Osmond,23.0,282550.70687049505,0.28255070687049505,percent,False
+6,1,Cristian de la Fuente,21.0,87098.76981870434,0.08709876981870435,percent,False
+6,1,Steve Guttenberg,18.0,73214.71763252147,0.07321471763252146,percent,False
+6,1,Priscilla Presley,24.0,101441.03286399884,0.10144103286399885,percent,False
+6,1,Marlee Matlin,22.0,92678.03528001839,0.09267803528001839,percent,False
+6,1,Shannon Elizabeth,21.0,85840.82056325753,0.08584082056325752,percent,False
+6,1,Marissa Jaret Winokur,18.0,72914.95116448816,0.07291495116448815,percent,False
+6,1,Jason Taylor,22.0,92039.99465719853,0.09203999465719853,percent,False
+6,1,Kristi Yamaguchi,27.0,114666.14803293251,0.11466614803293251,percent,False
+6,1,Monica Seles,15.0,58639.67539577961,0.05863967539577961,percent,False
+6,1,Penn Jillette,16.0,61351.43921978577,0.06135143921978577,percent,False
+6,1,Adam Carolla,15.0,59614.68190776266,0.05961468190776266,percent,False
+6,1,Mario,24.0,100499.7334635522,0.1004997334635522,percent,False
 6,2,Cristian de la Fuente,20.0,81301.50110623907,0.08130150110623907,percent,False
 6,2,Steve Guttenberg,16.0,65978.08914890015,0.06597808914890015,percent,False
 6,2,Priscilla Presley,21.0,85515.24988779177,0.08551524988779177,percent,False
@@ -363,9 +363,9 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 6,9,Marissa Jaret Winokur,26.0,238062.06313489628,0.23806206313489628,percent,True
 6,9,Jason Taylor,27.5,260483.9367327586,0.2604839367327586,percent,False
 6,9,Kristi Yamaguchi,28.5,240674.50706909108,0.24067450706909108,percent,False
-6,10,Cristian de la Fuente,26.0,,,percent,
-6,10,Jason Taylor,28.5,,,percent,
-6,10,Kristi Yamaguchi,30.0,,,percent,
+6,10,Cristian de la Fuente,26.0,305265.9712829973,0.30526597128299726,percent,False
+6,10,Jason Taylor,28.5,339659.93817531486,0.33965993817531487,percent,False
+6,10,Kristi Yamaguchi,30.0,355074.0905416878,0.3550740905416878,percent,False
 7,1,Ted McGinley,18.5,50754.26961181105,0.050754269611811044,percent,True
 7,1,Cloris Leachman,16.0,74764.47504500083,0.07476447504500083,percent,False
 7,1,Susan Lucci,18.5,76710.95403106193,0.07671095403106193,percent,False
@@ -390,15 +390,15 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 7,2,Kim Kardashian,17.0,59887.87561672914,0.05988787561672914,percent,True
 7,2,Rocco DiSpirito,16.0,97336.34295930831,0.09733634295930832,percent,False
 7,2,Brooke Burke,24.0,101078.93459598627,0.10107893459598627,percent,False
-7,3,Cloris Leachman,16.0,,,percent,
-7,3,Susan Lucci,21.0,,,percent,
-7,3,Cody Linley,21.0,,,percent,
-7,3,Maurice Greene,24.0,,,percent,
-7,3,Warren Sapp,25.0,,,percent,
-7,3,Toni Braxton,22.0,,,percent,
-7,3,Lance Bass,22.0,,,percent,
-7,3,Rocco DiSpirito,20.0,,,percent,
-7,3,Brooke Burke,28.0,,,percent,
+7,3,Cloris Leachman,16.0,78259.25600746895,0.07825925600746896,percent,False
+7,3,Susan Lucci,21.0,104876.84025674162,0.10487684025674161,percent,False
+7,3,Cody Linley,21.0,104532.01307850186,0.10453201307850185,percent,False
+7,3,Maurice Greene,24.0,122214.37769849584,0.12221437769849584,percent,False
+7,3,Warren Sapp,25.0,127997.8825078734,0.1279978825078734,percent,False
+7,3,Toni Braxton,22.0,108480.59065832956,0.10848059065832956,percent,False
+7,3,Lance Bass,22.0,110641.35838419049,0.1106413583841905,percent,False
+7,3,Rocco DiSpirito,20.0,99113.30387905879,0.09911330387905878,percent,False
+7,3,Brooke Burke,28.0,143884.3775293396,0.1438843775293396,percent,False
 7,4,Cloris Leachman,22.0,124212.10028668732,0.12421210028668732,percent,False
 7,4,Susan Lucci,24.0,120243.8342042845,0.1202438342042845,percent,False
 7,4,Cody Linley,23.0,112265.32227253882,0.11226532227253881,percent,False
@@ -438,22 +438,22 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 7,9,Warren Sapp,24.5,251583.2554143731,0.2515832554143731,percent,False
 7,9,Lance Bass,28.5,292663.23099011235,0.2926632309901124,percent,False
 7,9,Brooke Burke,24.5,226571.88750691598,0.22657188750691598,percent,False
-7,10,Warren Sapp,27.5,,,percent,
-7,10,Lance Bass,27.5,,,percent,
-7,10,Brooke Burke,30.0,,,percent,
-8,1,Gilles Marini,24.0,,,percent,
-8,1,Denise Richards,18.0,,,percent,
-8,1,David Alan Grier,19.0,,,percent,
-8,1,Lawrence Taylor,16.0,,,percent,
-8,1,Ty Murray,14.0,,,percent,
-8,1,Shawn Johnson,23.0,,,percent,
-8,1,Steve Wozniak,13.0,,,percent,
-8,1,Belinda Carlisle,17.0,,,percent,
-8,1,Chuck Wicks,20.0,,,percent,
-8,1,Lil' Kim,21.0,,,percent,
-8,1,Steve-O,17.0,,,percent,
-8,1,Holly Madison,18.0,,,percent,
-8,1,Melissa Rycroft,23.0,,,percent,
+7,10,Warren Sapp,27.5,323586.34680410393,0.3235863468041039,percent,False
+7,10,Lance Bass,27.5,323587.07603511726,0.32358707603511727,percent,False
+7,10,Brooke Burke,30.0,352826.57716077886,0.35282657716077886,percent,False
+8,1,Gilles Marini,24.0,102660.58216441965,0.10266058216441966,percent,False
+8,1,Denise Richards,18.0,73495.89584536734,0.07349589584536734,percent,False
+8,1,David Alan Grier,19.0,78631.39107426128,0.07863139107426127,percent,False
+8,1,Lawrence Taylor,16.0,64825.68496198157,0.06482568496198157,percent,False
+8,1,Ty Murray,14.0,55392.77711243225,0.055392777112432255,percent,False
+8,1,Shawn Johnson,23.0,96650.4371346425,0.0966504371346425,percent,False
+8,1,Steve Wozniak,13.0,51257.87216373804,0.05125787216373804,percent,False
+8,1,Belinda Carlisle,17.0,68120.72493145765,0.06812072493145764,percent,False
+8,1,Chuck Wicks,20.0,82445.82107926044,0.08244582107926043,percent,False
+8,1,Lil' Kim,21.0,86379.0626415713,0.0863790626415713,percent,False
+8,1,Steve-O,17.0,69615.37863882375,0.06961537863882375,percent,False
+8,1,Holly Madison,18.0,72918.5881252219,0.0729185881252219,percent,False
+8,1,Melissa Rycroft,23.0,97605.78412682239,0.09760578412682239,percent,False
 8,2,Gilles Marini,27.0,106244.14072389688,0.10624414072389689,percent,False
 8,2,Denise Richards,21.0,77961.27495048844,0.07796127495048844,percent,False
 8,2,David Alan Grier,17.0,69355.32866832206,0.06935532866832207,percent,False
@@ -529,9 +529,9 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 8,10,Ty Murray,24.0,221287.60436301265,0.22128760436301265,percent,True
 8,10,Shawn Johnson,28.0,239739.94826109015,0.23973994826109016,percent,False
 8,10,Melissa Rycroft,27.5,255680.77705148896,0.25568077705148895,percent,False
-8,11,Gilles Marini,29.0,,,percent,
-8,11,Shawn Johnson,30.0,,,percent,
-8,11,Melissa Rycroft,28.5,,,percent,
+8,11,Gilles Marini,29.0,332731.8954430739,0.33273189544307386,percent,False
+8,11,Shawn Johnson,30.0,341711.2786853059,0.34171127868530593,percent,False
+8,11,Melissa Rycroft,28.5,325556.82587162027,0.32555682587162027,percent,False
 9,1,Ashley Hamiliton,18.9999,49428.07112776086,0.049428071127760854,percent,True
 9,1,Debi Mazar,22.0,54080.5181921669,0.0540805181921669,percent,False
 9,1,Melissa Joan Hart,24.0,57429.75130821808,0.057429751308218084,percent,False
@@ -621,20 +621,20 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 9,9,Mya,28.9999,259181.60122294366,0.25918160122294365,percent,False
 9,9,Donny Osmond,24.666600000000003,246212.05327523124,0.24621205327523124,percent,False
 9,9,Kelly Osbourne,25.9998,270270.14639343816,0.27027014639343816,percent,False
-9,10,Mya,28.333199999999998,,,percent,
-9,10,Donny Osmond,28.9998,,,percent,
-9,10,Kelly Osbourne,25.2222,,,percent,
-10,1,Aiden Turner,15.0,,,percent,
-10,1,Shannen Doherty,18.0,,,percent,
-10,1,Niecy Nash,18.0,,,percent,
-10,1,Buzz Aldrin,14.0,,,percent,
-10,1,Chad Ochocinco,18.0,,,percent,
-10,1,Evan Lysacek,23.0,,,percent,
-10,1,Pamela Anderson,21.0,,,percent,
-10,1,Nicole Scherzinger,25.0,,,percent,
-10,1,Erin Andrews,21.0,,,percent,
-10,1,Kate Gosselin,16.0,,,percent,
-10,1,Jake Pavelka,20.0,,,percent,
+9,10,Mya,28.333199999999998,340625.4230727926,0.3406254230727926,percent,False
+9,10,Donny Osmond,28.9998,354726.39768505597,0.354726397685056,percent,False
+9,10,Kelly Osbourne,25.2222,304648.1792421514,0.3046481792421514,percent,False
+10,1,Aiden Turner,15.0,69917.065349256,0.069917065349256,percent,False
+10,1,Shannen Doherty,18.0,84801.51793309572,0.08480151793309572,percent,False
+10,1,Niecy Nash,18.0,85741.66266753736,0.08574166266753735,percent,False
+10,1,Buzz Aldrin,14.0,65748.04246354928,0.06574804246354929,percent,False
+10,1,Chad Ochocinco,18.0,85605.32211286119,0.08560532211286119,percent,False
+10,1,Evan Lysacek,23.0,113405.21336176313,0.11340521336176314,percent,False
+10,1,Pamela Anderson,21.0,100326.24773370274,0.10032624773370274,percent,False
+10,1,Nicole Scherzinger,25.0,122210.13436833156,0.12221013436833157,percent,False
+10,1,Erin Andrews,21.0,100919.62960446684,0.10091962960446685,percent,False
+10,1,Kate Gosselin,16.0,74815.19051210294,0.07481519051210295,percent,False
+10,1,Jake Pavelka,20.0,96509.97389333311,0.09650997389333311,percent,False
 10,2,Aiden Turner,19.0,88387.03645048193,0.08838703645048193,percent,False
 10,2,Shannen Doherty,20.0,31807.90150412107,0.03180790150412107,percent,True
 10,2,Niecy Nash,21.0,99684.8312765006,0.0996848312765006,percent,False
@@ -695,9 +695,9 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 10,9,Evan Lysacek,29.5,280880.6147600724,0.28088061476007237,percent,False
 10,9,Nicole Scherzinger,29.5,235348.63338904726,0.23534863338904727,percent,False
 10,9,Erin Andrews,28.0,239767.06478968868,0.23976706478968868,percent,False
-10,10,Evan Lysacek,26.888699999999996,,,percent,
-10,10,Nicole Scherzinger,28.7777,,,percent,
-10,10,Erin Andrews,26.9998,,,percent,
+10,10,Evan Lysacek,26.888699999999996,327970.4288100294,0.3279704288100294,percent,False
+10,10,Nicole Scherzinger,28.7777,346863.3641436877,0.34686336414368774,percent,False
+10,10,Erin Andrews,26.9998,325166.2070462829,0.3251662070462829,percent,False
 11,1,David Hasselhoff,15.0,66399.22706080077,0.06639922706080077,percent,True
 11,1,Florence Henderson,18.0,89477.34935221207,0.08947734935221206,percent,False
 11,1,Kyle Massey,23.0,106636.53624606768,0.10663653624606768,percent,False
@@ -770,20 +770,20 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 11,9,Jennifer Grey,30.0,251969.9242038711,0.2519699242038711,percent,False
 11,9,Brandy,28.5,225967.0826832566,0.2259670826832566,percent,True
 11,9,Bristol Palin,26.5,243512.73203309643,0.24351273203309642,percent,False
-11,10,Kyle Massey,27.333199999999998,,,percent,
-11,10,Jennifer Grey,30.0,,,percent,
-11,10,Bristol Palin,25.666600000000003,,,percent,
-12,1,Ralph Macchio,24.0,,,percent,
-12,1,Chelsea Kane,21.0,,,percent,
-12,1,Kirstie Alley,23.0,,,percent,
-12,1,Hines Ward,21.0,,,percent,
-12,1,Sugar Ray Leonard,17.0,,,percent,
-12,1,Chris Jericho,19.0,,,percent,
-12,1,Petra Nemcova,18.0,,,percent,
-12,1,Mike Catherwood,13.0,,,percent,
-12,1,Romeo,19.0,,,percent,
-12,1,Wendy Williams,14.0,,,percent,
-12,1,Kendra Wilkinson,18.0,,,percent,
+11,10,Kyle Massey,27.333199999999998,332417.8955515826,0.33241789555158263,percent,False
+11,10,Jennifer Grey,30.0,362738.24873221817,0.36273824873221816,percent,False
+11,10,Bristol Palin,25.666600000000003,304843.85571619915,0.30484385571619915,percent,False
+12,1,Ralph Macchio,24.0,119829.83892711671,0.11982983892711671,percent,False
+12,1,Chelsea Kane,21.0,102147.01789432488,0.10214701789432487,percent,False
+12,1,Kirstie Alley,23.0,113824.38714028575,0.11382438714028575,percent,False
+12,1,Hines Ward,21.0,103059.83547081467,0.10305983547081467,percent,False
+12,1,Sugar Ray Leonard,17.0,81184.94705546284,0.08118494705546284,percent,False
+12,1,Chris Jericho,19.0,91976.78776905546,0.09197678776905546,percent,False
+12,1,Petra Nemcova,18.0,84366.3120290667,0.08436631202906669,percent,False
+12,1,Mike Catherwood,13.0,60646.17845733225,0.06064617845733225,percent,False
+12,1,Romeo,19.0,91399.02475043321,0.09139902475043321,percent,False
+12,1,Wendy Williams,14.0,64929.40162082288,0.06492940162082288,percent,False
+12,1,Kendra Wilkinson,18.0,86636.26888528462,0.08663626888528461,percent,False
 12,2,Ralph Macchio,21.0,97786.4438826844,0.0977864438826844,percent,False
 12,2,Chelsea Kane,18.0,85078.18048241193,0.08507818048241193,percent,False
 12,2,Kirstie Alley,20.0,90941.37242582343,0.09094137242582342,percent,False
@@ -844,9 +844,9 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 12,9,Chelsea Kane,36.5,298462.65045055683,0.2984626504505568,percent,False
 12,9,Kirstie Alley,27.0,229093.29211155235,0.22909329211155235,percent,False
 12,9,Hines Ward,30.0,263980.94926451857,0.26398094926451854,percent,False
-12,10,Chelsea Kane,29.666600000000003,,,percent,
-12,10,Kirstie Alley,27.999899999999997,,,percent,
-12,10,Hines Ward,29.666600000000003,,,percent,
+12,10,Chelsea Kane,29.666600000000003,339043.43444419384,0.3390434344441938,percent,False
+12,10,Kirstie Alley,27.999899999999997,318840.467375219,0.318840467375219,percent,False
+12,10,Hines Ward,29.666600000000003,342116.0981805872,0.34211609818058725,percent,False
 13,1,Elisabetta Canalis,15.0,65289.9019449594,0.0652899019449594,percent,False
 13,1,David Arquette,18.0,85021.17222829013,0.08502117222829013,percent,False
 13,1,Ricki Lake,20.0,84039.8573410319,0.08403985734103189,percent,False
@@ -919,21 +919,21 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 13,9,J.R. Martinez,28.0,242241.9763822181,0.2422419763822181,percent,False
 13,9,Hope Solo,24.4998,204766.98760051708,0.2047669876005171,percent,True
 13,9,Rob Kardashian,32.4998,289011.0695072733,0.28901106950727334,percent,False
-13,10,Ricki Lake,27.999899999999997,,,percent,
-13,10,J.R. Martinez,28.1665,,,percent,
-13,10,Rob Kardashian,28.333199999999998,,,percent,
-14,1,William Levy,24.0,,,percent,
-14,1,Jack Wagner,23.0,,,percent,
-14,1,Sherri Sheperd,23.0,,,percent,
-14,1,Jaleel White,26.0,,,percent,
-14,1,Roshon Fegan,23.0,,,percent,
-14,1,Melissa Gilbert,20.0,,,percent,
-14,1,Martina Navratilova,20.0,,,percent,
-14,1,Donald Driver,21.0,,,percent,
-14,1,Gavin DeGraw,20.0,,,percent,
-14,1,Gladys Knight,23.0,,,percent,
-14,1,Katherine Jenkins,26.0,,,percent,
-14,1,Maria Menounos,21.0,,,percent,
+13,10,Ricki Lake,27.999899999999997,328203.36267263663,0.3282033626726366,percent,False
+13,10,J.R. Martinez,28.1665,334181.37009035243,0.3341813700903524,percent,False
+13,10,Rob Kardashian,28.333199999999998,337615.26723701094,0.33761526723701096,percent,False
+14,1,William Levy,24.0,90032.84868917924,0.09003284868917924,percent,False
+14,1,Jack Wagner,23.0,85928.12004619351,0.0859281200461935,percent,False
+14,1,Sherri Sheperd,23.0,84883.7099620722,0.0848837099620722,percent,False
+14,1,Jaleel White,26.0,98605.95745299857,0.09860595745299856,percent,False
+14,1,Roshon Fegan,23.0,85626.53039953625,0.08562653039953624,percent,False
+14,1,Melissa Gilbert,20.0,72688.05787546045,0.07268805787546045,percent,False
+14,1,Martina Navratilova,20.0,72886.87653005132,0.07288687653005131,percent,False
+14,1,Donald Driver,21.0,77406.40569437582,0.07740640569437582,percent,False
+14,1,Gavin DeGraw,20.0,72461.61288839804,0.07246161288839804,percent,False
+14,1,Gladys Knight,23.0,86231.18646023187,0.08623118646023187,percent,False
+14,1,Katherine Jenkins,26.0,97035.23264758044,0.09703523264758045,percent,False
+14,1,Maria Menounos,21.0,76213.46135392241,0.0762134613539224,percent,False
 14,2,William Levy,25.0,96537.81382439687,0.09653781382439687,percent,False
 14,2,Jack Wagner,21.0,82259.85276973185,0.08225985276973186,percent,False
 14,2,Sherri Sheperd,23.0,81642.97136067224,0.08164297136067224,percent,False
@@ -1001,9 +1001,9 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 14,9,Donald Driver,28.5,264649.37499777175,0.26464937499777175,percent,False
 14,9,Katherine Jenkins,28.0,240100.9914523518,0.24010099145235178,percent,False
 14,9,Maria Menounos,29.5,227055.74943874177,0.22705574943874177,percent,True
-14,10,William Levy,29.666600000000003,,,percent,
-14,10,Donald Driver,29.666600000000003,,,percent,
-14,10,Katherine Jenkins,30.0,,,percent,
+14,10,William Levy,29.666600000000003,333660.62098683516,0.33366062098683513,percent,False
+14,10,Donald Driver,29.666600000000003,334001.4127744374,0.3340014127744374,percent,False
+14,10,Katherine Jenkins,30.0,332337.9662387274,0.3323379662387274,percent,False
 15,1,Gilles Marini,24.0,91711.0275574766,0.0917110275574766,percent,False
 15,1,Sabrina Bryan,22.5,84567.79028194363,0.08456779028194363,percent,False
 15,1,Kirstie Alley,19.0,67849.86401438087,0.06784986401438087,percent,False
@@ -1049,14 +1049,14 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 15,4,Shawn Johnson,39.5,119814.55952121326,0.11981455952121325,percent,False
 15,4,Bristol Palin,32.0,90381.17580995591,0.0903811758099559,percent,True
 15,4,Melissa Rycroft,37.0,116832.93786066824,0.11683293786066824,percent,False
-15,5,Gilles Marini,28.25,,,percent,
-15,5,Sabrina Bryan,29.25,,,percent,
-15,5,Kirstie Alley,26.25,,,percent,
-15,5,Kelly Monaco,25.75,,,percent,
-15,5,Apolo Anton Ohno,28.25,,,percent,
-15,5,Emmitt Smith,28.0,,,percent,
-15,5,Shawn Johnson,28.25,,,percent,
-15,5,Melissa Rycroft,28.25,,,percent,
+15,5,Gilles Marini,28.25,128283.15765422385,0.12828315765422385,percent,False
+15,5,Sabrina Bryan,29.25,133185.7338562457,0.1331857338562457,percent,False
+15,5,Kirstie Alley,26.25,116976.54145849944,0.11697654145849945,percent,False
+15,5,Kelly Monaco,25.75,113955.02849783718,0.11395502849783717,percent,False
+15,5,Apolo Anton Ohno,28.25,127387.45904383858,0.12738745904383858,percent,False
+15,5,Emmitt Smith,28.0,126520.2041007403,0.1265202041007403,percent,False
+15,5,Shawn Johnson,28.25,125963.79732075219,0.1259637973207522,percent,False
+15,5,Melissa Rycroft,28.25,127728.07806786257,0.12772807806786257,percent,False
 15,6,Gilles Marini,27.5,153811.18956834858,0.15381118956834858,percent,False
 15,6,Sabrina Bryan,30.0,95636.05190140133,0.09563605190140133,percent,True
 15,6,Kirstie Alley,27.5,124764.25182138057,0.12476425182138057,percent,False
@@ -1065,13 +1065,13 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 15,6,Emmitt Smith,26.5,111196.78339426413,0.11119678339426413,percent,False
 15,6,Shawn Johnson,28.0,116241.21716876792,0.11624121716876792,percent,False
 15,6,Melissa Rycroft,29.5,137441.95670690172,0.1374419567069017,percent,False
-15,7,Gilles Marini,33.4998,,,percent,
-15,7,Kirstie Alley,27.999899999999997,,,percent,
-15,7,Kelly Monaco,36.0,,,percent,
-15,7,Apolo Anton Ohno,33.0,,,percent,
-15,7,Emmitt Smith,34.4999,,,percent,
-15,7,Shawn Johnson,37.9998,,,percent,
-15,7,Melissa Rycroft,38.9999,,,percent,
+15,7,Gilles Marini,33.4998,138813.67391125133,0.13881367391125132,percent,False
+15,7,Kirstie Alley,27.999899999999997,112193.42950985477,0.11219342950985477,percent,False
+15,7,Kelly Monaco,36.0,148763.94101416937,0.14876394101416937,percent,False
+15,7,Apolo Anton Ohno,33.0,135494.30426240398,0.13549430426240397,percent,False
+15,7,Emmitt Smith,34.4999,143008.1207710637,0.1430081207710637,percent,False
+15,7,Shawn Johnson,37.9998,157371.34776934242,0.15737134776934242,percent,False
+15,7,Melissa Rycroft,38.9999,164355.18276191456,0.16435518276191458,percent,False
 15,8,Gilles Marini,29.2777,105418.56125545345,0.10541856125545344,percent,True
 15,8,Kirstie Alley,25.5,127528.00573196463,0.12752800573196463,percent,True
 15,8,Kelly Monaco,28.3333,162900.16978480353,0.16290016978480354,percent,False
@@ -1084,33 +1084,33 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 15,9,Emmitt Smith,27.0,197479.9739493652,0.1974799739493652,percent,True
 15,9,Shawn Johnson,29.5,187687.83337053272,0.18768783337053271,percent,False
 15,9,Melissa Rycroft,28.7777,216248.84530713494,0.21624884530713492,percent,False
-15,10,Kelly Monaco,29.1109,,,percent,
-15,10,Shawn Johnson,28.944300000000002,,,percent,
-15,10,Melissa Rycroft,29.333099999999998,,,percent,
-16,1,Ingo Rademacher,20.0,,,percent,
-16,1,Zendaya,24.0,,,percent,
-16,1,Dorothy Hamill,21.0,,,percent,
-16,1,Victor Ortiz,18.0,,,percent,
-16,1,Alexandra Raisman,21.0,,,percent,
-16,1,Jacoby Jones,20.0,,,percent,
-16,1,D. L. Hughley,12.0,,,percent,
-16,1,Andy Dick,17.0,,,percent,
-16,1,Wynonna Judd,18.0,,,percent,
-16,1,Kellie Pickler,21.0,,,percent,
-16,1,Lisa Vanderpump,18.0,,,percent,
-16,1,Sean Lowe,19.0,,,percent,
-16,2,Ingo Rademacher,20.0,,,percent,
-16,2,Zendaya,26.0,,,percent,
-16,2,Dorothy Hamill,15.0,,,percent,
-16,2,Victor Ortiz,18.0,,,percent,
-16,2,Alexandra Raisman,24.0,,,percent,
-16,2,Jacoby Jones,23.0,,,percent,
-16,2,D. L. Hughley,16.0,,,percent,
-16,2,Andy Dick,20.0,,,percent,
-16,2,Wynonna Judd,18.0,,,percent,
-16,2,Kellie Pickler,26.0,,,percent,
-16,2,Lisa Vanderpump,18.0,,,percent,
-16,2,Sean Lowe,20.0,,,percent,
+15,10,Kelly Monaco,29.1109,332745.6483167236,0.3327456483167236,percent,False
+15,10,Shawn Johnson,28.944300000000002,328738.73479712976,0.3287387347971298,percent,False
+15,10,Melissa Rycroft,29.333099999999998,338515.61688614666,0.3385156168861467,percent,False
+16,1,Ingo Rademacher,20.0,87942.92039580007,0.08794292039580007,percent,False
+16,1,Zendaya,24.0,107223.49310439313,0.10722349310439312,percent,False
+16,1,Dorothy Hamill,21.0,93915.78187161293,0.09391578187161292,percent,False
+16,1,Victor Ortiz,18.0,78201.65891932843,0.07820165891932843,percent,False
+16,1,Alexandra Raisman,21.0,91907.1606436733,0.0919071606436733,percent,False
+16,1,Jacoby Jones,20.0,87565.50335830793,0.08756550335830793,percent,False
+16,1,D. L. Hughley,12.0,49768.80689600815,0.04976880689600815,percent,False
+16,1,Andy Dick,17.0,74140.09612082154,0.07414009612082155,percent,False
+16,1,Wynonna Judd,18.0,77382.61507001829,0.0773826150700183,percent,False
+16,1,Kellie Pickler,21.0,91137.38194982086,0.09113738194982086,percent,False
+16,1,Lisa Vanderpump,18.0,77627.69122816858,0.07762769122816858,percent,False
+16,1,Sean Lowe,19.0,83186.89044204688,0.08318689044204687,percent,False
+16,2,Ingo Rademacher,20.0,81796.02073011956,0.08179602073011956,percent,False
+16,2,Zendaya,26.0,109255.97347381384,0.10925597347381384,percent,False
+16,2,Dorothy Hamill,15.0,59589.85037939384,0.05958985037939384,percent,False
+16,2,Victor Ortiz,18.0,72742.50969840967,0.07274250969840967,percent,False
+16,2,Alexandra Raisman,24.0,99549.07565166494,0.09954907565166494,percent,False
+16,2,Jacoby Jones,23.0,95515.10796151747,0.09551510796151746,percent,False
+16,2,D. L. Hughley,16.0,64185.55413013599,0.06418555413013599,percent,False
+16,2,Andy Dick,20.0,82969.89124029833,0.08296989124029833,percent,False
+16,2,Wynonna Judd,18.0,71972.71398435486,0.07197271398435487,percent,False
+16,2,Kellie Pickler,26.0,108188.92419215466,0.10818892419215466,percent,False
+16,2,Lisa Vanderpump,18.0,72203.0540037812,0.0722030540037812,percent,False
+16,2,Sean Lowe,20.0,82031.3245543557,0.0820313245543557,percent,False
 16,3,Ingo Rademacher,21.0,91799.70395916954,0.09179970395916953,percent,False
 16,3,Zendaya,25.9998,104735.07959155626,0.10473507959155626,percent,False
 16,3,Victor Ortiz,23.0,102625.43971045605,0.10262543971045605,percent,False
@@ -1171,18 +1171,18 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 16,10,Alexandra Raisman,29.0,246491.0778542292,0.2464910778542292,percent,True
 16,10,Jacoby Jones,27.999899999999997,255038.99763701664,0.25503899763701665,percent,False
 16,10,Kellie Pickler,30.0,241138.32023306578,0.24113832023306578,percent,False
-17,1,Valerie Harper,21.0,,,percent,
-17,1,Brant Daugherty,22.0,,,percent,
-17,1,Elizabeth Berkley Lauren,24.0,,,percent,
-17,1,Leah Remini,21.0,,,percent,
-17,1,Corbin Bleu,24.0,,,percent,
-17,1,Amber Riley,27.0,,,percent,
-17,1,Keyshawn Johnson,17.0,,,percent,
-17,1,Bill Engvall,18.0,,,percent,
-17,1,Christina Milian,22.0,,,percent,
-17,1,"Nicole ""Snooki"" Polizzi",23.0,,,percent,
-17,1,Jack Osbourne,23.0,,,percent,
-17,1,Bill Nye,14.0,,,percent,
+17,1,Valerie Harper,21.0,82775.54220784768,0.08277554220784768,percent,False
+17,1,Brant Daugherty,22.0,86508.71986978773,0.08650871986978773,percent,False
+17,1,Elizabeth Berkley Lauren,24.0,94339.48158378132,0.09433948158378132,percent,False
+17,1,Leah Remini,21.0,81672.33293367947,0.08167233293367947,percent,False
+17,1,Corbin Bleu,24.0,94999.5011390715,0.09499950113907149,percent,False
+17,1,Amber Riley,27.0,107498.96682236633,0.10749896682236633,percent,False
+17,1,Keyshawn Johnson,17.0,64460.801360224235,0.06446080136022424,percent,False
+17,1,Bill Engvall,18.0,69728.53637412062,0.06972853637412062,percent,False
+17,1,Christina Milian,22.0,84887.93144076296,0.08488793144076295,percent,False
+17,1,"Nicole ""Snooki"" Polizzi",23.0,90520.46181931027,0.09052046181931027,percent,False
+17,1,Jack Osbourne,23.0,90809.16761866491,0.09080916761866491,percent,False
+17,1,Bill Nye,14.0,51798.55683038301,0.05179855683038301,percent,False
 17,2,Valerie Harper,19.0,79263.71606289531,0.07926371606289531,percent,False
 17,2,Brant Daugherty,23.0,89493.24905994158,0.08949324905994158,percent,False
 17,2,Elizabeth Berkley Lauren,25.0,87611.75708098442,0.08761175708098441,percent,False
@@ -1225,14 +1225,14 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 17,5,Christina Milian,28.0,80657.33639739506,0.08065733639739506,percent,True
 17,5,"Nicole ""Snooki"" Polizzi",27.0,125635.61433974747,0.12563561433974746,percent,False
 17,5,Jack Osbourne,27.0,119865.94017861463,0.11986594017861463,percent,False
-17,6,Brant Daugherty,31.0,,,percent,
-17,6,Elizabeth Berkley Lauren,31.9998,,,percent,
-17,6,Leah Remini,27.999899999999997,,,percent,
-17,6,Corbin Bleu,26.999899999999997,,,percent,
-17,6,Amber Riley,31.999899999999997,,,percent,
-17,6,Bill Engvall,23.9999,,,percent,
-17,6,"Nicole ""Snooki"" Polizzi",30.0,,,percent,
-17,6,Jack Osbourne,26.9998,,,percent,
+17,6,Brant Daugherty,31.0,136106.32149674915,0.13610632149674914,percent,False
+17,6,Elizabeth Berkley Lauren,31.9998,139362.09955430828,0.13936209955430828,percent,False
+17,6,Leah Remini,27.999899999999997,120653.19753418633,0.12065319753418632,percent,False
+17,6,Corbin Bleu,26.999899999999997,115623.7934297624,0.11562379342976241,percent,False
+17,6,Amber Riley,31.999899999999997,138798.22335006009,0.1387982233500601,percent,False
+17,6,Bill Engvall,23.9999,103013.16486099295,0.10301316486099295,percent,False
+17,6,"Nicole ""Snooki"" Polizzi",30.0,130413.38382671839,0.13041338382671838,percent,False
+17,6,Jack Osbourne,26.9998,116029.81594722244,0.11602981594722243,percent,False
 17,7,Brant Daugherty,28.5,132362.34125962196,0.13236234125962196,percent,False
 17,7,Elizabeth Berkley Lauren,27.0,135272.53523608862,0.13527253523608862,percent,False
 17,7,Leah Remini,26.5,130739.52167112232,0.13073952167112232,percent,False
@@ -1263,18 +1263,18 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 17,11,Amber Riley,31.333199999999998,245530.07863675692,0.2455300786367569,percent,False
 17,11,Bill Engvall,25.499899999999997,251634.77877365865,0.25163477877365864,percent,True
 17,11,Jack Osbourne,27.999899999999997,247606.91108466263,0.24760691108466262,percent,False
-18,1,Billy Dee Williams,15.0,,,percent,
-18,1,Danica McKellar,24.0,,,percent,
-18,1,James Maslow,21.0,,,percent,
-18,1,Candace Cameron Bure,25.0,,,percent,
-18,1,Sean Avery,20.0,,,percent,
-18,1,Diana Nyad,18.0,,,percent,
-18,1,Charlie White,27.0,,,percent,
-18,1,Amy Purdy,24.0,,,percent,
-18,1,Meryl Davis,24.0,,,percent,
-18,1,Drew Carey,21.0,,,percent,
-18,1,Cody Simpson,22.0,,,percent,
-18,1,NeNe Leakes,21.0,,,percent,
+18,1,Billy Dee Williams,15.0,54839.64291666982,0.054839642916669824,percent,False
+18,1,Danica McKellar,24.0,92252.12058948207,0.09225212058948208,percent,False
+18,1,James Maslow,21.0,80247.18313463233,0.08024718313463233,percent,False
+18,1,Candace Cameron Bure,25.0,96627.59031919319,0.09662759031919319,percent,False
+18,1,Sean Avery,20.0,75372.06327105201,0.07537206327105202,percent,False
+18,1,Diana Nyad,18.0,65170.3975419915,0.0651703975419915,percent,False
+18,1,Charlie White,27.0,106786.9959471352,0.1067869959471352,percent,False
+18,1,Amy Purdy,24.0,91750.01221047713,0.09175001221047713,percent,False
+18,1,Meryl Davis,24.0,92513.0295682619,0.0925130295682619,percent,False
+18,1,Drew Carey,21.0,80941.66997714418,0.08094166997714418,percent,False
+18,1,Cody Simpson,22.0,83603.66283002174,0.08360366283002174,percent,False
+18,1,NeNe Leakes,21.0,79895.631693939,0.079895631693939,percent,False
 18,2,Billy Dee Williams,15.0,69954.6242461402,0.0699546242461402,percent,False
 18,2,Danica McKellar,24.0,97238.5338197339,0.0972385338197339,percent,False
 18,2,James Maslow,25.0,102659.28379547139,0.10265928379547139,percent,False
@@ -1286,24 +1286,24 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 18,2,Drew Carey,21.0,96045.50564020626,0.09604550564020627,percent,False
 18,2,Cody Simpson,22.0,93431.74115042432,0.09343174115042432,percent,False
 18,2,NeNe Leakes,21.0,93127.06793390273,0.09312706793390273,percent,False
-18,3,Danica McKellar,36.0,,,percent,
-18,3,James Maslow,36.0,,,percent,
-18,3,Candace Cameron Bure,32.0,,,percent,
-18,3,Charlie White,36.0,,,percent,
-18,3,Amy Purdy,36.0,,,percent,
-18,3,Meryl Davis,39.0,,,percent,
-18,3,Drew Carey,30.0,,,percent,
-18,3,Cody Simpson,35.0,,,percent,
-18,3,NeNe Leakes,31.0,,,percent,
-18,4,Danica McKellar,32.0,,,percent,
-18,4,James Maslow,35.0,,,percent,
-18,4,Candace Cameron Bure,28.0,,,percent,
-18,4,Charlie White,33.0,,,percent,
-18,4,Amy Purdy,34.0,,,percent,
-18,4,Meryl Davis,39.0,,,percent,
-18,4,Drew Carey,33.0,,,percent,
-18,4,Cody Simpson,31.0,,,percent,
-18,4,NeNe Leakes,32.0,,,percent,
+18,3,Danica McKellar,36.0,115712.93830826196,0.11571293830826196,percent,False
+18,3,James Maslow,36.0,117194.31837777348,0.11719431837777348,percent,False
+18,3,Candace Cameron Bure,32.0,101139.75991517004,0.10113975991517005,percent,False
+18,3,Charlie White,36.0,117117.88757063821,0.11711788757063821,percent,False
+18,3,Amy Purdy,36.0,115080.80500684348,0.11508080500684348,percent,False
+18,3,Meryl Davis,39.0,127138.6427119039,0.1271386427119039,percent,False
+18,3,Drew Carey,30.0,96058.74376616457,0.09605874376616456,percent,False
+18,3,Cody Simpson,35.0,112146.27287146213,0.11214627287146213,percent,False
+18,3,NeNe Leakes,31.0,98410.63147178222,0.09841063147178222,percent,False
+18,4,Danica McKellar,32.0,106574.95653523118,0.10657495653523118,percent,False
+18,4,James Maslow,35.0,119553.94272538139,0.11955394272538139,percent,False
+18,4,Candace Cameron Bure,28.0,91501.5995090761,0.0915015995090761,percent,False
+18,4,Charlie White,33.0,111729.11703027261,0.1117291170302726,percent,False
+18,4,Amy Purdy,34.0,113582.20162862922,0.11358220162862923,percent,False
+18,4,Meryl Davis,39.0,133944.10295766845,0.13394410295766845,percent,False
+18,4,Drew Carey,33.0,112760.34548478526,0.11276034548478525,percent,False
+18,4,Cody Simpson,31.0,102871.85531712603,0.10287185531712603,percent,False
+18,4,NeNe Leakes,32.0,107481.87881182974,0.10748187881182975,percent,False
 18,5,Danica McKellar,39.0,115153.73796643836,0.11515373796643837,percent,False
 18,5,James Maslow,40.0,131533.72348496292,0.13153372348496292,percent,False
 18,5,Candace Cameron Bure,35.0,103660.72912961805,0.10366072912961805,percent,False
@@ -1389,15 +1389,15 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 19,4,Michael Waltrip,25.0,126707.12408840463,0.12670712408840462,percent,False
 19,4,Bethany Mota,33.0,80992.04967499488,0.08099204967499488,percent,False
 19,4,Sadie Robertson,37.0,108150.69750827964,0.10815069750827964,percent,False
-19,5,Antonio Sabato Jr.,28.0,,,percent,
-19,5,Jonathan Bennett,24.0,,,percent,
-19,5,Lea Thompson,34.0,,,percent,
-19,5,Janel Parrish,33.0,,,percent,
-19,5,Alfonso Ribeiro,34.0,,,percent,
-19,5,Tommy Chong,23.0,,,percent,
-19,5,Michael Waltrip,20.0,,,percent,
-19,5,Bethany Mota,32.0,,,percent,
-19,5,Sadie Robertson,36.0,,,percent,
+19,5,Antonio Sabato Jr.,28.0,105769.33837799063,0.10576933837799063,percent,False
+19,5,Jonathan Bennett,24.0,88229.24081106587,0.08822924081106587,percent,False
+19,5,Lea Thompson,34.0,131052.58095168168,0.13105258095168168,percent,False
+19,5,Janel Parrish,33.0,126230.58451308988,0.12623058451308988,percent,False
+19,5,Alfonso Ribeiro,34.0,131487.1720696249,0.1314871720696249,percent,False
+19,5,Tommy Chong,23.0,85734.88826323526,0.08573488826323526,percent,False
+19,5,Michael Waltrip,20.0,72391.75224104409,0.07239175224104409,percent,False
+19,5,Bethany Mota,32.0,119699.66826706531,0.11969966826706531,percent,False
+19,5,Sadie Robertson,36.0,139404.77450520234,0.13940477450520233,percent,False
 19,6,Antonio Sabato Jr.,28.0,92156.05642753672,0.09215605642753673,percent,False
 19,6,Jonathan Bennett,32.0,78503.18644625707,0.07850318644625706,percent,True
 19,6,Lea Thompson,32.0,111264.64739400706,0.11126464739400706,percent,False
@@ -1437,18 +1437,18 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 19,11,Alfonso Ribeiro,40.0,276633.46662784857,0.27663346662784855,percent,False
 19,11,Bethany Mota,38.0,211162.40176360044,0.21116240176360043,percent,True
 19,11,Sadie Robertson,39.333200000000005,257115.94626057716,0.25711594626057716,percent,False
-20,1,Suzanne Somers,25.0,,,percent,
-20,1,Willow Shields,25.0,,,percent,
-20,1,Riker Lynch,31.0,,,percent,
-20,1,Rumer Willis,32.0,,,percent,
-20,1,Nastia Liukin,30.0,,,percent,
-20,1,Michael Sam,26.0,,,percent,
-20,1,Robert Herjavec,28.0,,,percent,
-20,1,Charlotte McKinney,22.0,,,percent,
-20,1,Noah Galloway,26.0,,,percent,
-20,1,Redfoo,22.0,,,percent,
-20,1,Patti LaBelle,25.0,,,percent,
-20,1,Chris Soules,26.0,,,percent,
+20,1,Suzanne Somers,25.0,78057.63108608515,0.07805763108608516,percent,False
+20,1,Willow Shields,25.0,77390.73202238837,0.07739073202238837,percent,False
+20,1,Riker Lynch,31.0,99406.13077371502,0.09940613077371502,percent,False
+20,1,Rumer Willis,32.0,102604.4679274985,0.1026044679274985,percent,False
+20,1,Nastia Liukin,30.0,94799.36722050223,0.09479936722050222,percent,False
+20,1,Michael Sam,26.0,81886.17522238473,0.08188617522238473,percent,False
+20,1,Robert Herjavec,28.0,89561.97374282137,0.08956197374282138,percent,False
+20,1,Charlotte McKinney,22.0,66643.76425561622,0.06664376425561622,percent,False
+20,1,Noah Galloway,26.0,83404.48769287513,0.08340448769287513,percent,False
+20,1,Redfoo,22.0,67509.18626875227,0.06750918626875227,percent,False
+20,1,Patti LaBelle,25.0,77213.16184774048,0.07721316184774049,percent,False
+20,1,Chris Soules,26.0,81522.92193962049,0.08152292193962049,percent,False
 20,2,Suzanne Somers,28.0,100563.18316570988,0.10056318316570988,percent,False
 20,2,Willow Shields,32.0,86454.37231984921,0.0864543723198492,percent,False
 20,2,Riker Lynch,32.0,88864.06129520133,0.08886406129520133,percent,False
@@ -1516,22 +1516,22 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 20,9,Rumer Willis,39.0,235077.43384823494,0.23507743384823493,percent,False
 20,9,Nastia Liukin,40.0,228707.47331629545,0.22870747331629546,percent,True
 20,9,Noah Galloway,38.0,286290.830251678,0.286290830251678,percent,False
-20,10,Riker Lynch,40.0,,,percent,
-20,10,Rumer Willis,40.0,,,percent,
-20,10,Noah Galloway,36.0,,,percent,
-21,1,Gary Busey,15.0,,,percent,
-21,1,Alexa PenaVega,22.0,,,percent,
-21,1,Carlos PenaVega,23.0,,,percent,
-21,1,Victor Espinoza,15.0,,,percent,
-21,1,Alek Skarlatos,22.0,,,percent,
-21,1,Chaka Khan,13.0,,,percent,
-21,1,Andy Grammer,21.0,,,percent,
-21,1,Tamar Braxton,23.0,,,percent,
-21,1,Nick Carter,24.0,,,percent,
-21,1,Hayes Grier,21.0,,,percent,
-21,1,Bindi Irwin,24.0,,,percent,
-21,1,Kim Zolciak-Biermann,12.0,,,percent,
-21,1,Paula Deen,15.0,,,percent,
+20,10,Riker Lynch,40.0,344280.730686837,0.344280730686837,percent,False
+20,10,Rumer Willis,40.0,342693.6320164556,0.3426936320164556,percent,False
+20,10,Noah Galloway,36.0,313025.63729670737,0.31302563729670735,percent,False
+21,1,Gary Busey,15.0,58101.20423707133,0.05810120423707133,percent,False
+21,1,Alexa PenaVega,22.0,88750.2980924484,0.0887502980924484,percent,False
+21,1,Carlos PenaVega,23.0,94020.511716231,0.094020511716231,percent,False
+21,1,Victor Espinoza,15.0,57709.879910216485,0.057709879910216484,percent,False
+21,1,Alek Skarlatos,22.0,92047.9092239274,0.0920479092239274,percent,False
+21,1,Chaka Khan,13.0,48830.489096252044,0.048830489096252046,percent,False
+21,1,Andy Grammer,21.0,84074.35833990801,0.084074358339908,percent,False
+21,1,Tamar Braxton,23.0,92846.83437627407,0.09284683437627407,percent,False
+21,1,Nick Carter,24.0,98769.53473581531,0.0987695347358153,percent,False
+21,1,Hayes Grier,21.0,84252.17123350494,0.08425217123350494,percent,False
+21,1,Bindi Irwin,24.0,97672.44670030783,0.09767244670030784,percent,False
+21,1,Kim Zolciak-Biermann,12.0,44909.66436934294,0.04490966436934294,percent,False
+21,1,Paula Deen,15.0,58014.697968700326,0.058014697968700325,percent,False
 21,2,Gary Busey,16.5,69649.92124776689,0.0696499212477669,percent,False
 21,2,Alexa PenaVega,23.0,80529.35787877168,0.08052935787877168,percent,False
 21,2,Carlos PenaVega,22.5,83414.1536143713,0.0834141536143713,percent,False
@@ -1545,16 +1545,16 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 21,2,Bindi Irwin,24.0,81240.55697012071,0.08124055697012071,percent,False
 21,2,Kim Zolciak-Biermann,18.5,70741.77315846768,0.07074177315846768,percent,False
 21,2,Paula Deen,18.5,71994.42615012088,0.07199442615012089,percent,False
-21,3,Gary Busey,25.0,,,percent,
-21,3,Alexa PenaVega,36.0,,,percent,
-21,3,Carlos PenaVega,31.0,,,percent,
-21,3,Alek Skarlatos,33.0,,,percent,
-21,3,Andy Grammer,29.0,,,percent,
-21,3,Tamar Braxton,33.0,,,percent,
-21,3,Nick Carter,36.0,,,percent,
-21,3,Hayes Grier,30.0,,,percent,
-21,3,Bindi Irwin,32.0,,,percent,
-21,3,Paula Deen,20.0,,,percent,
+21,3,Gary Busey,25.0,80064.58388322343,0.08006458388322343,percent,False
+21,3,Alexa PenaVega,36.0,119805.76001451777,0.11980576001451777,percent,False
+21,3,Carlos PenaVega,31.0,101721.70586801982,0.10172170586801982,percent,False
+21,3,Alek Skarlatos,33.0,112525.15793627169,0.11252515793627169,percent,False
+21,3,Andy Grammer,29.0,93509.77692797306,0.09350977692797306,percent,False
+21,3,Tamar Braxton,33.0,107858.90266508929,0.1078589026650893,percent,False
+21,3,Nick Carter,36.0,120722.78443364218,0.12072278443364218,percent,False
+21,3,Hayes Grier,30.0,97404.58934665476,0.09740458934665476,percent,False
+21,3,Bindi Irwin,32.0,104349.20823909373,0.10434920823909373,percent,False
+21,3,Paula Deen,20.0,62037.5306855142,0.062037530685514194,percent,False
 21,4,Gary Busey,16.0,71310.2748378626,0.0713102748378626,percent,True
 21,4,Alexa PenaVega,21.0,84628.64352605223,0.08462864352605223,percent,False
 21,4,Carlos PenaVega,25.0,106760.65578184571,0.10676065578184571,percent,False
@@ -1565,15 +1565,15 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 21,4,Hayes Grier,27.0,109815.36758591316,0.10981536758591316,percent,False
 21,4,Bindi Irwin,28.0,109353.98432934676,0.10935398432934676,percent,False
 21,4,Paula Deen,18.0,79339.31428200437,0.07933931428200437,percent,False
-21,5,Alexa PenaVega,40.0,,,percent,
-21,5,Carlos PenaVega,39.0,,,percent,
-21,5,Alek Skarlatos,29.0,,,percent,
-21,5,Andy Grammer,36.0,,,percent,
-21,5,Tamar Braxton,29.0,,,percent,
-21,5,Nick Carter,35.0,,,percent,
-21,5,Hayes Grier,30.0,,,percent,
-21,5,Bindi Irwin,37.0,,,percent,
-21,5,Paula Deen,26.0,,,percent,
+21,5,Alexa PenaVega,40.0,135331.05685355415,0.13533105685355415,percent,False
+21,5,Carlos PenaVega,39.0,132390.40923565047,0.13239040923565046,percent,False
+21,5,Alek Skarlatos,29.0,97390.64718737711,0.09739064718737711,percent,False
+21,5,Andy Grammer,36.0,119870.3733177515,0.1198703733177515,percent,False
+21,5,Tamar Braxton,29.0,93220.53051779202,0.09322053051779203,percent,False
+21,5,Nick Carter,35.0,117103.54363059819,0.11710354363059819,percent,False
+21,5,Hayes Grier,30.0,97574.36597599297,0.09757436597599298,percent,False
+21,5,Bindi Irwin,37.0,123355.0076501315,0.1233550076501315,percent,False
+21,5,Paula Deen,26.0,83764.06563115225,0.08376406563115224,percent,False
 21,6,Alexa PenaVega,30.0,91917.63199645224,0.09191763199645224,percent,False
 21,6,Carlos PenaVega,38.0,123377.02911930214,0.12337702911930214,percent,False
 21,6,Alek Skarlatos,30.0,121056.10247790976,0.12105610247790977,percent,False
@@ -1604,26 +1604,26 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 21,9,Tamar Braxton,24.5,149936.44134941307,0.14993644134941306,percent,False
 21,9,Nick Carter,27.5,224106.67818172058,0.2241066781817206,percent,False
 21,9,Bindi Irwin,30.0,167687.8989211371,0.16768789892113709,percent,False
-21,10,Carlos PenaVega,31.5,,,percent,
-21,10,Alek Skarlatos,28.5,,,percent,
-21,10,Nick Carter,27.0,,,percent,
-21,10,Bindi Irwin,31.5,,,percent,
+21,10,Carlos PenaVega,31.5,266812.8351188791,0.2668128351188791,percent,False
+21,10,Alek Skarlatos,28.5,245208.68084573085,0.24520868084573086,percent,False
+21,10,Nick Carter,27.0,223959.18280150677,0.22395918280150678,percent,False
+21,10,Bindi Irwin,31.5,264019.30123388337,0.26401930123388334,percent,False
 21,11,Carlos PenaVega,30.0,234622.50612326662,0.23462250612326663,percent,True
 21,11,Alek Skarlatos,27.999899999999997,284360.36078283424,0.2843603607828342,percent,False
 21,11,Nick Carter,30.0,246394.4400642424,0.2463944400642424,percent,False
 21,11,Bindi Irwin,30.0,234622.69302965674,0.23462269302965674,percent,False
-22,1,Mischa Barton,16.0,,,percent,
-22,1,Kim Fields,20.0,,,percent,
-22,1,Jodie Sweetin,20.0,,,percent,
-22,1,Doug Flutie,15.0,,,percent,
-22,1,Von Miller,21.0,,,percent,
-22,1,Antonio Brown,21.0,,,percent,
-22,1,Paige VanZant,21.0,,,percent,
-22,1,Geraldo Rivera,13.0,,,percent,
-22,1,Nyle DiMarco,23.0,,,percent,
-22,1,Ginger Zee,23.0,,,percent,
-22,1,Wanya Morris,23.0,,,percent,
-22,1,Marla Maples,21.0,,,percent,
+22,1,Mischa Barton,16.0,65377.54600956731,0.06537754600956731,percent,False
+22,1,Kim Fields,20.0,84614.75260238705,0.08461475260238704,percent,False
+22,1,Jodie Sweetin,20.0,84651.26661954749,0.08465126661954749,percent,False
+22,1,Doug Flutie,15.0,60894.839385007035,0.06089483938500703,percent,False
+22,1,Von Miller,21.0,89299.08591020292,0.08929908591020293,percent,False
+22,1,Antonio Brown,21.0,89895.32949101253,0.08989532949101253,percent,False
+22,1,Paige VanZant,21.0,88670.14406170063,0.08867014406170062,percent,False
+22,1,Geraldo Rivera,13.0,50776.70458226357,0.05077670458226357,percent,False
+22,1,Nyle DiMarco,23.0,98654.015659923,0.098654015659923,percent,False
+22,1,Ginger Zee,23.0,98274.6985351828,0.09827469853518281,percent,False
+22,1,Wanya Morris,23.0,99326.706769092,0.099326706769092,percent,False
+22,1,Marla Maples,21.0,89564.91037411366,0.08956491037411367,percent,False
 22,2,Mischa Barton,15.0,63276.565995819736,0.06327656599581974,percent,False
 22,2,Kim Fields,19.0,82599.53103621358,0.08259953103621358,percent,False
 22,2,Jodie Sweetin,21.0,91606.6923439067,0.0916066923439067,percent,False
@@ -1657,15 +1657,15 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 22,4,Ginger Zee,36.0,112983.0641929375,0.1129830641929375,percent,False
 22,4,Wanya Morris,35.0,111040.65701504433,0.11104065701504433,percent,False
 22,4,Marla Maples,28.0,71422.02010561693,0.07142202010561693,percent,True
-22,5,Kim Fields,28.0,,,percent,
-22,5,Jodie Sweetin,35.0,,,percent,
-22,5,Doug Flutie,28.0,,,percent,
-22,5,Von Miller,29.0,,,percent,
-22,5,Antonio Brown,26.0,,,percent,
-22,5,Paige VanZant,31.0,,,percent,
-22,5,Nyle DiMarco,37.0,,,percent,
-22,5,Ginger Zee,32.0,,,percent,
-22,5,Wanya Morris,30.0,,,percent,
+22,5,Kim Fields,28.0,100337.7982586684,0.1003377982586684,percent,False
+22,5,Jodie Sweetin,35.0,129449.75380283424,0.12944975380283424,percent,False
+22,5,Doug Flutie,28.0,100192.42953869635,0.10019242953869635,percent,False
+22,5,Von Miller,29.0,104246.7664064767,0.1042467664064767,percent,False
+22,5,Antonio Brown,26.0,92688.58896907872,0.09268858896907872,percent,False
+22,5,Paige VanZant,31.0,111682.95775659212,0.11168295775659212,percent,False
+22,5,Nyle DiMarco,37.0,137068.4205893858,0.1370684205893858,percent,False
+22,5,Ginger Zee,32.0,115685.12853207214,0.11568512853207213,percent,False
+22,5,Wanya Morris,30.0,108648.15614619553,0.10864815614619552,percent,False
 22,6,Kim Fields,24.0,107718.5336499999,0.10771853364999989,percent,False
 22,6,Jodie Sweetin,25.0,112590.85748283444,0.11259085748283444,percent,False
 22,6,Doug Flutie,21.0,93183.3910414365,0.0931833910414365,percent,True
@@ -1694,22 +1694,22 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 22,9,Nyle DiMarco,28.5,228825.03730784726,0.22882503730784726,percent,False
 22,9,Ginger Zee,28.0,204048.1160014954,0.2040481160014954,percent,False
 22,9,Wanya Morris,30.0,148722.61253522427,0.14872261253522426,percent,True
-22,10,Paige VanZant,29.666600000000003,,,percent,
-22,10,Nyle DiMarco,28.9998,,,percent,
-22,10,Ginger Zee,28.333199999999998,,,percent,
-23,1,Jake T. Austin,22.0,,,percent,
-23,1,Maureen McCormick,22.0,,,percent,
-23,1,Marilu Henner,27.0,,,percent,
-23,1,Ryan Lochte,24.0,,,percent,
-23,1,Calvin Johnson Jr.,26.0,,,percent,
-23,1,Laurie Hernandez,31.0,,,percent,
-23,1,Amber Rose,24.0,,,percent,
-23,1,Rick Perry,20.0,,,percent,
-23,1,James Hinchcliffe,31.0,,,percent,
-23,1,Babyface,26.0,,,percent,
-23,1,Vanilla Ice,25.0,,,percent,
-23,1,Jana Kramer,27.0,,,percent,
-23,1,Terra Jole,25.0,,,percent,
+22,10,Paige VanZant,29.666600000000003,341855.4103647269,0.3418554103647269,percent,False
+22,10,Nyle DiMarco,28.9998,334088.2084880128,0.3340882084880128,percent,False
+22,10,Ginger Zee,28.333199999999998,324056.3811472603,0.3240563811472603,percent,False
+23,1,Jake T. Austin,22.0,64981.497177539895,0.0649814971775399,percent,False
+23,1,Maureen McCormick,22.0,65167.84493768773,0.06516784493768774,percent,False
+23,1,Marilu Henner,27.0,81682.53016649409,0.0816825301664941,percent,False
+23,1,Ryan Lochte,24.0,72368.2865729697,0.07236828657296969,percent,False
+23,1,Calvin Johnson Jr.,26.0,79570.05160210209,0.0795700516021021,percent,False
+23,1,Laurie Hernandez,31.0,95904.12292781085,0.09590412292781085,percent,False
+23,1,Amber Rose,24.0,71172.66525010757,0.07117266525010757,percent,False
+23,1,Rick Perry,20.0,60646.12885592634,0.060646128855926344,percent,False
+23,1,James Hinchcliffe,31.0,97216.47264803437,0.09721647264803436,percent,False
+23,1,Babyface,26.0,78460.77832262043,0.07846077832262044,percent,False
+23,1,Vanilla Ice,25.0,75188.02547836083,0.07518802547836083,percent,False
+23,1,Jana Kramer,27.0,81957.53971018876,0.08195753971018876,percent,False
+23,1,Terra Jole,25.0,75684.05635015751,0.07568405635015751,percent,False
 23,2,Jake T. Austin,24.0,64077.32236020827,0.06407732236020827,percent,True
 23,2,Maureen McCormick,26.0,73282.06667790619,0.07328206667790618,percent,False
 23,2,Marilu Henner,27.0,70225.77939010794,0.07022577939010795,percent,False
@@ -1746,15 +1746,15 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 23,4,Vanilla Ice,23.0,66197.14476371514,0.06619714476371515,percent,True
 23,4,Jana Kramer,23.0,101267.54141762583,0.10126754141762584,percent,False
 23,4,Terra Jole,25.0,99335.7081971619,0.0993357081971619,percent,False
-23,5,Maureen McCormick,24.0,,,percent,
-23,5,Marilu Henner,27.0,,,percent,
-23,5,Ryan Lochte,24.0,,,percent,
-23,5,Calvin Johnson Jr.,24.0,,,percent,
-23,5,Laurie Hernandez,25.0,,,percent,
-23,5,Amber Rose,24.0,,,percent,
-23,5,James Hinchcliffe,29.0,,,percent,
-23,5,Jana Kramer,26.0,,,percent,
-23,5,Terra Jole,27.0,,,percent,
+23,5,Maureen McCormick,24.0,103380.94132960255,0.10338094132960254,percent,False
+23,5,Marilu Henner,27.0,117344.59959267054,0.11734459959267053,percent,False
+23,5,Ryan Lochte,24.0,103970.67606897422,0.10397067606897423,percent,False
+23,5,Calvin Johnson Jr.,24.0,104359.92133602018,0.10435992133602018,percent,False
+23,5,Laurie Hernandez,25.0,107778.70271549483,0.10777870271549483,percent,False
+23,5,Amber Rose,24.0,102247.4059880014,0.10224740598800139,percent,False
+23,5,James Hinchcliffe,29.0,129438.91931865233,0.12943891931865234,percent,False
+23,5,Jana Kramer,26.0,112778.90446113811,0.11277890446113811,percent,False
+23,5,Terra Jole,27.0,118699.92918944586,0.11869992918944586,percent,False
 23,6,Maureen McCormick,31.0,101438.28525776975,0.10143828525776975,percent,False
 23,6,Marilu Henner,34.0,104371.01711195275,0.10437101711195275,percent,False
 23,6,Ryan Lochte,30.0,102682.76066242298,0.10268276066242298,percent,False
@@ -1794,18 +1794,18 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 23,11,Laurie Hernandez,39.333200000000005,243389.4459543349,0.2433894459543349,percent,False
 23,11,James Hinchcliffe,38.9998,270027.64255718165,0.27002764255718165,percent,False
 23,11,Jana Kramer,35.5,220805.74033869107,0.22080574033869108,percent,True
-24,1,Charo,21.0,,,percent,
-24,1,Mr. T,20.0,,,percent,
-24,1,Heather Morris,28.0,,,percent,
-24,1,Nancy Kerrigan,28.0,,,percent,
-24,1,Bonner Bolton,22.0,,,percent,
-24,1,Simone Biles,32.0,,,percent,
-24,1,David Ross,28.0,,,percent,
-24,1,Rashad Jennings,31.0,,,percent,
-24,1,Chris Kattan,17.0,,,percent,
-24,1,Erika Jayne,24.0,,,percent,
-24,1,Normani,27.0,,,percent,
-24,1,Nick Viall,24.0,,,percent,
+24,1,Charo,21.0,67581.61564173043,0.06758161564173043,percent,False
+24,1,Mr. T,20.0,65157.48538089439,0.06515748538089439,percent,False
+24,1,Heather Morris,28.0,93488.733196121,0.093488733196121,percent,False
+24,1,Nancy Kerrigan,28.0,93295.36841493123,0.09329536841493123,percent,False
+24,1,Bonner Bolton,22.0,71584.96769438632,0.07158496769438631,percent,False
+24,1,Simone Biles,32.0,109058.0354720388,0.1090580354720388,percent,False
+24,1,David Ross,28.0,94276.24262489722,0.09427624262489721,percent,False
+24,1,Rashad Jennings,31.0,105926.40128020813,0.10592640128020812,percent,False
+24,1,Chris Kattan,17.0,53711.5688720759,0.0537115688720759,percent,False
+24,1,Erika Jayne,24.0,78024.93325854324,0.07802493325854325,percent,False
+24,1,Normani,27.0,88787.8628079211,0.0887878628079211,percent,False
+24,1,Nick Viall,24.0,79106.78535625243,0.07910678535625243,percent,False
 24,2,Charo,25.0,75781.73920062222,0.07578173920062223,percent,False
 24,2,Mr. T,22.0,76566.29542241133,0.07656629542241133,percent,False
 24,2,Heather Morris,30.0,88479.9555888323,0.08847995558883229,percent,False
@@ -1872,22 +1872,22 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 24,9,David Ross,35.0,238315.16315682666,0.23831516315682666,percent,False
 24,9,Rashad Jennings,38.5,270618.3327309351,0.27061833273093505,percent,False
 24,9,Normani,38.0,285754.6596165826,0.28575465961658264,percent,False
-24,10,David Ross,36.3333,,,percent,
-24,10,Rashad Jennings,39.6666,,,percent,
-24,10,Normani,39.333200000000005,,,percent,
-25,1,Sasha Pieterse,18.0,,,percent,
-25,1,Frankie Muniz,19.0,,,percent,
-25,1,Jordan Fisher,22.0,,,percent,
-25,1,Derek Fisher,18.0,,,percent,
-25,1,Nikki Bella,20.0,,,percent,
-25,1,Terrell Owens,15.0,,,percent,
-25,1,Victoria Arlen,19.0,,,percent,
-25,1,Barbara Corcoran,14.0,,,percent,
-25,1,Lindsey Stirling,22.0,,,percent,
-25,1,Debbie Gibson,17.0,,,percent,
-25,1,Nick Lachey,18.0,,,percent,
-25,1,Drew Scott,16.0,,,percent,
-25,1,Vanessa Lachey,21.0,,,percent,
+24,10,David Ross,36.3333,314470.87140797207,0.3144708714079721,percent,False
+24,10,Rashad Jennings,39.6666,347688.42168781627,0.3476884216878163,percent,False
+24,10,Normani,39.333200000000005,337840.7069042116,0.3378407069042116,percent,False
+25,1,Sasha Pieterse,18.0,74952.11919169531,0.07495211919169531,percent,False
+25,1,Frankie Muniz,19.0,79843.0102325226,0.0798430102325226,percent,False
+25,1,Jordan Fisher,22.0,95049.64343285945,0.09504964343285945,percent,False
+25,1,Derek Fisher,18.0,75473.08174460546,0.07547308174460546,percent,False
+25,1,Nikki Bella,20.0,84257.89368776383,0.08425789368776383,percent,False
+25,1,Terrell Owens,15.0,61137.874339380694,0.06113787433938069,percent,False
+25,1,Victoria Arlen,19.0,79194.70370047123,0.07919470370047123,percent,False
+25,1,Barbara Corcoran,14.0,56824.4712446274,0.056824471244627396,percent,False
+25,1,Lindsey Stirling,22.0,92729.61303586225,0.09272961303586225,percent,False
+25,1,Debbie Gibson,17.0,70001.43038847252,0.07000143038847252,percent,False
+25,1,Nick Lachey,18.0,75073.30351869641,0.07507330351869641,percent,False
+25,1,Drew Scott,16.0,66178.34332086606,0.06617834332086606,percent,False
+25,1,Vanessa Lachey,21.0,89284.51216217692,0.08928451216217692,percent,False
 25,2,Sasha Pieterse,22.5,81998.3164091774,0.08199831640917739,percent,False
 25,2,Frankie Muniz,24.0,88418.73483565297,0.08841873483565298,percent,False
 25,2,Jordan Fisher,24.0,93840.88348738453,0.09384088348738454,percent,False
@@ -1901,17 +1901,17 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 25,2,Nick Lachey,19.0,73606.6109360945,0.0736066109360945,percent,False
 25,2,Drew Scott,20.5,81031.39136549465,0.08103139136549466,percent,False
 25,2,Vanessa Lachey,23.5,84892.97240746066,0.08489297240746066,percent,False
-25,3,Sasha Pieterse,19.0,,,percent,
-25,3,Frankie Muniz,21.0,,,percent,
-25,3,Jordan Fisher,25.0,,,percent,
-25,3,Derek Fisher,21.0,,,percent,
-25,3,Nikki Bella,21.0,,,percent,
-25,3,Terrell Owens,21.0,,,percent,
-25,3,Victoria Arlen,22.0,,,percent,
-25,3,Lindsey Stirling,27.0,,,percent,
-25,3,Nick Lachey,21.0,,,percent,
-25,3,Drew Scott,23.0,,,percent,
-25,3,Vanessa Lachey,23.0,,,percent,
+25,3,Sasha Pieterse,19.0,76129.04952459186,0.07612904952459186,percent,False
+25,3,Frankie Muniz,21.0,85458.40309105288,0.08545840309105288,percent,False
+25,3,Jordan Fisher,25.0,105001.31916037016,0.10500131916037016,percent,False
+25,3,Derek Fisher,21.0,85917.91210095496,0.08591791210095495,percent,False
+25,3,Nikki Bella,21.0,85052.84916938393,0.08505284916938394,percent,False
+25,3,Terrell Owens,21.0,85652.98611368111,0.0856529861136811,percent,False
+25,3,Victoria Arlen,22.0,89375.1183197022,0.0893751183197022,percent,False
+25,3,Lindsey Stirling,27.0,111840.37964241352,0.11184037964241353,percent,False
+25,3,Nick Lachey,21.0,85460.84375449405,0.08546084375449406,percent,False
+25,3,Drew Scott,23.0,95544.57890132662,0.09554457890132662,percent,False
+25,3,Vanessa Lachey,23.0,94566.56022202868,0.09456656022202868,percent,False
 25,4,Sasha Pieterse,24.0,88078.92469316401,0.08807892469316402,percent,False
 25,4,Frankie Muniz,24.0,88636.96179611741,0.08863696179611741,percent,False
 25,4,Jordan Fisher,29.0,111152.63144836502,0.11115263144836501,percent,False
@@ -1989,9 +1989,9 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 26,3,Tonya Harding,35.0,167046.9842710589,0.1670469842710589,percent,False
 26,3,Josh Norman,38.0,190286.07136546087,0.19028607136546086,percent,False
 26,3,Adam Rippon,41.0,182285.25380305093,0.18228525380305094,percent,False
-26,4,Tonya Harding,28.0,,,percent,
-26,4,Josh Norman,28.5,,,percent,
-26,4,Adam Rippon,29.0,,,percent,
+26,4,Tonya Harding,28.0,326703.9029422282,0.3267039029422282,percent,False
+26,4,Josh Norman,28.5,335467.8691458974,0.3354678691458974,percent,False
+26,4,Adam Rippon,29.0,337828.2279118744,0.33782822791187445,percent,False
 27,1,Juan Pablo Di Pace,22.0,88861.52717030297,0.08886152717030298,percent,False
 27,1,Evanna Lynch,18.0,70882.3289691209,0.0708823289691209,percent,False
 27,1,Nancy McKeon,19.5,72227.59983420718,0.07222759983420718,percent,False
@@ -2038,15 +2038,15 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 27,4,Tinashe,26.0,48207.19272529086,0.04820719272529086,percent,True
 27,4,Alexis Ren,25.0,112264.30100210442,0.11226430100210442,percent,False
 27,4,Joe Amabile,15.0,95621.34895968938,0.09562134895968938,percent,False
-27,5,Juan Pablo Di Pace,29.0,,,percent,
-27,5,Evanna Lynch,24.0,,,percent,
-27,5,John Schneider,24.0,,,percent,
-27,5,Milo Manheim,27.0,,,percent,
-27,5,Mary Lou Retton,25.0,,,percent,
-27,5,DeMarcus Ware,26.0,,,percent,
-27,5,Bobby Bones,21.0,,,percent,
-27,5,Alexis Ren,29.0,,,percent,
-27,5,Joe Amabile,17.0,,,percent,
+27,5,Juan Pablo Di Pace,29.0,133674.7343756155,0.1336747343756155,percent,False
+27,5,Evanna Lynch,24.0,107430.65881746703,0.10743065881746704,percent,False
+27,5,John Schneider,24.0,108176.75403003253,0.10817675403003253,percent,False
+27,5,Milo Manheim,27.0,122775.24679651865,0.12277524679651865,percent,False
+27,5,Mary Lou Retton,25.0,112348.42849033372,0.11234842849033372,percent,False
+27,5,DeMarcus Ware,26.0,118294.66404033134,0.11829466404033133,percent,False
+27,5,Bobby Bones,21.0,93671.259038748,0.093671259038748,percent,False
+27,5,Alexis Ren,29.0,131587.9136313298,0.1315879136313298,percent,False
+27,5,Joe Amabile,17.0,72040.34077962353,0.07204034077962353,percent,False
 27,6,Juan Pablo Di Pace,30.0,131524.69168577853,0.13152469168577852,percent,False
 27,6,Evanna Lynch,29.0,123739.56948844799,0.12373956948844798,percent,False
 27,6,John Schneider,19.0,84324.85215294275,0.08432485215294275,percent,False
@@ -2070,44 +2070,44 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 27,8,Bobby Bones,22.5,169456.36944776322,0.1694563694477632,percent,False
 27,8,Alexis Ren,29.0,200384.46128855945,0.20038446128855947,percent,False
 27,8,Joe Amabile,23.0,146582.70077032,0.14658270077031998,percent,True
-27,9,Evanna Lynch,30.0,,,percent,
-27,9,Milo Manheim,30.0,,,percent,
-27,9,Bobby Bones,27.0,,,percent,
-27,9,Alexis Ren,28.5,,,percent,
-28,1,Kate Flannery,15.0,,,rank,
-28,1,James Van Der Beek,21.0,,,rank,
-28,1,Kel Mitchell,16.0,,,rank,
-28,1,Ray Lewis,15.0,,,rank,
-28,1,Lamar Odom,11.0,,,rank,
-28,1,Sailor Brinkley-Cook,18.0,,,rank,
-28,1,Sean Spicer,12.0,,,rank,
-28,1,Mary Wilson,17.0,,,rank,
-28,1,Lauren Alaina,19.0,,,rank,
-28,1,Ally Brooke,16.0,,,rank,
-28,1,Karamo Brown,17.0,,,rank,
-28,1,Hannah Brown,20.0,,,rank,
-28,2,Kate Flannery,21.0,93512.43121864577,0.09351243121864578,rank,False
-28,2,James Van Der Beek,20.0,97564.57636567709,0.09756457636567709,rank,False
-28,2,Kel Mitchell,20.0,91881.55627341766,0.09188155627341767,rank,False
-28,2,Ray Lewis,15.0,70147.4026672706,0.0701474026672706,rank,False
-28,2,Lamar Odom,12.0,57167.33522510246,0.057167335225102464,rank,False
-28,2,Sailor Brinkley-Cook,18.0,70585.8701337648,0.0705858701337648,rank,False
-28,2,Sean Spicer,16.0,92317.81170963374,0.09231781170963374,rank,False
-28,2,Mary Wilson,15.0,62398.71625957571,0.06239871625957571,rank,True
-28,2,Lauren Alaina,19.0,82022.47490758054,0.08202247490758055,rank,False
-28,2,Ally Brooke,20.0,87781.1107940555,0.0877811107940555,rank,False
-28,2,Karamo Brown,19.0,83124.33766775152,0.08312433766775151,rank,False
-28,2,Hannah Brown,24.0,111496.37677752455,0.11149637677752455,rank,False
-28,3,Kate Flannery,24.0,,,rank,
-28,3,James Van Der Beek,23.0,,,rank,
-28,3,Kel Mitchell,20.0,,,rank,
-28,3,Lamar Odom,12.0,,,rank,
-28,3,Sailor Brinkley-Cook,23.0,,,rank,
-28,3,Sean Spicer,15.0,,,rank,
-28,3,Lauren Alaina,20.0,,,rank,
-28,3,Ally Brooke,24.0,,,rank,
-28,3,Karamo Brown,16.0,,,rank,
-28,3,Hannah Brown,21.0,,,rank,
+27,9,Evanna Lynch,30.0,261094.69220644282,0.2610946922064428,percent,False
+27,9,Milo Manheim,30.0,260887.01785434797,0.260887017854348,percent,False
+27,9,Bobby Bones,27.0,235014.7286137092,0.2350147286137092,percent,False
+27,9,Alexis Ren,28.5,243003.56132549993,0.24300356132549994,percent,False
+28,1,Kate Flannery,15.0,74802.47202931589,0.07480247202931589,rank,False
+28,1,James Van Der Beek,21.0,111048.32582478096,0.11104832582478096,rank,False
+28,1,Kel Mitchell,16.0,80827.47567346322,0.08082747567346323,rank,False
+28,1,Ray Lewis,15.0,75270.36490439229,0.07527036490439229,rank,False
+28,1,Lamar Odom,11.0,53030.90611446075,0.05303090611446075,rank,False
+28,1,Sailor Brinkley-Cook,18.0,90765.70983061398,0.09076570983061398,rank,False
+28,1,Sean Spicer,12.0,60213.07602858377,0.060213076028583765,rank,False
+28,1,Mary Wilson,17.0,85584.91096428946,0.08558491096428947,rank,False
+28,1,Lauren Alaina,19.0,97594.17785162783,0.09759417785162783,rank,False
+28,1,Ally Brooke,16.0,80372.90413521139,0.08037290413521139,rank,False
+28,1,Karamo Brown,17.0,86095.65791321354,0.08609565791321354,rank,False
+28,1,Hannah Brown,20.0,104394.01873004693,0.10439401873004693,rank,False
+28,2,Kate Flannery,21.0,93499.73892953883,0.09349973892953883,rank,False
+28,2,James Van Der Beek,20.0,97579.19134480706,0.09757919134480705,rank,False
+28,2,Kel Mitchell,20.0,91862.81406444099,0.09186281406444098,rank,False
+28,2,Ray Lewis,15.0,70171.59668664791,0.07017159668664791,rank,False
+28,2,Lamar Odom,12.0,57190.016764686654,0.05719001676468666,rank,False
+28,2,Sailor Brinkley-Cook,18.0,70577.35329279481,0.07057735329279481,rank,False
+28,2,Sean Spicer,16.0,92305.20204931818,0.09230520204931818,rank,False
+28,2,Mary Wilson,15.0,62348.633502813536,0.062348633502813534,rank,True
+28,2,Lauren Alaina,19.0,82014.82421855936,0.08201482421855935,rank,False
+28,2,Ally Brooke,20.0,87770.93930448749,0.08777093930448748,rank,False
+28,2,Karamo Brown,19.0,83159.62320612343,0.08315962320612344,rank,False
+28,2,Hannah Brown,24.0,111520.06663578174,0.11152006663578173,rank,False
+28,3,Kate Flannery,24.0,123723.47304592426,0.12372347304592425,rank,False
+28,3,James Van Der Beek,23.0,119206.72352023207,0.11920672352023208,rank,False
+28,3,Kel Mitchell,20.0,100876.39506788926,0.10087639506788926,rank,False
+28,3,Lamar Odom,12.0,56698.71229313504,0.056698712293135035,rank,False
+28,3,Sailor Brinkley-Cook,23.0,116178.84714714243,0.11617884714714243,rank,False
+28,3,Sean Spicer,15.0,75128.56856225515,0.07512856856225515,rank,False
+28,3,Lauren Alaina,20.0,100114.91476534339,0.10011491476534339,rank,False
+28,3,Ally Brooke,24.0,123516.24310422974,0.12351624310422973,rank,False
+28,3,Karamo Brown,16.0,77759.15610171651,0.0777591561017165,rank,False
+28,3,Hannah Brown,21.0,106796.96639213219,0.1067969663921322,rank,False
 28,4,Kate Flannery,26.0,89920.85587389326,0.08992085587389326,rank,False
 28,4,James Van Der Beek,28.0,106122.36798666551,0.10612236798666551,rank,False
 28,4,Kel Mitchell,32.0,114208.39650919983,0.11420839650919982,rank,False
@@ -2118,39 +2118,39 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 28,4,Ally Brooke,32.0,109112.1051021389,0.1091121051021389,rank,False
 28,4,Karamo Brown,28.0,95187.23678576907,0.09518723678576907,rank,False
 28,4,Hannah Brown,32.0,115506.46659365231,0.11550646659365231,rank,False
-28,5,Kate Flannery,24.0,,,rank,
-28,5,James Van Der Beek,26.0,,,rank,
-28,5,Kel Mitchell,26.0,,,rank,
-28,5,Sailor Brinkley-Cook,24.0,,,rank,
-28,5,Sean Spicer,19.0,,,rank,
-28,5,Lauren Alaina,23.0,,,rank,
-28,5,Ally Brooke,27.0,,,rank,
-28,5,Karamo Brown,21.0,,,rank,
-28,5,Hannah Brown,25.0,,,rank,
-28,6,Kate Flannery,27.0,115457.98663733403,0.11545798663733403,rank,False
-28,6,James Van Der Beek,27.0,126261.76767199938,0.12626176767199937,rank,False
-28,6,Kel Mitchell,26.0,114635.70694783996,0.11463570694783996,rank,False
-28,6,Sailor Brinkley-Cook,27.0,102092.29987928318,0.10209229987928317,rank,True
-28,6,Sean Spicer,21.0,116449.7814107126,0.1164497814107126,rank,False
-28,6,Lauren Alaina,26.0,107610.3020536145,0.1076103020536145,rank,False
-28,6,Ally Brooke,25.0,104916.2826688833,0.1049162826688833,rank,False
-28,6,Karamo Brown,25.0,104963.2395910014,0.1049632395910014,rank,False
-28,6,Hannah Brown,24.0,107612.63313933174,0.10761263313933174,rank,False
-28,7,Kate Flannery,24.0,112689.9482627433,0.1126899482627433,rank,False
-28,7,James Van Der Beek,27.0,141345.50746084374,0.14134550746084373,rank,False
-28,7,Kel Mitchell,25.5,124322.45254694615,0.12432245254694615,rank,False
-28,7,Sean Spicer,21.0,133637.66274895196,0.13363766274895195,rank,False
-28,7,Lauren Alaina,27.0,122182.3097416,0.12218230974159999,rank,False
-28,7,Ally Brooke,27.0,124635.394189467,0.124635394189467,rank,False
-28,7,Karamo Brown,24.5,112689.73144429139,0.1126897314442914,rank,True
-28,7,Hannah Brown,26.0,128496.99360515649,0.12849699360515648,rank,False
-28,8,Kate Flannery,25.9998,127784.78739757676,0.12778478739757676,rank,True
-28,8,James Van Der Beek,31.9998,172252.55524517494,0.17225255524517494,rank,False
-28,8,Kel Mitchell,29.9998,152925.7826343189,0.15292578263431889,rank,False
-28,8,Sean Spicer,20.0,127798.98196528647,0.12779898196528647,rank,False
-28,8,Lauren Alaina,24.0,114570.81542834776,0.11457081542834777,rank,False
-28,8,Ally Brooke,30.0,145571.63740607645,0.14557163740607645,rank,False
-28,8,Hannah Brown,30.9998,159095.43992321874,0.15909543992321873,rank,False
+28,5,Kate Flannery,24.0,111239.55286457193,0.11123955286457193,rank,False
+28,5,James Van Der Beek,26.0,123281.04067776649,0.12328104067776649,rank,False
+28,5,Kel Mitchell,26.0,122343.6989010876,0.1223436989010876,rank,False
+28,5,Sailor Brinkley-Cook,24.0,109628.85495375277,0.10962885495375277,rank,False
+28,5,Sean Spicer,19.0,88414.74994655259,0.08841474994655259,rank,False
+28,5,Lauren Alaina,23.0,105578.48616254027,0.10557848616254027,rank,False
+28,5,Ally Brooke,27.0,127024.55852941405,0.12702455852941405,rank,False
+28,5,Karamo Brown,21.0,95331.53337450484,0.09533153337450484,rank,False
+28,5,Hannah Brown,25.0,117157.52458980944,0.11715752458980944,rank,False
+28,6,Kate Flannery,27.0,115400.17438626442,0.11540017438626442,rank,False
+28,6,James Van Der Beek,27.0,126498.5369747369,0.1264985369747369,rank,False
+28,6,Kel Mitchell,26.0,114728.82870708643,0.11472882870708644,rank,False
+28,6,Sailor Brinkley-Cook,27.0,101698.10012331633,0.10169810012331633,rank,True
+28,6,Sean Spicer,21.0,116382.52246250724,0.11638252246250724,rank,False
+28,6,Lauren Alaina,26.0,107803.21949795636,0.10780321949795636,rank,False
+28,6,Ally Brooke,25.0,105369.23581391935,0.10536923581391935,rank,False
+28,6,Karamo Brown,25.0,105052.98448867809,0.10505298448867809,rank,False
+28,6,Hannah Brown,24.0,107066.39754553499,0.10706639754553499,rank,False
+28,7,Kate Flannery,24.0,113862.58432463986,0.11386258432463986,rank,False
+28,7,James Van Der Beek,27.0,140285.8344415139,0.1402858344415139,rank,False
+28,7,Kel Mitchell,25.5,124475.90271777664,0.12447590271777664,rank,False
+28,7,Sean Spicer,21.0,128963.51074731801,0.12896351074731802,rank,False
+28,7,Lauren Alaina,27.0,124037.77595763134,0.12403777595763134,rank,False
+28,7,Ally Brooke,27.0,126002.26423820724,0.12600226423820723,rank,False
+28,7,Karamo Brown,24.5,113835.54725215973,0.11383554725215972,rank,True
+28,7,Hannah Brown,26.0,128536.58032075324,0.12853658032075324,rank,False
+28,8,Kate Flannery,25.9998,127851.6778890971,0.1278516778890971,rank,True
+28,8,James Van Der Beek,31.9998,172475.9541630814,0.1724759541630814,rank,False
+28,8,Kel Mitchell,29.9998,152169.56182034675,0.15216956182034674,rank,False
+28,8,Sean Spicer,20.0,127854.62129791794,0.12785462129791794,rank,False
+28,8,Lauren Alaina,24.0,114577.87012254607,0.11457787012254607,rank,False
+28,8,Ally Brooke,30.0,145946.1602539135,0.1459461602539135,rank,False
+28,8,Hannah Brown,30.9998,159124.1544530973,0.1591241544530973,rank,False
 28,9,James Van Der Beek,36.0,178945.57472633224,0.17894557472633224,rank,False
 28,9,Kel Mitchell,37.0,173188.61577294656,0.17318861577294656,rank,False
 28,9,Sean Spicer,25.0,146972.02236796624,0.14697202236796625,rank,True
@@ -2162,40 +2162,40 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 28,10,Lauren Alaina,27.0,185966.8421960603,0.1859668421960603,rank,False
 28,10,Ally Brooke,29.5,206558.04919339268,0.20655804919339268,rank,False
 28,10,Hannah Brown,27.0,200132.32259955638,0.20013232259955638,rank,False
-28,11,Kel Mitchell,29.5,,,rank,
-28,11,Lauren Alaina,28.5,,,rank,
-28,11,Ally Brooke,30.0,,,rank,
-28,11,Hannah Brown,29.0,,,rank,
-29,1,Anne Heche,18.0,,,rank,
-29,1,Jesse Metcalfe,18.0,,,rank,
-29,1,Chrishell Stause,13.0,,,rank,
-29,1,Skai Jackson,21.0,,,rank,
-29,1,Justina Machado,21.0,,,rank,
-29,1,Charles Oakley,12.0,,,rank,
-29,1,Veron Davis,17.0,,,rank,
-29,1,Johnny Weir,18.0,,,rank,
-29,1,Nev Schulman,20.0,,,rank,
-29,1,AJ McLean,18.0,,,rank,
-29,1,Nelly,16.0,,,rank,
-29,1,Kaitlyn Bristowe,20.0,,,rank,
-29,1,Carole Baskin,11.0,,,rank,
-29,1,Monica Aldama,19.0,,,rank,
-29,1,Jeannie Mai,18.0,,,rank,
-29,2,Anne Heche,18.0,67003.47189852357,0.06700347189852357,rank,False
-29,2,Jesse Metcalfe,20.0,77818.1805512384,0.0778181805512384,rank,False
-29,2,Chrishell Stause,18.0,65880.6741829281,0.06588067418292809,rank,False
-29,2,Skai Jackson,15.0,55960.6846502965,0.0559606846502965,rank,False
-29,2,Justina Machado,21.0,77811.9192024783,0.07781191920247829,rank,False
-29,2,Charles Oakley,15.0,58001.52996645809,0.05800152996645809,rank,True
-29,2,Veron Davis,18.0,68883.73407367399,0.06888373407367399,rank,False
-29,2,Johnny Weir,18.0,65575.13696048137,0.06557513696048137,rank,False
-29,2,Nev Schulman,21.0,66346.20858512446,0.06634620858512447,rank,False
-29,2,AJ McLean,19.0,69461.328535903,0.06946132853590299,rank,False
-29,2,Nelly,18.0,69782.40727192811,0.06978240727192811,rank,False
-29,2,Kaitlyn Bristowe,22.0,79519.67549737246,0.07951967549737246,rank,False
-29,2,Carole Baskin,16.0,58009.351669941556,0.058009351669941554,rank,False
-29,2,Monica Aldama,16.0,56235.272975995,0.056235272975995,rank,False
-29,2,Jeannie Mai,18.0,63710.42397765721,0.06371042397765721,rank,False
+28,11,Kel Mitchell,29.5,253170.24701253415,0.25317024701253416,rank,False
+28,11,Lauren Alaina,28.5,241564.58170739873,0.24156458170739872,rank,False
+28,11,Ally Brooke,30.0,256623.87716962825,0.25662387716962826,rank,False
+28,11,Hannah Brown,29.0,248641.29411043896,0.24864129411043895,rank,False
+29,1,Anne Heche,18.0,69581.22527462272,0.06958122527462271,rank,False
+29,1,Jesse Metcalfe,18.0,69989.4434980418,0.0699894434980418,rank,False
+29,1,Chrishell Stause,13.0,47919.9197267669,0.0479199197267669,rank,False
+29,1,Skai Jackson,21.0,82989.77218938294,0.08298977218938294,rank,False
+29,1,Justina Machado,21.0,82920.20619867244,0.08292020619867245,rank,False
+29,1,Charles Oakley,12.0,44120.49874056628,0.04412049874056628,rank,False
+29,1,Veron Davis,17.0,65444.564291912684,0.06544456429191269,rank,False
+29,1,Johnny Weir,18.0,69322.48046593826,0.06932248046593827,rank,False
+29,1,Nev Schulman,20.0,76859.47485832451,0.0768594748583245,rank,False
+29,1,AJ McLean,18.0,69362.32711886632,0.06936232711886632,rank,False
+29,1,Nelly,16.0,61197.20929656472,0.06119720929656472,rank,False
+29,1,Kaitlyn Bristowe,20.0,78157.7944622422,0.07815779446224219,rank,False
+29,1,Carole Baskin,11.0,39542.93694711717,0.03954293694711717,rank,False
+29,1,Monica Aldama,19.0,73462.55826497203,0.07346255826497203,rank,False
+29,1,Jeannie Mai,18.0,69129.58866600905,0.06912958866600905,rank,False
+29,2,Anne Heche,18.0,67182.65319452964,0.06718265319452965,rank,False
+29,2,Jesse Metcalfe,20.0,78114.85807085954,0.07811485807085954,rank,False
+29,2,Chrishell Stause,18.0,65841.75704233287,0.06584175704233287,rank,False
+29,2,Skai Jackson,15.0,56211.691658571326,0.056211691658571324,rank,False
+29,2,Justina Machado,21.0,78161.84691816212,0.07816184691816212,rank,False
+29,2,Charles Oakley,15.0,58477.30958358339,0.05847730958358339,rank,True
+29,2,Veron Davis,18.0,69218.83970651511,0.0692188397065151,rank,False
+29,2,Johnny Weir,18.0,65204.2475392072,0.0652042475392072,rank,False
+29,2,Nev Schulman,21.0,65456.431116460975,0.06545643111646098,rank,False
+29,2,AJ McLean,19.0,69101.27938914327,0.06910127938914326,rank,False
+29,2,Nelly,18.0,70200.62822121845,0.07020062822121845,rank,False
+29,2,Kaitlyn Bristowe,22.0,79416.24539610164,0.07941624539610165,rank,False
+29,2,Carole Baskin,16.0,57585.30421997058,0.05758530421997058,rank,False
+29,2,Monica Aldama,16.0,56128.92220038395,0.05612892220038395,rank,False
+29,2,Jeannie Mai,18.0,63697.98574296016,0.06369798574296016,rank,False
 29,3,Anne Heche,15.0,54687.68368495687,0.05468768368495687,rank,False
 29,3,Jesse Metcalfe,20.0,76319.79793792458,0.07631979793792458,rank,False
 29,3,Chrishell Stause,22.0,78692.01399468815,0.07869201399468816,rank,False
@@ -2210,42 +2210,42 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 29,3,Carole Baskin,12.0,42190.937652586304,0.0421909376525863,rank,True
 29,3,Monica Aldama,21.0,72063.96419239484,0.07206396419239483,rank,False
 29,3,Jeannie Mai,22.0,76067.30094401201,0.07606730094401201,rank,False
-29,4,Anne Heche,21.0,69520.3543091177,0.0695203543091177,rank,True
-29,4,Jesse Metcalfe,21.0,75252.23765182677,0.07525223765182677,rank,False
-29,4,Chrishell Stause,22.0,71796.28848860251,0.07179628848860252,rank,False
-29,4,Skai Jackson,28.0,95095.22388319985,0.09509522388319985,rank,False
-29,4,Justina Machado,24.0,81509.17007982986,0.08150917007982986,rank,False
-29,4,Veron Davis,22.0,78201.21273258241,0.07820121273258242,rank,False
-29,4,Johnny Weir,24.0,78175.77771951136,0.07817577771951136,rank,False
-29,4,Nev Schulman,24.0,69520.90081075407,0.06952090081075407,rank,False
-29,4,AJ McLean,24.0,78386.42663060503,0.07838642663060502,rank,False
-29,4,Nelly,21.0,75200.3401839936,0.0752003401839936,rank,False
-29,4,Kaitlyn Bristowe,25.0,82094.907959664,0.082094907959664,rank,False
-29,4,Monica Aldama,24.0,77440.47187823085,0.07744047187823085,rank,False
-29,4,Jeannie Mai,21.0,67806.68767208204,0.06780668767208205,rank,False
-29,5,Jesse Metcalfe,19.0,71047.74538278171,0.0710477453827817,rank,True
-29,5,Chrishell Stause,19.0,66623.77797374832,0.06662377797374833,rank,False
-29,5,Skai Jackson,24.0,86049.47896795192,0.08604947896795191,rank,False
-29,5,Justina Machado,24.0,85459.31715923299,0.085459317159233,rank,False
-29,5,Veron Davis,21.0,77313.62551737862,0.07731362551737862,rank,False
-29,5,Johnny Weir,29.0,100525.3089693686,0.1005253089693686,rank,False
-29,5,Nev Schulman,26.0,77557.91553480072,0.07755791553480072,rank,False
-29,5,AJ McLean,24.0,83592.14611033782,0.08359214611033783,rank,False
-29,5,Nelly,24.0,89654.53044124765,0.08965453044124766,rank,False
-29,5,Kaitlyn Bristowe,27.0,93431.13810723585,0.09343113810723584,rank,False
-29,5,Monica Aldama,26.0,87443.33131585259,0.08744333131585258,rank,False
-29,5,Jeannie Mai,24.0,81301.68452006322,0.08130168452006323,rank,False
-29,6,Chrishell Stause,24.0,89976.53480595839,0.0899765348059584,rank,False
-29,6,Skai Jackson,18.0,69382.44101784048,0.06938244101784048,rank,False
-29,6,Justina Machado,27.0,103124.20661084884,0.10312420661084884,rank,False
-29,6,Veron Davis,21.0,82653.55307861847,0.08265355307861846,rank,True
-29,6,Johnny Weir,22.0,82654.62886884066,0.08265462886884066,rank,False
-29,6,Nev Schulman,26.0,83374.42784039973,0.08337442784039974,rank,False
-29,6,AJ McLean,27.0,101616.0497118285,0.1016160497118285,rank,False
-29,6,Nelly,24.0,96787.0790850487,0.0967870790850487,rank,False
-29,6,Kaitlyn Bristowe,27.0,101487.59463449554,0.10148759463449554,rank,False
-29,6,Monica Aldama,27.0,97650.46177993235,0.09765046177993235,rank,False
-29,6,Jeannie Mai,25.0,91293.02256618826,0.09129302256618826,rank,False
+29,4,Anne Heche,21.0,71359.91341363656,0.07135991341363657,rank,True
+29,4,Jesse Metcalfe,21.0,74598.91186171706,0.07459891186171706,rank,False
+29,4,Chrishell Stause,22.0,73113.46460241984,0.07311346460241984,rank,False
+29,4,Skai Jackson,28.0,95346.62511406447,0.09534662511406447,rank,False
+29,4,Justina Machado,24.0,81143.32289556287,0.08114332289556288,rank,False
+29,4,Veron Davis,22.0,77078.87444343732,0.07707887444343732,rank,False
+29,4,Johnny Weir,24.0,78803.93154635966,0.07880393154635966,rank,False
+29,4,Nev Schulman,24.0,67794.81690493017,0.06779481690493017,rank,False
+29,4,AJ McLean,24.0,79412.31466819768,0.07941231466819768,rank,False
+29,4,Nelly,21.0,74704.75509393222,0.07470475509393222,rank,False
+29,4,Kaitlyn Bristowe,25.0,82024.21640733145,0.08202421640733144,rank,False
+29,4,Monica Aldama,24.0,76822.12646918421,0.07682212646918421,rank,False
+29,4,Jeannie Mai,21.0,67796.72657922634,0.06779672657922634,rank,False
+29,5,Jesse Metcalfe,19.0,71083.49749853114,0.07108349749853114,rank,True
+29,5,Chrishell Stause,19.0,66622.0908543267,0.0666220908543267,rank,False
+29,5,Skai Jackson,24.0,86016.24148092202,0.08601624148092202,rank,False
+29,5,Justina Machado,24.0,85457.82993607645,0.08545782993607645,rank,False
+29,5,Veron Davis,21.0,77272.2503796514,0.07727225037965141,rank,False
+29,5,Johnny Weir,29.0,100570.55221595195,0.10057055221595194,rank,False
+29,5,Nev Schulman,26.0,77532.3012711198,0.07753230127111979,rank,False
+29,5,AJ McLean,24.0,83628.49268100188,0.08362849268100188,rank,False
+29,5,Nelly,24.0,89667.93985002155,0.08966793985002154,rank,False
+29,5,Kaitlyn Bristowe,27.0,93442.12657428841,0.09344212657428841,rank,False
+29,5,Monica Aldama,26.0,87419.87323643478,0.08741987323643478,rank,False
+29,5,Jeannie Mai,24.0,81286.80402167392,0.08128680402167392,rank,False
+29,6,Chrishell Stause,24.0,90799.27960607478,0.09079927960607478,rank,False
+29,6,Skai Jackson,18.0,69976.45725643956,0.06997645725643957,rank,False
+29,6,Justina Machado,27.0,103616.61763694164,0.10361661763694163,rank,False
+29,6,Veron Davis,21.0,82393.89596531798,0.08239389596531797,rank,True
+29,6,Johnny Weir,22.0,82401.36383560029,0.08240136383560029,rank,False
+29,6,Nev Schulman,26.0,83969.42307062681,0.08396942307062681,rank,False
+29,6,AJ McLean,27.0,101459.12136673012,0.10145912136673012,rank,False
+29,6,Nelly,24.0,96409.70532332732,0.09640970532332732,rank,False
+29,6,Kaitlyn Bristowe,27.0,100738.50179427826,0.10073850179427826,rank,False
+29,6,Monica Aldama,27.0,97367.91024640466,0.09736791024640466,rank,False
+29,6,Jeannie Mai,25.0,90867.72389825845,0.09086772389825845,rank,False
 29,7,Chrishell Stause,26.0,101626.3084512618,0.10162630845126179,rank,False
 29,7,Skai Jackson,27.0,107935.2802341575,0.1079352802341575,rank,False
 29,7,Justina Machado,26.0,103231.56554687613,0.10323156554687613,rank,False
@@ -2256,46 +2256,46 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 29,7,Kaitlyn Bristowe,24.0,92609.38995652377,0.09260938995652376,rank,False
 29,7,Monica Aldama,22.0,82498.55796544752,0.08249855796544751,rank,True
 29,7,Jeannie Mai,25.0,94458.3069482603,0.0944583069482603,rank,False
-29,8,Chrishell Stause,27.0,123211.03780815762,0.12321103780815762,rank,True
-29,8,Skai Jackson,26.9998,126353.33797218376,0.12635333797218376,rank,False
-29,8,Justina Machado,28.9998,133307.5940484292,0.13330759404842918,rank,False
-29,8,Johnny Weir,30.0,133891.72390694448,0.13389172390694448,rank,False
-29,8,Nev Schulman,30.0,112160.89623013095,0.11216089623013095,rank,False
-29,8,AJ McLean,27.0,121473.52710013474,0.12147352710013475,rank,False
-29,8,Nelly,24.0,124802.13862925876,0.12480213862925875,rank,False
-29,8,Kaitlyn Bristowe,28.0,124799.74430476046,0.12479974430476046,rank,False
-29,9,Skai Jackson,28.9998,155724.64915288347,0.15572464915288348,rank,False
-29,9,Justina Machado,25.9998,138666.60440016203,0.13866660440016204,rank,False
-29,9,Johnny Weir,30.0,155799.76584149373,0.15579976584149374,rank,False
-29,9,Nev Schulman,28.9998,129583.18149269064,0.12958318149269063,rank,False
-29,9,AJ McLean,24.9998,130441.54666820349,0.13044154666820348,rank,True
-29,9,Nelly,24.0,134285.13538755797,0.13428513538755796,rank,False
-29,9,Kaitlyn Bristowe,30.0,155499.11705700858,0.15549911705700858,rank,False
-29,10,Skai Jackson,28.5,169680.6834062508,0.1696806834062508,rank,True
-29,10,Justina Machado,29.0,171484.50822650475,0.17148450822650477,rank,False
-29,10,Johnny Weir,28.5,164102.3483516079,0.16410234835160792,rank,True
-29,10,Nev Schulman,30.0,148626.21530532095,0.14862621530532094,rank,False
-29,10,Nelly,28.0,173700.35392474092,0.17370035392474092,rank,False
-29,10,Kaitlyn Bristowe,30.0,172405.89078557474,0.17240589078557475,rank,False
-29,11,Justina Machado,30.0,,,rank,
-29,11,Nev Schulman,30.0,,,rank,
-29,11,Nelly,28.5,,,rank,
-29,11,Kaitlyn Bristowe,30.0,,,rank,
-30,1,Martin Kove,13.0,,,rank,
-30,1,Brian Austin Green,24.0,,,rank,
-30,1,Melora Hardin,26.0,,,rank,
-30,1,Matt James,24.0,,,rank,
-30,1,"Mike ""The Miz"" Mizanin",24.0,,,rank,
-30,1,Suni Lee,28.0,,,rank,
-30,1,Iman Shumpert,21.0,,,rank,
-30,1,Cody Rigsby,24.0,,,rank,
-30,1,Melanie C,27.0,,,rank,
-30,1,Jimmie Allen,22.0,,,rank,
-30,1,Olivia Jade,25.0,,,rank,
-30,1,JoJo Siwa,29.0,,,rank,
-30,1,Christine Chiu,25.0,,,rank,
-30,1,Kenya Moore,26.0,,,rank,
-30,1,Amanda Kloots,28.0,,,rank,
+29,8,Chrishell Stause,27.0,123055.66153852153,0.12305566153852153,rank,True
+29,8,Skai Jackson,26.9998,125869.809058715,0.125869809058715,rank,False
+29,8,Justina Machado,28.9998,134383.0032423685,0.1343830032423685,rank,False
+29,8,Johnny Weir,30.0,135229.96596154344,0.13522996596154344,rank,False
+29,8,Nev Schulman,30.0,116327.11953826968,0.11632711953826967,rank,False
+29,8,AJ McLean,27.0,122457.12378053738,0.12245712378053739,rank,False
+29,8,Nelly,24.0,116613.73958298755,0.11661373958298754,rank,False
+29,8,Kaitlyn Bristowe,28.0,126063.57729705694,0.12606357729705694,rank,False
+29,9,Skai Jackson,28.9998,155724.89766199052,0.15572489766199052,rank,False
+29,9,Justina Machado,25.9998,138664.79261899195,0.13866479261899195,rank,False
+29,9,Johnny Weir,30.0,155799.3094475633,0.15579930944756332,rank,False
+29,9,Nev Schulman,28.9998,129583.43217728566,0.12958343217728566,rank,False
+29,9,AJ McLean,24.9998,130441.65390392534,0.13044165390392534,rank,True
+29,9,Nelly,24.0,134286.2451315089,0.1342862451315089,rank,False
+29,9,Kaitlyn Bristowe,30.0,155499.66905873423,0.15549966905873422,rank,False
+29,10,Skai Jackson,28.5,169680.12776280197,0.16968012776280197,rank,True
+29,10,Justina Machado,29.0,171484.05387315567,0.17148405387315568,rank,False
+29,10,Johnny Weir,28.5,164102.31919922173,0.16410231919922172,rank,True
+29,10,Nev Schulman,30.0,148628.45459638754,0.14862845459638754,rank,False
+29,10,Nelly,28.0,173699.15345109528,0.17369915345109527,rank,False
+29,10,Kaitlyn Bristowe,30.0,172405.8911173379,0.1724058911173379,rank,False
+29,11,Justina Machado,30.0,254770.26124807922,0.2547702612480792,rank,False
+29,11,Nev Schulman,30.0,249555.2690763642,0.24955526907636422,rank,False
+29,11,Nelly,28.5,241809.01173555508,0.24180901173555508,rank,False
+29,11,Kaitlyn Bristowe,30.0,253865.45794000154,0.25386545794000154,rank,False
+30,1,Martin Kove,13.0,32492.79384985867,0.03249279384985867,rank,False
+30,1,Brian Austin Green,24.0,65791.95678025876,0.06579195678025876,rank,False
+30,1,Melora Hardin,26.0,71358.56419044145,0.07135856419044145,rank,False
+30,1,Matt James,24.0,65744.25407199356,0.06574425407199357,rank,False
+30,1,"Mike ""The Miz"" Mizanin",24.0,65264.34827708293,0.06526434827708293,rank,False
+30,1,Suni Lee,28.0,77836.49032658922,0.07783649032658922,rank,False
+30,1,Iman Shumpert,21.0,56772.43850101823,0.05677243850101823,rank,False
+30,1,Cody Rigsby,24.0,67246.605277133,0.067246605277133,rank,False
+30,1,Melanie C,27.0,74188.79065682225,0.07418879065682225,rank,False
+30,1,Jimmie Allen,22.0,59293.80429896713,0.05929380429896713,rank,False
+30,1,Olivia Jade,25.0,67064.03942699528,0.06706403942699528,rank,False
+30,1,JoJo Siwa,29.0,79520.37426392753,0.07952037426392752,rank,False
+30,1,Christine Chiu,25.0,68213.71863077376,0.06821371863077376,rank,False
+30,1,Kenya Moore,26.0,71191.29098454084,0.07119129098454084,rank,False
+30,1,Amanda Kloots,28.0,78020.53046359749,0.07802053046359748,rank,False
 30,2,Martin Kove,15.0,38833.09811391239,0.03883309811391239,rank,True
 30,2,Brian Austin Green,23.0,63519.0166550523,0.0635190166550523,rank,False
 30,2,Melora Hardin,27.0,68892.90270353317,0.06889290270353317,rank,False
@@ -2311,20 +2311,20 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 30,2,Christine Chiu,24.0,61068.58915971725,0.06106858915971725,rank,False
 30,2,Kenya Moore,24.0,60055.844929025036,0.060055844929025035,rank,False
 30,2,Amanda Kloots,32.0,84848.85099326061,0.08484885099326062,rank,False
-30,3,Brian Austin Green,19.0,67266.25784336505,0.06726625784336505,rank,False
-30,3,Melora Hardin,23.0,76327.67984895367,0.07632767984895368,rank,False
-30,3,Matt James,20.0,71618.78198034501,0.071618781980345,rank,False
-30,3,"Mike ""The Miz"" Mizanin",22.0,74213.27307017345,0.07421327307017346,rank,False
-30,3,Suni Lee,21.0,70433.53127264287,0.07043353127264287,rank,False
-30,3,Iman Shumpert,19.0,69441.47921020274,0.06944147921020274,rank,False
-30,3,Cody Rigsby,18.0,74908.9629746879,0.07490896297468791,rank,False
-30,3,Melanie C,22.0,69917.8834504828,0.0699178834504828,rank,False
-30,3,Jimmie Allen,20.0,68498.9949376953,0.0684989949376953,rank,False
-30,3,Olivia Jade,24.0,68855.01608760946,0.06885501608760947,rank,False
-30,3,JoJo Siwa,24.0,68840.83199991347,0.06884083199991346,rank,False
-30,3,Christine Chiu,21.0,68151.7507865998,0.06815175078659981,rank,True
-30,3,Kenya Moore,21.0,68152.6657993174,0.0681526657993174,rank,False
-30,3,Amanda Kloots,24.0,83372.89073801118,0.08337289073801118,rank,False
+30,3,Brian Austin Green,19.0,68785.32010742946,0.06878532010742947,rank,False
+30,3,Melora Hardin,23.0,76285.2331786731,0.0762852331786731,rank,False
+30,3,Matt James,20.0,71858.83074310608,0.07185883074310608,rank,False
+30,3,"Mike ""The Miz"" Mizanin",22.0,74531.19288080209,0.0745311928808021,rank,False
+30,3,Suni Lee,21.0,70858.58206195704,0.07085858206195704,rank,False
+30,3,Iman Shumpert,19.0,71079.9697579783,0.0710799697579783,rank,False
+30,3,Cody Rigsby,18.0,78265.9716329216,0.07826597163292161,rank,False
+30,3,Melanie C,22.0,68766.03642087763,0.06876603642087763,rank,False
+30,3,Jimmie Allen,20.0,69371.85840080888,0.06937185840080888,rank,False
+30,3,Olivia Jade,24.0,66039.24236039643,0.06603924236039643,rank,False
+30,3,JoJo Siwa,24.0,65761.93769844959,0.0657619376984496,rank,False
+30,3,Christine Chiu,21.0,68765.91092410854,0.06876591092410854,rank,True
+30,3,Kenya Moore,21.0,66875.2199122205,0.06687521991222051,rank,False
+30,3,Amanda Kloots,24.0,82754.69392027077,0.08275469392027077,rank,False
 30,4,Brian Austin Green,26.0,65854.99098427301,0.06585499098427301,rank,True
 30,4,Melora Hardin,36.5,85972.89209250742,0.08597289209250741,rank,False
 30,4,Matt James,28.5,71820.84664885628,0.07182084664885628,rank,True
@@ -2338,17 +2338,17 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 30,4,JoJo Siwa,35.0,72227.03159857634,0.07222703159857634,rank,False
 30,4,Kenya Moore,29.5,68257.4994675386,0.06825749946753859,rank,False
 30,4,Amanda Kloots,34.0,82954.28097021295,0.08295428097021294,rank,False
-30,5,Melora Hardin,36.0,91995.76187070739,0.09199576187070739,rank,False
-30,5,"Mike ""The Miz"" Mizanin",32.0,84487.94123922796,0.08448794123922797,rank,False
-30,5,Suni Lee,36.0,95270.69356600086,0.09527069356600086,rank,False
-30,5,Iman Shumpert,28.0,81581.86290104553,0.08158186290104553,rank,False
-30,5,Cody Rigsby,32.0,103886.713664966,0.10388671366496599,rank,False
-30,5,Melanie C,36.0,88818.67441737972,0.08881867441737971,rank,True
-30,5,Jimmie Allen,34.0,91996.15238864589,0.09199615238864589,rank,False
-30,5,Olivia Jade,36.0,78584.74266448244,0.07858474266448244,rank,False
-30,5,JoJo Siwa,40.0,89415.57944916969,0.08941557944916968,rank,False
-30,5,Kenya Moore,36.0,90246.8373112989,0.09024683731129891,rank,False
-30,5,Amanda Kloots,39.0,103715.04052707572,0.10371504052707572,rank,False
+30,5,Melora Hardin,36.0,92475.79625052903,0.09247579625052903,rank,False
+30,5,"Mike ""The Miz"" Mizanin",32.0,82666.1728120953,0.0826661728120953,rank,False
+30,5,Suni Lee,36.0,94024.25333567006,0.09402425333567006,rank,False
+30,5,Iman Shumpert,28.0,84108.8592217342,0.0841088592217342,rank,False
+30,5,Cody Rigsby,32.0,107792.9453644985,0.1077929453644985,rank,False
+30,5,Melanie C,36.0,89452.79135858461,0.08945279135858461,rank,True
+30,5,Jimmie Allen,34.0,90661.36638202163,0.09066136638202163,rank,False
+30,5,Olivia Jade,36.0,79486.0033331802,0.07948600333318019,rank,False
+30,5,JoJo Siwa,40.0,84104.6669922675,0.08410466699226751,rank,False
+30,5,Kenya Moore,36.0,90702.81468043066,0.09070281468043066,rank,False
+30,5,Amanda Kloots,39.0,104524.33026898825,0.10452433026898826,rank,False
 30,6,Melora Hardin,34.0,91516.35663595304,0.09151635663595303,rank,False
 30,6,"Mike ""The Miz"" Mizanin",34.0,93014.77492981087,0.09301477492981086,rank,False
 30,6,Suni Lee,36.0,98783.6348564613,0.0987836348564613,rank,False
@@ -2376,47 +2376,47 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 30,8,Olivia Jade,36.0,98073.79060933011,0.09807379060933011,rank,True
 30,8,JoJo Siwa,41.0,112394.18538434207,0.11239418538434207,rank,False
 30,8,Amanda Kloots,42.0,138380.85499930114,0.13838085499930114,rank,False
-30,9,Melora Hardin,36.0,152090.38993076736,0.15209038993076734,rank,True
-30,9,Suni Lee,37.5,161507.63677826725,0.16150763677826724,rank,True
-30,9,Iman Shumpert,37.5,177273.29022675363,0.17727329022675362,rank,False
-30,9,Cody Rigsby,35.5,189606.46837449973,0.18960646837449974,rank,False
-30,9,JoJo Siwa,40.0,146109.2578213759,0.1461092578213759,rank,False
-30,9,Amanda Kloots,39.5,173412.95686833624,0.17341295686833624,rank,False
-30,10,Iman Shumpert,40.0,,,rank,
-30,10,Cody Rigsby,38.0,,,rank,
-30,10,JoJo Siwa,40.0,,,rank,
-30,10,Amanda Kloots,39.0,,,rank,
-31,1,Jason Lewis,18.0,49813.05745936817,0.04981305745936817,rank,True
-31,1,Cheryl Ladd,21.0,57161.30471246716,0.05716130471246716,rank,False
-31,1,Selma Blair,28.0,74170.4258678267,0.07417042586782671,rank,False
-31,1,Joseph Baena,23.0,66808.86294250994,0.06680886294250994,rank,False
-31,1,Trevor Donovan,21.0,58897.594206394366,0.058897594206394364,rank,False
-31,1,Daniel Durant,27.0,70414.84488624825,0.07041484488624825,rank,False
-31,1,Wayne Brady,29.0,83318.40451758371,0.08331840451758371,rank,False
-31,1,Sam Champion,20.0,53236.50615501192,0.05323650615501192,rank,False
-31,1,Jessie James Decker,20.0,50826.452110463055,0.050826452110463056,rank,False
-31,1,Jordin Sparks,26.0,62166.597861966795,0.062166597861966794,rank,False
-31,1,Heidi D'Amelio,24.0,54747.40696381362,0.05474740696381362,rank,False
-31,1,Charli D'Amelio,32.0,70498.12564935726,0.07049812564935726,rank,False
-31,1,Teresa Giudice,20.0,51265.63247623172,0.051265632476231726,rank,False
-31,1,Vinny Guadagnino,17.0,53494.290506916484,0.05349429050691648,rank,False
-31,1,Shangela,28.0,73129.34290267227,0.07312934290267227,rank,False
-31,1,Gabby Windey,28.0,70051.15078116862,0.07005115078116862,rank,False
-31,2,Cheryl Ladd,21.0,52841.80596904586,0.05284180596904586,rank,False
-31,2,Selma Blair,28.0,68575.31156599223,0.06857531156599224,rank,False
-31,2,Joseph Baena,24.0,64452.80651355135,0.06445280651355136,rank,False
-31,2,Trevor Donovan,30.0,77798.67632330465,0.07779867632330466,rank,False
-31,2,Daniel Durant,29.0,69938.2366294927,0.06993823662949271,rank,False
-31,2,Wayne Brady,32.0,85013.77798382526,0.08501377798382526,rank,False
-31,2,Sam Champion,26.0,63992.69223161798,0.06399269223161798,rank,False
-31,2,Jessie James Decker,25.0,58748.736669048885,0.05874873666904889,rank,False
-31,2,Jordin Sparks,27.0,59685.52138270954,0.05968552138270954,rank,False
-31,2,Heidi D'Amelio,28.0,59054.522041386124,0.05905452204138612,rank,False
-31,2,Charli D'Amelio,32.0,65184.40066287562,0.06518440066287562,rank,False
-31,2,Teresa Giudice,23.0,54508.89848064759,0.05450889848064759,rank,True
-31,2,Vinny Guadagnino,27.0,78555.00674831224,0.07855500674831224,rank,False
-31,2,Shangela,28.0,67612.21705926584,0.06761221705926583,rank,False
-31,2,Gabby Windey,32.0,74037.38973892412,0.07403738973892411,rank,False
+30,9,Melora Hardin,36.0,152088.43408794727,0.15208843408794728,rank,True
+30,9,Suni Lee,37.5,161508.94218212226,0.16150894218212228,rank,True
+30,9,Iman Shumpert,37.5,177275.19538346582,0.1772751953834658,rank,False
+30,9,Cody Rigsby,35.5,189605.91027137227,0.18960591027137227,rank,False
+30,9,JoJo Siwa,40.0,146109.68956843045,0.14610968956843046,rank,False
+30,9,Amanda Kloots,39.5,173411.82850666202,0.173411828506662,rank,False
+30,10,Iman Shumpert,40.0,256949.73454974985,0.25694973454974984,rank,False
+30,10,Cody Rigsby,38.0,246568.30379170203,0.24656830379170203,rank,False
+30,10,JoJo Siwa,40.0,249205.98355117865,0.24920598355117865,rank,False
+30,10,Amanda Kloots,39.0,247275.9781073695,0.2472759781073695,rank,False
+31,1,Jason Lewis,18.0,49813.177227823544,0.049813177227823545,rank,True
+31,1,Cheryl Ladd,21.0,57161.40152964328,0.057161401529643274,rank,False
+31,1,Selma Blair,28.0,74170.46498189359,0.07417046498189359,rank,False
+31,1,Joseph Baena,23.0,66809.1549214316,0.06680915492143161,rank,False
+31,1,Trevor Donovan,21.0,58897.76741480566,0.05889776741480566,rank,False
+31,1,Daniel Durant,27.0,70414.83308041237,0.07041483308041237,rank,False
+31,1,Wayne Brady,29.0,83318.73158945506,0.08331873158945506,rank,False
+31,1,Sam Champion,20.0,53236.544885427305,0.053236544885427305,rank,False
+31,1,Jessie James Decker,20.0,50826.38430446716,0.05082638430446716,rank,False
+31,1,Jordin Sparks,26.0,62166.33688905699,0.06216633688905699,rank,False
+31,1,Heidi D'Amelio,24.0,54747.04941729297,0.05474704941729297,rank,False
+31,1,Charli D'Amelio,32.0,70497.53815955084,0.07049753815955084,rank,False
+31,1,Teresa Giudice,20.0,51265.58387501901,0.05126558387501901,rank,False
+31,1,Vinny Guadagnino,17.0,53494.688479901095,0.0534946884799011,rank,False
+31,1,Shangela,28.0,73129.3361504107,0.0731293361504107,rank,False
+31,1,Gabby Windey,28.0,70051.00709340877,0.07005100709340877,rank,False
+31,2,Cheryl Ladd,21.0,52856.90937751781,0.05285690937751781,rank,False
+31,2,Selma Blair,28.0,68583.30914714419,0.06858330914714418,rank,False
+31,2,Joseph Baena,24.0,64465.61554391765,0.06446561554391765,rank,False
+31,2,Trevor Donovan,30.0,77812.12268130548,0.07781212268130548,rank,False
+31,2,Daniel Durant,29.0,69909.21046592406,0.06990921046592406,rank,False
+31,2,Wayne Brady,32.0,85018.20653235898,0.08501820653235898,rank,False
+31,2,Sam Champion,26.0,64008.30550219667,0.06400830550219667,rank,False
+31,2,Jessie James Decker,25.0,58735.958645504696,0.058735958645504696,rank,False
+31,2,Jordin Sparks,27.0,59704.7036865565,0.059704703686556504,rank,False
+31,2,Heidi D'Amelio,28.0,59045.44051668471,0.05904544051668471,rank,False
+31,2,Charli D'Amelio,32.0,65161.74777270674,0.06516174777270674,rank,False
+31,2,Teresa Giudice,23.0,54517.91578552668,0.054517915785526685,rank,True
+31,2,Vinny Guadagnino,27.0,78534.32586645777,0.07853432586645777,rank,False
+31,2,Shangela,28.0,67620.72450225052,0.06762072450225053,rank,False
+31,2,Gabby Windey,32.0,74025.5039739476,0.07402550397394761,rank,False
 31,3,Cheryl Ladd,24.0,61859.201588616685,0.061859201588616686,rank,True
 31,3,Selma Blair,28.0,70232.96563308113,0.07023296563308112,rank,False
 31,3,Joseph Baena,29.0,79765.38445205972,0.07976538445205972,rank,False
@@ -2444,37 +2444,37 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 31,4,Vinny Guadagnino,29.0,85119.7728036943,0.0851197728036943,rank,False
 31,4,Shangela,32.0,77957.44426782861,0.07795744426782861,rank,False
 31,4,Gabby Windey,36.0,84010.53017287448,0.08401053017287448,rank,False
-31,5,Selma Blair,40.0,88738.30087002936,0.08873830087002936,rank,False
-31,5,Joseph Baena,35.0,85528.84956775935,0.08552884956775934,rank,True
-31,5,Trevor Donovan,36.0,86812.1750410895,0.0868121750410895,rank,False
-31,5,Daniel Durant,33.5,74384.05734513944,0.07438405734513945,rank,False
-31,5,Wayne Brady,41.0,102421.97455611128,0.10242197455611128,rank,False
-31,5,Jessie James Decker,36.0,77823.08261855217,0.07782308261855217,rank,False
-31,5,Jordin Sparks,35.5,73785.44641241069,0.0737854464124107,rank,False
-31,5,Heidi D'Amelio,39.0,73749.91989777662,0.07374991989777661,rank,False
-31,5,Charli D'Amelio,42.0,79889.78350312081,0.07988978350312081,rank,False
-31,5,Vinny Guadagnino,31.0,82489.73359572081,0.08248973359572082,rank,False
-31,5,Shangela,38.5,85529.41707475917,0.08552941707475917,rank,False
-31,5,Gabby Windey,41.0,88847.25951753066,0.08884725951753067,rank,False
-31,6,Trevor Donovan,34.0,107231.50024482419,0.10723150024482418,rank,False
-31,6,Daniel Durant,34.0,99711.34110406067,0.09971134110406067,rank,False
-31,6,Wayne Brady,34.0,109846.69476247768,0.10984669476247769,rank,False
-31,6,Jessie James Decker,32.0,91448.18071560073,0.09144818071560072,rank,True
-31,6,Jordin Sparks,34.0,91417.20971378578,0.09141720971378578,rank,False
-31,6,Heidi D'Amelio,36.0,92346.40214519491,0.0923464021451949,rank,False
-31,6,Charli D'Amelio,40.0,99095.24106359435,0.09909524106359435,rank,False
-31,6,Vinny Guadagnino,28.0,99079.02897530452,0.09907902897530452,rank,False
-31,6,Shangela,36.0,105730.75557461116,0.10573075557461116,rank,False
-31,6,Gabby Windey,37.0,104093.64570054598,0.10409364570054598,rank,False
-31,7,Trevor Donovan,39.0,129404.9076521436,0.1294049076521436,rank,False
-31,7,Daniel Durant,36.5,112616.26995854745,0.11261626995854745,rank,False
-31,7,Wayne Brady,38.0,129161.9252134129,0.1291619252134129,rank,False
-31,7,Jordin Sparks,34.5,97591.2215688875,0.0975912215688875,rank,True
-31,7,Heidi D'Amelio,35.0,94455.76060097673,0.09445576060097674,rank,False
-31,7,Charli D'Amelio,39.0,101648.35176570558,0.10164835176570558,rank,False
-31,7,Vinny Guadagnino,31.5,117267.37087580875,0.11726737087580874,rank,False
-31,7,Shangela,36.5,112780.59290719102,0.11278059290719102,rank,False
-31,7,Gabby Windey,35.5,105073.5994573264,0.1050735994573264,rank,False
+31,5,Selma Blair,40.0,90296.08578911977,0.09029608578911977,rank,False
+31,5,Joseph Baena,35.0,85984.05887193308,0.08598405887193308,rank,True
+31,5,Trevor Donovan,36.0,86597.3223322441,0.0865973223322441,rank,False
+31,5,Daniel Durant,33.5,76058.60084986023,0.07605860084986023,rank,False
+31,5,Wayne Brady,41.0,100036.9002138229,0.1000369002138229,rank,False
+31,5,Jessie James Decker,36.0,77053.74810994788,0.07705374810994788,rank,False
+31,5,Jordin Sparks,35.5,72103.44132878842,0.07210344132878842,rank,False
+31,5,Heidi D'Amelio,39.0,75851.04107019544,0.07585104107019544,rank,False
+31,5,Charli D'Amelio,42.0,78843.86413300275,0.07884386413300275,rank,False
+31,5,Vinny Guadagnino,31.0,83634.22640207827,0.08363422640207828,rank,False
+31,5,Shangela,38.5,85986.26957603556,0.08598626957603556,rank,False
+31,5,Gabby Windey,41.0,87554.44132297169,0.08755444132297169,rank,False
+31,6,Trevor Donovan,34.0,107232.06712439924,0.10723206712439924,rank,False
+31,6,Daniel Durant,34.0,99712.97591486858,0.09971297591486858,rank,False
+31,6,Wayne Brady,34.0,109845.36858547537,0.10984536858547538,rank,False
+31,6,Jessie James Decker,32.0,91446.02734561545,0.09144602734561545,rank,True
+31,6,Jordin Sparks,34.0,91419.27261793554,0.09141927261793553,rank,False
+31,6,Heidi D'Amelio,36.0,92344.88725296328,0.09234488725296328,rank,False
+31,6,Charli D'Amelio,40.0,99092.90243907447,0.09909290243907447,rank,False
+31,6,Vinny Guadagnino,28.0,99077.23569938552,0.09907723569938552,rank,False
+31,6,Shangela,36.0,105732.92851923128,0.10573292851923129,rank,False
+31,6,Gabby Windey,37.0,104096.33450105136,0.10409633450105135,rank,False
+31,7,Trevor Donovan,39.0,129403.57803191904,0.12940357803191904,rank,False
+31,7,Daniel Durant,36.5,112619.49475391812,0.11261949475391812,rank,False
+31,7,Wayne Brady,38.0,129161.73082928709,0.12916173082928709,rank,False
+31,7,Jordin Sparks,34.5,97592.26233865503,0.09759226233865502,rank,True
+31,7,Heidi D'Amelio,35.0,94455.2966999999,0.0944552966999999,rank,False
+31,7,Charli D'Amelio,39.0,101648.31374562319,0.10164831374562319,rank,False
+31,7,Vinny Guadagnino,31.5,117268.07185517256,0.11726807185517256,rank,False
+31,7,Shangela,36.5,112778.319363397,0.112778319363397,rank,False
+31,7,Gabby Windey,35.5,105072.93238202803,0.10507293238202803,rank,False
 31,8,Trevor Donovan,39.0,133330.17364989594,0.13333017364989594,rank,False
 31,8,Daniel Durant,39.0,123979.72196718869,0.12397972196718869,rank,False
 31,8,Wayne Brady,45.0,157594.49184594906,0.15759449184594906,rank,False
@@ -2489,37 +2489,37 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 31,9,Charli D'Amelio,40.0,154732.31017545148,0.15473231017545147,rank,False
 31,9,Shangela,36.5,167386.2965088387,0.1673862965088387,rank,False
 31,9,Gabby Windey,40.0,175715.72854778712,0.1757157285477871,rank,False
-31,10,Wayne Brady,38.0,,,rank,
-31,10,Charli D'Amelio,40.0,,,rank,
-31,10,Shangela,38.0,,,rank,
-31,10,Gabby Windey,40.0,,,rank,
-32,1,Jamie Lynn Spears,15.0,65620.28380828582,0.06562028380828583,rank,False
-32,1,Mira Sorvino,17.0,72559.78345393568,0.07255978345393568,rank,False
-32,1,Barry Williams,16.0,72414.45885162175,0.07241445885162175,rank,False
-32,1,Alyson Hannigan,13.0,56367.011903615,0.056367011903615,rank,False
-32,1,Xochitl Gomez,18.0,73473.98134637882,0.07347398134637882,rank,False
-32,1,Adrian Peterson,18.0,76015.72486223519,0.07601572486223519,rank,False
-32,1,Matt Walsh,12.0,65619.62983029953,0.06561962983029952,rank,True
-32,1,Tyson Beckford,12.0,44571.76949193962,0.044571769491939625,rank,False
-32,1,Jason Mraz,21.0,95789.97644449597,0.09578997644449597,rank,False
-32,1,Lele Pons,19.0,69267.91173326965,0.06926791173326964,rank,False
-32,1,Harry Jowsey,12.0,58533.12300269886,0.05853312300269886,rank,False
-32,1,Mauricio Umansky,15.0,69006.16502749467,0.06900616502749467,rank,False
-32,1,Charity Lawson,22.0,92807.4859278044,0.0928074859278044,rank,False
-32,1,Ariana Madix,21.0,87952.69431592518,0.08795269431592519,rank,False
-32,2,Jamie Lynn Spears,16.0,65144.50807362519,0.06514450807362519,rank,True
-32,2,Mira Sorvino,18.0,75031.18337440425,0.07503118337440426,rank,False
-32,2,Barry Williams,15.0,66441.05876802,0.06644105876801999,rank,False
-32,2,Alyson Hannigan,19.0,82172.86619759384,0.08217286619759384,rank,False
-32,2,Xochitl Gomez,24.0,96675.88740800599,0.09667588740800599,rank,False
-32,2,Adrian Peterson,15.0,65175.20061158758,0.06517520061158757,rank,False
-32,2,Tyson Beckford,18.0,65145.09746534816,0.06514509746534816,rank,False
-32,2,Jason Mraz,24.0,107527.04863018318,0.10752704863018318,rank,False
-32,2,Lele Pons,21.0,75051.81944396604,0.07505181944396605,rank,False
-32,2,Harry Jowsey,15.0,76447.80308507939,0.07644780308507938,rank,False
-32,2,Mauricio Umansky,12.0,53811.26378403517,0.05381126378403517,rank,False
-32,2,Charity Lawson,21.0,86645.18452136406,0.08664518452136406,rank,False
-32,2,Ariana Madix,20.0,84731.07863678709,0.0847310786367871,rank,False
+31,10,Wayne Brady,38.0,246560.79156133032,0.24656079156133032,rank,False
+31,10,Charli D'Amelio,40.0,253128.02269645373,0.25312802269645374,rank,False
+31,10,Shangela,38.0,243503.9896565364,0.2435039896565364,rank,False
+31,10,Gabby Windey,40.0,256807.1960856795,0.2568071960856795,rank,False
+32,1,Jamie Lynn Spears,15.0,65442.717791066236,0.06544271779106624,rank,False
+32,1,Mira Sorvino,17.0,72527.14267502504,0.07252714267502504,rank,False
+32,1,Barry Williams,16.0,72263.79802778656,0.07226379802778655,rank,False
+32,1,Alyson Hannigan,13.0,56353.45208289788,0.05635345208289788,rank,False
+32,1,Xochitl Gomez,18.0,73857.68151616679,0.0738576815161668,rank,False
+32,1,Adrian Peterson,18.0,76097.97129655312,0.07609797129655312,rank,False
+32,1,Matt Walsh,12.0,65432.63224699772,0.06543263224699772,rank,True
+32,1,Tyson Beckford,12.0,44950.35307328727,0.04495035307328727,rank,False
+32,1,Jason Mraz,21.0,95238.88274426803,0.09523888274426803,rank,False
+32,1,Lele Pons,19.0,70073.75685367401,0.07007375685367401,rank,False
+32,1,Harry Jowsey,12.0,58018.62275700589,0.058018622757005894,rank,False
+32,1,Mauricio Umansky,15.0,68743.55289558756,0.06874355289558756,rank,False
+32,1,Charity Lawson,22.0,92776.48771523815,0.09277648771523815,rank,False
+32,1,Ariana Madix,21.0,88222.94832444578,0.08822294832444579,rank,False
+32,2,Jamie Lynn Spears,16.0,56153.22623950735,0.05615322623950735,rank,True
+32,2,Mira Sorvino,18.0,85051.02731717956,0.08505102731717956,rank,False
+32,2,Barry Williams,15.0,54781.23634515613,0.05478123634515613,rank,False
+32,2,Alyson Hannigan,19.0,82492.51363988906,0.08249251363988906,rank,False
+32,2,Xochitl Gomez,24.0,101099.2887651237,0.1010992887651237,rank,False
+32,2,Adrian Peterson,15.0,62646.30534156428,0.06264630534156428,rank,False
+32,2,Tyson Beckford,18.0,76476.41389313256,0.07647641389313256,rank,False
+32,2,Jason Mraz,24.0,111114.92968491683,0.11111492968491683,rank,False
+32,2,Lele Pons,21.0,79082.44263102338,0.07908244263102339,rank,False
+32,2,Harry Jowsey,15.0,72889.88517734618,0.07288988517734618,rank,False
+32,2,Mauricio Umansky,12.0,56153.24905423507,0.05615324905423507,rank,False
+32,2,Charity Lawson,21.0,73828.33197756491,0.07382833197756491,rank,False
+32,2,Ariana Madix,20.0,88231.1499333609,0.0882311499333609,rank,False
 32,3,Mira Sorvino,26.0,80452.00918209435,0.08045200918209434,rank,False
 32,3,Barry Williams,25.0,82093.32845205965,0.08209332845205965,rank,False
 32,3,Alyson Hannigan,24.0,75436.43421136061,0.0754364342113606,rank,False
@@ -2532,44 +2532,44 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 32,3,Mauricio Umansky,23.0,76652.03870829658,0.07665203870829658,rank,False
 32,3,Charity Lawson,32.0,97751.74171185029,0.09775174171185029,rank,False
 32,3,Ariana Madix,34.0,103412.35183043453,0.10341235183043454,rank,False
-32,4,Mira Sorvino,21.0,116520.24827447762,0.11652024827447761,rank,False
-32,4,Barry Williams,18.0,112705.16640376583,0.11270516640376584,rank,False
-32,4,Alyson Hannigan,18.0,99267.61244403165,0.09926761244403165,rank,False
-32,4,Xochitl Gomez,27.0,93994.28083656145,0.09399428083656144,rank,False
-32,4,Adrian Peterson,21.0,69012.02643107486,0.06901202643107486,rank,True
-32,4,Jason Mraz,24.0,99267.44046374573,0.09926744046374573,rank,False
-32,4,Lele Pons,22.0,72195.03695843824,0.07219503695843825,rank,False
-32,4,Harry Jowsey,21.0,107758.64312186086,0.10775864312186087,rank,False
-32,4,Mauricio Umansky,19.0,1082.8353924485605,0.0010828353924485605,rank,False
-32,4,Charity Lawson,24.0,146038.0761254836,0.1460380761254836,rank,False
-32,4,Ariana Madix,25.0,82158.63354811165,0.08215863354811166,rank,False
-32,5,Mira Sorvino,22.0,87638.75621553806,0.08763875621553806,rank,True
-32,5,Barry Williams,24.0,105775.31294738945,0.10577531294738945,rank,False
-32,5,Alyson Hannigan,21.0,91551.10013492541,0.0915511001349254,rank,False
-32,5,Xochitl Gomez,28.0,111197.80273712495,0.11119780273712494,rank,False
-32,5,Jason Mraz,27.0,118784.54151155511,0.11878454151155511,rank,False
-32,5,Lele Pons,24.0,87640.19994575318,0.08764019994575317,rank,False
-32,5,Harry Jowsey,18.0,83509.77384262784,0.08350977384262784,rank,False
-32,5,Mauricio Umansky,24.0,103817.83605705912,0.10381783605705912,rank,False
-32,5,Charity Lawson,28.0,113393.720728837,0.113393720728837,rank,False
-32,5,Ariana Madix,24.0,96690.95587918989,0.09669095587918988,rank,False
-32,6,Barry Williams,32.0,107384.50769802142,0.10738450769802142,rank,False
-32,6,Alyson Hannigan,31.0,97146.17105588707,0.09714617105588708,rank,False
-32,6,Xochitl Gomez,42.0,124902.8645328636,0.1249028645328636,rank,False
-32,6,Jason Mraz,39.0,126236.05771189097,0.12623605771189098,rank,False
-32,6,Lele Pons,37.0,96983.2638422576,0.0969832638422576,rank,False
-32,6,Harry Jowsey,29.0,101357.40193564123,0.10135740193564123,rank,False
-32,6,Mauricio Umansky,33.0,107381.35431054559,0.10738135431054559,rank,True
-32,6,Charity Lawson,38.0,114003.30913200721,0.11400330913200721,rank,False
-32,6,Ariana Madix,41.0,124605.06978088537,0.12460506978088537,rank,False
-32,7,Barry Williams,32.5,123373.10965117044,0.12337310965117043,rank,False
-32,7,Alyson Hannigan,35.0,125827.9768021131,0.1258279768021131,rank,False
-32,7,Xochitl Gomez,37.0,123373.04430808792,0.12337304430808792,rank,False
-32,7,Jason Mraz,36.0,137428.89057283592,0.13742889057283592,rank,False
-32,7,Lele Pons,36.5,104791.45151396726,0.10479145151396725,rank,True
-32,7,Harry Jowsey,32.0,132984.0599530902,0.1329840599530902,rank,False
-32,7,Charity Lawson,36.0,124659.4935363678,0.1246594935363678,rank,False
-32,7,Ariana Madix,37.0,127561.97366236732,0.12756197366236732,rank,False
+32,4,Mira Sorvino,21.0,81387.02556449371,0.08138702556449372,rank,False
+32,4,Barry Williams,18.0,86465.53879280516,0.08646553879280516,rank,False
+32,4,Alyson Hannigan,18.0,81387.25426399159,0.08138725426399158,rank,False
+32,4,Xochitl Gomez,27.0,111755.16239550503,0.11175516239550504,rank,False
+32,4,Adrian Peterson,21.0,81326.23503663857,0.08132623503663856,rank,True
+32,4,Jason Mraz,24.0,106076.00396106965,0.10607600396106966,rank,False
+32,4,Lele Pons,22.0,81336.95406324104,0.08133695406324104,rank,False
+32,4,Harry Jowsey,21.0,97845.19429319011,0.09784519429319011,rank,False
+32,4,Mauricio Umansky,19.0,85145.11683213295,0.08514511683213294,rank,False
+32,4,Charity Lawson,24.0,78779.03296714916,0.07877903296714917,rank,False
+32,4,Ariana Madix,25.0,108496.48182978311,0.10849648182978311,rank,False
+32,5,Mira Sorvino,22.0,84190.04218416628,0.08419004218416627,rank,True
+32,5,Barry Williams,24.0,114993.39554280782,0.11499339554280782,rank,False
+32,5,Alyson Hannigan,21.0,95142.69154549151,0.09514269154549151,rank,False
+32,5,Xochitl Gomez,28.0,110720.33175385204,0.11072033175385204,rank,False
+32,5,Jason Mraz,27.0,111152.61446966679,0.11115261446966679,rank,False
+32,5,Lele Pons,24.0,84190.57724082009,0.08419057724082009,rank,False
+32,5,Harry Jowsey,18.0,85499.9697688585,0.0854999697688585,rank,False
+32,5,Mauricio Umansky,24.0,104294.5548793826,0.1042945548793826,rank,False
+32,5,Charity Lawson,28.0,112966.25509970356,0.11296625509970355,rank,False
+32,5,Ariana Madix,24.0,96849.5675152508,0.09684956751525081,rank,False
+32,6,Barry Williams,32.0,104625.46947513266,0.10462546947513265,rank,False
+32,6,Alyson Hannigan,31.0,96871.5856894113,0.0968715856894113,rank,False
+32,6,Xochitl Gomez,42.0,123564.25551598918,0.12356425551598918,rank,False
+32,6,Jason Mraz,39.0,127831.1095032158,0.1278311095032158,rank,False
+32,6,Lele Pons,37.0,96868.74354488224,0.09686874354488223,rank,False
+32,6,Harry Jowsey,29.0,101610.78391055203,0.10161078391055202,rank,False
+32,6,Mauricio Umansky,33.0,109565.04884462632,0.10956504884462633,rank,True
+32,6,Charity Lawson,38.0,115408.15927796214,0.11540815927796215,rank,False
+32,6,Ariana Madix,41.0,123654.84423822837,0.12365484423822837,rank,False
+32,7,Barry Williams,32.5,123853.45036719441,0.12385345036719442,rank,False
+32,7,Alyson Hannigan,35.0,125858.18580728662,0.1258581858072866,rank,False
+32,7,Xochitl Gomez,37.0,123852.94597106114,0.12385294597106114,rank,False
+32,7,Jason Mraz,36.0,134770.4663793488,0.1347704663793488,rank,False
+32,7,Lele Pons,36.5,109594.63638275265,0.10959463638275264,rank,True
+32,7,Harry Jowsey,32.0,128281.27633100556,0.12828127633100556,rank,False
+32,7,Charity Lawson,36.0,126788.99746734681,0.12678899746734681,rank,False
+32,7,Ariana Madix,37.0,127000.04129400397,0.12700004129400397,rank,False
 32,8,Barry Williams,35.0,142309.0266486352,0.14230902664863518,rank,True
 32,8,Alyson Hannigan,36.0,142313.52808978583,0.14231352808978584,rank,False
 32,8,Xochitl Gomez,40.0,148167.342430026,0.14816734243002602,rank,False
@@ -2577,48 +2577,48 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 32,8,Harry Jowsey,28.0,123083.38314153576,0.12308338314153576,rank,False
 32,8,Charity Lawson,39.0,149411.33697539908,0.14941133697539907,rank,False
 32,8,Ariana Madix,42.0,159998.44591677104,0.15999844591677104,rank,False
-32,9,Alyson Hannigan,32.0,144018.54679612422,0.14401854679612422,rank,False
-32,9,Xochitl Gomez,41.0,173996.35814467072,0.17399635814467074,rank,False
-32,9,Jason Mraz,43.0,203025.93552674318,0.2030259355267432,rank,False
-32,9,Harry Jowsey,30.0,151613.0031799233,0.15161300317992332,rank,True
-32,9,Charity Lawson,38.0,166209.80068378485,0.16620980068378485,rank,False
-32,9,Ariana Madix,37.0,161136.35566875382,0.1611363556687538,rank,False
-32,10,Alyson Hannigan,25.5,,,rank,
-32,10,Xochitl Gomez,30.0,,,rank,
-32,10,Jason Mraz,28.5,,,rank,
-32,10,Charity Lawson,29.5,,,rank,
-32,10,Ariana Madix,29.0,,,rank,
-32,11,Alyson Hannigan,26.5,,,rank,
-32,11,Xochitl Gomez,30.0,,,rank,
-32,11,Jason Mraz,30.0,,,rank,
-32,11,Charity Lawson,29.5,,,rank,
-32,11,Ariana Madix,29.5,,,rank,
-33,1,Tori Spelling,17.0,,,rank,
-33,1,Eric Roberts,15.0,,,rank,
-33,1,Reginald VelJohnson,16.0,,,rank,
-33,1,Chandler Kinney,23.0,,,rank,
-33,1,Dwight Howard ,22.0,,,rank,
-33,1,Danny Amendola,20.0,,,rank,
-33,1,Stephen Nedoroscik,21.0,,,rank,
-33,1,Ilona Maher,18.0,,,rank,
-33,1,Anna Delvey,18.0,,,rank,
-33,1,Brooks Nader,18.0,,,rank,
-33,1,Phaedra Parks,19.0,,,rank,
-33,1,Jenn Tran,19.0,,,rank,
-33,1,Joey Graziadei,21.0,,,rank,
-33,2,Tori Spelling,19.0,66325.65947592533,0.06632565947592534,rank,True
-33,2,Eric Roberts,15.0,66331.46727819351,0.06633146727819351,rank,False
-33,2,Reginald VelJohnson,15.0,70821.1725519322,0.07082117255193221,rank,False
-33,2,Chandler Kinney,24.0,93799.72398057174,0.09379972398057174,rank,False
-33,2,Dwight Howard ,22.0,96758.83294393087,0.09675883294393087,rank,False
-33,2,Danny Amendola,21.0,83236.51164822864,0.08323651164822864,rank,False
-33,2,Stephen Nedoroscik,22.0,94742.58584950818,0.09474258584950818,rank,False
-33,2,Ilona Maher,21.0,81593.5170592082,0.0815935170592082,rank,False
-33,2,Anna Delvey,17.0,30497.781932429734,0.030497781932429736,rank,True
-33,2,Brooks Nader,20.0,76837.5594056867,0.07683755940568669,rank,False
-33,2,Phaedra Parks,21.0,78320.36635770537,0.07832036635770537,rank,False
-33,2,Jenn Tran,19.0,74679.68199987905,0.07467968199987905,rank,False
-33,2,Joey Graziadei,22.0,86055.13951680042,0.08605513951680042,rank,False
+32,9,Alyson Hannigan,32.0,144019.9729438797,0.1440199729438797,rank,False
+32,9,Xochitl Gomez,41.0,173996.6209048052,0.1739966209048052,rank,False
+32,9,Jason Mraz,43.0,203024.8075378403,0.2030248075378403,rank,False
+32,9,Harry Jowsey,30.0,151613.47706394078,0.15161347706394077,rank,True
+32,9,Charity Lawson,38.0,166209.1797160296,0.1662091797160296,rank,False
+32,9,Ariana Madix,37.0,161135.94183350436,0.16113594183350435,rank,False
+32,10,Alyson Hannigan,25.5,176474.3682047556,0.1764743682047556,rank,False
+32,10,Xochitl Gomez,30.0,210865.09634004242,0.2108650963400424,rank,False
+32,10,Jason Mraz,28.5,201550.60553662875,0.20155060553662874,rank,False
+32,10,Charity Lawson,29.5,207612.88158376666,0.20761288158376667,rank,False
+32,10,Ariana Madix,29.0,203497.0483348065,0.2034970483348065,rank,False
+32,11,Alyson Hannigan,26.5,180053.49311563608,0.1800534931156361,rank,False
+32,11,Xochitl Gomez,30.0,205911.66915610517,0.20591166915610518,rank,False
+32,11,Jason Mraz,30.0,208665.3246966282,0.2086653246966282,rank,False
+32,11,Charity Lawson,29.5,202738.33007864418,0.20273833007864417,rank,False
+32,11,Ariana Madix,29.5,202631.1829529864,0.20263118295298638,rank,False
+33,1,Tori Spelling,17.0,67791.83871859364,0.06779183871859365,rank,False
+33,1,Eric Roberts,15.0,58932.592292808426,0.05893259229280842,rank,False
+33,1,Reginald VelJohnson,16.0,64035.75612612275,0.06403575612612275,rank,False
+33,1,Chandler Kinney,23.0,95493.95026618641,0.09549395026618641,rank,False
+33,1,Dwight Howard ,22.0,92310.79187967212,0.09231079187967212,rank,False
+33,1,Danny Amendola,20.0,81790.83550990146,0.08179083550990146,rank,False
+33,1,Stephen Nedoroscik,21.0,87817.56389657872,0.08781756389657872,rank,False
+33,1,Ilona Maher,18.0,72630.15841696257,0.07263015841696258,rank,False
+33,1,Anna Delvey,18.0,67228.92936999147,0.06722892936999147,rank,False
+33,1,Brooks Nader,18.0,71669.47869117111,0.07166947869117112,rank,False
+33,1,Phaedra Parks,19.0,76928.60954801098,0.07692860954801098,rank,False
+33,1,Jenn Tran,19.0,77296.87059670799,0.07729687059670799,rank,False
+33,1,Joey Graziadei,21.0,86072.6246872923,0.08607262468729229,rank,False
+33,2,Tori Spelling,19.0,76718.99125605769,0.07671899125605769,rank,True
+33,2,Eric Roberts,15.0,64199.32135254634,0.06419932135254634,rank,False
+33,2,Reginald VelJohnson,15.0,76719.09952638061,0.0767190995263806,rank,False
+33,2,Chandler Kinney,24.0,91032.45881388221,0.09103245881388221,rank,False
+33,2,Dwight Howard ,22.0,88463.82643678329,0.08846382643678329,rank,False
+33,2,Danny Amendola,21.0,88253.25425574316,0.08825325425574317,rank,False
+33,2,Stephen Nedoroscik,22.0,97980.04798871448,0.09798004798871447,rank,False
+33,2,Ilona Maher,21.0,90977.39431831565,0.09097739431831565,rank,False
+33,2,Anna Delvey,17.0,14910.89825531099,0.014910898255310992,rank,True
+33,2,Brooks Nader,20.0,61109.92286912596,0.06110992286912596,rank,False
+33,2,Phaedra Parks,21.0,82729.64480269716,0.08272964480269716,rank,False
+33,2,Jenn Tran,19.0,83614.5010140549,0.0836145010140549,rank,False
+33,2,Joey Graziadei,22.0,83290.63911038752,0.08329063911038752,rank,False
 33,3,Eric Roberts,23.0,71591.40776061427,0.07159140776061426,rank,True
 33,3,Reginald VelJohnson,21.0,70295.92463289923,0.07029592463289923,rank,True
 33,3,Chandler Kinney,34.5,103632.04097869976,0.10363204097869977,rank,False
@@ -2630,15 +2630,15 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 33,3,Phaedra Parks,28.0,85335.28047479072,0.08533528047479072,rank,False
 33,3,Jenn Tran,31.0,98157.60024604453,0.09815760024604453,rank,False
 33,3,Joey Graziadei,35.0,105087.4091556626,0.10508740915566259,rank,False
-33,4,Chandler Kinney,32.0,103580.40170539782,0.10358040170539781,rank,False
-33,4,Dwight Howard ,29.0,109397.49922970659,0.1093974992297066,rank,False
-33,4,Danny Amendola,36.0,121657.72328672207,0.12165772328672207,rank,False
-33,4,Stephen Nedoroscik,33.0,127726.96323319097,0.12772696323319097,rank,False
-33,4,Ilona Maher,32.0,109396.44595185028,0.10939644595185029,rank,False
-33,4,Brooks Nader,32.0,96330.99306715824,0.09633099306715824,rank,True
-33,4,Phaedra Parks,32.0,105347.96172600116,0.10534796172600115,rank,False
-33,4,Jenn Tran,32.0,110087.78125352273,0.11008778125352273,rank,False
-33,4,Joey Graziadei,36.0,116474.23054645016,0.11647423054645016,rank,False
+33,4,Chandler Kinney,32.0,103635.12951540644,0.10363512951540645,rank,False
+33,4,Dwight Howard ,29.0,109358.7665751525,0.1093587665751525,rank,False
+33,4,Danny Amendola,36.0,121696.41428873652,0.12169641428873651,rank,False
+33,4,Stephen Nedoroscik,33.0,127671.05673110834,0.12767105673110835,rank,False
+33,4,Ilona Maher,32.0,109358.6955921618,0.10935869559216181,rank,False
+33,4,Brooks Nader,32.0,96340.69910250715,0.09634069910250714,rank,True
+33,4,Phaedra Parks,32.0,105360.3488448487,0.10536034884484871,rank,False
+33,4,Jenn Tran,32.0,110083.07234999698,0.11008307234999698,rank,False
+33,4,Joey Graziadei,36.0,116495.81700008154,0.11649581700008155,rank,False
 33,5,Chandler Kinney,27.0,126506.27692650756,0.12650627692650757,rank,False
 33,5,Dwight Howard ,24.0,128508.12045188567,0.12850812045188567,rank,False
 33,5,Danny Amendola,25.5,124022.29305745331,0.12402229305745331,rank,False
@@ -2647,43 +2647,43 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 33,5,Phaedra Parks,24.0,114091.99776333054,0.11409199776333054,rank,True
 33,5,Jenn Tran,25.5,125943.50425750558,0.12594350425750558,rank,False
 33,5,Joey Graziadei,26.0,121766.92608785577,0.12176692608785578,rank,False
-33,6,Chandler Kinney,32.0,146126.11320649702,0.14612611320649702,rank,False
-33,6,Dwight Howard ,31.0,161854.84594407387,0.16185484594407387,rank,False
-33,6,Danny Amendola,28.0,132572.35666336803,0.13257235666336803,rank,False
-33,6,Stephen Nedoroscik,28.0,149401.5434211079,0.1494015434211079,rank,False
-33,6,Ilona Maher,24.0,114917.83011047616,0.11491783011047617,rank,False
-33,6,Jenn Tran,31.0,149041.79371984897,0.14904179371984896,rank,True
-33,6,Joey Graziadei,32.0,146085.51693462822,0.1460855169346282,rank,False
-33,7,Chandler Kinney,30.0,177092.1334046332,0.1770921334046332,rank,False
-33,7,Dwight Howard ,24.0,160317.50574422834,0.16031750574422834,rank,True
-33,7,Danny Amendola,25.5,155804.26912900558,0.15580426912900558,rank,False
-33,7,Stephen Nedoroscik,27.0,184197.05096002025,0.18419705096002026,rank,False
-33,7,Ilona Maher,26.0,160320.68469735424,0.16032068469735425,rank,False
-33,7,Joey Graziadei,27.5,162268.35606475838,0.16226835606475837,rank,False
-33,8,Chandler Kinney,29.0,,,rank,
-33,8,Danny Amendola,27.0,,,rank,
-33,8,Stephen Nedoroscik,26.5,,,rank,
-33,8,Ilona Maher,28.5,,,rank,
-33,8,Joey Graziadei,29.0,,,rank,
-33,9,Chandler Kinney,30.0,,,rank,
-33,9,Danny Amendola,28.0,,,rank,
-33,9,Stephen Nedoroscik,29.5,,,rank,
-33,9,Ilona Maher,28.5,,,rank,
-33,9,Joey Graziadei,29.5,,,rank,
-34,1,Corey Feldman,9.0,,,rank,
-34,1,Danielle Fishel,12.0,,,rank,
-34,1,Elaine Hendrix,12.0,,,rank,
-34,1,Baron Davis,10.0,,,rank,
-34,1,Jordan Chiles,10.0,,,rank,
-34,1,Andy Richter,9.0,,,rank,
-34,1,Robert Irwin,15.0,,,rank,
-34,1,Hilaria Baldwin,14.0,,,rank,
-34,1,Lauren Jauregui,13.0,,,rank,
-34,1,Scott Hoying,10.0,,,rank,
-34,1,Alix Earle,13.0,,,rank,
-34,1,Jen Affleck,12.0,,,rank,
-34,1,Whitney Leavitt,15.0,,,rank,
-34,1,Dylan Efron,10.0,,,rank,
+33,6,Chandler Kinney,32.0,146174.95372674474,0.14617495372674474,rank,False
+33,6,Dwight Howard ,31.0,161686.45546914343,0.16168645546914343,rank,False
+33,6,Danny Amendola,28.0,132677.5882650435,0.1326775882650435,rank,False
+33,6,Stephen Nedoroscik,28.0,149249.80868780677,0.14924980868780677,rank,False
+33,6,Ilona Maher,24.0,114913.15533291893,0.11491315533291893,rank,False
+33,6,Jenn Tran,31.0,149163.681058751,0.14916368105875102,rank,True
+33,6,Joey Graziadei,32.0,146134.35745959176,0.14613435745959175,rank,False
+33,7,Chandler Kinney,30.0,177095.20925634302,0.17709520925634303,rank,False
+33,7,Dwight Howard ,24.0,160316.302486942,0.160316302486942,rank,True
+33,7,Danny Amendola,25.5,155803.9657489927,0.1558039657489927,rank,False
+33,7,Stephen Nedoroscik,27.0,184190.08162343607,0.18419008162343606,rank,False
+33,7,Ilona Maher,26.0,160317.19853056254,0.16031719853056253,rank,False
+33,7,Joey Graziadei,27.5,162277.2423537237,0.1622772423537237,rank,False
+33,8,Chandler Kinney,29.0,206929.7616168717,0.20692976161687168,rank,False
+33,8,Danny Amendola,27.0,191602.84750770757,0.19160284750770756,rank,False
+33,8,Stephen Nedoroscik,26.5,190512.9429371709,0.19051294293717091,rank,False
+33,8,Ilona Maher,28.5,204035.60046126752,0.2040356004612675,rank,False
+33,8,Joey Graziadei,29.0,206918.8474769825,0.20691884747698253,rank,False
+33,9,Chandler Kinney,30.0,205806.89288846296,0.20580689288846296,rank,False
+33,9,Danny Amendola,28.0,191099.68355403648,0.19109968355403648,rank,False
+33,9,Stephen Nedoroscik,29.5,205971.10599978405,0.20597110599978405,rank,False
+33,9,Ilona Maher,28.5,195235.35475271227,0.19523535475271228,rank,False
+33,9,Joey Graziadei,29.5,201886.9628050042,0.2018869628050042,rank,False
+34,1,Corey Feldman,9.0,52353.722031547804,0.052353722031547804,rank,False
+34,1,Danielle Fishel,12.0,72836.3688345435,0.07283636883454349,rank,False
+34,1,Elaine Hendrix,12.0,74403.538100898,0.074403538100898,rank,False
+34,1,Baron Davis,10.0,59224.30566589526,0.05922430566589526,rank,False
+34,1,Jordan Chiles,10.0,59127.888760215836,0.05912788876021584,rank,False
+34,1,Andy Richter,9.0,55106.27510593228,0.05510627510593229,rank,False
+34,1,Robert Irwin,15.0,94036.56568907113,0.09403656568907112,rank,False
+34,1,Hilaria Baldwin,14.0,87601.185553197,0.08760118555319701,rank,False
+34,1,Lauren Jauregui,13.0,79175.493110083,0.079175493110083,rank,False
+34,1,Scott Hoying,10.0,59985.30677976602,0.05998530677976602,rank,False
+34,1,Alix Earle,13.0,79343.50536610912,0.07934350536610912,rank,False
+34,1,Jen Affleck,12.0,73301.86477376171,0.07330186477376172,rank,False
+34,1,Whitney Leavitt,15.0,93700.57632100688,0.09370057632100688,rank,False
+34,1,Dylan Efron,10.0,59803.40390797235,0.059803403907972355,rank,False
 34,2,Corey Feldman,15.0,50500.97130720085,0.050500971307200854,rank,True
 34,2,Danielle Fishel,19.0,65181.03415989808,0.06518103415989808,rank,False
 34,2,Elaine Hendrix,21.0,84863.26783082944,0.08486326783082944,rank,False
@@ -2710,27 +2710,27 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 34,3,Jen Affleck,19.0,73520.51693651712,0.07352051693651712,rank,False
 34,3,Whitney Leavitt,24.0,86036.16194302609,0.08603616194302609,rank,False
 34,3,Dylan Efron,23.0,91865.1368931354,0.0918651368931354,rank,False
-34,4,Danielle Fishel,21.0,87717.0036369532,0.0877170036369532,rank,False
-34,4,Elaine Hendrix,24.0,104309.41875371867,0.10430941875371867,rank,False
-34,4,Jordan Chiles,24.0,99324.04321175141,0.09932404321175141,rank,False
-34,4,Andy Richter,18.0,72005.7891118904,0.07200578911189039,rank,False
-34,4,Robert Irwin,22.0,92864.54456090952,0.09286454456090952,rank,False
-34,4,Hilaria Baldwin,23.0,87670.37195038212,0.08767037195038212,rank,True
-34,4,Scott Hoying,21.0,90391.99154642544,0.09039199154642544,rank,False
-34,4,Alix Earle,24.0,87670.43067388516,0.08767043067388516,rank,False
-34,4,Jen Affleck,23.0,86764.75299905238,0.08676475299905237,rank,False
-34,4,Whitney Leavitt,25.0,93751.06882574662,0.09375106882574663,rank,False
-34,4,Dylan Efron,23.0,97530.58472928517,0.09753058472928516,rank,False
-34,5,Danielle Fishel,29.0,,,rank,
-34,5,Elaine Hendrix,30.0,,,rank,
-34,5,Jordan Chiles,32.0,,,rank,
-34,5,Andy Richter,24.0,,,rank,
-34,5,Robert Irwin,35.0,,,rank,
-34,5,Scott Hoying,30.0,,,rank,
-34,5,Alix Earle,35.0,,,rank,
-34,5,Jen Affleck,29.0,,,rank,
-34,5,Whitney Leavitt,33.0,,,rank,
-34,5,Dylan Efron,36.0,,,rank,
+34,4,Danielle Fishel,21.0,80661.93493425829,0.08066193493425829,rank,False
+34,4,Elaine Hendrix,24.0,105582.46010473756,0.10558246010473757,rank,False
+34,4,Jordan Chiles,24.0,87471.59290281429,0.08747159290281428,rank,False
+34,4,Andy Richter,18.0,95217.12801087963,0.09521712801087963,rank,False
+34,4,Robert Irwin,22.0,84741.72665648644,0.08474172665648644,rank,False
+34,4,Hilaria Baldwin,23.0,89613.62914455145,0.08961362914455145,rank,True
+34,4,Scott Hoying,21.0,89614.00015720398,0.08961400015720397,rank,False
+34,4,Alix Earle,24.0,90018.549375209,0.09001854937520899,rank,False
+34,4,Jen Affleck,23.0,90528.22719463946,0.09052822719463946,rank,False
+34,4,Whitney Leavitt,25.0,94140.00350381626,0.09414000350381627,rank,False
+34,4,Dylan Efron,23.0,92410.74801540375,0.09241074801540375,rank,False
+34,5,Danielle Fishel,29.0,90851.22146759677,0.09085122146759676,rank,False
+34,5,Elaine Hendrix,30.0,96469.53616001147,0.09646953616001147,rank,False
+34,5,Jordan Chiles,32.0,101584.46965160717,0.10158446965160717,rank,False
+34,5,Andy Richter,24.0,76872.05623517453,0.07687205623517453,rank,False
+34,5,Robert Irwin,35.0,112677.35485807157,0.11267735485807158,rank,False
+34,5,Scott Hoying,30.0,95709.60224248837,0.09570960224248837,rank,False
+34,5,Alix Earle,35.0,111955.57873283821,0.1119555787328382,rank,False
+34,5,Jen Affleck,29.0,91436.00136047522,0.09143600136047522,rank,False
+34,5,Whitney Leavitt,33.0,104972.79644959664,0.10497279644959664,rank,False
+34,5,Dylan Efron,36.0,117471.38284214,0.11747138284214,rank,False
 34,6,Danielle Fishel,36.0,99416.46480123156,0.09941646480123156,rank,False
 34,6,Elaine Hendrix,36.0,117109.2302657405,0.1171092302657405,rank,False
 34,6,Jordan Chiles,39.0,107132.57511256976,0.10713257511256975,rank,False
@@ -2741,15 +2741,15 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 34,6,Jen Affleck,32.0,93041.5493314997,0.0930415493314997,rank,False
 34,6,Whitney Leavitt,39.0,105052.50143417034,0.10505250143417033,rank,False
 34,6,Dylan Efron,32.0,96038.39049967346,0.09603839049967347,rank,False
-34,7,Danielle Fishel,35.0,99536.70966348679,0.0995367096634868,rank,False
-34,7,Elaine Hendrix,32.0,107496.59755327152,0.10749659755327153,rank,False
-34,7,Jordan Chiles,38.0,107488.01606939203,0.10748801606939204,rank,False
-34,7,Andy Richter,29.0,115910.16389247446,0.11591016389247447,rank,False
-34,7,Robert Irwin,41.0,117304.79548742349,0.11730479548742348,rank,False
-34,7,Alix Earle,43.0,116295.12844303886,0.11629512844303887,rank,False
-34,7,Jen Affleck,34.0,101897.87091533052,0.10189787091533052,rank,True
-34,7,Whitney Leavitt,42.0,116453.2555415764,0.11645325554157641,rank,False
-34,7,Dylan Efron,38.0,117617.46243400601,0.11761746243400602,rank,False
+34,7,Danielle Fishel,35.0,99635.06891440685,0.09963506891440685,rank,False
+34,7,Elaine Hendrix,32.0,107310.22068278707,0.10731022068278707,rank,False
+34,7,Jordan Chiles,38.0,107606.39573560169,0.10760639573560168,rank,False
+34,7,Andy Richter,29.0,115425.81236282163,0.11542581236282162,rank,False
+34,7,Robert Irwin,41.0,117410.57159185162,0.11741057159185163,rank,False
+34,7,Alix Earle,43.0,116518.01596568109,0.1165180159656811,rank,False
+34,7,Jen Affleck,34.0,101907.94799731897,0.10190794799731898,rank,True
+34,7,Whitney Leavitt,42.0,116624.42783408052,0.11662442783408052,rank,False
+34,7,Dylan Efron,38.0,117561.53891545061,0.11756153891545061,rank,False
 34,8,Danielle Fishel,37.0,114834.23030847523,0.11483423030847524,rank,True
 34,8,Elaine Hendrix,37.5,137098.82041260359,0.13709882041260357,rank,False
 34,8,Jordan Chiles,39.0,120402.46235586991,0.1204024623558699,rank,False
@@ -2765,14 +2765,14 @@ season,week,celebrity,total_score,estimated_votes,vote_share,method,is_eliminate
 34,9,Alix Earle,40.0,131891.49515350387,0.13189149515350387,rank,False
 34,9,Whitney Leavitt,42.0,141910.35323191326,0.14191035323191326,rank,False
 34,9,Dylan Efron,42.0,158112.85654242994,0.15811285654242996,rank,False
-34,10,Elaine Hendrix,28.5,189277.9535028196,0.18927795350281962,rank,False
-34,10,Jordan Chiles,28.5,159829.3333661173,0.1598293333661173,rank,False
-34,10,Robert Irwin,29.5,167304.29397865452,0.1673042939786545,rank,False
-34,10,Alix Earle,29.0,155625.3937784661,0.1556253937784661,rank,False
-34,10,Whitney Leavitt,29.0,159472.3060890161,0.1594723060890161,rank,True
-34,10,Dylan Efron,27.5,168490.71928492642,0.16849071928492643,rank,False
-34,11,Elaine Hendrix,28.9998,,,rank,
-34,11,Jordan Chiles,29.666600000000003,,,rank,
-34,11,Robert Irwin,29.666600000000003,,,rank,
-34,11,Alix Earle,30.0,,,rank,
-34,11,Dylan Efron,29.3332,,,rank,
+34,10,Elaine Hendrix,28.5,189273.20262048315,0.18927320262048314,rank,False
+34,10,Jordan Chiles,28.5,159834.77980115186,0.15983477980115185,rank,False
+34,10,Robert Irwin,29.5,167298.44252119158,0.16729844252119158,rank,False
+34,10,Alix Earle,29.0,155619.2008937679,0.1556192008937679,rank,False
+34,10,Whitney Leavitt,29.0,159477.63310096646,0.15947763310096646,rank,True
+34,10,Dylan Efron,27.5,168496.7410624391,0.16849674106243911,rank,False
+34,11,Elaine Hendrix,28.9998,199089.67741101148,0.19908967741101147,rank,False
+34,11,Jordan Chiles,29.666600000000003,199870.08183954365,0.19987008183954366,rank,False
+34,11,Robert Irwin,29.666600000000003,200141.4498589165,0.2001414498589165,rank,False
+34,11,Alix Earle,30.0,201385.84139650592,0.20138584139650592,rank,False
+34,11,Dylan Efron,29.3332,199512.9494940224,0.1995129494940224,rank,False

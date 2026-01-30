@@ -20,6 +20,14 @@ import warnings
 SEASONS_RANK_METHOD = list(range(1, 3)) + list(range(28, 35))  # 排名法赛季
 SEASONS_PERCENT_METHOD = list(range(3, 28))  # 百分比法赛季
 
+# 导入基线模型用于无淘汰周次的预测
+try:
+    from .baseline_model import BaselineModel
+    BASELINE_AVAILABLE = True
+except ImportError:
+    BASELINE_AVAILABLE = False
+    print("Warning: baseline_model not available, will use simple estimation for non-elimination weeks")
+
 
 class PreciseVoteModel:
     """
@@ -31,6 +39,12 @@ class PreciseVoteModel:
     def __init__(self, random_seed: int = 42):
         self.random_seed = random_seed
         np.random.seed(random_seed)
+        
+        # 基线模型用于无淘汰周次预测
+        if BASELINE_AVAILABLE:
+            self.baseline_model = BaselineModel(alpha=1.2, noise_level=0.15)
+        else:
+            self.baseline_model = None
         
         # 学习到的投票偏好因子
         self.partner_effects = {}
@@ -149,8 +163,8 @@ class PreciseVoteModel:
         
         results = []
         success_count = 0
-        total_count = 0
-        
+        total_count = 0        
+        failed_weeks = []  # 记录失败的周次        
         for (season, week), group in weekly_data.groupby(['season', 'week']):
             elim = elimination_info[
                 (elimination_info['season'] == season) & 
@@ -158,16 +172,55 @@ class PreciseVoteModel:
             ]
             
             if len(elim) == 0:
-                # 没有淘汰，跳过
+                # 无淘汰周次：使用基线模型 + 先验偏好预测投票
+                method = 'rank' if season in SEASONS_RANK_METHOD else 'percent'
+                
+                # 准备选手数据
+                contestants_no_elim = []
                 for _, row in group.iterrows():
+                    partner = row.get('ballroom_partner', 'Unknown')
+                    industry = row.get('celebrity_industry', 'Unknown')
+                    prior_boost = (
+                        self.partner_effects.get(partner, 0) +
+                        self.industry_effects.get(industry, 0)
+                    )
+                    contestants_no_elim.append({
+                        'name': row['celebrity_name'],
+                        'score': row['total_score'],
+                        'prior_boost': prior_boost
+                    })
+                
+                scores = np.array([c['score'] for c in contestants_no_elim])
+                prior_boosts = np.array([c['prior_boost'] for c in contestants_no_elim])
+                
+                # 方法1：基于评分的幂次关系（alpha=1.2）
+                if self.baseline_model is not None:
+                    base_votes = self.baseline_model.estimate_votes(scores, total_votes=1_000_000)
+                    base_shares = base_votes / 1_000_000
+                else:
+                    base_votes_raw = np.power(scores, 1.2)
+                    base_shares = base_votes_raw / np.sum(base_votes_raw)
+                
+                # 方法2：结合先验偏好
+                score_based = scores / np.sum(scores)
+                prior_adjusted = score_based * (1 + prior_boosts * 0.3)
+                prior_adjusted = prior_adjusted / np.sum(prior_adjusted)
+                
+                # 混合：基线70% + 先验30%
+                vote_shares_est = 0.7 * base_shares + 0.3 * prior_adjusted
+                vote_shares_est = vote_shares_est / np.sum(vote_shares_est)
+                
+                total_votes = 1_000_000
+                for i, c in enumerate(contestants_no_elim):
                     results.append({
                         'season': season,
                         'week': week,
-                        'celebrity': row['celebrity_name'],
-                        'total_score': row['total_score'],
-                        'estimated_votes': np.nan,
-                        'vote_share': np.nan,
-                        'method': 'rank' if season in SEASONS_RANK_METHOD else 'percent'
+                        'celebrity': c['name'],
+                        'total_score': c['score'],
+                        'estimated_votes': vote_shares_est[i] * total_votes,
+                        'vote_share': vote_shares_est[i],
+                        'method': method,
+                        'is_eliminated': False
                     })
                 continue
             
@@ -198,15 +251,39 @@ class PreciseVoteModel:
             # 检查淘汰者是否在选手中
             valid_eliminated = [c for c in contestants if c['is_eliminated']]
             if not valid_eliminated:
-                for c in contestants:
+                # 无淘汰周次：使用多种方法预测投票
+                scores = np.array([c['score'] for c in contestants])
+                prior_boosts = np.array([c['prior_boost'] for c in contestants])
+                
+                # 方法1：基于评分的幂次关系（alpha=1.2模拟评分对投票的非线性影响）
+                if self.baseline_model is not None:
+                    base_votes = self.baseline_model.estimate_votes(scores, total_votes=1_000_000)
+                    base_shares = base_votes / 1_000_000
+                else:
+                    # 降级方案：评分的1.2次幂
+                    base_votes_raw = np.power(scores, 1.2)
+                    base_shares = base_votes_raw / np.sum(base_votes_raw)
+                
+                # 方法2：结合先验偏好调整
+                score_based = scores / np.sum(scores)
+                prior_adjusted = score_based * (1 + prior_boosts * 0.3)
+                prior_adjusted = prior_adjusted / np.sum(prior_adjusted)
+                
+                # 混合两种方法：基线模型70% + 先验调整30%
+                vote_shares_est = 0.7 * base_shares + 0.3 * prior_adjusted
+                vote_shares_est = vote_shares_est / np.sum(vote_shares_est)
+                
+                total_votes = 1_000_000
+                for i, c in enumerate(contestants):
                     results.append({
                         'season': season,
                         'week': week,
                         'celebrity': c['name'],
                         'total_score': c['score'],
-                        'estimated_votes': np.nan,
-                        'vote_share': np.nan,
-                        'method': method
+                        'estimated_votes': vote_shares_est[i] * total_votes,
+                        'vote_share': vote_shares_est[i],
+                        'method': method,
+                        'is_eliminated': False  # 无淘汰
                     })
                 continue
             
@@ -215,6 +292,8 @@ class PreciseVoteModel:
             
             if success:
                 success_count += 1
+            else:
+                failed_weeks.append((season, week))
             total_count += 1
             
             # 假设总投票100万
@@ -242,6 +321,9 @@ class PreciseVoteModel:
             }
         
         print(f"    反推成功: {success_count}/{total_count} 周次")
+        if failed_weeks:
+            print(f"    优化失败的周次 ({len(failed_weeks)}): {failed_weeks[:5]}{'...' if len(failed_weeks) > 5 else ''}")
+        
         self.results_df = pd.DataFrame(results)
         
         # 统计有效估计数
@@ -282,16 +364,19 @@ class PreciseVoteModel:
             # 淘汰约束违反惩罚
             if method == 'rank':
                 combined = self._compute_combined_rank(scores, vote_shares, n)
-                # 排名法：被淘汰者的combined_rank应该最大
+                # 排名法：被淘汰者的combined_rank应该最大（排名最差）
                 elim_combined = combined[elim_indices]
                 surv_combined = combined[surv_indices]
                 
-                # 惩罚：如果有存活者的combined_rank >= 被淘汰者
+                # 惩罚：确保所有被淘汰者的排名都大于所有存活者
+                # 排名数值越大 = 排名越差
                 constraint_violation = 0
-                for ec in elim_combined:
-                    for sc in surv_combined:
-                        if sc >= ec:  # 存活者排名更高（差）是错误的
-                            constraint_violation += (sc - ec + 0.1) ** 2
+                elim_min = np.min(elim_combined)  # 被淘汰者中最好的排名
+                surv_max = np.max(surv_combined) if len(surv_combined) > 0 else 0  # 存活者中最差的排名
+                
+                if elim_min <= surv_max:  # 如果被淘汰者中有人排名不是最差
+                    # 需要拉大差距
+                    constraint_violation = (surv_max - elim_min + 1.0) ** 2
             else:
                 combined = self._compute_combined_percent(scores, vote_shares)
                 # 百分比法：被淘汰者的combined_percent应该最小
@@ -346,15 +431,25 @@ class PreciseVoteModel:
         """
         计算排名法的综合排名
         
-        综合排名 = 评委排名 + 观众排名（越大越差）
+        规则：综合排名 = 评委排名 + 观众排名
+        
+        排名解释：
+        - 排名1 = 第一名（最好）
+        - 排名越大 = 名次越差
+        - 综合排名数值最大者被淘汰（排名最低/最差）
+        
+        示例：
+        选手A: 评分排名3 + 投票排名2 = 综合排名5
+        选手B: 评分排名1 + 投票排名5 = 综合排名6 ← 被淘汰（数值最大）
+        选手C: 评分排名2 + 投票排名1 = 综合排名3
         """
         # 评委排名：分数越高排名越好（数值越小）
-        score_ranks = rankdata(-scores, method='ordinal')  # 最高分=1
+        score_ranks = rankdata(-scores, method='ordinal')  # 最高分=1, 最低分=n
         
-        # 观众排名：投票越多排名越好
-        vote_ranks = rankdata(-vote_shares, method='ordinal')  # 最高票=1
+        # 观众排名：投票越多排名越好（数值越小）
+        vote_ranks = rankdata(-vote_shares, method='ordinal')  # 最高票=1, 最低票=n
         
-        # 综合排名（越大越可能被淘汰）
+        # 综合排名（数值越大 = 排名越差 = 越可能被淘汰）
         combined_rank = score_ranks + vote_ranks
         
         return combined_rank
@@ -382,10 +477,11 @@ class PreciseVoteModel:
         
         if method == 'rank':
             combined = self._compute_combined_rank(scores, vote_shares, n)
-            # 被淘汰者的综合排名应该是最大的
-            elim_max = np.max(combined[is_eliminated])
-            surv_max = np.max(combined[~is_eliminated]) if np.any(~is_eliminated) else 0
-            return elim_max > surv_max
+            # 被淘汰者的综合排名应该是最大的（数值最大 = 排名最差）
+            # 处理多人淘汰：确保所有被淘汰者的排名都大于所有存活者
+            elim_min = np.min(combined[is_eliminated])  # 被淘汰者中最好的
+            surv_max = np.max(combined[~is_eliminated]) if np.any(~is_eliminated) else 0  # 存活者中最差的
+            return elim_min > surv_max  # 所有被淘汰者都比所有存活者差
         else:
             combined = self._compute_combined_percent(scores, vote_shares)
             # 被淘汰者的综合百分比应该是最小的
@@ -416,7 +512,8 @@ class PreciseVoteModel:
             # 计算综合得分
             if method == 'rank':
                 combined = self._compute_combined_rank(scores, vote_shares, n)
-                # 预测综合排名最高的为淘汰者
+                # 排名法：预浌综合排名数值最大的n_eliminated个人（排名最差）
+                # np.argsort返回从小到大的索引，取最后 n_eliminated 个
                 pred_indices = np.argsort(combined)[-n_eliminated:]
             else:
                 combined = self._compute_combined_percent(scores, vote_shares)
