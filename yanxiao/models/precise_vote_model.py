@@ -294,6 +294,23 @@ class PreciseVoteModel:
                 success_count += 1
             else:
                 failed_weeks.append((season, week))
+                # 优化失败：使用备用方法估计（基于评分和先验）
+                scores_arr = np.array([c['score'] for c in contestants])
+                prior_boosts = np.array([c['prior_boost'] for c in contestants])
+                
+                # 备用估计：评分比例 × (1 + 先验)
+                score_based = scores_arr / np.sum(scores_arr)
+                vote_shares = score_based * (1 + prior_boosts * 0.3)
+                vote_shares = vote_shares / np.sum(vote_shares)
+            
+            # 所有周次都存储到week_results（包括失败的）
+            self.week_results[(season, week)] = {
+                'contestants': contestants,
+                'vote_shares': vote_shares,
+                'method': method,
+                'success': success
+            }
+                
             total_count += 1
             
             # 假设总投票100万
@@ -309,16 +326,9 @@ class PreciseVoteModel:
                     'estimated_votes': votes,
                     'vote_share': vote_shares[i] if vote_shares is not None else np.nan,
                     'method': method,
-                    'is_eliminated': c['is_eliminated']
+                    'is_eliminated': c['is_eliminated'],
+                    'optimization_success': success  # 标记是否优化成功
                 })
-            
-            # 存储周结果
-            self.week_results[(season, week)] = {
-                'contestants': contestants,
-                'vote_shares': vote_shares,
-                'method': method,
-                'success': success
-            }
         
         print(f"    反推成功: {success_count}/{total_count} 周次")
         if failed_weeks:
@@ -352,6 +362,8 @@ class PreciseVoteModel:
         def objective(vote_shares):
             """
             目标：使投票份额接近先验，同时满足淘汰约束
+            
+            注意：排名法使用可微分的软排名近似，因为真实排名是离散的，无法优化
             """
             # 正则化：投票份额应该接近评分归一化后的值（加上先验偏好）
             score_based = scores / np.sum(scores)
@@ -363,20 +375,38 @@ class PreciseVoteModel:
             
             # 淘汰约束违反惩罚
             if method == 'rank':
-                combined = self._compute_combined_rank(scores, vote_shares, n)
-                # 排名法：被淘汰者的combined_rank应该最大（排名最差）
-                elim_combined = combined[elim_indices]
-                surv_combined = combined[surv_indices]
+                # 排名法：使用可微分的"差值和"代替离散排名
+                # 对于每个选手，计算有多少人比他差（分数或投票更低）
+                # 这是排名的可微分近似
                 
-                # 惩罚：确保所有被淘汰者的排名都大于所有存活者
-                # 排名数值越大 = 排名越差
+                # 分数越低 → 排名数值越大（越差）
+                # 软排名：对每个选手，统计比他分数低的人数（用sigmoid近似）
+                score_softrank = np.zeros(n)
+                vote_softrank = np.zeros(n)
+                temperature = 0.1  # 温度参数，越小越接近真实排名
+                
+                for i in range(n):
+                    # 有多少人分数比i低？ 用sigmoid(-diff)累加
+                    for j in range(n):
+                        if i != j:
+                            # 如果j比i分数低，贡献1；否则贡献0
+                            score_softrank[i] += 1 / (1 + np.exp((scores[j] - scores[i]) / temperature))
+                            vote_softrank[i] += 1 / (1 + np.exp((vote_shares[j] - vote_shares[i]) / temperature))
+                
+                # 综合软排名（越大 = 越差）
+                # 这里用 n - softrank，因为softrank统计的是"比我差的人数"
+                # 排名 = n - 比我差的人数
+                combined_softrank = (n - score_softrank) + (n - vote_softrank)
+                
+                elim_combined = combined_softrank[elim_indices]
+                surv_combined = combined_softrank[surv_indices]
+                
+                # 惩罚：确保所有被淘汰者的综合排名都大于所有存活者
                 constraint_violation = 0
-                elim_min = np.min(elim_combined)  # 被淘汰者中最好的排名
-                surv_max = np.max(surv_combined) if len(surv_combined) > 0 else 0  # 存活者中最差的排名
-                
-                if elim_min <= surv_max:  # 如果被淘汰者中有人排名不是最差
-                    # 需要拉大差距
-                    constraint_violation = (surv_max - elim_min + 1.0) ** 2
+                for ec in elim_combined:
+                    for sc in surv_combined:
+                        if ec <= sc:  # 被淘汰者的排名应该更大（更差）
+                            constraint_violation += (sc - ec + 0.5) ** 2
             else:
                 combined = self._compute_combined_percent(scores, vote_shares)
                 # 百分比法：被淘汰者的combined_percent应该最小
@@ -495,10 +525,12 @@ class PreciseVoteModel:
         correct = 0
         bottom_n = 0
         total = 0
+        success_count = 0
         
         for (season, week), week_result in self.week_results.items():
-            if not week_result['success']:
-                continue
+            # 不再跳过优化失败的周次，使用全部数据
+            if week_result['success']:
+                success_count += 1
             
             contestants = week_result['contestants']
             vote_shares = week_result['vote_shares']
@@ -512,7 +544,7 @@ class PreciseVoteModel:
             # 计算综合得分
             if method == 'rank':
                 combined = self._compute_combined_rank(scores, vote_shares, n)
-                # 排名法：预浌综合排名数值最大的n_eliminated个人（排名最差）
+                # 排名法：预测综合排名数值最大的n_eliminated个人（排名最差）
                 # np.argsort返回从小到大的索引，取最后 n_eliminated 个
                 pred_indices = np.argsort(combined)[-n_eliminated:]
             else:
@@ -541,9 +573,9 @@ class PreciseVoteModel:
         accuracy = correct / total if total > 0 else 0
         bottom_accuracy = bottom_n / total if total > 0 else 0
         print(f"\n============================================================")
-        print(f"投票反推拟合验证（训练集）")
+        print(f"投票反推拟合验证（全部数据）")
         print(f"============================================================")
-        print(f"检验周次数: {total}  （仅优化成功的周次）")
+        print(f"检验周次数: {total}  （其中优化成功: {success_count}, 备用估计: {total - success_count}）")
         print(f"正确反推数: {correct}")
         print(f"反推准确率: {accuracy:.2%}")
         print(f"底N准确率: {bottom_accuracy:.2%}")

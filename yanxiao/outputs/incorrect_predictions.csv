@@ -1,33 +1,27 @@
 season,week,method,n_contestants,n_eliminated,actual_eliminated,predicted_eliminated,is_correct,correct_count,in_bottom_two,actual_idx,pred_idx,actual_combined_rank,pred_combined_rank
-1,2,rank,6,1,Trista Sutter,Evander Holyfield,False,0,False,5,2,8,12
-1,4,rank,4,1,Rachel Hunter,John O'Hurley,False,0,False,2,0,5,7
+1,4,rank,4,1,Rachel Hunter,John O'Hurley,False,0,False,2,0,4,7
 2,1,rank,10,1,Kenny Mayne,Master P,False,0,True,9,7,19,19
-2,3,rank,8,1,Giselle Fernandez,Master P,False,0,False,5,6,13,16
+2,3,rank,8,1,Giselle Fernandez,Master P,False,0,False,5,6,12,16
 2,6,rank,5,1,George Hamilton,Jerry Rice,False,0,True,0,3,8,10
 2,7,rank,4,1,Lisa Rinna,Jerry Rice,False,0,True,0,2,6,8
 18,2,percent,11,2,"Sean Avery, Diana Nyad","Sean Avery, Billy Dee Williams",False,1,True,4,4,1,1
 28,2,rank,12,1,Mary Wilson,Lamar Odom,False,0,True,7,4,22,24
-28,6,rank,9,1,Sailor Brinkley-Cook,Karamo Brown,False,0,False,3,7,12,15
-28,7,rank,8,1,Karamo Brown,Kate Flannery,False,0,True,6,0,14,14
-28,8,rank,7,1,Kate Flannery,Lauren Alaina,False,0,False,0,4,11,13
-29,2,rank,15,1,Charles Oakley,Skai Jackson,False,0,False,5,3,27,28
-29,4,rank,13,1,Anne Heche,Jeannie Mai,False,0,True,0,12,21,25
+28,6,rank,9,1,Sailor Brinkley-Cook,Sean Spicer,False,0,False,3,4,7,18
+28,7,rank,8,1,Karamo Brown,Sean Spicer,False,0,False,6,3,12,16
 29,5,rank,12,1,Jesse Metcalfe,Chrishell Stause,False,0,True,0,1,22,24
 29,6,rank,11,1,Veron Davis,Skai Jackson,False,0,True,3,1,20,22
-29,8,rank,8,1,Chrishell Stause,Nelly,False,0,False,0,6,10,15
-30,3,rank,14,1,Christine Chiu,Brian Austin Green,False,0,False,11,0,19,21
-30,5,rank,11,1,Melanie C,"Mike ""The Miz"" Mizanin",False,0,False,5,1,12,19
+29,8,rank,8,1,Chrishell Stause,Nelly,False,0,False,0,6,11,16
+30,5,rank,11,1,Melanie C,Iman Shumpert,False,0,False,5,3,11,22
+30,8,rank,8,2,"Jimmie Allen, Olivia Jade","Jimmie Allen, Iman Shumpert",False,1,True,4,4,16,16
+30,9,rank,6,2,"Melora Hardin, Suni Lee","Melora Hardin, Cody Rigsby",False,1,True,0,0,11,11
 31,2,rank,15,1,Teresa Giudice,Cheryl Ladd,False,0,True,11,0,28,30
-31,5,rank,12,1,Joseph Baena,Daniel Durant,False,0,False,1,3,16,21
+31,5,rank,12,1,Joseph Baena,Daniel Durant,False,0,False,1,3,18,23
+31,6,rank,10,1,Jessie James Decker,Vinny Guadagnino,False,0,True,3,7,18,20
 32,1,rank,14,1,Matt Walsh,Tyson Beckford,False,0,False,6,7,23,27
-32,2,rank,13,1,Jamie Lynn Spears,Mauricio Umansky,False,0,False,0,10,21,24
-32,4,rank,11,1,Adrian Peterson,Alyson Hannigan,False,0,True,4,2,17,18
-32,6,rank,9,1,Mauricio Umansky,Alyson Hannigan,False,0,False,6,1,11,16
-32,7,rank,8,1,Lele Pons,Barry Williams,False,0,False,4,0,11,13
-32,8,rank,7,1,Barry Williams,Harry Jowsey,False,0,False,0,4,10,14
-32,9,rank,6,1,Harry Jowsey,Alyson Hannigan,False,0,True,3,0,11,11
-33,2,rank,13,2,"Tori Spelling, Anna Delvey","Anna Delvey, Eric Roberts",False,1,False,0,8,19,24
-33,6,rank,7,1,Jenn Tran,Ilona Maher,False,0,False,5,4,7,14
-34,4,rank,11,1,Hilaria Baldwin,Danielle Fishel,False,0,False,5,0,13,20
-34,7,rank,9,1,Jen Affleck,Danielle Fishel,False,0,False,6,0,15,15
-34,10,rank,6,1,Whitney Leavitt,Jordan Chiles,False,0,False,4,1,8,9
+32,2,rank,13,1,Jamie Lynn Spears,Mauricio Umansky,False,0,False,0,10,18,26
+32,4,rank,11,1,Adrian Peterson,Alyson Hannigan,False,0,False,4,2,14,22
+32,5,rank,10,1,Mira Sorvino,Harry Jowsey,False,0,False,0,6,16,20
+32,6,rank,9,1,Mauricio Umansky,Harry Jowsey,False,0,False,6,5,12,18
+33,2,rank,13,2,"Tori Spelling, Anna Delvey","Eric Roberts, Reginald VelJohnson",False,0,False,0,1,19,24
+33,4,rank,9,1,Brooks Nader,Dwight Howard ,False,0,True,5,1,14,18
+34,4,rank,11,1,Hilaria Baldwin,Andy Richter,False,0,False,5,3,10,22
