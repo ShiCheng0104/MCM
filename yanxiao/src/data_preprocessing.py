@@ -168,14 +168,18 @@ class DataPreprocessor:
         
         for _, row in self.cleaned_data.iterrows():
             elim_week = row['elimination_week']
-            if elim_week is not None:
-                elimination_records.append({
-                    'season': row['season'],
-                    'week': elim_week,
-                    'eliminated_name': row['celebrity_name'],
-                    'eliminated_placement': row['placement'],
-                    'final_score': row[f'week{elim_week}_total']
-                })
+            # 检查 elim_week 是有效数字（不是 None 也不是 NaN）
+            if elim_week is not None and pd.notna(elim_week):
+                elim_week = int(elim_week)  # 确保是整数
+                col_name = f'week{elim_week}_total'
+                if col_name in row.index:
+                    elimination_records.append({
+                        'season': row['season'],
+                        'week': elim_week,
+                        'eliminated_name': row['celebrity_name'],
+                        'eliminated_placement': row['placement'],
+                        'final_score': row[col_name]
+                    })
         
         elim_df = pd.DataFrame(elimination_records)
         return elim_df

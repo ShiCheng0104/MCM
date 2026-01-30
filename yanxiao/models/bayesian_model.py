@@ -12,9 +12,12 @@ try:
     import pymc as pm
     import arviz as az
     PYMC_AVAILABLE = True
-except ImportError:
+except ImportError as e:
     PYMC_AVAILABLE = False
-    warnings.warn("PyMC未安装，将使用简化的MCMC采样。建议运行: pip install pymc arviz")
+    warnings.warn(f"PyMC导入失败: {e}。将使用简化的MCMC采样。建议运行: pip install pymc arviz")
+except Exception as e:
+    PYMC_AVAILABLE = False
+    warnings.warn(f"PyMC加载异常: {e}。将使用简化的MCMC采样。")
 
 from src.utils import normalize_votes
 

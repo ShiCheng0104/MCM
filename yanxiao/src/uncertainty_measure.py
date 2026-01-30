@@ -240,7 +240,7 @@ class UncertaintyAnalyzer:
                                      bins=[0, 20, 25, 30, 100],
                                      labels=['Low', 'Medium', 'High', 'Very High'])
         
-        score_uncertainty = merged.groupby('score_bin').agg({
+        score_uncertainty = merged.groupby('score_bin', observed=False).agg({
             'cv': ['mean', 'std'],
             'ci_relative_width': 'mean'
         }).round(4)
