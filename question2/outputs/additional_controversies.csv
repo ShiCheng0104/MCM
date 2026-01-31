@@ -1,0 +1,29 @@
+celebrity,season,lowest_judge_weeks,final_placement,is_finalist,controversy_score
+David Ross,24,3,2,True,1.5
+Bill Engvall,17,6,4,False,1.5
+Nelly,29,4,3,True,1.3333333333333333
+Candace Cameron Bure,18,3,3,True,1.0
+Cody Rigsby,30,3,3,True,1.0
+Marie Osmond,5,3,3,True,1.0
+Joe Amabile,27,6,6,False,1.0
+Vinny Guadagnino,31,6,7,False,0.8571428571428571
+Andy Richter,34,6,7,False,0.8571428571428571
+Sean Spicer,28,5,6,False,0.8333333333333333
+Harry Jowsey,32,5,6,False,0.8333333333333333
+Drew Scott,25,3,4,False,0.75
+Marissa Jaret Winokur,6,3,4,False,0.75
+Jerry Springer,3,3,5,False,0.6000000000000001
+Master P,2,4,7,False,0.5714285714285714
+Michael Waltrip,19,4,7,False,0.5714285714285714
+Robert Herjavec,20,3,6,False,0.5
+Clyde Drexler,4,4,8,False,0.5
+Michael Irvin,9,3,7,False,0.42857142857142855
+Cloris Leachman,7,3,7,False,0.42857142857142855
+Kirstie Alley,15,3,7,False,0.42857142857142855
+Chaz Bono,13,3,7,False,0.42857142857142855
+Lamar Odom,28,4,10,False,0.4
+Steve-O,8,3,8,False,0.375
+Paula Deen,21,3,9,False,0.3333333333333333
+Nick Lachey,25,3,9,False,0.3333333333333333
+Steve Wozniak,8,3,10,False,0.30000000000000004
+Buzz Aldrin,10,3,10,False,0.30000000000000004

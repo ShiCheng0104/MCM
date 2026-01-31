@@ -1,0 +1,36 @@
+week,num_contestants,judge_score,judge_rank,fan_votes,fan_rank,combined_rank_score,rank_position,judge_pct,fan_pct,combined_pct,pct_position,rank_method_eliminates,pct_method_eliminates,actual_eliminated,would_be_eliminated_rank,would_be_eliminated_pct,in_bottom_two_rank,in_bottom_two_pct,rank_bottom_two,pct_bottom_two,methods_differ,celebrity,season
+1,10,21.0,5,110725,5,10.0,5,10.77,11.07,21.84,5,Master P,Kenny Mayne,Kenny Mayne,False,False,False,False,"Master P, Kenny Mayne","Kenny Mayne, Master P",True,Jerry Rice,2
+2,9,23.0,4,116908,3,7.0,4,11.5,11.69,23.19,4,Tatum O'Neal,Master P,Tatum O'Neal,False,False,False,False,"Tatum O'Neal, Master P","Master P, Tatum O'Neal",True,Jerry Rice,2
+3,8,19.0,7,162332,1,8.0,4,10.44,16.23,26.67,4,Giselle Fernandez,Giselle Fernandez,Giselle Fernandez,False,False,False,False,"Giselle Fernandez, Master P","Giselle Fernandez, Master P",False,Jerry Rice,2
+4,7,24.0,5,153293,5,10.0,5,15.19,15.33,30.52,5,Master P,Master P,Master P,False,False,False,False,"Master P, George Hamilton","Master P, George Hamilton",False,Jerry Rice,2
+5,6,23.0,5,150644,5,10.0,5,15.23,15.06,30.3,5,Tia Carrere,Tia Carrere,Tia Carrere,False,False,True,True,"Tia Carrere, Jerry Rice","Tia Carrere, Jerry Rice",False,Jerry Rice,2
+6,5,23.0,4,394680,1,5.5,3,17.29,39.47,56.76,1,George Hamilton,George Hamilton,George Hamilton,False,False,False,False,"George Hamilton, Lisa Rinna","George Hamilton, Lisa Rinna",False,Jerry Rice,2
+7,4,20.5,4,494476,1,5.0,3,20.1,49.45,69.55,1,Lisa Rinna,Lisa Rinna,Lisa Rinna,False,False,True,False,"Lisa Rinna, Jerry Rice","Lisa Rinna, Stacy Keibler",False,Jerry Rice,2
+8,3,26.666600000000003,3,314979,3,6.0,3,31.62,31.5,63.12,3,Jerry Rice,Jerry Rice,(无淘汰),True,True,True,True,"Jerry Rice, Stacy Keibler","Jerry Rice, Stacy Keibler",False,Jerry Rice,2
+1,11,13.0,11,59741,11,22.0,11,6.31,5.97,12.28,11,Billy Ray Cyrus,Billy Ray Cyrus,(无淘汰),True,True,True,True,"Billy Ray Cyrus, Leeza Gibbons","Billy Ray Cyrus, Leeza Gibbons",False,Billy Ray Cyrus,4
+2,11,21.0,7,86272,8,15.5,8,8.57,8.63,17.2,8,Clyde Drexler,Paulina Porizkova,Paulina Porizkova,False,False,False,False,"Clyde Drexler, Shandi Finnessey","Paulina Porizkova, Clyde Drexler",True,Billy Ray Cyrus,4
+3,10,21.0,7,94179,8,15.0,8,9.63,9.42,19.05,8,Clyde Drexler,Shandi Finnessey,Shandi Finnessey,False,False,False,False,"Clyde Drexler, Shandi Finnessey","Shandi Finnessey, Clyde Drexler",True,Billy Ray Cyrus,4
+4,9,21.0,5,273790,1,6.5,1,11.05,27.38,38.43,1,Leeza Gibbons,Leeza Gibbons,Leeza Gibbons,False,False,False,False,"Leeza Gibbons, Clyde Drexler","Leeza Gibbons, Joey Fatone",False,Billy Ray Cyrus,4
+5,8,17.0,7,89977,7,14.0,7,9.66,9.0,18.66,7,Clyde Drexler,Clyde Drexler,Clyde Drexler,False,False,True,True,"Clyde Drexler, Billy Ray Cyrus","Clyde Drexler, Billy Ray Cyrus",False,Billy Ray Cyrus,4
+6,7,21.0,6,161488,4,10.0,5,12.35,16.15,28.5,5,John Ratzenberger,Heather Mills,Heather Mills,False,False,False,False,"John Ratzenberger, Heather Mills","Heather Mills, John Ratzenberger",True,Billy Ray Cyrus,4
+7,6,19.0,6,132562,5,11.0,6,12.3,13.26,25.55,5,John Ratzenberger,John Ratzenberger,John Ratzenberger,False,False,True,True,"John Ratzenberger, Billy Ray Cyrus","John Ratzenberger, Billy Ray Cyrus",False,Billy Ray Cyrus,4
+8,5,19.0,5,141250,5,10.0,5,15.14,14.13,29.26,5,Billy Ray Cyrus,Billy Ray Cyrus,Billy Ray Cyrus,True,True,True,True,"Billy Ray Cyrus, Ian Ziering","Billy Ray Cyrus, Ian Ziering",False,Billy Ray Cyrus,4
+1,12,18.0,7,56675,9,16.5,10,7.93,5.67,13.6,8,David Hasselhoff,David Hasselhoff,David Hasselhoff,False,False,False,False,"David Hasselhoff, The Situation","David Hasselhoff, Kyle Massey",False,Bristol Palin,11
+2,11,22.0,3,98306,4,7.5,4,9.95,9.83,19.79,4,Michael Bolton,Michael Bolton,Michael Bolton,False,False,False,False,"Michael Bolton, The Situation","Michael Bolton, The Situation",False,Bristol Palin,11
+3,10,19.0,9,80915,10,19.0,10,8.6,8.09,16.69,9,Margaret Cho,Margaret Cho,Margaret Cho,False,False,True,True,"Margaret Cho, Bristol Palin","Margaret Cho, Bristol Palin",False,Bristol Palin,11
+4,9,16.0,8,83245,8,16.0,8,8.94,8.32,17.26,8,The Situation,The Situation,The Situation,False,False,True,True,"The Situation, Bristol Palin","The Situation, Bristol Palin",False,Bristol Palin,11
+5,8,18.0,8,100726,7,15.0,8,9.89,10.07,19.96,7,Bristol Palin,Florence Henderson,Florence Henderson,True,False,True,True,"Bristol Palin, Florence Henderson","Florence Henderson, Bristol Palin",True,Bristol Palin,11
+6,7,27.9998,6,135766,6,12.0,7,13.53,13.58,27.1,5,Bristol Palin,Audrina Patridge,Audrina Patridge,True,False,True,False,"Bristol Palin, Kurt Warner","Audrina Patridge, Kurt Warner",True,Bristol Palin,11
+7,6,32.5,6,156531,5,11.0,6,15.59,15.65,31.24,5,Bristol Palin,Rick Fox,Rick Fox,True,False,True,True,"Bristol Palin, Rick Fox","Rick Fox, Bristol Palin",True,Bristol Palin,11
+8,5,23.5,5,187287,4,9.0,5,17.74,18.73,36.46,4,Kurt Warner,Kurt Warner,Kurt Warner,False,False,True,True,"Kurt Warner, Bristol Palin","Kurt Warner, Bristol Palin",False,Bristol Palin,11
+9,4,26.5,4,245860,2,6.0,3,23.25,24.59,47.83,3,Brandy,Brandy,Brandy,False,False,True,True,"Brandy, Bristol Palin","Brandy, Bristol Palin",False,Bristol Palin,11
+10,3,25.666600000000003,3,304843,3,6.0,3,30.92,30.48,61.41,3,Bristol Palin,Bristol Palin,(无淘汰),True,True,True,True,"Bristol Palin, Kyle Massey","Bristol Palin, Kyle Massey",False,Bristol Palin,11
+1,13,20.0,6,83125,5,11.0,5,7.84,8.31,16.16,5,Nikki Glaser,Nikki Glaser,Nikki Glaser,False,False,False,False,"Nikki Glaser, Joe Amabile","Nikki Glaser, Joe Amabile",False,Bobby Bones,27
+2,12,19.5,10,65291,9,19.0,9,7.21,6.53,13.74,10,Danelle Umstead,Danelle Umstead,Danelle Umstead,False,False,False,False,"Danelle Umstead, Joe Amabile","Danelle Umstead, Joe Amabile",False,Bobby Bones,27
+3,11,23.0,8,88081,8,16.0,9,8.49,8.81,17.3,9,Joe Amabile,Nancy McKeon,Nancy McKeon,False,False,False,False,"Joe Amabile, Nancy McKeon","Nancy McKeon, Joe Amabile",True,Bobby Bones,27
+4,10,20.0,9,86034,8,17.0,9,8.62,8.6,17.22,8,Joe Amabile,Tinashe,Tinashe,False,False,True,False,"Joe Amabile, Bobby Bones","Tinashe, Joe Amabile",True,Bobby Bones,27
+5,9,21.0,8,93671,8,16.0,8,9.46,9.37,18.83,8,Joe Amabile,Joe Amabile,(无淘汰),False,False,True,True,"Joe Amabile, Bobby Bones","Joe Amabile, Bobby Bones",False,Bobby Bones,27
+6,9,22.0,7,126168,4,11.5,6,9.61,12.62,22.22,6,John Schneider,Mary Lou Retton,Mary Lou Retton,False,False,False,False,"John Schneider, Mary Lou Retton","Mary Lou Retton, John Schneider",True,Bobby Bones,27
+7,8,26.5,6,145098,1,7.5,3,12.18,14.51,26.69,2,DeMarcus Ware,John Schneider,John Schneider,False,False,False,False,"DeMarcus Ware, John Schneider","John Schneider, DeMarcus Ware",True,Bobby Bones,27
+8,6,22.5,6,184471,2,8.0,5,13.98,18.45,32.42,4,Joe Amabile,Joe Amabile,Juan Pablo Di Pace,False,False,False,False,"Joe Amabile, Milo Manheim","Joe Amabile, Juan Pablo Di Pace",False,Bobby Bones,27
+9,4,27.0,4,235014,4,8.0,4,23.38,23.5,46.88,4,Bobby Bones,Bobby Bones,(无淘汰),True,True,True,True,"Bobby Bones, Alexis Ren","Bobby Bones, Alexis Ren",False,Bobby Bones,27

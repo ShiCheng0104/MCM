@@ -4,11 +4,11 @@ season,week,method,n_contestants,n_eliminated,actual_eliminated,predicted_elimin
 1,4,rank,4,1,Rachel Hunter,John O'Hurley,False,0,False,2,0,4,7
 2,1,rank,10,1,Kenny Mayne,Master P,False,0,True,9,7,19,19
 2,2,rank,9,1,Tatum O'Neal,Tatum O'Neal,True,1,True,0,0,17,17
-2,3,rank,8,1,Giselle Fernandez,Master P,False,0,False,5,6,12,16
+2,3,rank,8,1,Giselle Fernandez,Giselle Fernandez,True,1,True,5,5,14,14
 2,4,rank,7,1,Master P,Master P,True,1,True,5,5,14,14
 2,5,rank,6,1,Tia Carrere,Tia Carrere,True,1,True,0,0,12,12
-2,6,rank,5,1,George Hamilton,Jerry Rice,False,0,True,0,3,8,10
-2,7,rank,4,1,Lisa Rinna,Jerry Rice,False,0,True,0,2,6,8
+2,6,rank,5,1,George Hamilton,George Hamilton,True,1,True,0,0,9,9
+2,7,rank,4,1,Lisa Rinna,Lisa Rinna,True,1,True,0,0,7,7
 3,1,percent,11,1,Tucker Carlson,Tucker Carlson,True,1,True,10,10,1,1
 3,2,percent,10,1,Shanna Moakler,Shanna Moakler,True,1,True,6,6,1,1
 3,3,percent,9,1,Harry Hamlin,Harry Hamlin,True,1,True,0,0,1,1
@@ -34,7 +34,7 @@ season,week,method,n_contestants,n_eliminated,actual_eliminated,predicted_elimin
 5,8,percent,5,1,Cameron Mathison,Cameron Mathison,True,1,True,0,0,1,1
 5,9,percent,4,1,Jennie Garth,Jennie Garth,True,1,True,0,0,1,1
 6,2,percent,12,2,"Monica Seles, Penn Jillette","Monica Seles, Penn Jillette",True,2,True,8,8,1,1
-6,3,percent,10,1,Steve Guttenberg,Steve Guttenberg,True,1,True,1,1,1,1
+6,3,percent,10,1,Steve Guttenberg,Marissa Jaret Winokur,False,0,False,1,5,3,1
 6,4,percent,9,1,Adam Carolla,Adam Carolla,True,1,True,7,7,1,1
 6,5,percent,8,1,Priscilla Presley,Priscilla Presley,True,1,True,1,1,1,1
 6,6,percent,7,1,Marlee Matlin,Marlee Matlin,True,1,True,1,1,1,1
@@ -107,14 +107,14 @@ season,week,method,n_contestants,n_eliminated,actual_eliminated,predicted_elimin
 14,5,percent,9,1,Gavin DeGraw,Gavin DeGraw,True,1,True,5,5,1,1
 14,6,percent,8,1,Gladys Knight,Gladys Knight,True,1,True,5,5,1,1
 14,7,percent,7,1,Jaleel White,Jaleel White,True,1,True,1,1,1,1
-14,8,percent,6,2,"Roshon Fegan, Melissa Gilbert","Roshon Fegan, Melissa Gilbert",True,2,True,1,1,1,1
+14,8,percent,6,2,"Roshon Fegan, Melissa Gilbert","Melissa Gilbert, Roshon Fegan",True,2,True,1,2,2,1
 14,9,percent,4,1,Maria Menounos,Maria Menounos,True,1,True,3,3,1,1
 15,1,percent,13,1,Pamela Anderson,Pamela Anderson,True,1,True,7,7,1,1
 15,2,percent,12,1,Joey Fatone,Joey Fatone,True,1,True,8,8,1,1
 15,3,percent,11,2,"Helio Castroneves, Drew Lachey","Helio Castroneves, Drew Lachey",True,2,True,7,7,1,1
 15,4,percent,9,1,Bristol Palin,Bristol Palin,True,1,True,7,7,1,1
 15,6,percent,8,1,Sabrina Bryan,Sabrina Bryan,True,1,True,1,1,1,1
-15,8,percent,7,2,"Gilles Marini, Kirstie Alley","Gilles Marini, Kirstie Alley",True,2,True,0,0,1,1
+15,8,percent,7,2,"Gilles Marini, Kirstie Alley","Kirstie Alley, Gilles Marini",True,2,True,0,1,2,1
 15,9,percent,5,2,"Apolo Anton Ohno, Emmitt Smith","Emmitt Smith, Apolo Anton Ohno",True,2,True,1,2,2,1
 16,3,percent,11,1,Wynonna Judd,Wynonna Judd,True,1,True,7,7,1,1
 16,4,percent,10,1,Lisa Vanderpump,Lisa Vanderpump,True,1,True,8,8,1,1
@@ -156,8 +156,8 @@ season,week,method,n_contestants,n_eliminated,actual_eliminated,predicted_elimin
 20,5,percent,9,1,Suzanne Somers,Suzanne Somers,True,1,True,0,0,1,1
 20,6,percent,8,1,Patti LaBelle,Patti LaBelle,True,1,True,6,6,1,1
 20,7,percent,7,1,Willow Shields,Willow Shields,True,1,True,0,0,1,1
-20,8,percent,6,2,"Robert Herjavec, Chris Soules","Chris Soules, Robert Herjavec",True,2,True,3,5,2,1
-20,9,percent,4,1,Nastia Liukin,Nastia Liukin,True,1,True,2,2,1,1
+20,8,percent,6,2,"Robert Herjavec, Chris Soules","Robert Herjavec, Chris Soules",True,2,True,3,3,1,1
+20,9,percent,4,1,Nastia Liukin,Rumer Willis,False,0,True,2,1,2,1
 21,2,percent,13,2,"Victor Espinoza, Chaka Khan","Chaka Khan, Victor Espinoza",True,2,True,3,5,2,1
 21,4,percent,10,1,Gary Busey,Gary Busey,True,1,True,0,0,1,1
 21,6,percent,9,1,Paula Deen,Paula Deen,True,1,True,8,8,1,1
@@ -172,7 +172,7 @@ season,week,method,n_contestants,n_eliminated,actual_eliminated,predicted_elimin
 22,7,percent,8,2,"Kim Fields, Von Miller","Von Miller, Kim Fields",True,2,True,0,2,2,1
 22,8,percent,6,1,Jodie Sweetin,Jodie Sweetin,True,1,True,0,0,1,1
 22,9,percent,5,2,"Antonio Brown, Wanya Morris","Wanya Morris, Antonio Brown",True,2,True,0,4,2,1
-23,2,percent,13,1,Jake T. Austin,Jake T. Austin,True,1,True,0,0,1,1
+23,2,percent,13,1,Jake T. Austin,Rick Perry,False,0,False,0,7,3,1
 23,3,percent,12,1,Rick Perry,Rick Perry,True,1,True,6,6,1,1
 23,4,percent,11,2,"Babyface, Vanilla Ice","Babyface, Vanilla Ice",True,2,True,7,7,1,1
 23,6,percent,9,1,Amber Rose,Amber Rose,True,1,True,5,5,1,1
@@ -193,7 +193,7 @@ season,week,method,n_contestants,n_eliminated,actual_eliminated,predicted_elimin
 25,4,percent,11,1,Derek Fisher,Derek Fisher,True,1,True,3,3,1,1
 25,5,percent,10,1,Sasha Pieterse,Sasha Pieterse,True,1,True,0,0,1,1
 25,6,percent,9,1,Nick Lachey,Nick Lachey,True,1,True,6,6,1,1
-25,7,percent,8,2,"Nikki Bella, Vanessa Lachey","Vanessa Lachey, Nikki Bella",True,2,True,2,7,2,1
+25,7,percent,8,2,"Nikki Bella, Vanessa Lachey","Nikki Bella, Vanessa Lachey",True,2,True,2,2,1,1
 25,8,percent,6,1,Terrell Owens,Terrell Owens,True,1,True,2,2,1,1
 25,9,percent,5,1,Victoria Arlen,Victoria Arlen,True,1,True,2,2,1,1
 25,10,percent,4,1,Drew Scott,Drew Scott,True,1,True,3,3,1,1
@@ -205,61 +205,61 @@ season,week,method,n_contestants,n_eliminated,actual_eliminated,predicted_elimin
 27,3,percent,11,1,Nancy McKeon,Nancy McKeon,True,1,True,2,2,1,1
 27,4,percent,10,1,Tinashe,Tinashe,True,1,True,7,7,1,1
 27,6,percent,9,1,Mary Lou Retton,Mary Lou Retton,True,1,True,4,4,1,1
-27,7,percent,8,2,"John Schneider, DeMarcus Ware","DeMarcus Ware, John Schneider",True,2,True,2,4,2,1
+27,7,percent,8,2,"John Schneider, DeMarcus Ware","John Schneider, DeMarcus Ware",True,2,True,2,2,1,1
 27,8,percent,6,2,"Juan Pablo Di Pace, Joe Amabile","Joe Amabile, Juan Pablo Di Pace",True,2,True,0,5,2,1
-28,2,rank,12,1,Mary Wilson,Lamar Odom,False,0,True,7,4,22,24
+28,2,rank,12,1,Mary Wilson,Mary Wilson,True,1,True,7,7,23,23
 28,4,rank,10,1,Lamar Odom,Lamar Odom,True,1,True,3,3,20,20
 28,6,rank,9,1,Sailor Brinkley-Cook,Sean Spicer,False,0,False,3,4,7,18
-28,7,rank,8,1,Karamo Brown,Sean Spicer,False,0,False,6,3,12,16
-28,8,rank,7,1,Kate Flannery,Kate Flannery,True,1,True,0,0,12,12
+28,7,rank,8,1,Karamo Brown,Karamo Brown,True,1,True,6,6,14,14
+28,8,rank,7,1,Kate Flannery,Sean Spicer,False,0,False,0,3,10,14
 28,9,rank,6,1,Sean Spicer,Sean Spicer,True,1,True,2,2,12,12
-28,10,rank,5,1,James Van Der Beek,James Van Der Beek,True,1,True,0,0,9,9
+28,10,rank,5,1,James Van Der Beek,James Van Der Beek,True,1,True,0,0,10,10
 29,2,rank,15,1,Charles Oakley,Charles Oakley,True,1,True,5,5,30,30
 29,3,rank,14,1,Carole Baskin,Carole Baskin,True,1,True,11,11,28,28
 29,4,rank,13,1,Anne Heche,Anne Heche,True,1,True,0,0,23,23
 29,5,rank,12,1,Jesse Metcalfe,Chrishell Stause,False,0,True,0,1,22,24
-29,6,rank,11,1,Veron Davis,Skai Jackson,False,0,True,3,1,20,22
+29,6,rank,11,1,Veron Davis,Veron Davis,True,1,True,3,3,21,21
 29,7,rank,10,1,Monica Aldama,Monica Aldama,True,1,True,8,8,20,20
-29,8,rank,8,1,Chrishell Stause,Nelly,False,0,False,0,6,11,16
-29,9,rank,7,1,AJ McLean,AJ McLean,True,1,True,4,4,13,13
+29,8,rank,8,1,Chrishell Stause,Chrishell Stause,True,1,True,0,0,12,12
+29,9,rank,7,1,AJ McLean,AJ McLean,True,1,True,4,4,12,12
 29,10,rank,6,2,"Skai Jackson, Johnny Weir","Johnny Weir, Skai Jackson",True,2,True,0,2,9,11
 30,2,rank,15,1,Martin Kove,Martin Kove,True,1,True,0,0,30,30
 30,3,rank,14,1,Christine Chiu,Christine Chiu,True,1,True,11,11,21,21
 30,4,rank,13,2,"Brian Austin Green, Matt James","Brian Austin Green, Matt James",True,2,True,0,0,26,26
 30,5,rank,11,1,Melanie C,Iman Shumpert,False,0,False,5,3,11,22
-30,6,rank,10,1,Kenya Moore,Kenya Moore,True,1,True,8,8,19,19
+30,6,rank,10,1,Kenya Moore,Kenya Moore,True,1,True,8,8,20,20
 30,7,rank,9,1,"Mike ""The Miz"" Mizanin","Mike ""The Miz"" Mizanin",True,1,True,1,1,18,18
-30,8,rank,8,2,"Jimmie Allen, Olivia Jade","Jimmie Allen, Iman Shumpert",False,1,True,4,4,16,16
+30,8,rank,8,2,"Jimmie Allen, Olivia Jade","Jimmie Allen, Olivia Jade",True,2,True,4,4,15,15
 30,9,rank,6,2,"Melora Hardin, Suni Lee","Melora Hardin, Cody Rigsby",False,1,True,0,0,11,11
-31,1,rank,16,1,Jason Lewis,Jason Lewis,True,1,True,0,0,31,31
-31,2,rank,15,1,Teresa Giudice,Cheryl Ladd,False,0,True,11,0,28,30
+31,1,rank,16,1,Jason Lewis,Jason Lewis,True,1,True,0,0,30,30
+31,2,rank,15,1,Teresa Giudice,Teresa Giudice,True,1,True,11,11,29,29
 31,3,rank,14,1,Cheryl Ladd,Cheryl Ladd,True,1,True,0,0,27,27
 31,4,rank,13,1,Sam Champion,Sam Champion,True,1,True,5,5,26,26
-31,5,rank,12,1,Joseph Baena,Daniel Durant,False,0,False,1,3,18,23
-31,6,rank,10,1,Jessie James Decker,Vinny Guadagnino,False,0,True,3,7,18,20
+31,5,rank,12,1,Joseph Baena,Joseph Baena,True,1,True,1,1,22,22
+31,6,rank,10,1,Jessie James Decker,Jessie James Decker,True,1,True,3,3,19,19
 31,7,rank,9,1,Jordin Sparks,Jordin Sparks,True,1,True,3,3,17,17
-31,8,rank,8,2,"Heidi D'Amelio, Vinny Guadagnino","Heidi D'Amelio, Vinny Guadagnino",True,2,True,3,3,15,15
-31,9,rank,6,2,"Trevor Donovan, Daniel Durant","Trevor Donovan, Daniel Durant",True,2,True,0,0,10,10
+31,8,rank,8,2,"Heidi D'Amelio, Vinny Guadagnino","Vinny Guadagnino, Heidi D'Amelio",True,2,True,3,5,14,16
+31,9,rank,6,2,"Trevor Donovan, Daniel Durant","Trevor Donovan, Daniel Durant",True,2,True,0,0,12,12
 32,1,rank,14,1,Matt Walsh,Tyson Beckford,False,0,False,6,7,23,27
-32,2,rank,13,1,Jamie Lynn Spears,Mauricio Umansky,False,0,False,0,10,18,26
+32,2,rank,13,1,Jamie Lynn Spears,Jamie Lynn Spears,True,1,True,0,0,22,22
 32,3,rank,12,1,Tyson Beckford,Tyson Beckford,True,1,True,5,5,24,24
-32,4,rank,11,1,Adrian Peterson,Alyson Hannigan,False,0,False,4,2,14,22
-32,5,rank,10,1,Mira Sorvino,Harry Jowsey,False,0,False,0,6,16,20
-32,6,rank,9,1,Mauricio Umansky,Harry Jowsey,False,0,False,6,5,12,18
-32,7,rank,8,1,Lele Pons,Lele Pons,True,1,True,4,4,11,11
+32,4,rank,11,1,Adrian Peterson,Adrian Peterson,True,1,True,4,4,18,18
+32,5,rank,10,1,Mira Sorvino,Mira Sorvino,True,1,True,0,0,18,18
+32,6,rank,9,1,Mauricio Umansky,Mauricio Umansky,True,1,True,6,6,15,15
+32,7,rank,8,1,Lele Pons,Barry Williams,False,0,False,4,0,9,15
 32,8,rank,7,1,Barry Williams,Barry Williams,True,1,True,0,0,12,12
 32,9,rank,6,1,Harry Jowsey,Harry Jowsey,True,1,True,3,3,12,12
-33,2,rank,13,2,"Tori Spelling, Anna Delvey","Eric Roberts, Reginald VelJohnson",False,0,False,0,1,19,24
+33,2,rank,13,2,"Tori Spelling, Anna Delvey","Anna Delvey, Tori Spelling",True,2,True,0,8,22,23
 33,3,rank,11,2,"Eric Roberts, Reginald VelJohnson","Reginald VelJohnson, Eric Roberts",True,2,True,0,1,20,22
-33,4,rank,9,1,Brooks Nader,Dwight Howard ,False,0,True,5,1,14,18
+33,4,rank,9,1,Brooks Nader,Brooks Nader,True,1,True,5,5,15,15
 33,5,rank,8,1,Phaedra Parks,Phaedra Parks,True,1,True,5,5,16,16
 33,6,rank,7,1,Jenn Tran,Jenn Tran,True,1,True,5,5,11,11
 33,7,rank,6,1,Dwight Howard ,Dwight Howard ,True,1,True,1,1,12,12
-34,2,rank,14,2,"Corey Feldman, Baron Davis","Corey Feldman, Baron Davis",True,2,True,0,0,28,28
+34,2,rank,14,2,"Corey Feldman, Baron Davis","Corey Feldman, Andy Richter",False,1,True,0,0,28,28
 34,3,rank,12,1,Lauren Jauregui,Lauren Jauregui,True,1,True,6,6,24,24
 34,4,rank,11,1,Hilaria Baldwin,Andy Richter,False,0,False,5,3,10,22
-34,6,rank,10,1,Scott Hoying,Scott Hoying,True,1,True,5,5,19,19
+34,6,rank,10,1,Scott Hoying,Andy Richter,False,0,True,5,3,19,19
 34,7,rank,9,1,Jen Affleck,Jen Affleck,True,1,True,6,6,16,16
 34,8,rank,8,1,Danielle Fishel,Danielle Fishel,True,1,True,0,0,15,15
-34,9,rank,7,1,Andy Richter,Andy Richter,True,1,True,2,2,12,12
-34,10,rank,6,1,Whitney Leavitt,Whitney Leavitt,True,1,True,4,4,8,8
+34,9,rank,7,1,Andy Richter,Andy Richter,True,1,True,2,2,14,14
+34,10,rank,6,1,Whitney Leavitt,Whitney Leavitt,True,1,True,4,4,9,9
