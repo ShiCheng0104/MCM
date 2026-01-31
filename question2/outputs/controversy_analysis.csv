@@ -1,0 +1,5 @@
+celebrity,season,actual_placement,weeks_competed,num_lowest_judge_weeks,would_be_eliminated_rank_weeks,would_be_eliminated_percent_weeks,rank_eliminates_earlier,percent_eliminates_earlier,weeks_in_bottom_two_rank,weeks_in_bottom_two_percent
+Jerry Rice,2,2,8,2,1,1,True,True,3,2
+Billy Ray Cyrus,4,5,8,3,2,2,True,True,4,4
+Bristol Palin,11,3,10,5,4,1,True,True,8,7
+Bobby Bones,27,1,9,2,1,1,True,True,3,2

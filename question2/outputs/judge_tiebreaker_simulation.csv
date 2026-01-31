@@ -1,0 +1,9 @@
+celebrity,season,method,weeks_in_bottom_two,cumulative_survival_prob,expected_to_survive
+Jerry Rice,2,rank,3,0.089524476,False
+Jerry Rice,2,percent,2,0.22859999999999997,False
+Billy Ray Cyrus,4,rank,4,0.04764908491200002,False
+Billy Ray Cyrus,4,percent,4,0.04471703704000001,False
+Bristol Palin,11,rank,8,0.003327031788995541,False
+Bristol Palin,11,percent,7,0.007274799174686886,False
+Bobby Bones,27,rank,3,0.18335721600000002,False
+Bobby Bones,27,percent,2,0.28953999999999996,False
