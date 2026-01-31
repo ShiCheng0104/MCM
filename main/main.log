@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  30 JAN 2026 11:23
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  31 JAN 2026 17:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -840,28 +840,41 @@ File: utxmia.fd 2000/12/15 v3.1
 LaTeX Font Info:    Trying to load font information for U+txsyc on input line 2.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
-))
+)
+
+LaTeX Font Warning: Font shape `TU/STSong(0)/b/n' undefined
+(Font)              using `TU/STSong(0)/m/n' instead on input line 7.
+
+
+
+[1])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
 
 
-[1]
-
-[2] (../sections/1.Introduction.tex
-
-LaTeX Font Warning: Font shape `TU/STSong(0)/b/n' undefined
-(Font)              using `TU/STSong(0)/m/n' instead on input line 17.
-
-)
+[2] (../sections/1.Introduction.tex)
 
 [3] (../sections/2.Assumptions.tex) (../sections/3.Notations.tex
 
 [4]) (../sections/4.Models.tex
 
-[5]) (../sections/5.Sensitivity Analysis.tex) (../sections/6.Model Evaluation and Promotion.tex) (../sections/7.Conclusions.tex) (../sections/8.References.tex) (../sections/9.Appendices.tex) (../sections/10.AI.tex
+[5]
+
+LaTeX Font Warning: Font shape `TU/STSong(0)/m/it' undefined
+(Font)              using `TU/STSong(0)/m/n' instead on input line 12.
+
+
 
 [6]
+
+[7]
+
+[8]
+
+[9]) (../sections/5.Sensitivity Analysis.tex) (../sections/6.Model Evaluation and Promotion.tex) (../sections/7.Conclusions.tex) (../sections/8.References.tex) (../sections/9.Appendices.tex) (../sections/10.AI.tex
+
+[10]
 LaTeX Font Info:    Trying to load font information for TU+pcr on input line 8.
 LaTeX Font Info:    No file TUpcr.fd. on input line 8.
 
@@ -875,11 +888,11 @@ LaTeX Font Warning: Font shape `TU/pcr/b/n' undefined
 
 
 
-[7
+[11
 
 ])
 
-[8] (./main.aux)
+[12] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
@@ -888,16 +901,25 @@ L3 programming layer <2022/08/05>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 02C5DA95E06F5D671EA780001DC6266B;3729.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: E6AC0DA0AF4C8B172812A78CF14F5E35;3669
+(rerunfilecheck)             After:  9BE20541F5F2BA2C3D520C2041D9D000;3673.
  ) 
 Here is how much of TeX's memory you used:
- 19412 strings out of 473832
- 378787 string characters out of 5729482
- 1090459 words of memory out of 5000000
- 42045 multiletter control sequences out of 15000+600000
- 590601 words of font info for 151 fonts, out of 8000000 for 9000
+ 19606 strings out of 473832
+ 389483 string characters out of 5729482
+ 1090422 words of memory out of 5000000
+ 42232 multiletter control sequences out of 15000+600000
+ 594175 words of font info for 162 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 87i,15n,93p,570b,2004s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,16n,93p,570b,2004s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (9 pages).
+Output written on main.pdf (13 pages).
