@@ -168,6 +168,234 @@ r_i = \frac{v_i^* - v_i^{\text{prior}}}{\sigma_i^{\text{prior}}}
 
 两者的偏离$\Delta_i = v_i^* - v_i^{\text{baseline}}$量化"异常程度"。$\Delta$大的周次往往对应争议事件（如人气选手意外被淘汰，或低分选手意外晋级）。这种差异分析为理解节目的争议性结果（如题目提到的Bobby Bones、Jerry Rice等案例）提供了定量工具。
 
+\section{问题2：投票方法对比与推荐}
+
+利用问题1估计的观众投票数据，本节对两种投票组合方法进行系统对比。问题2包含三个子问题，我们将逐一清晰回答。
+
+\subsection{子问题2.1：两种方法的结果对比与观众投票偏向性}
+
+\subsubsection{问题陈述}
+
+\textit{对所有赛季应用两种方法（排名法和百分比法），比较结果差异。如果存在差异，哪种方法更偏向观众投票？}
+
+\subsubsection{分析方法}
+
+我们采用\textbf{反事实模拟}：对每个历史周次，使用估计的观众投票，分别计算两种方法下的淘汰结果。
+
+\textbf{排名法}：
+\begin{equation}
+C_i^{\text{rank}} = \text{rank}(-S_i) + \text{rank}(-\hat{V}_i), \quad k^{\text{rank}} = \arg\max_i C_i^{\text{rank}}
+\end{equation}
+
+\textbf{百分比法}：
+\begin{equation}
+C_i^{\text{percent}} = \frac{S_i}{\sum_j S_j} + \frac{\hat{V}_i}{\sum_j \hat{V}_j}, \quad k^{\text{percent}} = \arg\min_i C_i^{\text{percent}}
+\end{equation}
+
+对34个赛季、335个周次进行完整模拟，统计$k^{\text{rank}} \neq k^{\text{percent}}$的频率。
+
+\subsubsection{结果1：方法一致性分析}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\hline
+\textbf{统计指标} & \textbf{数值} & \textbf{百分比} \\
+\hline
+总分析周次 & 335 & 100\% \\
+结果一致周次 & 251 & 74.9\% \\
+结果不一致周次 & 84 & 25.1\% \\
+\hline
+\end{tabular}
+\caption{排名法与百分比法的结果一致性}
+\label{tab:method_agreement}
+\end{table}
+
+\textbf{关键发现}：25.1\%的不一致率表明投票方法的选择对比赛结果有\textbf{实质性影响}。这不是微小的技术差异，而是可能改变约四分之一选手命运的系统性因素。
+
+\subsubsection{结果2：观众投票偏向性分析}
+
+在84个不一致周次中，我们定义：若方法$A$淘汰的选手评委得分\textit{高于}方法$B$淘汰的选手，则方法$A$更"偏向观众"（因为它牺牲了高评委分选手以保留高票选手）。
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\hline
+\textbf{偏向类型} & \textbf{案例数} & \textbf{占比} \\
+\hline
+排名法更偏向观众 & 16 & 19.0\% \\
+百分比法更偏向观众 & 68 & 81.0\% \\
+\hline
+\end{tabular}
+\caption{两种方法的观众投票偏向性对比}
+\label{tab:fan_bias}
+\end{table}
+
+\textbf{机制解释}：排名法将得分/投票映射为离散排名，抹去数值差距信息。例如评委打分差10分和差1分，在排名中都可能仅体现为"相邻一名"。这种\textbf{非线性压缩}削弱了观众投票的数值优势。
+
+相反，百分比法保留数值信息：
+\begin{equation}
+\Delta C_i^{\text{percent}} = \frac{S_i - S_j}{\sum S_k} + \frac{V_i - V_j}{\sum V_k}
+\end{equation}
+观众投票的优势能\textbf{线性地}弥补评委得分劣势。
+
+\subsubsection{子问题2.1的明确回答}
+
+\noindent\fcolorbox{black}{gray!10}{%
+\begin{minipage}{0.95\textwidth}
+\vspace{0.3em}
+\noindent\textbf{子问题2.1回答}
+
+\textbf{Q1: 两种方法结果是否有差异？}
+
+\textbf{答}：是的。在335个分析周次中，84周次（25.1\%）的淘汰结果不同。
+
+\textbf{Q2: 哪种方法更偏向观众投票？}
+
+\textbf{答}：百分比法显著更偏向观众投票。在不一致案例中，百分比法偏向观众的比例为81.0\%，排名法仅19.0\%（$p < 0.001$）。原因是百分比法的线性加权更充分地体现了观众投票的数值优势，而排名法的离散化削弱了这种效应。
+\vspace{0.3em}
+\end{minipage}%
+}
+
+\subsection{子问题2.2：争议性选手案例分析}
+
+\subsubsection{问题陈述}
+
+\textit{对于存在评委-观众意见分歧的争议性选手（Jerry Rice、Billy Ray Cyrus、Bristol Palin、Bobby Bones），投票方法的选择是否会改变结果？评委裁决机制（从底部两人中选择）的影响如何？}
+
+\subsubsection{四位争议选手的数据总结}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lcccccc}
+\hline
+\textbf{选手} & \textbf{赛季} & \textbf{实际名次} & \textbf{比赛周数} & \textbf{最低分周数} & \textbf{排名法底2次数} & \textbf{百分比法底2次数} \\
+\hline
+Jerry Rice & 2 & 2 & 8 & 2 & 3 & 2 \\
+Billy Ray Cyrus & 4 & 5 & 8 & 3 & 4 & 4 \\
+Bristol Palin & 11 & 3 & 10 & 5 & 8 & 7 \\
+Bobby Bones & 27 & 1 & 9 & 2 & 3 & 2 \\
+\hline
+\end{tabular}
+\caption{争议性选手的比赛数据统计}
+\label{tab:controversy_summary}
+\end{table}
+
+\subsubsection{案例1：Bristol Palin - 方法影响最显著}
+
+Bristol Palin（第11季，最终第3名）在10周比赛中5次获评委最低分，却最终获得季军，引发争议。
+
+\textbf{排名法模拟}：她在10周中有8周位于底部两名，多次面临淘汰风险。评委得分排名持续垫底（平均第9-10名），即使观众投票排名中等（第5-6名），综合排名$C^{\text{rank}}$仍经常最差。
+
+\textbf{百分比法模拟}：10周中7周位于底部两名，但频率略低。她的观众投票份额虽非最高，但\textit{显著高于}评委得分比例。百分比法的线性加权使这种优势累积，延长生存期。
+
+\textbf{结论}：Bristol Palin是唯一在两种方法下表现\textbf{明显不同}的案例。实际她获第3名，证实了百分比法（当时采用的方法）确实让她受益。这印证了我们关于百分比法更偏向观众的结论。
+
+\subsubsection{案例2、3、4：Jerry Rice、Billy Ray Cyrus、Bobby Bones}
+
+这三位选手的共同特征：
+\begin{itemize}
+    \item \textbf{观众投票优势极其巨大}，足以在任何合理组合方法下抵消评委劣势
+    \item 两种方法的模拟结果\textbf{基本一致}——都能存活到决赛阶段
+    \item 争议的本质不在于投票方法，而在于\textbf{评委与观众意见的根本分歧}
+\end{itemize}
+
+例如Bobby Bones（第27季冠军），虽然评委得分不高，但观众投票份额估计达到30-35\%（远高于平均的11-12\%）。这种压倒性优势使得无论采用排名法还是百分比法，他都能稳定晋级。
+
+\subsubsection{评委裁决机制的影响分析}
+
+第28季引入的机制：用综合得分确定底部两名$\rightarrow$评委投票决定淘汰谁。
+
+\textbf{模拟假设}：评委在底部两人中总是淘汰评委得分更低者（维护技术标准）。
+
+\textbf{影响估算}：分析全部335周次，若实施评委裁决：
+\begin{itemize}
+    \item 约43.5\%的周次中，原方法淘汰的选手评委得分\textit{高于}另一位底部选手
+    \item 在这些情况下，评委裁决会\textbf{改变结果}
+    \item 估算的结果改变率：$0.435 \times 0.442 = 19.2\%$
+\end{itemize}
+
+\textbf{对争议选手的影响}：
+\begin{itemize}
+    \item \textbf{Bristol Palin}：8次底部两名中，至少5次她是评委分更低的那位，评委裁决会让她更早出局
+    \item \textbf{其他三位}：同样会因频繁位于底部而多次面临评委否决，生存难度显著增加
+\end{itemize}
+
+\subsubsection{子问题2.2的明确回答}
+
+\noindent\fcolorbox{black}{gray!10}{%
+\begin{minipage}{0.95\textwidth}
+\vspace{0.3em}
+\noindent\textbf{子问题2.2回答}
+
+\textbf{Q1: 投票方法选择会改变争议选手的结果吗？}
+
+\textbf{答}：\textit{部分会，部分不会}。
+\begin{itemize}
+    \item \textbf{Bristol Palin}：会受影响。百分比法让她更容易存活（7次底部vs.8次），实际她在百分比法下获第3名。
+    \item \textbf{Jerry Rice、Billy Ray Cyrus、Bobby Bones}：基本不受影响。他们的观众投票优势过于巨大，在两种方法下都能进入决赛。
+\end{itemize}
+
+\textbf{Q2: 评委裁决机制的影响如何？}
+
+\textbf{答}：\textbf{显著且实质性}。
+\begin{itemize}
+    \item 预计改变约19.2\%周次的结果
+    \item 对四位争议选手都会产生\textbf{不利影响}——他们频繁位于底部，评委倾向于淘汰低分者，会让他们更早出局
+    \item 该机制是对"观众主导"的\textbf{制衡}，能有效防止评委意见被完全忽视
+\end{itemize}
+\vspace{0.3em}
+\end{minipage}%
+}
+
+\subsection{子问题2.3：方法推荐与理由}
+
+\subsubsection{问题陈述}
+
+\textit{基于分析，推荐使用哪种方法？是否建议加入评委裁决机制？}
+
+\subsubsection{推荐方案与理由}
+
+我们推荐：\textbf{百分比法 + 评委裁决机制}
+
+\textbf{选择百分比法的理由}：(1) \textbf{信息保留}：保留数值差距，排名法的离散化会丢失关键信息；(2) \textbf{观众友好}：数据显示百分比法更偏向观众（81.0\%），符合娱乐节目定位；(3) \textbf{可预测性}：线性结构便于理解投票与结果的关系。
+
+\textbf{保留评委裁决的理由}：(1) \textbf{质量底线}：防止技术水平过低的选手仅凭人气晋级，维护节目专业性；(2) \textbf{适度制衡}：影响约19\%周次，平衡观众意愿与技术标准；(3) \textbf{透明实施}：评委裁决应公开投票理由，避免争议。
+
+\subsubsection{子问题2.3的明确回答}
+
+\noindent\fcolorbox{black}{gray!10}{%
+\begin{minipage}{0.95\textwidth}
+\vspace{0.3em}
+\noindent\textbf{子问题2.3回答}
+
+\textbf{Q1: 推荐使用哪种投票方法？}
+
+\textbf{答}：\textbf{百分比法}。
+
+\textbf{三大理由}：
+\begin{enumerate}
+    \item \textbf{信息保留}：保留数值差距，更精确反映实际水平
+    \item \textbf{观众友好}：更偏向观众投票（81.0\%），符合娱乐节目定位
+    \item \textbf{可预测性}：线性结构易于理解，增强互动性
+\end{enumerate}
+
+\textbf{Q2: 是否建议加入评委裁决机制？}
+
+\textbf{答}：\textbf{是的，建议保留}。
+
+\textbf{三大理由}：
+\begin{enumerate}
+    \item \textbf{质量底线}：防止零技术全人气的极端情况
+    \item \textbf{适度制衡}：影响约19\%结果，平衡专业性与娱乐性
+    \item \textbf{戏剧性}：增加悬念和可看性
+\end{enumerate}
+
+\textbf{实施建议}：评委裁决应透明化，公开投票理由，避免黑箱质疑。
+\vspace{0.3em}
+\end{minipage}%
+}
 
 
 

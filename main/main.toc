@@ -17,12 +17,30 @@
 \contentsline {subsubsection}{\numberline {4.5.2}集成策略的实现}{9}{subsubsection.4.5.2}%
 \contentsline {subsubsection}{\numberline {4.5.3}不确定性的传播}{9}{subsubsection.4.5.3}%
 \contentsline {subsubsection}{\numberline {4.5.4}双视角可解释性}{9}{subsubsection.4.5.4}%
-\contentsline {section}{\numberline {5}Sensitivity Analysis}{10}{section.5}%
-\contentsline {section}{\numberline {6}Model Evaluation and Promotion}{10}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Model Evaluation}{10}{subsection.6.1}%
-\contentsline {subsubsection}{\numberline {6.1.1}Advantages}{10}{subsubsection.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.2}Limitations}{10}{subsubsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.2}Future Work}{10}{subsection.6.2}%
-\contentsline {subsubsection}{\numberline {6.2.1}Model extension}{10}{subsubsection.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.2}Model application}{10}{subsubsection.6.2.2}%
-\contentsline {section}{\numberline {7}Conclusions}{10}{section.7}%
+\contentsline {section}{\numberline {5}问题2：投票方法对比与推荐}{10}{section.5}%
+\contentsline {subsection}{\numberline {5.1}子问题2.1：两种方法的结果对比与观众投票偏向性}{10}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}问题陈述}{10}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}分析方法}{10}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}结果1：方法一致性分析}{10}{subsubsection.5.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.4}结果2：观众投票偏向性分析}{10}{subsubsection.5.1.4}%
+\contentsline {subsubsection}{\numberline {5.1.5}子问题2.1的明确回答}{11}{subsubsection.5.1.5}%
+\contentsline {subsection}{\numberline {5.2}子问题2.2：争议性选手案例分析}{11}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}问题陈述}{11}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}四位争议选手的数据总结}{11}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}案例1：Bristol Palin - 方法影响最显著}{11}{subsubsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.4}案例2、3、4：Jerry Rice、Billy Ray Cyrus、Bobby Bones}{12}{subsubsection.5.2.4}%
+\contentsline {subsubsection}{\numberline {5.2.5}评委裁决机制的影响分析}{12}{subsubsection.5.2.5}%
+\contentsline {subsubsection}{\numberline {5.2.6}子问题2.2的明确回答}{13}{subsubsection.5.2.6}%
+\contentsline {subsection}{\numberline {5.3}子问题2.3：方法推荐与理由}{13}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}问题陈述}{13}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}推荐方案与理由}{13}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}子问题2.3的明确回答}{14}{subsubsection.5.3.3}%
+\contentsline {section}{\numberline {6}Sensitivity Analysis}{14}{section.6}%
+\contentsline {section}{\numberline {7}Model Evaluation and Promotion}{14}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Model Evaluation}{14}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Advantages}{14}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Limitations}{14}{subsubsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.2}Future Work}{14}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Model extension}{14}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2}Model application}{14}{subsubsection.7.2.2}%
+\contentsline {section}{\numberline {8}Conclusions}{14}{section.8}%
