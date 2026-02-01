@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  1 FEB 2026 13:49
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  1 FEB 2026 14:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -721,7 +721,11 @@ Package fontspec Info:
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
 (fontspec)             <->"STSong/OT:script=hani;language=dflt;"
 
- (./main.aux)
+ (./main.aux
+
+LaTeX Warning: Label `tab:controversy_summary' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 62.
@@ -883,18 +887,14 @@ LaTeX Font Warning: Font shape `TU/STSong(0)/m/it' undefined
 
 [10]
 
+[11]
+
+[12]
+Missing character: There is no ⭐ (U+2B50) in font [lmroman12-regular]:mapping=tex-text;!
+
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-
-[11]
-Overfull \hbox (27.56357pt too wide) in paragraph at lines 271--281
- [][] 
- []
-
-
-
-[12]
 
 [13]) (../sections/5.Sensitivity Analysis.tex
 
@@ -927,15 +927,24 @@ L3 programming layer <2022/08/05>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 43C01AB211176EF7881308F37D0D162F;7518.
+
+LaTeX Warning: There were multiply-defined labels.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: F56891C98C778FF0B35642AAA440742F;6511
+(rerunfilecheck)             After:  DB8E9648E7EAD4940D00BA88D5FE0CC9;7032.
  ) 
 Here is how much of TeX's memory you used:
- 19750 strings out of 473832
- 397340 string characters out of 5729482
- 1094582 words of memory out of 5000000
- 42378 multiletter control sequences out of 15000+600000
- 599289 words of font info for 181 fonts, out of 8000000 for 9000
+ 19803 strings out of 473832
+ 400408 string characters out of 5729482
+ 1093620 words of memory out of 5000000
+ 42429 multiletter control sequences out of 15000+600000
+ 599305 words of font info for 183 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  87i,16n,93p,570b,2004s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
