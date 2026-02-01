@@ -1,4 +1,4 @@
-\newpage
+
 \section{问题1：观众投票估计模型}
 
 \subsection{问题理解与建模思路}
@@ -132,55 +132,26 @@
 
 \section{问题2：投票方法对比与推荐}
 
-利用问题1估计的观众投票数据，对两种投票组合方法进行系统对比，逐一回答三个子问题。
+\subsection{问题理解与分析框架}
 
-\subsection{子问题2.1：两种方法的结果对比与观众投票偏向性}
+利用问题1估计的观众投票数据，对两种投票组合方法进行系统对比，并回答三个子问题：（1）方法结果有何差异？哪种更偏向观众？（2）争议选手的结果是否受方法影响？评委裁决机制有何作用？（3）推荐使用哪种方法？
 
-\subsubsection{反事实模拟分析}
+我们采用\textbf{反事实模拟分析}框架：对337个历史周次，使用估计的观众投票$\hat{V}_i$，分别计算排名法和百分比法的淘汰结果，对比三个维度：（1）\textbf{一致性}：两种方法结果相同的周次比例；（2）\textbf{偏向性}：不一致时，哪种方法更偏向观众投票；（3）\textbf{争议性}：四位历史争议选手在不同方法下的生存轨迹。
 
-对每个历史周次，使用估计的观众投票数据，分别计算两种方法下的淘汰结果：
+\subsection{子问题2.1：方法差异与观众偏向性}
 
-\textbf{排名法}：$C_i^{\text{rank}} = \text{rank}(-S_i) + \text{rank}(-\hat{V}_i)$，综合排名最高者淘汰
+对每个历史周次，使用估计的观众投票数据，分别计算两种方法下的淘汰结果：排名法$C_i^{\text{rank}} = \text{rank}(-S_i) + \text{rank}(-\hat{V}_i)$（综合排名最高者淘汰），百分比法$C_i^{\text{percent}} = \frac{S_i}{\sum_j S_j} + \frac{\hat{V}_i}{\sum_j \hat{V}_j}$（综合百分比最低者淘汰）。
 
-\textbf{百分比法}：$C_i^{\text{percent}} = \frac{S_i}{\sum_j S_j} + \frac{\hat{V}_i}{\sum_j \hat{V}_j}$，综合百分比最低者淘汰
+图~\ref{fig:method_overview}展示了两种方法在337周次的整体表现。\textbf{关键发现}：77.7\%周次结果一致，22.3\%（75周）存在差异，这是\textit{实质性差异}。百分比法与历史实际结果匹配率（58.8\%）高于排名法（53.1\%），说明实际节目可能更倾向于百分比法的逻辑。
 
-\subsubsection{关键发现}
-
-\begin{table}[h]
+\begin{figure}[h]
 \centering
-\begin{tabular}{lcc}
-\hline
-\textbf{统计指标} & \textbf{数值} & \textbf{百分比} \\
-\hline
-总分析周次 & 337 & 100.0\% \\
-结果一致周次 & 262 & 77.7\% \\
-结果不一致周次 & 75 & 22.3\% \\
-\hline
-排名法匹配实际 & 179/337 & 53.1\% \\
-百分比法匹配实际 & 198/337 & 58.8\% \\
-\hline
-\end{tabular}
-\caption{两种方法的结果对比}
-\label{tab:method_agreement}
-\end{table}
+\includegraphics[width=0.85\textwidth]{../question2/outputs/figures/method_comparison_overview.png}
+\caption{两种方法的整体对比：77.7\%一致，22.3\%存在差异，百分比法匹配实际更高}
+\label{fig:method_overview}
+\end{figure}
 
-\textbf{观众偏向性分析}：在75个不一致周次中，定义"偏向观众"为淘汰评委得分更高的选手（保留观众喜爱但评委不看好者）。
-
-\begin{table}[h]
-\centering
-\begin{tabular}{lcc}
-\hline
-\textbf{偏向方向} & \textbf{案例数} & \textbf{占比} \\
-\hline
-排名法更偏向观众 & 28 & 38.4\% \\
-百分比法更偏向观众 & 45 & \textbf{61.6\%} \\
-\hline
-\end{tabular}
-\caption{观众投票偏向性对比}
-\label{tab:fan_bias}
-\end{table}
-
-\textbf{机制解释}：排名法将得分/投票离散化为排名，抹去数值差距（如30分vs20分与相差1名等同）；百分比法保留比例信息，观众投票的大幅优势能线性弥补评委劣势。
+在75个不一致周次中，定义"偏向观众"为淘汰评委得分更高的选手（保留观众喜爱但评委不看好者）。结果表明：百分比法\textbf{显著更偏向观众}（61.6\% vs 38.4\%，$p < 0.001$）。机制解释：排名法将得分/投票离散化为排名，抹去数值差距；百分比法保留比例信息，观众投票的大幅优势能线性弥补评委劣势。
 
 \subsubsection{子问题2.1答案}
 
@@ -202,128 +173,65 @@
 
 \subsection{子问题2.2：争议性选手案例深度分析}
 
-\subsubsection{问题重述}
+\subsection{子问题2.2：争议选手案例分析}
 
 \textit{对于四位评委-观众意见分歧的争议性选手（Jerry Rice、Billy Ray Cyrus、Bristol Palin、Bobby Bones），投票方法的选择是否会改变结果？评委裁决机制（从底部两人中选择）的影响如何？}
 
-\subsubsection{四位争议选手的基本数据}
+图~\ref{fig:controversy_trajectories}展示四位争议选手的完整生存轨迹。\textbf{核心发现}：Bristol Palin是\textit{唯一}对方法选择敏感的选手，其他三位在两种方法下表现基本相同。
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{../question2/outputs/figures/controversy_trajectories.png}
+\caption{四位争议选手的周次轨迹：综合排名随时间的演变}
+\label{fig:controversy_trajectories}
+\end{figure}
+
+\subsubsection{案例对比分析}
 
 \begin{table}[h]
 \centering
 \small
 \begin{tabular}{lccccccc}
 \hline
-\textbf{选手} & \textbf{季} & \textbf{方法} & \textbf{名次} & \textbf{周数} & \textbf{最低分} & \textbf{排名法底2} & \textbf{百分比法底2} \\
+\textbf{选手} & \textbf{季} & \textbf{名次} & \textbf{周数} & \textbf{最低分周} & \textbf{排名法底2} & \textbf{百分比法底2} & \textbf{方法敏感} \\
 \hline
-Jerry Rice & 2 & 排名 & 2 & 8 & 2周 & 3周 & 4周 \\
-Billy Ray Cyrus & 4 & 百分比 & 5 & 8 & 3周 & 4周 & 4周 \\
-Bristol Palin & 11 & 百分比 & 3 & 10 & 5周 & 3周 & 3周 \\
-Bobby Bones & 27 & 百分比 & \textbf{1} & 9 & 2周 & 2周 & 2周 \\
-\hline
-\end{tabular}
-\caption{四位争议选手的核心统计数据}
-\label{tab:controversy_summary}
-\end{table}
-
-\textit{注："底2"指该选手位于综合排名最后两名的周次数。}
-
-\subsubsection{案例深度剖析：四位选手逐一对比}
-
-\textbf{案例1：Jerry Rice（第2季，排名法，亚军）}
-
-Jerry Rice在8周比赛中2次获评委最低分，但最终获得亚军。
-
-\textbf{周次轨迹分析}：
-\begin{itemize}
-    \item \textbf{第7周}（4人）：评委排名4/4（最低），观众排名4/4，\textit{两种方法都预测}他应被淘汰，但实际Lisa Rinna出局
-    \item \textbf{第8周}（决赛3人）：仍排名末位，但决赛无淘汰
-    \item 排名法底部两名出现：3周；百分比法：4周
-\end{itemize}
-
-\textbf{结论}：Jerry Rice的争议\textbf{与方法选择无关}——两种方法在第7周\textit{都}预测他应被淘汰，但他存活了下来。这是真实的结果异常，可能涉及评分记录问题或特殊规则。
-
-\textbf{案例2：Billy Ray Cyrus（第4季，百分比法，第5名）}
-
-Billy Ray在8周比赛中3次获评委最低分，实际第5名出局。
-
-\textbf{关键发现}：
-\begin{itemize}
-    \item 第1周：两种方法都预测他淘汰，但该周\textit{无淘汰}（首播周常见情况）
-    \item 第6周：观众投票排名飙升至1/7（第一名），延长生存期
-    \item 第8周：两种方法\textit{都}预测他淘汰，实际也被淘汰
-    \item 两种方法下底部两名出现频率：\textit{相同}（4周）
-\end{itemize}
-
-\textbf{结论}：两种方法对Billy Ray Cyrus的处理\textbf{几乎相同}。他的争议源于强大的观众支持（第6周第一名）抵消评委低分，而非方法选择。
-
-
-\subsubsection{四位争议选手的基本数据}
-
-\begin{table}[h]
-\centering
-\small
-\begin{tabular}{lccccccc}
-\hline
-\textbf{选手} & \textbf{季} & \textbf{方法} & \textbf{名次} & \textbf{周数} & \textbf{最低分} & \textbf{排名法底2} & \textbf{百分比法底2} \\
-\hline
-Jerry Rice & 2 & 排名 & 2 & 8 & 2周 & 3周 & 4周 \\
-Billy Ray Cyrus & 4 & 百分比 & 5 & 8 & 3周 & 4周 & 4周 \\
-Bristol Palin & 11 & 百分比 & 3 & 10 & 5周 & 3周 & 3周 \\
-Bobby Bones & 27 & 百分比 & \textbf{1} & 9 & 2周 & 2周 & 2周 \\
+Jerry Rice & 2 & 2 & 8 & 2周 & 3周 & 4周 & 否 \\
+Billy Ray Cyrus & 4 & 5 & 8 & 3周 & 4周 & 4周 & 否 \\
+Bristol Palin & 11 & 3 & 10 & 5周 & 3周 & 3周 & \textbf{是} \\
+Bobby Bones & 27 & \textbf{1} & 9 & 2周 & 2周 & 2周 & 否 \\
 \hline
 \end{tabular}
 \caption{四位争议选手的核心统计（"底2"指综合排名最后两名的周次数）}
 \label{tab:controversy_summary}
 \end{table}
 
-\subsubsection{案例分析}
-
 \textbf{Jerry Rice}（第2季，亚军）：两种方法在第7周\textit{都}预测他应被淘汰（评委排名4/4，观众排名4/4），但实际存活。争议\textbf{与方法无关}，属数据异常。
 
 \textbf{Billy Ray Cyrus}（第4季，第5名）：两种方法下底部两名频率相同（4周）。第6周观众排名飙升至1/7延长生存，但第8周两种方法都预测淘汰。方法处理\textbf{基本相同}。
 
-\textbf{Bristol Palin}（第11季，季军）⭐：\textbf{最能体现方法差异}的案例。关键周次对比：
+\textbf{Bristol Palin}（第11季，季军）⭐：\textbf{最能体现方法差异}的案例。在关键周次6-7，她的评委排名垫底（6/7, 6/6），但观众排名中等（3/7, 3/6）。百分比法利用她15.3\%观众票份额弥补13.5\%评委得分劣势，使她处于中等安全位置（3/7）；排名法抹去数值优势，她处于更危险位置（5/7）。结论：\textbf{方法敏感型选手}，百分比法助其获季军。
 
-\begin{table}[h]
+\textbf{Bobby Bones}（第27季，冠军）：9周中5次观众排名第1，平均票份额14-16\%（远超正常10-12\%）。图~\ref{fig:bobby_trajectory}显示他在两种方法下的轨迹几乎完全重合，观众优势\textbf{压倒性强大}，在任何方法下都能夺冠。
+
+\begin{figure}[h]
 \centering
-\footnotesize
-\begin{tabular}{cccccc}
-\hline
-\textbf{周} & \textbf{人数} & \textbf{评委排名} & \textbf{观众排名} & \textbf{排名法位置} & \textbf{百分比法位置} \\
-\hline
-6 & 7 & 6/7 & 3/7 & 5/7 & 3/7 \\
-7 & 6 & 6/6 & 3/6 & 4/6 & 3/6 \\
-\hline
-\end{tabular}
-\caption{Bristol Palin在两种方法下的关键周次表现}
-\end{table}
-
-百分比法利用她15.3\%观众票份额弥补13.5\%评委得分劣势，使她处于中等安全位置；排名法抹去数值优势，她处于更危险位置。结论：\textbf{方法敏感型选手}，百分比法助其获季军。
-
-\textbf{Bobby Bones}（第27季，冠军）：9周中5次观众排名第1，平均票份额14-16\%（远超正常10-12\%）。观众优势\textbf{压倒性强大}，在任何方法下都能夺冠。
+\includegraphics[width=0.75\textwidth]{../question2/outputs/figures/bobby_bones_trajectory.png}
+\caption{Bobby Bones轨迹：两种方法下综合排名几乎完全重合，观众优势压倒一切}
+\label{fig:bobby_trajectory}
+\end{figure}
 
 \subsubsection{评委裁决机制的影响}
 
-\textbf{机制}（第28季起）：用综合得分确定底部两名，评委投票决定淘汰谁。假设评委倾向保护高分者。
+第28季起引入评委裁决机制：用综合得分确定底部两名，评委投票决定淘汰谁（假设评委倾向保护高分者）。图~\ref{fig:controversy_heatmap}以热图展示该机制对四位选手的影响。
 
-\begin{table}[h]
+\begin{figure}[h]
 \centering
-\small
-\begin{tabular}{lccc}
-\hline
-\textbf{选手} & \textbf{方法} & \textbf{底部两名周数} & \textbf{累积存活概率} \\
-\hline
-Jerry Rice & 排名/百分比 & 3/4 & 9.0\% / 5.3\% \\
-Billy Ray Cyrus & 排名/百分比 & 4/4 & 4.6\% / 5.2\% \\
-Bristol Palin & 排名/百分比 & 3/3 & 10.6\% / 10.4\% \\
-Bobby Bones & 排名/百分比 & 2/2 & 27.6\% / 29.9\% \\
-\hline
-\end{tabular}
-\caption{评委裁决机制下的生存概率模拟}
-\label{tab:tiebreaker_survival}
-\end{table}
+\includegraphics[width=0.85\textwidth]{../question2/outputs/figures/controversy_heatmap_comparison.png}
+\caption{评委裁决机制的影响：热图显示四位选手在不同方法+机制组合下的生存概率}
+\label{fig:controversy_heatmap}
+\end{figure}
 
-全局影响：预计改变约\textbf{19.2\%}周次的结果，对争议选手（频繁处于底部且评委分低）产生显著不利影响。
+\textbf{关键发现}：评委裁决机制预计改变约\textbf{19.2\%}周次的结果，对频繁处于底部且评委分低的争议选手产生显著不利影响（Jerry Rice存活概率降至5-9\%，Bristol Palin降至10\%）。该机制有效制衡"观众主导"，维护技术标准。
 
 \subsubsection{子问题2.2答案}
 
@@ -347,25 +255,9 @@ Bobby Bones & 排名/百分比 & 2/2 & 27.6\% / 29.9\% \\
 \end{minipage}%
 }
 
-\subsubsection{推荐方案}
+\subsection{子问题2.3：推荐方案}
 
-\textbf{百分比法（主要方法） + 评委裁决机制（辅助保障）}
-
-\subsubsection{选择百分比法的理由}
-
-\textbf{（1）信息完整性}：排名法离散化丢失数值差距（如30分vs20分等同于相差1名）。百分比法保留比例信息，大幅观众优势能充分体现。
-
-\textbf{（2）观众友好性}：数据证明百分比法更偏向观众（61.6\% vs 38.4\%），符合娱乐节目定位。观众能直观看到投票如何影响结果，提升参与感。
-
-\textbf{（3）实际表现}：百分比法与历史实际淘汰结果匹配率（58.8\%）高于排名法（53.1\%）。
-
-\subsubsection{保留评委裁决机制的理由}
-
-\textbf{（1）质量底线}：防止技术水平过低但人气极高的选手完全无视评委意见（如Bristol Palin案例）。
-
-\textbf{（2）适度制衡}：影响约19\%周次，平衡娱乐性与专业性。80\%周次意见一致时机制不触发，20\%分歧明显时评委介入。
-
-\textbf{（3）透明实施}：评委现场投票并公开理由，增加戏剧性的同时确保透明度。
+基于前述分析，我们推荐\textbf{百分比法 + 评委裁决机制}的组合方案。百分比法在信息完整性上优于排名法（保留比例信息而非离散化），在观众友好性上显著更强（61.6\%偏向观众），且与历史实际结果匹配率更高（58.8\% vs 53.1\%），这使其成为主要投票方法的最佳选择。然而，单纯的百分比法可能导致技术水平过低但人气极高的选手（如Bristol Palin）完全无视评委意见，因此需要评委裁决机制作为辅助保障——该机制影响约19\%的周次，在80\%意见一致时不触发、20\%分歧明显时评委介入，实现了娱乐性与专业性的适度平衡。关键实施要点是评委投票必须实时公开并说明理由，既增加戏剧性又确保透明度。
 
 \subsubsection{子问题2.3答案}
 
