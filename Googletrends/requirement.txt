@@ -1,0 +1,4 @@
+playwright
+pytrends
+pandas
+requests
