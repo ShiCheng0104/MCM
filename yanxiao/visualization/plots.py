@@ -201,16 +201,16 @@ class VotePlotter:
         ax.fill(angles, vote_shares_closed, alpha=0.25, color=COLORS['primary']) # 增加透明度让颜色更丰富
         
         ax.set_xticks(angles[:-1])
-        ax.set_xticklabels(names, size=9)
+        ax.set_xticklabels(names, size=14, fontweight='bold')
         
         # 设置Y轴标签格式
         ax.yaxis.set_major_formatter(mticker.PercentFormatter(1.0))
         
         ax.set_title(f'Season {season} Week {week} - Comparison of Indicators', 
-                     size=14, pad=20)
+                     size=16, pad=20)
         
         # 添加图例
-        ax.legend(loc='upper right', bbox_to_anchor=(1.1, 1.1))
+        ax.legend(loc='upper right', bbox_to_anchor=(1.3, 1.15), fontsize=14)
         
         plt.tight_layout()
         
