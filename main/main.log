@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  31 JAN 2026 18:47
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  1 FEB 2026 13:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -843,7 +843,7 @@ File: utxsyc.fd 2000/12/15 v3.1
 )
 
 LaTeX Font Warning: Font shape `TU/STSong(0)/b/n' undefined
-(Font)              using `TU/STSong(0)/m/n' instead on input line 7.
+(Font)              using `TU/STSong(0)/m/n' instead on input line 13.
 
 
 
@@ -855,18 +855,25 @@ LaTeX Font Warning: Font shape `TU/STSong(0)/b/n' undefined
 
 [2] (../sections/1.Introduction.tex)
 
-[3] (../sections/2.Assumptions.tex) (../sections/3.Notations.tex
+[3] (../sections/2.Preparation for Modeling.tex
 
-[4]) (../sections/4.Models.tex
+Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
+(xeCJK)                
+(xeCJK)                Try to use `\setCJKmonofont[<...>]{<...>}' to define
+(xeCJK)                it.
 
-[5]
+
+
+[4]
+
+[5]) (../sections/4.Models.tex
+
+[6]
 
 LaTeX Font Warning: Font shape `TU/STSong(0)/m/it' undefined
 (Font)              using `TU/STSong(0)/m/n' instead on input line 12.
 
 
-
-[6]
 
 [7]
 
@@ -874,24 +881,26 @@ LaTeX Font Warning: Font shape `TU/STSong(0)/m/it' undefined
 
 [9]
 
+[10]
+
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[10]
+[11]
 Overfull \hbox (27.56357pt too wide) in paragraph at lines 271--281
  [][] 
  []
 
 
 
-[11]
+[12]
 
-[12]) (../sections/5.Sensitivity Analysis.tex
+[13]) (../sections/5.Sensitivity Analysis.tex
 
-[13]) (../sections/6.Model Evaluation and Promotion.tex) (../sections/7.Conclusions.tex) (../sections/8.References.tex) (../sections/9.Appendices.tex) (../sections/10.AI.tex
+[14]) (../sections/6.Model Evaluation and Promotion.tex) (../sections/7.Conclusions.tex) (../sections/8.References.tex) (../sections/9.Appendices.tex) (../sections/10.AI.tex
 
-[14]
+[15]
 LaTeX Font Info:    Trying to load font information for TU+pcr on input line 8.
 LaTeX Font Info:    No file TUpcr.fd. on input line 8.
 
@@ -905,11 +914,11 @@ LaTeX Font Warning: Font shape `TU/pcr/b/n' undefined
 
 
 
-[15
+[16
 
 ])
 
-[16] (./main.aux)
+[17] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
@@ -919,15 +928,15 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: BE9AC4C7114E828E86C67D52216AB664;6569.
+(rerunfilecheck)             Checksum: 43C01AB211176EF7881308F37D0D162F;7518.
  ) 
 Here is how much of TeX's memory you used:
- 19755 strings out of 473832
- 397354 string characters out of 5729482
- 1093584 words of memory out of 5000000
+ 19750 strings out of 473832
+ 397340 string characters out of 5729482
+ 1094582 words of memory out of 5000000
  42378 multiletter control sequences out of 15000+600000
- 599281 words of font info for 180 fonts, out of 8000000 for 9000
+ 599289 words of font info for 181 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  87i,16n,93p,570b,2004s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (17 pages).
+Output written on main.pdf (18 pages).
