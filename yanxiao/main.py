@@ -182,11 +182,8 @@ def main():
     plotter = VotePlotter(output_dir=os.path.join(OUTPUT_DIR, 'figures'))
     
     # 选择一些示例周次
+    # 只保留 Season 20 Week 5 用于生成雷达图
     sample_weeks = [
-        (2, 8),   # Jerry Rice争议赛季
-        (11, 10), # Bristol Palin争议赛季
-        (27, 9),  # Bobby Bones争议赛季
-        (1, 4),   # 早期赛季示例
         (20, 5),  # 中期赛季示例
     ]
     
