@@ -559,12 +559,30 @@ class PreciseVoteModel:
                 scores_arr = np.array([c['score'] for c in contestants])
                 prior_boosts = np.array([c['prior_boost'] for c in contestants])
                 popularities = np.array([c['popularity'] for c in contestants])
+                is_eliminated = np.array([c['is_eliminated'] for c in contestants])
                 
                 # 备用估计：评分比例 × (1 + 先验) × (1 + 热度)
                 score_based = scores_arr / np.sum(scores_arr)
                 popularity_factor = 1 + popularities * self.popularity_influence
                 vote_shares = score_based * (1 + prior_boosts * 0.3) * popularity_factor
                 vote_shares = vote_shares / np.sum(vote_shares)
+                
+                # 排名法兜底：确保备用估计也满足淘汰约束
+                if method == 'rank':
+                    elim_indices = np.where(is_eliminated)[0]
+                    surv_indices = np.where(~is_eliminated)[0]
+                    if len(elim_indices) > 0:
+                        # 验证是否满足约束
+                        if not self._verify_elimination(scores_arr, vote_shares, is_eliminated, method):
+                            # 使用兜底方法强制构造
+                            vote_shares = self._force_construct_rank_votes(
+                                scores_arr, vote_shares, is_eliminated, elim_indices, surv_indices
+                            )
+                            # 再次验证
+                            if self._verify_elimination(scores_arr, vote_shares, is_eliminated, method):
+                                success = True
+                                success_count += 1
+                                failed_weeks.pop()  # 移除刚添加的失败记录
             
             # 所有周次都存储到week_results（包括失败的）
             self.week_results[(season, week)] = {
@@ -723,7 +741,110 @@ class PreciseVoteModel:
         # 验证约束是否满足
         success = self._verify_elimination(scores, vote_shares, is_eliminated, method)
         
+        # 排名法兜底：如果优化后仍不满足约束，直接构造投票使被淘汰者综合排名最大
+        if not success and method == 'rank':
+            vote_shares = self._force_construct_rank_votes(
+                scores, vote_shares, is_eliminated, elim_indices, surv_indices
+            )
+            success = self._verify_elimination(scores, vote_shares, is_eliminated, method)
+        
         return vote_shares, success
+    
+    def _force_construct_rank_votes(self, scores: np.ndarray, vote_shares: np.ndarray,
+                                     is_eliminated: np.ndarray,
+                                     elim_indices: np.ndarray, surv_indices: np.ndarray) -> np.ndarray:
+        """
+        排名法兜底方法：直接构造观众投票数，确保被淘汰者综合排名最大
+        
+        核心思想：
+        - 综合排名 = 评委排名 + 观众排名
+        - 要使被淘汰者综合排名最大，需要让其观众排名也尽可能大（差）
+        - 关键：被淘汰者必须获得最后n_elim个观众排名位置
+        
+        保证方法：
+        - 存活者的投票份额全部 > 被淘汰者的投票份额
+        - 这样被淘汰者的观众排名一定是 n_surv+1, n_surv+2, ..., n
+        """
+        n = len(scores)
+        score_ranks = rankdata(-scores, method='ordinal')  # 最高分=1
+        
+        n_elim = len(elim_indices)
+        n_surv = len(surv_indices)
+        
+        if n_surv == 0:
+            # 特殊情况：所有人都被淘汰
+            return vote_shares
+        
+        # 创建新的投票份额数组
+        new_shares = np.zeros(n)
+        
+        # ============ 核心策略 ============
+        # 1. 存活者份额范围: [0.1, 1.0] 按评分比例分配
+        # 2. 被淘汰者份额范围: [0.001, 0.01] 确保全部低于存活者
+        
+        # 存活者份额
+        surv_scores = scores[surv_indices]
+        surv_scores_normalized = surv_scores / np.sum(surv_scores)
+        # 映射到 [0.1, 0.9] 范围
+        surv_min, surv_max = 0.1, 0.9
+        surv_shares = surv_min + surv_scores_normalized * (surv_max - surv_min) * n_surv
+        new_shares[surv_indices] = surv_shares
+        
+        # 被淘汰者份额：必须全部低于存活者最低份额
+        min_surv_share = np.min(new_shares[surv_indices])
+        
+        # 被淘汰者按评委排名排序（评委分高的需要更低的投票来补偿）
+        # 评委排名小 = 评委分高 = 需要更低的投票份额
+        elim_with_ranks = [(idx, score_ranks[idx]) for idx in elim_indices]
+        elim_sorted = sorted(elim_with_ranks, key=lambda x: x[1])  # 按评委排名排序
+        
+        # 分配被淘汰者份额：评委排名越好（小），投票份额越低
+        elim_max = min_surv_share * 0.1  # 被淘汰者最高份额 = 存活者最低的10%
+        elim_min = elim_max * 0.001  # 被淘汰者最低份额
+        
+        for i, (elim_idx, _) in enumerate(elim_sorted):
+            # 按顺序递增分配（排名最好的获得最少）
+            if n_elim > 1:
+                ratio = i / (n_elim - 1)
+            else:
+                ratio = 0.5
+            new_shares[elim_idx] = elim_min + ratio * (elim_max - elim_min)
+        
+        # 归一化
+        new_shares = new_shares / np.sum(new_shares)
+        
+        # ============ 验证并强制修正 ============
+        vote_ranks = rankdata(-new_shares, method='ordinal')
+        combined_ranks = score_ranks + vote_ranks
+        
+        elim_min_combined = np.min(combined_ranks[elim_indices])
+        surv_max_combined = np.max(combined_ranks[surv_indices])
+        
+        if elim_min_combined <= surv_max_combined:
+            # 仍不满足，使用终极兜底：直接指定观众排名
+            # 被淘汰者获得最后n_elim个排名位置
+            
+            # 为了让被淘汰者获得最后n_elim个观众排名，
+            # 需要确保：所有被淘汰者份额 < 所有存活者份额
+            
+            # 重新分配：存活者份额递增，被淘汰者份额极小且递减
+            new_shares = np.zeros(n)
+            
+            # 存活者：按评分排序分配递增份额
+            surv_with_scores = [(idx, scores[idx]) for idx in surv_indices]
+            surv_sorted = sorted(surv_with_scores, key=lambda x: x[1])
+            
+            for i, (surv_idx, _) in enumerate(surv_sorted):
+                new_shares[surv_idx] = 1.0 + i * 0.1  # 1.0, 1.1, 1.2, ...
+            
+            # 被淘汰者：按评委排名排序，评委分越高份额越低
+            for i, (elim_idx, _) in enumerate(elim_sorted):
+                new_shares[elim_idx] = 0.001 * (0.1 ** i)  # 极小值递减
+            
+            # 归一化
+            new_shares = new_shares / np.sum(new_shares)
+        
+        return new_shares
     
     def _compute_combined_rank(self, scores: np.ndarray, vote_shares: np.ndarray, n: int) -> np.ndarray:
         """
@@ -871,13 +992,14 @@ class PreciseVoteModel:
         return self.results_df
     
     def get_estimates_dict(self) -> Dict:
-        """返回字典格式的估计结果"""
+        """返回字典格式的估计结果（使用vote_share以保持精度）"""
         estimates = {}
         
         for (season, week), group in self.results_df.groupby(['season', 'week']):
             names = group['celebrity'].tolist()
             scores = group['total_score'].tolist()
-            votes = group['estimated_votes'].tolist()
+            # 使用vote_share而不是estimated_votes，避免四舍五入导致的排名变化
+            votes = group['vote_share'].tolist()
             
             estimates[(season, week)] = {
                 'names': names,
