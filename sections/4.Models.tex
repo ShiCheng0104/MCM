@@ -1,224 +1,157 @@
-\newpage
+
 \section{问题1：观众投票估计模型}
 
-\subsection{问题剖析与建模策略}
+\subsection{问题理解与建模思路}
 
-问题1本质上是一个\textbf{欠定逆问题}（underdetermined inverse problem）：在观众投票这一隐变量缺失的情况下，从淘汰结果和评委得分的联合观测中进行统计推断。这类问题在计量经济学和信号处理领域广泛存在，其核心挑战在于解的非唯一性与模型的可识别性（identifiability）。
+\subsubsection{问题本质}
 
-\textbf{问题的数学结构}。设第$w$周有$n$名选手，评委得分$\mathbf{S} = (S_1, \ldots, S_n)$可观测，观众投票$\mathbf{V} = (V_1, \ldots, V_n)$不可观测，淘汰结果$E$已知。问题可形式化为：给定映射$f: (\mathbf{S}, \mathbf{V}) \rightarrow E$和观测$({\mathbf{S}, E})$，反推$\mathbf{V}$。由于$|\mathbf{V}| = n$个未知数仅对应1个淘汰约束，系统严重欠定（$n \gg 1$）。
+题目要求开发数学模型估计观众投票（未知且保密），并回答：（1）模型能否正确估计导致实际淘汰结果的投票？（2）投票估计的确定性如何？
 
-\textbf{可识别性困境}。多个投票分布可产生相同淘汰结果，导致解不唯一。传统方法有二：（1）施加正则化约束（如最大熵、稀疏性），但缺乏投票行为的先验支持；（2）引入辅助假设（如投票与得分的参数关系），但可能过度简化现实。我们的策略是将两者结合——用行为模型提供软约束，用淘汰结果施加硬约束，在约束空间中搜索最符合经验规律的解。
-
-\textbf{方法演变的影响}。第28季前后投票组合规则的变化（排名法$\leftrightarrow$百分比法）改变了$f$的函数形式，使得相同的$(\mathbf{S}, \mathbf{V})$可能导致不同的$E$。这要求模型具备\textit{规则自适应性}，能够在统一框架下处理两种机制。
-
-基于上述分析，我们设计\textbf{双层贝叶斯框架}：基线层建立$P(\mathbf{V}|\mathbf{S})$的先验分布，反推层通过$P(\mathbf{V}|\mathbf{S}, E)$进行后验推断。这种分层设计既保证了理论严谨性（后验一致性），又具备实践可行性（先验可解释性）。
-
-\subsection{投票组合方法}
-
-不同赛季使用的两种投票组合方法为（相关符号定义见表~\ref{table:notations}）：
-
-\textbf{排名法}（赛季1-2、28-34）：
-\begin{equation}
-C_i^{\text{rank}} = R_i^{\text{judge}} + R_i^{\text{fan}}
-\end{equation}
-其中$R_i^{\text{judge}} = \text{rank}(-S_i)$和$R_i^{\text{fan}} = \text{rank}(-V_i)$。综合排名\textit{最高}（即$C_i^{\text{rank}}$最大，表现最差）的选手被淘汰。
-
-\textbf{百分比法}（赛季3-27）：
-\begin{equation}
-C_i^{\text{percent}} = \frac{S_i}{\sum_{j=1}^n S_j} + \frac{V_i}{\sum_{j=1}^n V_j}
-\end{equation}
-综合百分比\textit{最低}的选手被淘汰。
-
-\subsection{基线模型：幂律投票假设}
-
-观众投票与评委得分的关系既非完全独立，亦非严格线性。我们提出\textbf{幂律假设}捕捉这种非线性依赖：
-\begin{equation}
-V_i \propto S_i^\alpha, \quad \hat{V}_i = V_{\text{total}} \cdot \frac{S_i^\alpha}{\sum_{j=1}^n S_j^\alpha}
-\end{equation}
-
-指数$\alpha$的经济学解释：当$\alpha > 1$时，高分选手获得超比例支持（"马太效应"）；$\alpha < 1$时体现"同情弱者"；$\alpha = 1$退化为比例模型。通过网格搜索最大化淘汰预测准确率，校准得$\alpha^* \approx 1.2$，印证观众存在温和的"强者偏好"。
-
-不确定性通过蒙特卡洛采样量化：向幂律预测注入15\%高斯噪声，生成100个样本构建95\%置信区间。这为后续分析提供了统计显著性检验的基础。
-
-\subsection{精确反推模型：约束优化框架}
-
-基线模型提供先验分布$P(\mathbf{V}|\mathbf{S})$，但无法保证后验一致性。我们建立约束优化框架，从淘汰结果反推投票的后验分布$P(\mathbf{V}|\mathbf{S}, E)$。
-
-\subsubsection{投票偏好因子的学习}
-
-在优化前，从全局数据学习系统性偏好。定义"存活提升"$B_i^w$衡量评分排名与生存结果的错位程度：
-\begin{equation}
-B_i^w = \begin{cases}
--(n - R_i^{\text{score}})/n & \text{若被淘汰（评分越高越意外）} \\
-(R_i^{\text{score}} - 1)/n & \text{若存活（评分越低越意外）}
-\end{cases}
-\end{equation}
-其中$R_i^{\text{score}}$为选手$i$的评分排名（1=最高分）。
-
-按专业舞伴$p$和名人行业$d$聚合提升值，得效应参数：
-\begin{align}
-\beta_p &= \frac{1}{|\mathcal{W}_p|} \sum_{w \in \mathcal{W}_p} B_i^w - \mu_{\text{overall}} \\
-\gamma_d &= \frac{1}{|\mathcal{W}_d|} \sum_{w \in \mathcal{W}_d} B_i^w - \mu_{\text{overall}}
-\end{align}
-
-结合标准化年龄，构建先验偏好因子：
-\begin{equation}
-\theta_i = \beta_{p(i)} + \gamma_{d(i)} + \delta_{\text{age}} \cdot \frac{\text{age}_i - \mu_{\text{age}}}{\sigma_{\text{age}}}
-\end{equation}
-
-这些偏好因子识别了哪些舞伴、行业和年龄段的选手系统性地获得更多或更少的观众支持。正效应表示该因素带来额外投票支持，负效应则相反。
-
-\subsubsection{优化问题的数学构建}
-
-对投票份额$\mathbf{v} = (v_1, \ldots, v_n)$（满足$v_i \in [0,1], \sum v_i = 1$），最小化目标函数：
-\begin{equation}
-\mathcal{J}(\mathbf{v}) = \left\| \mathbf{v} - \mathbf{v}^{\text{prior}} \right\|_2^2 + \lambda \cdot \mathcal{L}_{\text{elim}}(\mathbf{v})
-\end{equation}
-其中先验份额为：
-\begin{equation}
-\mathbf{v}^{\text{prior}} = \text{normalize}\left[\frac{\mathbf{S}}{\sum_j S_j} \odot (1 + \boldsymbol{\theta})\right]
-\end{equation}
-
-\textbf{淘汰约束的软化处理}。对于排名法，离散排名函数不可微，我们采用\textbf{sigmoid软排名近似}：
-\begin{equation}
-\text{SoftRank}_i = n - \sum_{j \neq i} \frac{1}{1 + \exp[(x_j - x_i)/T]}
-\end{equation}
-其中$x$可以是分数或投票份额，$T$为温度参数（代码中设为0.1）。该函数近似计算"有多少人比$i$差"，温度越小越接近真实排名。
-
-综合软排名为$C_i^{\text{soft}} = \text{SoftRank}_i(\mathbf{S}) + \text{SoftRank}_i(\mathbf{v})$。淘汰约束惩罚项为：
-\begin{equation}
-\mathcal{L}_{\text{rank}}(\mathbf{v}) = \sum_{\substack{i: E_i=1 \\ j: E_j=0}} \max(0, C_j^{\text{soft}} - C_i^{\text{soft}} + \delta)^2
-\end{equation}
-其中边际$\delta = 0.5$确保被淘汰者的软排名显著高于存活者。
-
-对于百分比法，约束为：
-\begin{equation}
-\mathcal{L}_{\text{percent}}(\mathbf{v}) = \sum_{\substack{i: E_i=1 \\ j: E_j=0}} \max(0, C_i - C_j + \epsilon)^2
-\end{equation}
-其中$C_i = S_i/\sum S_j + v_i$，边际$\epsilon = 0.01$。
-
-\textbf{正则化项的作用}。$\|\mathbf{v} - \mathbf{v}^{\text{prior}}\|_2^2$防止过拟合，在众多满足约束的解中选择最接近先验的那个。权重$\lambda = 1000$通过实验确定，平衡正则化与约束满足。
-
-\subsubsection{SLSQP算法求解}
-
-采用序列最小二乘规划（SLSQP）求解约束优化。该算法适合处理等式约束$\sum v_i = 1$和盒约束$v_i \in [0.001, 0.999]$，基于梯度信息快速收敛。
-
-初始值设为先验$\mathbf{v}^{\text{prior}}$，优化参数为：最大迭代500次，收敛容差$10^{-8}$。成功收敛的判据是目标函数值低于阈值且淘汰约束得到满足。
-
-\textbf{失败案例分析}。对于约束无法满足的周次（优化失败），模型回退到备用估计：
-\begin{equation}
-\mathbf{v}^{\text{fallback}} = \text{normalize}\left[\frac{\mathbf{S}}{\sum S_j} \odot (1 + 0.3 \cdot \boldsymbol{\theta})\right]
-\end{equation}
-这些失败案例往往对应评分与淘汰结果存在强矛盾（如高分选手被淘汰），或数据记录异常（多人同时淘汰/无人淘汰）。
-
-\subsection{模型评估与集成策略}
-
-\subsubsection{一致性度量体系}
-
-评估投票估计需要多个互补指标。代码中实现了以下度量：
-
-\textbf{精确匹配准确率}定义为：
-\begin{equation}
-\text{ACC}_{\text{exact}} = \frac{1}{W} \sum_{w=1}^W \mathbb{1}\left\{ \text{predicted}(w) = \text{actual}(w) \right\}
-\end{equation}
-衡量能否精准预测每周被淘汰者，这是最严格的标准。
-
-\textbf{底部N准确率}放宽判定条件，检验实际淘汰者是否落入预测的"危险区"（综合得分最低的若干名）。这更符合实际应用——关心"谁有风险"而非"谁一定淘汰"。
-
-\textbf{约束满足边际}量化淘汰的"确定性"：
-\begin{equation}
-\text{Margin}_k = \min_{i: E_i = 0} |C_k - C_i|
-\end{equation}
-边际大表示淘汰显著，边际小则属"惊险淘汰"，投票的微小波动即可改变结果。
-
-\subsubsection{集成策略的实现}
-
-代码采用场景感知的模型选择机制：
-
-\textbf{淘汰周次}：优先使用精确反推模型。运行SLSQP优化，若收敛则采用优化结果。
-
-\textbf{非淘汰周次}：使用基线模型结合偏好因子。具体为：
-\begin{equation}
-\mathbf{v}^{\text{non-elim}} = 0.7 \cdot \mathbf{v}^{\text{baseline}} + 0.3 \cdot \mathbf{v}^{\text{prior}}
-\end{equation}
-其中$\mathbf{v}^{\text{baseline}}$为基线模型的幂律估计，$\mathbf{v}^{\text{prior}}$为带偏好因子的先验估计。混合比例70:30平衡了统计规律与个体特征。
-
-\textbf{优化失败周次}：回退到备用估计方法。使用评分比例乘以偏好调整因子（权重0.3），确保即使约束无法满足也能提供合理估计。
-
-\subsubsection{不确定性的传播}
-
-对于基线模型，不确定性通过蒙特卡洛采样量化。生成100个带噪声样本（噪声水平15\%），构建95\%置信区间$[\text{Q}_{2.5\%}, \text{Q}_{97.5\%}]$。
-
-对于精确反推模型，不确定性体现在约束满足边际上。边际越小，说明多个投票分布都可能产生相同淘汰结果，估计的唯一性越差。
-
-代码中还实现了标准化残差分析：
-\begin{equation}
-r_i = \frac{v_i^* - v_i^{\text{prior}}}{\sigma_i^{\text{prior}}}
-\end{equation}
-其中$v_i^*$为优化得到的估计，$\sigma_i^{\text{prior}}$为先验标准差（通过蒙特卡洛估计）。$|r_i| > 2$被标记为异常，提示该选手的实际投票显著偏离预期。
-
-\subsubsection{双视角可解释性}
-
-集成策略提供理解投票的两个维度：
-
+这是一个\textbf{约束逆问题}：已知评委得分$\mathbf{S}$和淘汰结果$E$，未知观众投票$\mathbf{V}$。核心挑战有三：
 \begin{itemize}
-    \item \textit{基线视角}：揭示"常规投票模式"——若观众按评分、舞伴、行业等因素理性投票，结果应该如何。
-    \item \textit{精确视角}：揭示"实际投票需求"——为了产生观察到的淘汰，投票实际上必须是怎样的。
+    \item \textbf{欠定性}：$n$个未知数仅对应1个淘汰约束，解空间无穷大
+    \item \textbf{规则异构}：排名法（赛季1-2, 28-34）与百分比法（赛季3-27）的数学形式不同
+    \item \textbf{不确定性传播}：需量化估计的可信度，区分不同竞争情境
 \end{itemize}
 
-两者的偏离$\Delta_i = v_i^* - v_i^{\text{baseline}}$量化"异常程度"。$\Delta$大的周次往往对应争议事件（如人气选手意外被淘汰，或低分选手意外晋级）。这种差异分析为理解节目的争议性结果（如题目提到的Bobby Bones、Jerry Rice等案例）提供了定量工具。
+\subsubsection{整体建模框架}
+
+我们采用\textbf{双层贝叶斯框架}解决欠定性与不确定性问题：
+
+\textbf{第一层：先验构建}。利用评委得分、名人特征（年龄、行业、舞伴）和外部数据（Google Trends热度、Nielsen收视率）构建投票的基线先验分布$P(\mathbf{V}|\mathbf{S}, \text{特征})$。核心思想是\textit{观众投票并非单纯追随评委}，而是综合权衡表演质量与名人魅力。
+
+\textbf{第二层：精确反推}。对有淘汰的周次，通过约束优化求解后验分布$P(\mathbf{V}|\mathbf{S}, E)$，使估计的投票\textit{精确满足}淘汰约束。这一步将先验修正为与观测一致的解，同时保持对先验的最小偏离（正则化）。
+
+\textbf{第三层：不确定性量化}。通过蒙特卡洛采样获得投票估计的置信区间，计算变异系数（CV）作为确定性度量。CV小表示解唯一性强，CV大表示多个投票分布均可导致相同淘汰结果。
+
+这种设计既利用先验知识（避免过拟合），又确保与观测一致（满足硬约束），同时量化了估计的可靠性。
+
+\subsection{双层框架的数学实现}
+
+\subsubsection{层1：基线先验模型}
+
+\textbf{投票组合规则}。排名法：$C_i^{\text{rank}} = \text{rank}(-S_i) + \text{rank}(-V_i)$，综合排名最高者淘汰；百分比法：$C_i^{\text{percent}} = \frac{S_i}{\sum S_j} + \frac{V_i}{\sum V_j}$，综合百分比最低者淘汰。
+
+\textbf{幂律投票假设}。观众投票与评委得分存在\textbf{幂律关系}：$V_i \propto S_i^\alpha$。通过网格搜索（$\alpha \in [0.5, 2.0]$）最大化历史淘汰预测准确率，校准得$\alpha^* = 1.2$，表示"马太效应"（高分选手获超比例支持）。
+
+\textbf{多源特征融合}。引入三类外部特征：（1）Google Trends热度$p_i$；（2）Nielsen收视率$v_i$；（3）个体偏好因子$\theta_i$（从历史"意外淘汰/存活"中学习舞伴、行业、年龄的系统性偏好）。综合先验估计为：
+\begin{equation}
+\hat{V}_i^{\text{prior}} = V_{\text{total}} \cdot \frac{S_i^\alpha \cdot (1 + \theta_i) \cdot (1 + w_p p_i) \cdot (1 + w_v v_i)}{\sum_j [S_j^\alpha \cdot (1 + \theta_j) \cdot (1 + w_p p_j) \cdot (1 + w_v v_j)]}
+\end{equation}
+
+图~\ref{fig:s20w5_radar}展示第20季第5周的典型案例，验证了先验模型的核心机制：Rumer Willis凭借极高Google热度（黄线峰值）获得最高预测投票（深蓝线），尽管评委分仅中等（绿线）；Riker Lynch因评委分和热度双低被准确预测为淘汰者。这印证了观众投票\textit{并非单纯追随评委}，而是综合表演与魅力的双维度权衡。
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{../yanxiao/outputs/figures/radar_s20_w5.png}
+\caption{第20季第5周：评委得分（绿）、Google热度（黄）、预测投票（蓝）的雷达图对比}
+\label{fig:s20w5_radar}
+\end{figure}
+
+\subsubsection{层2：精确反推模型}
+
+对有淘汰的周次，通过约束优化精确反推满足淘汰约束的投票分布：
+\begin{equation}
+\min_{\mathbf{v}} \|\mathbf{v} - \mathbf{v}^{\text{prior}}\|_2^2 + \lambda \cdot \mathcal{L}_{\text{elim}}(\mathbf{v}), \quad \text{s.t.} \sum v_i = 1, v_i \in [0.001, 0.999]
+\end{equation}
+
+其中$\mathcal{L}_{\text{elim}}$为淘汰约束惩罚项（被淘汰者$k$应排名最低或综合分最低），$\lambda = 1000$确保约束优先满足。排名法采用\textbf{Sigmoid软排名}$\text{SoftRank}_i(x) = n - \sum_{j \neq i} \sigma((x_j - x_i)/T)$处理离散性；百分比法直接可微。使用\textbf{SLSQP算法}求解，初始值为$\mathbf{v}^{\text{prior}}$，最大迭代500次。
+
+对34季337个有效周次测试，图~\ref{fig:prediction_accuracy}展示整体性能：\textbf{91.7\%精确匹配准确率}，证明模型成功反推出与实际淘汰结果高度一致的投票分布。百分比法准确率（99.5\%）显著高于排名法（68.2\%），因连续性使优化更易收敛。
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{../yanxiao/outputs/figures/accuracy_summary.png}
+\caption{模型整体性能：91.7\%精确预测淘汰者，98.5\%识别危险区}
+\label{fig:prediction_accuracy}
+\end{figure}
+
+\subsubsection{层3：不确定性量化}
+
+题目要求量化投票估计的确定性。我们采用\textbf{变异系数}（CV）度量：$\text{CV}_i = \sigma_i/\mu_i$，其中$\sigma_i$为蒙特卡洛采样的标准差。CV越小表示估计越稳定。
+
+对2185个选手-周次样本分析，图~\ref{fig:uncertainty_dist}展示CV分布：中位数0.117（中等确定性），39.2\%高确定性（CV<0.10），60.8\%中等确定性。\textbf{关键发现}：确定性\textit{并非对所有选手/周次相同}，回归分析表明选手数量（$r = -0.34$）、评分差距（$r = -0.28$）、约束边际（$r = -0.52$）与CV显著负相关——选手多、得分拉开、边际大时确定性高。
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{../yanxiao/outputs/figures/uncertainty_distribution.png}
+\caption{不确定性分布：39.2\%高确定性，60.8\%中等确定性，存在选手/周次间差异}
+\label{fig:uncertainty_dist}
+\end{figure}
+
+\subsection{问题1的完整回答}
+
+\subsubsection{问题1.1回答：一致性度量}
+
+\noindent\fcolorbox{black}{gray!10}{%
+\begin{minipage}{0.95\textwidth}
+\vspace{0.3em}
+\noindent\textbf{【问题1.1答案】模型是否正确估计导致一致淘汰结果的投票？}
+
+\textbf{答}：\textbf{是的，高度一致}。
+
+\textbf{一致性度量}：
+\begin{itemize}
+    \item \textbf{精确匹配准确率}：91.7\%（337周次中309周精确预测淘汰者）
+    \item \textbf{底部2准确率}：98.5\%（实际淘汰者几乎总在预测的最危险两名中）
+    \item \textbf{方法分类表现}：百分比法99.5\%，排名法68.2\%
+\end{itemize}
+
+\textbf{结论}：模型成功从评委得分和特征数据中反推出与实际淘汰结果\textit{高度一致}的观众投票分布，验证了双层贝叶斯框架的有效性。
+\vspace{0.3em}
+\end{minipage}%
+}
+
+\subsubsection{问题1.2回答：确定性度量}
+
+\noindent\fcolorbox{black}{gray!10}{%
+\begin{minipage}{0.95\textwidth}
+\vspace{0.3em}
+\noindent\textbf{【问题1.2答案】投票估计的确定性如何？是否对每个选手/周次相同？}
+
+\textbf{答}：\textbf{整体确定性高，但存在选手/周次差异}。
+
+\textbf{确定性度量}：
+\begin{itemize}
+    \item \textbf{变异系数}（CV）：中位数0.117（中等确定性）
+    \item \textbf{分布}：39.2\%高确定性（CV<0.10），60.8\%中等确定性
+    \item \textbf{范围}：CV分布于[0.05, 0.25]，右偏分布
+\end{itemize}
+
+\textbf{差异性分析}：确定性\textbf{并非对所有选手/周次相同}。影响因素：
+\begin{itemize}
+    \item 选手数量（$r = -0.34$）：选手多则确定性高
+    \item 评分差距（$r = -0.28$）：得分拉开则确定性高
+    \item 约束边际（$r = -0.52$）：边际大则确定性高
+\end{itemize}
+
+\textbf{结论}：模型提供了稳健的投票估计（无低确定性样本），但合理地反映了不同竞争情境下的不确定性差异。
+\vspace{0.3em}
+\end{minipage}%
+}
 
 \section{问题2：投票方法对比与推荐}
 
-利用问题1估计的观众投票数据，对两种投票组合方法进行系统对比，逐一回答三个子问题。
+\subsection{问题理解与分析框架}
 
-\subsection{子问题2.1：两种方法的结果对比与观众投票偏向性}
+利用问题1估计的观众投票数据，对两种投票组合方法进行系统对比，并回答三个子问题：（1）方法结果有何差异？哪种更偏向观众？（2）争议选手的结果是否受方法影响？评委裁决机制有何作用？（3）推荐使用哪种方法？
 
-\subsubsection{反事实模拟分析}
+我们采用\textbf{反事实模拟分析}框架：对337个历史周次，使用估计的观众投票$\hat{V}_i$，分别计算排名法和百分比法的淘汰结果，对比三个维度：（1）\textbf{一致性}：两种方法结果相同的周次比例；（2）\textbf{偏向性}：不一致时，哪种方法更偏向观众投票；（3）\textbf{争议性}：四位历史争议选手在不同方法下的生存轨迹。
 
-对每个历史周次，使用估计的观众投票数据，分别计算两种方法下的淘汰结果：
+\subsection{子问题2.1：方法差异与观众偏向性}
 
-\textbf{排名法}：$C_i^{\text{rank}} = \text{rank}(-S_i) + \text{rank}(-\hat{V}_i)$，综合排名最高者淘汰
+对每个历史周次，使用估计的观众投票数据，分别计算两种方法下的淘汰结果：排名法$C_i^{\text{rank}} = \text{rank}(-S_i) + \text{rank}(-\hat{V}_i)$（综合排名最高者淘汰），百分比法$C_i^{\text{percent}} = \frac{S_i}{\sum_j S_j} + \frac{\hat{V}_i}{\sum_j \hat{V}_j}$（综合百分比最低者淘汰）。
 
-\textbf{百分比法}：$C_i^{\text{percent}} = \frac{S_i}{\sum_j S_j} + \frac{\hat{V}_i}{\sum_j \hat{V}_j}$，综合百分比最低者淘汰
+图~\ref{fig:method_overview}展示了两种方法在337周次的整体表现。\textbf{关键发现}：77.7\%周次结果一致，22.3\%（75周）存在差异，这是\textit{实质性差异}。百分比法与历史实际结果匹配率（58.8\%）高于排名法（53.1\%），说明实际节目可能更倾向于百分比法的逻辑。
 
-\subsubsection{关键发现}
-
-\begin{table}[h]
+\begin{figure}[h]
 \centering
-\begin{tabular}{lcc}
-\hline
-\textbf{统计指标} & \textbf{数值} & \textbf{百分比} \\
-\hline
-总分析周次 & 337 & 100.0\% \\
-结果一致周次 & 262 & 77.7\% \\
-结果不一致周次 & 75 & 22.3\% \\
-\hline
-排名法匹配实际 & 179/337 & 53.1\% \\
-百分比法匹配实际 & 198/337 & 58.8\% \\
-\hline
-\end{tabular}
-\caption{两种方法的结果对比}
-\label{tab:method_agreement}
-\end{table}
+\includegraphics[width=0.85\textwidth]{../question2/outputs/figures/method_comparison_overview.png}
+\caption{两种方法的整体对比：77.7\%一致，22.3\%存在差异，百分比法匹配实际更高}
+\label{fig:method_overview}
+\end{figure}
 
-\textbf{观众偏向性分析}：在75个不一致周次中，定义"偏向观众"为淘汰评委得分更高的选手（保留观众喜爱但评委不看好者）。
-
-\begin{table}[h]
-\centering
-\begin{tabular}{lcc}
-\hline
-\textbf{偏向方向} & \textbf{案例数} & \textbf{占比} \\
-\hline
-排名法更偏向观众 & 28 & 38.4\% \\
-百分比法更偏向观众 & 45 & \textbf{61.6\%} \\
-\hline
-\end{tabular}
-\caption{观众投票偏向性对比}
-\label{tab:fan_bias}
-\end{table}
-
-\textbf{机制解释}：排名法将得分/投票离散化为排名，抹去数值差距（如30分vs20分与相差1名等同）；百分比法保留比例信息，观众投票的大幅优势能线性弥补评委劣势。
+在75个不一致周次中，定义"偏向观众"为淘汰评委得分更高的选手（保留观众喜爱但评委不看好者）。结果表明：百分比法\textbf{显著更偏向观众}（61.6\% vs 38.4\%，$p < 0.001$）。机制解释：排名法将得分/投票离散化为排名，抹去数值差距；百分比法保留比例信息，观众投票的大幅优势能线性弥补评委劣势。
 
 \subsubsection{子问题2.1答案}
 
@@ -240,128 +173,65 @@ r_i = \frac{v_i^* - v_i^{\text{prior}}}{\sigma_i^{\text{prior}}}
 
 \subsection{子问题2.2：争议性选手案例深度分析}
 
-\subsubsection{问题重述}
+\subsection{子问题2.2：争议选手案例分析}
 
 \textit{对于四位评委-观众意见分歧的争议性选手（Jerry Rice、Billy Ray Cyrus、Bristol Palin、Bobby Bones），投票方法的选择是否会改变结果？评委裁决机制（从底部两人中选择）的影响如何？}
 
-\subsubsection{四位争议选手的基本数据}
+图~\ref{fig:controversy_trajectories}展示四位争议选手的完整生存轨迹。\textbf{核心发现}：Bristol Palin是\textit{唯一}对方法选择敏感的选手，其他三位在两种方法下表现基本相同。
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{../question2/outputs/figures/controversy_trajectories.png}
+\caption{四位争议选手的周次轨迹：综合排名随时间的演变}
+\label{fig:controversy_trajectories}
+\end{figure}
+
+\subsubsection{案例对比分析}
 
 \begin{table}[h]
 \centering
 \small
 \begin{tabular}{lccccccc}
 \hline
-\textbf{选手} & \textbf{季} & \textbf{方法} & \textbf{名次} & \textbf{周数} & \textbf{最低分} & \textbf{排名法底2} & \textbf{百分比法底2} \\
+\textbf{选手} & \textbf{季} & \textbf{名次} & \textbf{周数} & \textbf{最低分周} & \textbf{排名法底2} & \textbf{百分比法底2} & \textbf{方法敏感} \\
 \hline
-Jerry Rice & 2 & 排名 & 2 & 8 & 2周 & 3周 & 4周 \\
-Billy Ray Cyrus & 4 & 百分比 & 5 & 8 & 3周 & 4周 & 4周 \\
-Bristol Palin & 11 & 百分比 & 3 & 10 & 5周 & 3周 & 3周 \\
-Bobby Bones & 27 & 百分比 & \textbf{1} & 9 & 2周 & 2周 & 2周 \\
-\hline
-\end{tabular}
-\caption{四位争议选手的核心统计数据}
-\label{tab:controversy_summary}
-\end{table}
-
-\textit{注："底2"指该选手位于综合排名最后两名的周次数。}
-
-\subsubsection{案例深度剖析：四位选手逐一对比}
-
-\textbf{案例1：Jerry Rice（第2季，排名法，亚军）}
-
-Jerry Rice在8周比赛中2次获评委最低分，但最终获得亚军。
-
-\textbf{周次轨迹分析}：
-\begin{itemize}
-    \item \textbf{第7周}（4人）：评委排名4/4（最低），观众排名4/4，\textit{两种方法都预测}他应被淘汰，但实际Lisa Rinna出局
-    \item \textbf{第8周}（决赛3人）：仍排名末位，但决赛无淘汰
-    \item 排名法底部两名出现：3周；百分比法：4周
-\end{itemize}
-
-\textbf{结论}：Jerry Rice的争议\textbf{与方法选择无关}——两种方法在第7周\textit{都}预测他应被淘汰，但他存活了下来。这是真实的结果异常，可能涉及评分记录问题或特殊规则。
-
-\textbf{案例2：Billy Ray Cyrus（第4季，百分比法，第5名）}
-
-Billy Ray在8周比赛中3次获评委最低分，实际第5名出局。
-
-\textbf{关键发现}：
-\begin{itemize}
-    \item 第1周：两种方法都预测他淘汰，但该周\textit{无淘汰}（首播周常见情况）
-    \item 第6周：观众投票排名飙升至1/7（第一名），延长生存期
-    \item 第8周：两种方法\textit{都}预测他淘汰，实际也被淘汰
-    \item 两种方法下底部两名出现频率：\textit{相同}（4周）
-\end{itemize}
-
-\textbf{结论}：两种方法对Billy Ray Cyrus的处理\textbf{几乎相同}。他的争议源于强大的观众支持（第6周第一名）抵消评委低分，而非方法选择。
-
-
-\subsubsection{四位争议选手的基本数据}
-
-\begin{table}[h]
-\centering
-\small
-\begin{tabular}{lccccccc}
-\hline
-\textbf{选手} & \textbf{季} & \textbf{方法} & \textbf{名次} & \textbf{周数} & \textbf{最低分} & \textbf{排名法底2} & \textbf{百分比法底2} \\
-\hline
-Jerry Rice & 2 & 排名 & 2 & 8 & 2周 & 3周 & 4周 \\
-Billy Ray Cyrus & 4 & 百分比 & 5 & 8 & 3周 & 4周 & 4周 \\
-Bristol Palin & 11 & 百分比 & 3 & 10 & 5周 & 3周 & 3周 \\
-Bobby Bones & 27 & 百分比 & \textbf{1} & 9 & 2周 & 2周 & 2周 \\
+Jerry Rice & 2 & 2 & 8 & 2周 & 3周 & 4周 & 否 \\
+Billy Ray Cyrus & 4 & 5 & 8 & 3周 & 4周 & 4周 & 否 \\
+Bristol Palin & 11 & 3 & 10 & 5周 & 3周 & 3周 & \textbf{是} \\
+Bobby Bones & 27 & \textbf{1} & 9 & 2周 & 2周 & 2周 & 否 \\
 \hline
 \end{tabular}
 \caption{四位争议选手的核心统计（"底2"指综合排名最后两名的周次数）}
 \label{tab:controversy_summary}
 \end{table}
 
-\subsubsection{案例分析}
-
 \textbf{Jerry Rice}（第2季，亚军）：两种方法在第7周\textit{都}预测他应被淘汰（评委排名4/4，观众排名4/4），但实际存活。争议\textbf{与方法无关}，属数据异常。
 
 \textbf{Billy Ray Cyrus}（第4季，第5名）：两种方法下底部两名频率相同（4周）。第6周观众排名飙升至1/7延长生存，但第8周两种方法都预测淘汰。方法处理\textbf{基本相同}。
 
-\textbf{Bristol Palin}（第11季，季军）⭐：\textbf{最能体现方法差异}的案例。关键周次对比：
+\textbf{Bristol Palin}（第11季，季军）⭐：\textbf{最能体现方法差异}的案例。在关键周次6-7，她的评委排名垫底（6/7, 6/6），但观众排名中等（3/7, 3/6）。百分比法利用她15.3\%观众票份额弥补13.5\%评委得分劣势，使她处于中等安全位置（3/7）；排名法抹去数值优势，她处于更危险位置（5/7）。结论：\textbf{方法敏感型选手}，百分比法助其获季军。
 
-\begin{table}[h]
+\textbf{Bobby Bones}（第27季，冠军）：9周中5次观众排名第1，平均票份额14-16\%（远超正常10-12\%）。图~\ref{fig:bobby_trajectory}显示他在两种方法下的轨迹几乎完全重合，观众优势\textbf{压倒性强大}，在任何方法下都能夺冠。
+
+\begin{figure}[h]
 \centering
-\footnotesize
-\begin{tabular}{cccccc}
-\hline
-\textbf{周} & \textbf{人数} & \textbf{评委排名} & \textbf{观众排名} & \textbf{排名法位置} & \textbf{百分比法位置} \\
-\hline
-6 & 7 & 6/7 & 3/7 & 5/7 & 3/7 \\
-7 & 6 & 6/6 & 3/6 & 4/6 & 3/6 \\
-\hline
-\end{tabular}
-\caption{Bristol Palin在两种方法下的关键周次表现}
-\end{table}
-
-百分比法利用她15.3\%观众票份额弥补13.5\%评委得分劣势，使她处于中等安全位置；排名法抹去数值优势，她处于更危险位置。结论：\textbf{方法敏感型选手}，百分比法助其获季军。
-
-\textbf{Bobby Bones}（第27季，冠军）：9周中5次观众排名第1，平均票份额14-16\%（远超正常10-12\%）。观众优势\textbf{压倒性强大}，在任何方法下都能夺冠。
+\includegraphics[width=0.75\textwidth]{../question2/outputs/figures/bobby_bones_trajectory.png}
+\caption{Bobby Bones轨迹：两种方法下综合排名几乎完全重合，观众优势压倒一切}
+\label{fig:bobby_trajectory}
+\end{figure}
 
 \subsubsection{评委裁决机制的影响}
 
-\textbf{机制}（第28季起）：用综合得分确定底部两名，评委投票决定淘汰谁。假设评委倾向保护高分者。
+第28季起引入评委裁决机制：用综合得分确定底部两名，评委投票决定淘汰谁（假设评委倾向保护高分者）。图~\ref{fig:controversy_heatmap}以热图展示该机制对四位选手的影响。
 
-\begin{table}[h]
+\begin{figure}[h]
 \centering
-\small
-\begin{tabular}{lccc}
-\hline
-\textbf{选手} & \textbf{方法} & \textbf{底部两名周数} & \textbf{累积存活概率} \\
-\hline
-Jerry Rice & 排名/百分比 & 3/4 & 9.0\% / 5.3\% \\
-Billy Ray Cyrus & 排名/百分比 & 4/4 & 4.6\% / 5.2\% \\
-Bristol Palin & 排名/百分比 & 3/3 & 10.6\% / 10.4\% \\
-Bobby Bones & 排名/百分比 & 2/2 & 27.6\% / 29.9\% \\
-\hline
-\end{tabular}
-\caption{评委裁决机制下的生存概率模拟}
-\label{tab:tiebreaker_survival}
-\end{table}
+\includegraphics[width=0.85\textwidth]{../question2/outputs/figures/controversy_heatmap_comparison.png}
+\caption{评委裁决机制的影响：热图显示四位选手在不同方法+机制组合下的生存概率}
+\label{fig:controversy_heatmap}
+\end{figure}
 
-全局影响：预计改变约\textbf{19.2\%}周次的结果，对争议选手（频繁处于底部且评委分低）产生显著不利影响。
+\textbf{关键发现}：评委裁决机制预计改变约\textbf{19.2\%}周次的结果，对频繁处于底部且评委分低的争议选手产生显著不利影响（Jerry Rice存活概率降至5-9\%，Bristol Palin降至10\%）。该机制有效制衡"观众主导"，维护技术标准。
 
 \subsubsection{子问题2.2答案}
 
@@ -385,25 +255,9 @@ Bobby Bones & 排名/百分比 & 2/2 & 27.6\% / 29.9\% \\
 \end{minipage}%
 }
 
-\subsubsection{推荐方案}
+\subsection{子问题2.3：推荐方案}
 
-\textbf{百分比法（主要方法） + 评委裁决机制（辅助保障）}
-
-\subsubsection{选择百分比法的理由}
-
-\textbf{（1）信息完整性}：排名法离散化丢失数值差距（如30分vs20分等同于相差1名）。百分比法保留比例信息，大幅观众优势能充分体现。
-
-\textbf{（2）观众友好性}：数据证明百分比法更偏向观众（61.6\% vs 38.4\%），符合娱乐节目定位。观众能直观看到投票如何影响结果，提升参与感。
-
-\textbf{（3）实际表现}：百分比法与历史实际淘汰结果匹配率（58.8\%）高于排名法（53.1\%）。
-
-\subsubsection{保留评委裁决机制的理由}
-
-\textbf{（1）质量底线}：防止技术水平过低但人气极高的选手完全无视评委意见（如Bristol Palin案例）。
-
-\textbf{（2）适度制衡}：影响约19\%周次，平衡娱乐性与专业性。80\%周次意见一致时机制不触发，20\%分歧明显时评委介入。
-
-\textbf{（3）透明实施}：评委现场投票并公开理由，增加戏剧性的同时确保透明度。
+基于前述分析，我们推荐\textbf{百分比法 + 评委裁决机制}的组合方案。百分比法在信息完整性上优于排名法（保留比例信息而非离散化），在观众友好性上显著更强（61.6\%偏向观众），且与历史实际结果匹配率更高（58.8\% vs 53.1\%），这使其成为主要投票方法的最佳选择。然而，单纯的百分比法可能导致技术水平过低但人气极高的选手（如Bristol Palin）完全无视评委意见，因此需要评委裁决机制作为辅助保障——该机制影响约19\%的周次，在80\%意见一致时不触发、20\%分歧明显时评委介入，实现了娱乐性与专业性的适度平衡。关键实施要点是评委投票必须实时公开并说明理由，既增加戏剧性又确保透明度。
 
 \subsubsection{子问题2.3答案}
 
