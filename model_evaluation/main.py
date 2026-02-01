@@ -13,6 +13,7 @@ from q1_evaluation import Q1ModelEvaluator
 from q2_evaluation import Q2ModelEvaluator
 from q3_evaluation import Q3ModelEvaluator
 from q4_evaluation import Q4ModelEvaluator
+from sensitivity_analysis import SensitivityAnalyzer
 from visualization import (plot_model_comparison_radar, plot_cross_validation_comparison,
                           plot_temporal_validation, plot_comprehensive_dashboard,
                           plot_promotion_analysis)
@@ -371,10 +372,28 @@ def main():
     # 保存摘要表
     summary_table.to_csv(os.path.join(TABLES_DIR, 'evaluation_summary.csv'), index=False)
     
-    # 3. 生成可视化
+    # 3. 运行敏感性分析
+    print("\n" + "=" * 70)
+    print("SENSITIVITY ANALYSIS")
+    print("=" * 70)
+    try:
+        sensitivity_analyzer = SensitivityAnalyzer()
+        sensitivity_results = sensitivity_analyzer.run_full_analysis()
+        sensitivity_analyzer.visualize_sensitivity()
+        sensitivity_analyzer.generate_sensitivity_report()
+        sensitivity_summary = sensitivity_analyzer.get_summary()
+        print("\nSensitivity Analysis Summary:")
+        for key, value in sensitivity_summary.items():
+            print(f"  {key}: {value}")
+    except Exception as e:
+        print(f"Sensitivity Analysis Error: {e}")
+        import traceback
+        traceback.print_exc()
+    
+    # 4. 生成可视化
     generate_visualizations(results, summaries)
     
-    # 4. 生成报告
+    # 5. 生成报告
     generate_report(results, summaries)
     
     print("\n" + "=" * 70)
