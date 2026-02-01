@@ -166,6 +166,7 @@ def plot_static_nomogram(X, y, target_name="Target"):
     color_lines = '#264653' # Dark Blue/Cyan for structure
     color_text = '#264653'
     color_fill = '#2a9d8e' # Teal for density curves
+    color_points = '#264653' # Same as lines for rug plot
     
     # Draw Point Scale at the top
     # Replicate regplot style: solid line with ticks
@@ -185,7 +186,17 @@ def plot_static_nomogram(X, y, target_name="Target"):
     
     # Draw Feature Bars with Density Curves
     y_pos = len(top_features) * row_height
+    idx = 0
     for _, row in top_features.iterrows():
+        # Zebra Striping: Alternating background for rows
+        if idx % 2 == 0:
+            # Draw a subtle rectangle behind the entire row
+            # x from -15 to 115 (plot limits), y from y_pos - 0.2 to y_pos + row_height - 0.2
+            rect = plt.Rectangle((-15, y_pos - 0.1), 130, row_height, 
+                                 edgecolor='none', facecolor='#e9ecef', alpha=0.3, zorder=-1)
+            ax.add_patch(rect)
+        idx += 1
+        
         feat = row['feature']
         coef = row['coef']
         min_v = row['min_val']
@@ -196,13 +207,14 @@ def plot_static_nomogram(X, y, target_name="Target"):
         p_max = (max_v * coef - row['eff_min']) * scale 
         
         # Refined Ticks
+        # ... (rest of the code)
         if row['max_val'] - row['min_val'] <= 1: # Binary
             ticks = [0, 1]
         else:
             ticks = np.linspace(row['min_val'], row['max_val'], 6) # More ticks
             
         # Draw base line
-        ax.plot([0, row['range'] * scale], [y_pos, y_pos], color=color_lines, lw=1)
+        ax.plot([0, row['range'] * scale], [y_pos, y_pos], color=color_lines, lw=1.2) # Slightly thicker base line
         ax.text(-5, y_pos, feat, ha='right', va='center', fontsize=15, color=color_text, fontweight='medium')
         
         for t in ticks:
@@ -211,7 +223,7 @@ def plot_static_nomogram(X, y, target_name="Target"):
             pts = (val_contribution - row['eff_min']) * scale
             
             # Draw tick
-            ax.plot([pts, pts], [y_pos, y_pos + 0.2], color=color_lines, lw=1)
+            ax.plot([pts, pts], [y_pos, y_pos + 0.2], color=color_lines, lw=1.2)
             
             # Format label
             if abs(t) < 0.001: l_str = "0"
@@ -221,11 +233,16 @@ def plot_static_nomogram(X, y, target_name="Target"):
             
             ax.text(pts, y_pos + 0.35, l_str, ha='center', va='bottom', fontsize=11, color=color_text)
         
-        # --- Add Density Curve ---
+        # --- Add Density Curve with Gradient-like Effect and Rug Plot ---
         vals = X[feat]
         # Calculate points for all samples for this feature
         points_dist = (vals * coef - row['eff_min']) * scale
         
+        # Rug Plot (Bottom of the axis)
+        # Add small vertical ticks for actual data points
+        ax.scatter(points_dist, [y_pos - 0.05] * len(points_dist), 
+                   marker='|', color=color_points, alpha=0.3, s=30)
+
         if vals.nunique() > 5: # Continuous: KDE
              try:
                  kde = gaussian_kde(points_dist)
@@ -233,28 +250,26 @@ def plot_static_nomogram(X, y, target_name="Target"):
                  # slightly extended to cover tails
                  x_min, x_max = points_dist.min(), points_dist.max()
                  margin = (x_max - x_min) * 0.1
-                 x_grid = np.linspace(max(0, x_min - margin), min(row['range']*scale, x_max + margin), 100)
-                 y_grid = kde(x_grid)
+                 x_grid_extended = np.linspace(max(0, x_min - margin), min(row['range']*scale, x_max + margin), 200)
+                 y_grid = kde(x_grid_extended)
                  
-                 # Normalize height: Max height approx 0.5 unit (relative to 0.8 row spacing)
+                 # Normalize height: Max height approx 0.5 unit
                  if y_grid.max() > 0:
                      y_grid = y_grid / y_grid.max() * 0.5 
                  
-                 # Plot filled curve
-                 ax.fill_between(x_grid, y_pos + y_grid, y_pos, color=color_fill, alpha=0.3)
-                 ax.plot(x_grid, y_pos + y_grid, color=color_fill, lw=1)
+                 # Plot filled curve with slightly darker edge
+                 ax.fill_between(x_grid_extended, y_pos + y_grid, y_pos, color=color_fill, alpha=0.4)
+                 ax.plot(x_grid_extended, y_pos + y_grid, color=color_fill, lw=1.5)
              except Exception as e:
                  pass # Skip if KDE fails (e.g. singular matrix)
         else:
-            # Discrete: Draw simple histogram-like bars or rug plot?
-            # Let's draw bars at each unique value
-            # Height proportional to count
+            # Discrete: Draw simple histogram-like bars
             counts = vals.value_counts(normalize=True)
             for v, freq in counts.items():
                 pt = (v * coef - row['eff_min']) * scale
                 # Height up to 0.5 for 100% freq
                 h = freq / counts.max() * 0.5
-                ax.fill_between([pt-0.5, pt+0.5], [y_pos+h, y_pos+h], [y_pos, y_pos], color=color_fill, alpha=0.5)
+                ax.fill_between([pt-0.5, pt+0.5], [y_pos+h, y_pos+h], [y_pos, y_pos], color=color_fill, alpha=0.5, edgecolor=color_fill)
             
         y_pos -= row_height # More spacing
 
@@ -350,6 +365,59 @@ def plot_static_nomogram(X, y, target_name="Target"):
     print(f"Nomogram saved to {FIGURES_DIR}")
 
 
+def plot_residual_case_order(model, X, y, target_name="Target"):
+    """
+    Plot Residuals vs Case Order to check for independence/autocorrelation.
+    """
+    print(f"Generating Residual Case Order Plot for {target_name}...")
+    
+    # Get predictions
+    if hasattr(model, 'predict'):
+        preds = model.predict(X)
+    else:
+        # Fallback if model is not a standard sklearn estimator
+        print(f"Model {type(model)} does not have predict method.")
+        return
+
+    residuals = y - preds
+    
+    plt.figure(figsize=(12, 6))
+    
+    # Background
+    bg_color = '#F8F9FA'
+    plt.gcf().patch.set_facecolor(bg_color)
+    plt.gca().set_facecolor(bg_color)
+    
+    # Scatter plot
+    plt.scatter(range(len(residuals)), residuals, color=MCM_COLORS[0], alpha=0.5, s=20, label='Residuals')
+    
+    # Zero line
+    plt.axhline(0, color=MCM_COLORS[4], linestyle='--', lw=2, label='Zero Mean')
+    
+    # Smoothed trend line (rolling mean)
+    window = int(len(residuals) * 0.05) if len(residuals) > 100 else 10
+    if window < 2: window = 2
+    rolling_mean = pd.Series(residuals).rolling(window=window, center=True).mean()
+    plt.plot(rolling_mean, color=MCM_COLORS[2], lw=2.5, label=f'Moving Avg (w={window})')
+    
+    plt.title(f"{target_name} - Residual Case Order Plot", fontsize=18, fontweight='bold', color='#264653', pad=15)
+    plt.xlabel("Case Order (Observation Index)", fontsize=15, color='#264653')
+    plt.ylabel("Residuals (Observed - Predicted)", fontsize=15, color='#264653')
+    
+    # Ticks styling
+    plt.tick_params(colors='#264653', which='both')
+    plt.xticks(fontsize=12)
+    plt.yticks(fontsize=12)
+    
+    plt.legend(fontsize=12)
+    plt.grid(True, alpha=0.3, linestyle='--', color='#264653')
+    
+    plt.tight_layout()
+    save_path = os.path.join(FIGURES_DIR, f'residual_case_order_{target_name}.png')
+    plt.savefig(save_path, dpi=300, bbox_inches='tight')
+    plt.close()
+    print(f"Residual plot saved to {save_path}")
+
 def main():
     print("Starting visualization generation...")
     
@@ -381,14 +449,16 @@ def main():
     # --- Generate for Judge Score ---
     print("\n--- Processing Judge Score ---")
     rf_judge = train_rf_model(X, y_judge)
-    plot_shap_analysis(rf_judge, X, "Judge Score")
-    plot_static_nomogram(X, y_judge, "Judge Score")
+    plot_shap_analysis(rf_judge, X, "judge_score")
+    plot_static_nomogram(X, y_judge, "judge_score")
+    plot_residual_case_order(rf_judge, X, y_judge, "judge_score")
 
     # --- Generate for Fan Votes ---
     print("\n--- Processing Fan Votes ---")
     rf_vote = train_rf_model(X, y_vote)
-    plot_shap_analysis(rf_vote, X, "Log Fan Votes")
-    plot_static_nomogram(X, y_vote, "Log Fan Votes")
+    plot_shap_analysis(rf_vote, X, "fan_votes")
+    plot_static_nomogram(X, y_vote, "fan_votes")
+    plot_residual_case_order(rf_vote, X, y_vote, "fan_votes")
 
 if __name__ == "__main__":
     main()
