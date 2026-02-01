@@ -49,13 +49,13 @@ RF_PARAMS = {
 FIGURE_DPI = 300
 FIGURE_SIZE = (12, 8)
 
-# 配色方案
+# 配色方案 (from 配色.md)
 COLORS = {
-    'primary': '#2E86AB',
-    'secondary': '#A23B72',
-    'accent': '#F18F01',
-    'success': '#C73E1D',
-    'neutral': '#3B1F2B',
-    'judge': '#2E86AB',
-    'fan': '#A23B72'
+    'primary': '#264653',    # Color 1
+    'secondary': '#2a9d8e',  # Color 2
+    'accent': '#e9c46b',     # Color 3
+    'success': '#e86f52',    # Color 5
+    'neutral': '#f3a261',    # Color 4
+    'judge': '#e86f52',      # Color 5 (Reddish)
+    'fan': '#2a9d8e'         # Color 2 (Teal)
 }

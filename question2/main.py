@@ -21,6 +21,13 @@ warnings.filterwarnings('ignore')
 plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'Arial Unicode MS']
 plt.rcParams['axes.unicode_minus'] = False
 
+# 配色方案 (from 配色.md)
+COLOR_1 = '#264653'  # Dark Blue
+COLOR_2 = '#2a9d8e'  # Teal
+COLOR_3 = '#e9c46b'  # Yellow
+COLOR_4 = '#f3a261'  # Orange
+COLOR_5 = '#e86f52'  # Reddish
+
 from config import (
     VOTE_ESTIMATES_FILE, ORIGINAL_DATA_FILE, OUTPUT_DIR, FIGURE_DIR,
     RANK_METHOD_SEASONS, PERCENT_METHOD_SEASONS, CONTROVERSY_CASES
@@ -243,81 +250,44 @@ def create_visualizations(comparison_df: pd.DataFrame, controversy_df: pd.DataFr
     print("生成可视化图表...")
     print("=" * 60)
     
-    # 图1: 两种方法一致率按赛季分布
-    fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+    # 图1: 两种方法一致率按赛季分布 (只保留上半部分)
+    fig, axes = plt.subplots(1, 2, figsize=(14, 6))
     
     # 1.1 按赛季的一致率
-    ax1 = axes[0, 0]
+    ax1 = axes[0]
     season_stats = comparison_df.groupby('season').agg({
         'methods_agree': ['sum', 'count']
     })
     season_stats.columns = ['agree', 'total']
     season_stats['rate'] = season_stats['agree'] / season_stats['total']
     
-    colors = ['#2ecc71' if s in RANK_METHOD_SEASONS else '#3498db' 
+    colors = [COLOR_2 if s in RANK_METHOD_SEASONS else COLOR_1 
               for s in season_stats.index]
-    ax1.bar(season_stats.index, season_stats['rate'], color=colors, alpha=0.7, edgecolor='black')
-    ax1.axhline(y=season_stats['rate'].mean(), color='red', linestyle='--', label=f'平均值: {season_stats["rate"].mean():.1%}')
-    ax1.set_xlabel('赛季', fontsize=12)
-    ax1.set_ylabel('方法一致率', fontsize=12)
-    ax1.set_title('两种投票方法结果一致率（按赛季）', fontsize=14)
+    ax1.bar(season_stats.index, season_stats['rate'], color=colors, alpha=0.9, edgecolor='white')
+    ax1.axhline(y=season_stats['rate'].mean(), color=COLOR_5, linestyle='--', label=f'Average: {season_stats["rate"].mean():.1%}')
+    ax1.set_xlabel('Season', fontsize=12)
+    ax1.set_ylabel('Agreement Rate', fontsize=12)
+    ax1.set_title('Agreement Rate between Voting Methods (by Season)', fontsize=14)
     ax1.legend()
     ax1.set_ylim(0, 1.1)
     
     # 添加图例说明
     from matplotlib.patches import Patch
     legend_elements = [
-        Patch(facecolor='#2ecc71', alpha=0.7, label='排名法赛季'),
-        Patch(facecolor='#3498db', alpha=0.7, label='百分比法赛季')
+        Patch(facecolor=COLOR_2, alpha=0.9, label='Rank Method Seasons'),
+        Patch(facecolor=COLOR_1, alpha=0.9, label='Percent Method Seasons')
     ]
     ax1.legend(handles=legend_elements, loc='lower right')
     
     # 1.2 不一致周次分布
-    ax2 = axes[0, 1]
+    ax2 = axes[1]
     disagree_weeks = comparison_df[~comparison_df['methods_agree']]
     if len(disagree_weeks) > 0:
         disagree_counts = disagree_weeks.groupby('season').size()
-        ax2.bar(disagree_counts.index, disagree_counts.values, color='#e74c3c', alpha=0.7, edgecolor='black')
-        ax2.set_xlabel('赛季', fontsize=12)
-        ax2.set_ylabel('不一致周次数', fontsize=12)
-        ax2.set_title('两种方法结果不一致的周次数（按赛季）', fontsize=14)
-    
-    # 1.3 争议案例对比
-    ax3 = axes[1, 0]
-    if len(controversy_df) > 0 and 'would_be_eliminated_rank_weeks' in controversy_df.columns:
-        x = range(len(controversy_df))
-        width = 0.35
-        
-        ax3.bar([i - width/2 for i in x], controversy_df['would_be_eliminated_rank_weeks'], 
-                width, label='排名法淘汰周次', color='#e74c3c', alpha=0.7)
-        ax3.bar([i + width/2 for i in x], controversy_df['would_be_eliminated_percent_weeks'], 
-                width, label='百分比法淘汰周次', color='#3498db', alpha=0.7)
-        
-        ax3.set_xlabel('争议选手', fontsize=12)
-        ax3.set_ylabel('可能被淘汰的周次', fontsize=12)
-        ax3.set_title('争议案例：两种方法淘汰情况对比', fontsize=14)
-        ax3.set_xticks(x)
-        ax3.set_xticklabels(controversy_df['celebrity'], rotation=45, ha='right')
-        ax3.legend()
-    
-    # 1.4 争议选手评委最低分周数与最终名次
-    ax4 = axes[1, 1]
-    if len(controversy_df) > 0:
-        scatter = ax4.scatter(controversy_df['num_lowest_judge_weeks'], 
-                             controversy_df['actual_placement'],
-                             s=200, c=controversy_df['season'], cmap='viridis',
-                             edgecolor='black', linewidth=2)
-        
-        for i, row in controversy_df.iterrows():
-            ax4.annotate(row['celebrity'], 
-                        (row['num_lowest_judge_weeks'], row['actual_placement']),
-                        xytext=(5, 5), textcoords='offset points', fontsize=9)
-        
-        ax4.set_xlabel('评委最低分周数', fontsize=12)
-        ax4.set_ylabel('最终名次', fontsize=12)
-        ax4.set_title('争议案例：评委表现 vs 最终结果', fontsize=14)
-        ax4.invert_yaxis()  # 名次越小越好
-        plt.colorbar(scatter, ax=ax4, label='赛季')
+        ax2.bar(disagree_counts.index, disagree_counts.values, color=COLOR_5, alpha=0.8, edgecolor='white')
+        ax2.set_xlabel('Season', fontsize=12)
+        ax2.set_ylabel('Inconsistent Weeks', fontsize=12)
+        ax2.set_title('Number of Inconsistent Weeks (by Season)', fontsize=14)
     
     plt.tight_layout()
     plt.savefig(os.path.join(FIGURE_DIR, 'method_comparison_overview.png'), dpi=300, bbox_inches='tight')
@@ -326,6 +296,141 @@ def create_visualizations(comparison_df: pd.DataFrame, controversy_df: pd.DataFr
     
     # 图2: 详细争议案例轨迹图
     create_controversy_trajectory_plot(vote_estimates)
+    
+    # 图3: 争议案例热力图对比
+    create_controversy_heatmap_comparison(vote_estimates)
+
+
+def create_controversy_heatmap_comparison(vote_estimates: pd.DataFrame) -> None:
+    """
+    创建争议案例在两种方法下的差距热力图 (体现粉丝与评委的巨大分歧)
+    左图: 排名差异 (评委排名 - 观众排名) -> 正值表示观众更喜欢 (评委给的排名由于数值大反而差)
+    右图: 份额差异 (观众份额 - 评委份额) -> 正值表示观众给的份额更多
+    """
+    from analysis.voting_methods import RankMethod
+    import matplotlib.colors as mcolors
+    
+    controversy_cases = [
+        ('Jerry Rice', 2),
+        ('Billy Ray Cyrus', 4),
+        ('Bristol Palin', 11),
+        ('Bobby Bones', 27)
+    ]
+    
+    # 准备数据
+    rows_rank_diff = []
+    rows_pct_diff = []
+    max_weeks = 0
+    labels = []
+    
+    for name, season in controversy_cases:
+        labels.append(f"{name} (S{season})")
+        
+        # 获取该选手所在赛季的数据
+        season_data = vote_estimates[vote_estimates['season'] == season].copy()
+        celebrity_data = season_data[
+            season_data['celebrity'].str.contains(name.split()[0], case=False, na=False)
+        ].sort_values('week')
+        
+        weeks = celebrity_data['week'].values
+        if len(weeks) > 0:
+            max_weeks = max(max_weeks, max(weeks))
+            
+        rank_diff_dict = {}
+        pct_diff_dict = {}
+        
+        for week in weeks:
+            week_data = season_data[season_data['week'] == week]
+            contestants = week_data['celebrity'].tolist()
+            judge_scores = week_data['total_score'].values
+            fan_votes = week_data['estimated_votes'].values
+            
+            celeb_idx = None
+            for i, c in enumerate(contestants):
+                if name.split()[0].lower() in c.lower():
+                    celeb_idx = i
+                    break
+            
+            if celeb_idx is not None:
+                # 1. 排名差异 (Rank Gap)
+                # 使用 RankMethod 获取各自的排名 (1 is best)
+                j_ranks, f_ranks, _ = RankMethod.calculate_combined_scores(judge_scores, fan_votes)
+                my_j_rank = j_ranks[celeb_idx]
+                my_f_rank = f_ranks[celeb_idx]
+                
+                # 差异 = 评委排名 - 观众排名
+                # 例如: 评委给第10名(差), 观众给第1名(好) -> 10 - 1 = +9 (观众极度偏爱)
+                # 例如: 评委给第1名(好), 观众给第10名(差) -> 1 - 10 = -9 (评委极度偏爱)
+                rank_diff_dict[week] = my_j_rank - my_f_rank
+                
+                # 2. 份额差异 (Share Gap)
+                # 归一化评委分数
+                total_judge_score = np.sum(judge_scores)
+                j_share = judge_scores[celeb_idx] / total_judge_score if total_judge_score > 0 else 0
+                
+                # 归一化观众投票
+                total_fan_votes = np.sum(fan_votes)
+                f_share = fan_votes[celeb_idx] / total_fan_votes if total_fan_votes > 0 else 0
+                
+                # 差异 = (观众份额 - 评委份额) * 100
+                # 正值 = 观众份额更高
+                pct_diff_dict[week] = (f_share - j_share) * 100
+        
+        rows_rank_diff.append(rank_diff_dict)
+        rows_pct_diff.append(pct_diff_dict)
+    
+    # 构建DataFrame
+    weeks_cols = list(range(1, max_weeks + 1))
+    df_rank_diff = pd.DataFrame(rows_rank_diff, index=labels, columns=weeks_cols)
+    df_pct_diff = pd.DataFrame(rows_pct_diff, index=labels, columns=weeks_cols)
+    
+    # 绘图
+    fig, axes = plt.subplots(1, 2, figsize=(18, 6))
+    
+    # 自定义 Diverging Colormap
+    # 负值 (评委偏爱) -> Red (COLOR_5)
+    # 0 -> White/Light Gray
+    # 正值 (观众偏爱) -> Teal (COLOR_2) / Dark Blue (COLOR_1)
+    
+    # 创建一个以0为中心的Colormap
+    # 我们使用 matplotlib 的 LinearSegmentedColormap
+    # 颜色顺序: 珊瑚红 (评委) -> 白 -> 青绿 (观众)
+    cmap_colors = [COLOR_5, '#f7f7f7', COLOR_2]
+    cmap = mcolors.LinearSegmentedColormap.from_list("diverging_cmap", cmap_colors)
+    
+    # 设置 Center=0 的 Normalize
+    # 找出两个数据集中绝对值的最大值，确保0在中间
+    max_val_rank = max(abs(df_rank_diff.min().min()), abs(df_rank_diff.max().max()))
+    norm_rank = mcolors.TwoSlopeNorm(vmin=-max_val_rank, vcenter=0, vmax=max_val_rank)
+    
+    max_val_pct = max(abs(df_pct_diff.min().min()), abs(df_pct_diff.max().max()))
+    norm_pct = mcolors.TwoSlopeNorm(vmin=-max_val_pct, vcenter=0, vmax=max_val_pct)
+    
+    # 1. Rank Gap Heatmap
+    sns.heatmap(df_rank_diff, ax=axes[0], cmap=cmap, annot=True, fmt='.0f', 
+                cbar=True, cbar_kws={'label': 'Rank Gap (Pos=Fan Favored)'},
+                linewidths=1, linecolor='white',
+                norm=norm_rank)
+    axes[0].set_title('Rank Discrepancy (Judge Rank - Fan Rank)', fontsize=14, fontweight='bold', color=COLOR_1)
+    axes[0].set_xlabel('Week', fontsize=12)
+    axes[0].set_ylabel('')
+    
+    # 2. Percent Gap Heatmap
+    sns.heatmap(df_pct_diff, ax=axes[1], cmap=cmap, annot=True, fmt='.1f', 
+                cbar=True, cbar_kws={'label': 'Share Gap % (Pos=Fan Favored)'},
+                linewidths=1, linecolor='white',
+                norm=norm_pct)
+    axes[1].set_title('Share Discrepancy (Fan % - Judge %)', fontsize=14, fontweight='bold', color=COLOR_1)
+    axes[1].set_xlabel('Week', fontsize=12)
+    axes[1].set_ylabel('')
+    
+    plt.tight_layout()
+    output_path = os.path.join(FIGURE_DIR, 'controversy_heatmap_comparison.png')
+    plt.savefig(output_path, dpi=300, bbox_inches='tight')
+    plt.close()
+    print(f"图表已保存: {output_path}")
+
+
 
 
 def create_controversy_trajectory_plot(vote_estimates: pd.DataFrame) -> None:
@@ -355,7 +460,7 @@ def create_controversy_trajectory_plot(vote_estimates: pd.DataFrame) -> None:
         ].sort_values('week')
         
         if len(celebrity_data) == 0:
-            ax.text(0.5, 0.5, f'未找到 {name} 的数据', ha='center', va='center', transform=ax.transAxes)
+            ax.text(0.5, 0.5, f'Data not found for {name}', ha='center', va='center', transform=ax.transAxes)
             continue
         
         weeks = celebrity_data['week'].values
@@ -392,15 +497,17 @@ def create_controversy_trajectory_plot(vote_estimates: pd.DataFrame) -> None:
                 pct_rank = len(contestants) - np.argsort(np.argsort(c_pct))[celeb_idx]
                 combined_ranks_percent.append(pct_rank)
         
-        # 绘制轨迹
-        ax.plot(weeks, judge_ranks, 'o-', label='评委排名', color='#e74c3c', linewidth=2, markersize=8)
-        ax.plot(weeks, fan_ranks, 's-', label='观众排名', color='#2ecc71', linewidth=2, markersize=8)
-        ax.plot(weeks, combined_ranks_rank, '^-', label='综合排名(排名法)', color='#3498db', linewidth=2, markersize=8)
+        # use COLOR_5 (Red) for Judge, COLOR_3 (Yellow) for Fan
+        # COLOR_2 (Teal) for Rank Method, COLOR_1 (Dark Blue) for Percent Method
+        ax.plot(weeks, judge_ranks, 'o-', label='Judge Rank', color=COLOR_5, linewidth=2, markersize=8)
+        ax.plot(weeks, fan_ranks, 's-', label='Fan Rank', color=COLOR_3, linewidth=2, markersize=8)
+        ax.plot(weeks, combined_ranks_rank, '^-', label='Combined (Rank)', color=COLOR_2, linewidth=2, markersize=8)
+        ax.plot(weeks, combined_ranks_percent, 'x--', label='Combined (Percent)', color=COLOR_1, linewidth=2, markersize=8)
         
-        ax.set_xlabel('周次', fontsize=11)
-        ax.set_ylabel('排名 (1=最佳)', fontsize=11)
-        ax.set_title(f'{name} (第{season}季) - 排名轨迹', fontsize=12)
-        ax.legend(loc='upper left', fontsize=9)
+        ax.set_xlabel('Week', fontsize=11)
+        ax.set_ylabel('Rank (1=Best)', fontsize=11)
+        ax.set_title(f'{name} (Season {season})', fontsize=12)
+        ax.legend(loc='upper left', fontsize=9, framealpha=0.9)
         ax.invert_yaxis()  # 排名1在上面
         ax.grid(True, alpha=0.3)
         ax.set_xticks(weeks)
@@ -409,6 +516,83 @@ def create_controversy_trajectory_plot(vote_estimates: pd.DataFrame) -> None:
     plt.savefig(os.path.join(FIGURE_DIR, 'controversy_trajectories.png'), dpi=300, bbox_inches='tight')
     plt.close()
     print(f"图表已保存: {os.path.join(FIGURE_DIR, 'controversy_trajectories.png')}")
+    
+    # 额外绘制 Bobby Bones 单独图像
+    create_bobby_bones_plot(vote_estimates)
+
+
+def create_bobby_bones_plot(vote_estimates: pd.DataFrame) -> None:
+    """
+    单独绘制 Bobby Bones 的轨迹图
+    """
+    from analysis.voting_methods import RankMethod, PercentMethod
+    
+    fig, ax = plt.subplots(figsize=(10, 6))
+    name = 'Bobby Bones'
+    season = 27
+    
+    # 获取该选手所在赛季的数据
+    season_data = vote_estimates[vote_estimates['season'] == season].copy()
+    
+    # 获取选手的周次数据
+    celebrity_data = season_data[
+        season_data['celebrity'].str.contains(name.split()[0], case=False, na=False)
+    ].sort_values('week')
+    
+    if len(celebrity_data) > 0:
+        weeks = celebrity_data['week'].values
+        
+        # 计算每周的排名
+        judge_ranks = []
+        fan_ranks = []
+        combined_ranks_rank = []
+        combined_ranks_percent = []
+        
+        for week in weeks:
+            week_data = season_data[season_data['week'] == week]
+            contestants = week_data['celebrity'].tolist()
+            judge_scores = week_data['total_score'].values
+            fan_votes = week_data['estimated_votes'].values
+            
+            # 找到该选手在本周的位置
+            celeb_idx = None
+            for i, c in enumerate(contestants):
+                if name.split()[0].lower() in c.lower():
+                    celeb_idx = i
+                    break
+            
+            if celeb_idx is not None:
+                # 排名法
+                j_rank, f_rank, c_rank = RankMethod.calculate_combined_scores(judge_scores, fan_votes)
+                judge_ranks.append(j_rank[celeb_idx])
+                fan_ranks.append(f_rank[celeb_idx])
+                combined_ranks_rank.append(c_rank[celeb_idx])
+                
+                # 百分比法
+                j_pct, f_pct, c_pct = PercentMethod.calculate_combined_scores(judge_scores, fan_votes)
+                # 将百分比转换为排名（用于可视化）
+                pct_rank = len(contestants) - np.argsort(np.argsort(c_pct))[celeb_idx]
+                combined_ranks_percent.append(pct_rank)
+        
+        # 绘图
+        ax.plot(weeks, judge_ranks, 'o-', label='Judge Rank', color=COLOR_5, linewidth=2.5, markersize=10)
+        ax.plot(weeks, fan_ranks, 's-', label='Fan Rank', color=COLOR_3, linewidth=2.5, markersize=10)
+        ax.plot(weeks, combined_ranks_rank, '^-', label='Combined (Rank)', color=COLOR_2, linewidth=2.5, markersize=10)
+        ax.plot(weeks, combined_ranks_percent, 'x--', label='Combined (Percent)', color=COLOR_1, linewidth=2.5, markersize=10)
+        
+        ax.set_xlabel('Week', fontsize=12)
+        ax.set_ylabel('Rank (1=Best)', fontsize=12)
+        ax.set_title(f'{name} (Season {season}) - Detailed Trajectory', fontsize=14, fontweight='bold')
+        ax.legend(loc='upper left', fontsize=10, framealpha=0.9, shadow=True)
+        ax.invert_yaxis()  # 排名1在上面
+        ax.grid(True, alpha=0.3)
+        ax.set_xticks(weeks)
+    
+    plt.tight_layout()
+    output_path = os.path.join(FIGURE_DIR, 'bobby_bones_trajectory.png')
+    plt.savefig(output_path, dpi=300, bbox_inches='tight')
+    plt.close()
+    print(f"图表已保存: {output_path}")
 
 
 def main():
