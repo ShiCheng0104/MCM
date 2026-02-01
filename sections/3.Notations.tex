@@ -14,11 +14,33 @@ The core symbols and their definitions used in this study are summarized in Tabl
 \textbf{Symbol} & \textbf{Description} \\ 
 \midrule % Middle line
 
-$\text{PSNR}$    & Peak signal-to-noise ratio for image quality evaluation \\
+$n$ & 第$w$周剩余选手数量 \\
 
-$\text{UCIQE}$   & Underwater Color Image Quality Evaluation metric \\
+$S_i$ & 选手$i$的评委总分 \\
 
-$\text{UIQM}$    & Underwater Image Quality Measure \\
+$V_i$ & 选手$i$的估计观众投票数 \\
+
+$E_i$ & 淘汰指示器：若选手$i$被淘汰则$E_i = 1$，否则为0 \\
+
+$\mathcal{M}$ & 投票组合方法：``rank''（排名法）或``percent''（百分比法） \\
+
+$C_i$ & 选手$i$在方法$\mathcal{M}$下的综合得分 \\
+
+$\alpha$ & 投票与评委得分关系的幂律指数 \\
+
+$\boldsymbol{\theta}$ & 先验偏好因子（舞伴效应、行业效应） \\
+
+$R_i^{\text{judge}}$ & 选手$i$的评委得分排名 \\
+
+$R_i^{\text{fan}}$ & 选手$i$的观众投票排名 \\
+
+$\beta_p$ & 专业舞伴$p$的投票偏好效应 \\
+
+$\gamma_d$ & 名人行业$d$的投票偏好效应 \\
+
+$B_i^w$ & 选手$i$在第$w$周的存活提升值 \\
+
+$\mathbf{v}$ & 观众投票份额向量 $(v_1, \ldots, v_n)$ \\
 
 
 \bottomrule % Bottom line
