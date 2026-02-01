@@ -6,6 +6,7 @@ import matplotlib
 import seaborn as sns
 import os
 import sys
+import matplotlib.image as mpimg
 
 # Configure fonts for Chinese support
 matplotlib.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'Arial Unicode MS']
@@ -34,6 +35,45 @@ MCM_COLORS = ['#264653', '#2a9d8e', '#e9c46b', '#f3a261', '#e86f52']
 # e9c46b (Yellow) to e86f52 (Red Orange) to 264653 (Dark Teal/Purple-ish)
 # Low -> Medium -> High
 SHAP_CMAP = LinearSegmentedColormap.from_list("mcm_shap", ['#e9c46b', '#e86f52', '#264653'])
+
+
+def combine_two_pngs_side_by_side(
+    left_png_path: str,
+    right_png_path: str,
+    out_png_path: str,
+    left_title: str,
+    right_title: str,
+    figure_title: str | None = None,
+    bg_color: str = '#F8F9FA',
+):
+    """Combine two existing PNG files into one (left/right) and save."""
+
+    if not (os.path.exists(left_png_path) and os.path.exists(right_png_path)):
+        print(f"[combine] Missing input files: {left_png_path} or {right_png_path}")
+        return
+
+    img_left = mpimg.imread(left_png_path)
+    img_right = mpimg.imread(right_png_path)
+
+    fig, axes = plt.subplots(1, 2, figsize=(18, 8), constrained_layout=True)
+    fig.patch.set_facecolor(bg_color)
+    for ax in axes:
+        ax.set_facecolor(bg_color)
+
+    axes[0].imshow(img_left)
+    axes[0].axis('off')
+    axes[0].set_title(left_title, fontsize=16, fontweight='bold', color='#264653', pad=10)
+
+    axes[1].imshow(img_right)
+    axes[1].axis('off')
+    axes[1].set_title(right_title, fontsize=16, fontweight='bold', color='#264653', pad=10)
+
+    if figure_title:
+        fig.suptitle(figure_title, fontsize=18, fontweight='bold', color='#264653')
+
+    fig.savefig(out_png_path, dpi=300, bbox_inches='tight')
+    plt.close(fig)
+    print(f"[combine] Saved: {out_png_path}")
 
 def train_rf_model(X, y):
     """Train a Random Forest model"""
@@ -459,6 +499,85 @@ def main():
     plot_shap_analysis(rf_vote, X, "fan_votes")
     plot_static_nomogram(X, y_vote, "fan_votes")
     plot_residual_case_order(rf_vote, X, y_vote, "fan_votes")
+
+    # --- Combine Judge vs Fan plots by type ---
+    print("\n--- Combining figures (Judge vs Fan) ---")
+
+    # Residual (keep only one combined file)
+    residual_left = os.path.join(FIGURES_DIR, 'residual_case_order_judge_score.png')
+    residual_right = os.path.join(FIGURES_DIR, 'residual_case_order_fan_votes.png')
+    residual_out = os.path.join(FIGURES_DIR, 'residual_case_order_combined.png')
+    combine_two_pngs_side_by_side(
+        residual_left,
+        residual_right,
+        residual_out,
+        left_title='Judge Score',
+        right_title='Fan Votes (log)',
+        figure_title='Residual Case Order Plot',
+    )
+    for p in (residual_left, residual_right):
+        try:
+            if os.path.exists(p):
+                os.remove(p)
+        except Exception:
+            pass
+
+    # SHAP Summary
+    shap_sum_left = os.path.join(FIGURES_DIR, 'shap_summary_judge_score.png')
+    shap_sum_right = os.path.join(FIGURES_DIR, 'shap_summary_fan_votes.png')
+    shap_sum_out = os.path.join(FIGURES_DIR, 'shap_summary_combined.png')
+    combine_two_pngs_side_by_side(
+        shap_sum_left,
+        shap_sum_right,
+        shap_sum_out,
+        left_title='Judge Score',
+        right_title='Fan Votes (log)',
+        figure_title='SHAP Summary (Beeswarm)',
+    )
+    for p in (shap_sum_left, shap_sum_right):
+        try:
+            if os.path.exists(p):
+                os.remove(p)
+        except Exception:
+            pass
+
+    # SHAP Importance (Bar)
+    shap_imp_left = os.path.join(FIGURES_DIR, 'shap_importance_judge_score.png')
+    shap_imp_right = os.path.join(FIGURES_DIR, 'shap_importance_fan_votes.png')
+    shap_imp_out = os.path.join(FIGURES_DIR, 'shap_importance_combined.png')
+    combine_two_pngs_side_by_side(
+        shap_imp_left,
+        shap_imp_right,
+        shap_imp_out,
+        left_title='Judge Score',
+        right_title='Fan Votes (log)',
+        figure_title='SHAP Feature Importance',
+    )
+    for p in (shap_imp_left, shap_imp_right):
+        try:
+            if os.path.exists(p):
+                os.remove(p)
+        except Exception:
+            pass
+
+    # Nomogram
+    nom_left = os.path.join(FIGURES_DIR, 'nomogram_judge_score.png')
+    nom_right = os.path.join(FIGURES_DIR, 'nomogram_fan_votes.png')
+    nom_out = os.path.join(FIGURES_DIR, 'nomogram_combined.png')
+    combine_two_pngs_side_by_side(
+        nom_left,
+        nom_right,
+        nom_out,
+        left_title='Judge Score',
+        right_title='Fan Votes (log)',
+        figure_title='Nomogram (Side-by-side)',
+    )
+    for p in (nom_left, nom_right):
+        try:
+            if os.path.exists(p):
+                os.remove(p)
+        except Exception:
+            pass
 
 if __name__ == "__main__":
     main()
