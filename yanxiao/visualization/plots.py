@@ -184,6 +184,12 @@ class VotePlotter:
         # 增加背景装饰环
         ax.set_facecolor('#fafafa')
         
+        # 绘制预测投票 (Predicted Votes) - 放在图层最下方 (最先绘制)
+        # 颜色换成 #e86f52 (accent3)
+        ax.plot(angles, vote_shares_closed, 'D-', linewidth=3, 
+                color=COLORS['accent3'], label='Predicted Votes', markersize=8)
+        ax.fill(angles, vote_shares_closed, alpha=0.25, color=COLORS['accent3'])
+
         # 绘制评委得分 (Secondary Color)
         ax.plot(angles, score_shares_closed, 'o-', linewidth=2, 
                 color=COLORS['secondary'], label='Judge Scores', markersize=6)
@@ -194,11 +200,6 @@ class VotePlotter:
             ax.plot(angles, pop_shares_closed, 's-', linewidth=2, 
                     color=COLORS['accent1'], label='Google Trends', markersize=6)
             ax.fill(angles, pop_shares_closed, alpha=0.1, color=COLORS['accent1'])
-            
-        # 绘制预测投票 (Primary Color) - 最后绘制以突显
-        ax.plot(angles, vote_shares_closed, 'D-', linewidth=3, 
-                color=COLORS['primary'], label='Predicted Votes', markersize=8)
-        ax.fill(angles, vote_shares_closed, alpha=0.25, color=COLORS['primary']) # 增加透明度让颜色更丰富
         
         ax.set_xticks(angles[:-1])
         ax.set_xticklabels(names, size=14, fontweight='bold')
