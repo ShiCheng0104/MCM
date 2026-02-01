@@ -1,0 +1,419 @@
+﻿celebrity_name,season,normalized_average,variants_searched
+Kelly Monaco,1,1.0,4
+Rachel Hunter,1,0.103536,4
+Joey McIntyre,1,0.010384,5
+Trista Sutter,1,0.006533,4
+John O'Hurley,1,0.002284,8
+Evander Holyfield,1,0.0,4
+Stacy Keibler,2,1.0,4
+Jerry Rice,2,0.799567,4
+Lisa Rinna,2,0.735645,4
+Master P,2,0.396533,4
+Tia Carrere,2,0.279523,4
+George Hamilton,2,0.227519,4
+Drew Lachey,2,0.121343,4
+Giselle Fernandez,2,0.094258,4
+Tatum O'Neal,2,0.02221,8
+Kenny Mayne,2,0.0,4
+Jerry Springer,3,1.0,4
+Joey Lawrence,3,0.554046,4
+Willa Ford,3,0.50525,4
+Mario Lopez,3,0.463249,4
+Monique Coleman,3,0.275479,4
+Harry Hamlin,3,0.210006,4
+Emmitt Smith,3,0.168005,4
+Shanna Moakler,3,0.145769,4
+Tucker Carlson,3,0.145769,4
+Sara Evans,3,0.133416,4
+Vivica A. Fox,3,0.0,4
+Heather Mills,4,1.0,4
+Laila Ali,4,0.314956,4
+Billy Ray Cyrus,4,0.314457,4
+Joey Fatone,4,0.193564,4
+Paulina Porizkova,4,0.1607,4
+Apolo Anton Ohno,4,0.154328,4
+Ian Ziering,4,0.123586,4
+Shandi Finnessey,4,0.092522,4
+Leeza Gibbons,4,0.089006,4
+Clyde Drexler,4,0.004955,4
+John Ratzenberger,4,0.0,4
+Marie Osmond,5,1.0,4
+Jane Seymour,5,0.461056,4
+Mark Cuban,5,0.442315,4
+Wayne Newton,5,0.439919,4
+Sabrina Bryan,5,0.430486,4
+Jennie Garth,5,0.275794,4
+Albert Reed,5,0.15578,4
+Josie Maran,5,0.147726,4
+Helio Castroneves,5,0.133239,4
+Mel B,5,0.104055,4
+Cameron Mathison,5,0.075335,4
+Floyd Mayweather Jr. ,5,0.0,4
+Mario,6,1.0,3
+Shannon Elizabeth,6,0.099385,4
+Priscilla Presley,6,0.08406,4
+Jason Taylor,6,0.055201,4
+Adam Carolla,6,0.024685,4
+Marlee Matlin,6,0.023862,4
+Kristi Yamaguchi,6,0.023097,4
+Monica Seles,6,0.014974,4
+Marissa Jaret Winokur,6,0.010909,4
+Cristian de la Fuente,6,0.007174,5
+Steve Guttenberg,6,0.005592,4
+Penn Jillette,6,0.0,4
+Kim Kardashian,7,1.0,4
+Brooke Burke,7,0.274181,4
+Cloris Leachman,7,0.112294,4
+Susan Lucci,7,0.096285,4
+Cody Linley,7,0.091415,4
+Toni Braxton,7,0.083585,4
+Warren Sapp,7,0.065302,4
+Lance Bass,7,0.051424,4
+Rocco DiSpirito,7,0.02048,5
+Ted McGinley,7,0.016789,5
+Misty May-Treanor,7,0.007461,4
+Jeffrey Ross,7,0.001104,4
+Maurice Greene,7,0.0,4
+Lil' Kim,8,1.0,8
+Shawn Johnson,8,0.834149,4
+Holly Madison,8,0.56989,4
+Melissa Rycroft,8,0.471561,4
+Denise Richards,8,0.314444,4
+Gilles Marini,8,0.211254,4
+Chuck Wicks,8,0.186527,4
+Steve-O,8,0.155554,4
+Steve Wozniak,8,0.143667,4
+Ty Murray,8,0.095783,4
+Belinda Carlisle,8,0.082683,4
+Lawrence Taylor,8,0.031105,4
+David Alan Grier,8,0.0,4
+Mya,9,1.0,8
+Joanna Krupa,9,0.423662,4
+Aaron Carter,9,0.29042,4
+Tom DeLay,9,0.195036,5
+Kelly Osbourne,9,0.191103,4
+Kathy Ireland,9,0.15815,4
+Donny Osmond,9,0.156875,4
+Chuck Liddell,9,0.146455,4
+Melissa Joan Hart,9,0.137814,4
+Louie Vito,9,0.098535,4
+Macy Gray,9,0.085282,4
+Natalie Coughlin,9,0.066116,4
+Debi Mazar,9,0.06088,4
+Mark Dacascos,9,0.052004,4
+Michael Irvin,9,0.042229,4
+Ashley Hamiliton,9,0.0,4
+Erin Andrews,10,1.0,4
+Kate Gosselin,10,0.997863,4
+Pamela Anderson,10,0.561921,4
+Nicole Scherzinger,10,0.328573,4
+Chad Ochocinco,10,0.1987,4
+Evan Lysacek,10,0.12866,4
+Buzz Aldrin,10,0.121455,4
+Jake Pavelka,10,0.095078,4
+Niecy Nash,10,0.041848,4
+Shannen Doherty,10,0.031274,4
+Aiden Turner,10,0.0,4
+Jennifer Grey,11,1.0,4
+The Situation,11,0.938732,4
+Brandy,11,0.931477,3
+Bristol Palin,11,0.848744,4
+Rick Fox,11,0.357667,4
+Audrina Patridge,11,0.247342,4
+Kurt Warner,11,0.083974,4
+Michael Bolton,11,0.075151,4
+Kyle Massey,11,0.064936,4
+David Hasselhoff,11,0.03986,4
+Florence Henderson,11,0.018831,4
+Margaret Cho,11,0.0,4
+Romeo,12,1.0,3
+Kirstie Alley,12,0.482345,4
+Wendy Williams,12,0.312594,4
+Chelsea Kane,12,0.302214,4
+Kendra Wilkinson,12,0.292446,4
+Ralph Macchio,12,0.265798,4
+Hines Ward,12,0.254362,4
+Sugar Ray Leonard,12,0.057633,4
+Chris Jericho,12,0.044868,4
+Petra Nemcova,12,0.043698,4
+Mike Catherwood,12,0.0,4
+Hope Solo,13,1.0,4
+Chaz Bono,13,0.759486,4
+Kristin Cavallari,13,0.393453,4
+Rob Kardashian,13,0.315261,4
+Chynna Phillips,13,0.258487,4
+Ricki Lake,13,0.254584,4
+David Arquette,13,0.252417,4
+J.R. Martinez,13,0.170931,4
+Elisabetta Canalis,13,0.093136,4
+Carson Kressley,13,0.079771,4
+Nancy Grace,13,0.003893,4
+Metta World Peace (Ron),13,0.0,4
+William Levy,14,1.0,4
+Melissa Gilbert,14,0.545129,4
+Maria Menounos,14,0.543354,4
+Gavin DeGraw,14,0.543281,5
+Gladys Knight,14,0.440244,4
+Katherine Jenkins,14,0.357239,4
+Jaleel White,14,0.296277,4
+Donald Driver,14,0.237568,4
+Jack Wagner,14,0.223438,4
+Roshon Fegan,14,0.18174,4
+Martina Navratilova,14,0.141307,4
+Sherri Sheperd,14,0.0,4
+Kelly Monaco,15,1.0,4
+Shawn Johnson,15,0.651884,4
+Pamela Anderson,15,0.469772,4
+Kirstie Alley,15,0.453145,4
+Melissa Rycroft,15,0.338634,4
+Bristol Palin,15,0.329227,4
+Emmitt Smith,15,0.255086,4
+Sabrina Bryan,15,0.211339,4
+Gilles Marini,15,0.190571,4
+Drew Lachey,15,0.056414,4
+Joey Fatone,15,0.050375,4
+Apolo Anton Ohno,15,0.000442,4
+Helio Castroneves,15,0.0,4
+Zendaya,16,1.0,3
+Kellie Pickler,16,0.871027,4
+Sean Lowe,16,0.685781,4
+Lisa Vanderpump,16,0.510265,4
+Dorothy Hamill,16,0.384688,4
+Andy Dick,16,0.378951,4
+Jacoby Jones,16,0.369546,4
+Wynonna Judd,16,0.176617,4
+Victor Ortiz,16,0.149021,4
+Ingo Rademacher,16,0.131054,4
+Alexandra Raisman,16,0.059397,4
+D. L. Hughley,16,0.0,4
+Bill Nye,17,1.0,4
+Christina Milian,17,0.569715,4
+Leah Remini,17,0.537093,4
+Corbin Bleu,17,0.431412,4
+Valerie Harper,17,0.429427,4
+Brant Daugherty,17,0.33622,4
+Amber Riley,17,0.293132,4
+Bill Engvall,17,0.228429,4
+Jack Osbourne,17,0.211876,4
+Keyshawn Johnson,17,0.109591,4
+Elizabeth Berkley Lauren,17,0.015018,4
+"Nicole ""Snooki"" Polizzi",17,0.0,4
+NeNe Leakes,18,1.0,5
+Cody Simpson,18,0.759194,4
+Danica McKellar,18,0.71524,5
+Amy Purdy,18,0.65421,4
+James Maslow,18,0.648553,4
+Meryl Davis,18,0.640192,4
+Drew Carey,18,0.378508,4
+Charlie White,18,0.204477,4
+Billy Dee Williams,18,0.175484,4
+Candace Cameron Bure,18,0.086736,4
+Sean Avery,18,0.045202,4
+Diana Nyad,18,0.0,4
+Sadie Robertson,19,1.0,4
+Bethany Mota,19,0.958227,4
+Tommy Chong,19,0.551926,4
+Alfonso Ribeiro,19,0.519163,4
+Betsey Johnson,19,0.514237,4
+Lea Thompson,19,0.469776,4
+Janel Parrish,19,0.43501,4
+Lolo Jones,19,0.289246,4
+Jonathan Bennett,19,0.252942,4
+Michael Waltrip,19,0.202854,4
+Tavis Smiley,19,0.113452,4
+Randy Couture,19,0.113234,4
+Antonio Sabato Jr.,19,0.0,4
+Charlotte McKinney,20,1.0,5
+Rumer Willis,20,0.836254,4
+Patti LaBelle,20,0.548457,5
+Chris Soules,20,0.526406,4
+Robert Herjavec,20,0.487577,4
+Riker Lynch,20,0.38398,4
+Suzanne Somers,20,0.353053,4
+Willow Shields,20,0.258219,4
+Noah Galloway,20,0.246332,4
+Nastia Liukin,20,0.12229,4
+Michael Sam,20,0.094176,4
+Redfoo,20,0.0,3
+Paula Deen,21,1.0,4
+Tamar Braxton,21,0.438426,4
+Andy Grammer,21,0.398233,4
+Hayes Grier,21,0.377687,4
+Chaka Khan,21,0.16061,4
+Gary Busey,21,0.15857,4
+Nick Carter,21,0.1304,4
+Victor Espinoza,21,0.069066,4
+Bindi Irwin,21,0.057934,4
+Alexa PenaVega,21,0.016826,5
+Carlos PenaVega,21,0.001275,5
+Kim Zolciak-Biermann,21,0.000255,4
+Alek Skarlatos,21,0.0,4
+Paige VanZant,22,1.0,5
+Jodie Sweetin,22,0.848847,4
+Mischa Barton,22,0.396778,4
+Antonio Brown,22,0.38821,4
+Geraldo Rivera,22,0.378916,4
+Ginger Zee,22,0.295268,4
+Von Miller,22,0.05362,4
+Kim Fields,22,0.05219,4
+Doug Flutie,22,0.021448,4
+Marla Maples,22,0.002145,4
+Nyle DiMarco,22,0.0,5
+Wanya Morris,22,0.0,4
+Amber Rose,23,1.0,4
+Vanilla Ice,23,0.260396,4
+Jana Kramer,23,0.113779,4
+Rick Perry,23,0.047664,4
+Babyface,23,0.044677,3
+Terra Jole,23,0.037165,4
+Maureen McCormick,23,0.021987,5
+Ryan Lochte,23,0.016913,4
+Marilu Henner,23,0.010367,4
+James Hinchcliffe,23,0.007205,4
+Jake T. Austin,23,0.00022,4
+Calvin Johnson Jr.,23,6.6e-05,4
+Laurie Hernandez,23,0.0,4
+Heather Morris,24,1.0,4
+Charo,24,0.77312,3
+Nick Viall,24,0.562209,4
+Mr. T,24,0.463074,4
+Nancy Kerrigan,24,0.449767,4
+Normani,24,0.327345,3
+Simone Biles,24,0.099135,4
+Erika Jayne,24,0.013972,4
+Bonner Bolton,24,0.0,4
+Frankie Muniz,25,1.0,4
+Lindsey Stirling,25,0.829279,4
+Jordan Fisher,25,0.738155,4
+Nikki Bella,25,0.586791,4
+Debbie Gibson,25,0.286238,4
+Victoria Arlen,25,0.242686,4
+Nick Lachey,25,0.229453,4
+Sasha Pieterse,25,0.220575,4
+Vanessa Lachey,25,0.216935,4
+Terrell Owens,25,0.149968,4
+Drew Scott,25,0.133128,4
+Barbara Corcoran,25,0.072711,4
+Derek Fisher,25,0.0,4
+Tonya Harding,26,1.0,4
+Josh Norman,26,0.151433,4
+Adam Rippon,26,0.150973,4
+Johnny Damon,26,0.084304,4
+Mirai Nagasu,26,0.063059,4
+Chris Mazdzer,26,0.049711,4
+Kareem Abdul-Jabbar,26,0.024855,4
+Jamie Anderson,26,0.023014,4
+Arike Ogunbowale,26,0.014729,4
+Jennie Finch Daigle,26,0.0,4
+Bobby Bones,27,1.0,4
+Alexis Ren,27,0.929961,4
+Mary Lou Retton,27,0.627514,4
+John Schneider,27,0.533719,4
+Nikki Glaser,27,0.474648,4
+Milo Manheim,27,0.441081,4
+Nancy McKeon,27,0.328237,5
+DeMarcus Ware,27,0.301261,5
+Tinashe,27,0.165403,3
+Evanna Lynch,27,0.140206,4
+Juan Pablo Di Pace,27,0.069086,4
+Joe Amabile,27,0.012326,4
+Danelle Umstead,27,0.0,4
+Hannah Brown,28,1.0,4
+Sean Spicer,28,0.72198,4
+James Van Der Beek,28,0.656041,4
+Lamar Odom,28,0.538443,4
+Lauren Alaina,28,0.471537,4
+Ray Lewis,28,0.416393,4
+Ally Brooke,28,0.338741,4
+Kel Mitchell,28,0.27797,4
+Kate Flannery,28,0.236331,4
+Mary Wilson,28,0.169933,4
+Karamo Brown,28,0.169371,4
+Sailor Brinkley-Cook,28,0.0,4
+Carole Baskin,29,1.0,4
+Nelly,29,0.835756,3
+Skai Jackson,29,0.799444,4
+Jeannie Mai,29,0.53321,4
+Chrishell Stause,29,0.448292,4
+Anne Heche,29,0.433282,4
+Jesse Metcalfe,29,0.310256,4
+Kaitlyn Bristowe,29,0.287338,4
+Johnny Weir,29,0.219789,4
+Justina Machado,29,0.195265,4
+Nev Schulman,29,0.182355,4
+AJ McLean,29,0.14721,5
+Charles Oakley,29,0.140431,4
+Monica Aldama,29,0.135501,4
+Veron Davis,29,0.0,4
+JoJo Siwa,30,1.0,5
+Amanda Kloots,30,0.220117,4
+Olivia Jade,30,0.21301,4
+Jimmie Allen,30,0.17952,4
+Iman Shumpert,30,0.16207,4
+Brian Austin Green,30,0.156666,4
+Cody Rigsby,30,0.13972,4
+Melora Hardin,30,0.124703,4
+Suni Lee,30,0.121054,4
+Matt James,30,0.106603,4
+Kenya Moore,30,0.096942,4
+Martin Kove,30,0.04396,4
+Melanie C,30,0.03362,4
+Christine Chiu,30,0.03164,4
+"Mike ""The Miz"" Mizanin",30,0.0,4
+Charli D'Amelio,31,1.0,8
+Selma Blair,31,0.783294,4
+Wayne Brady,31,0.425284,4
+Trevor Donovan,31,0.273362,4
+Joseph Baena,31,0.211039,4
+Gabby Windey,31,0.196571,4
+Teresa Giudice,31,0.182625,4
+Jordin Sparks,31,0.172062,4
+Cheryl Ladd,31,0.130295,4
+Jessie James Decker,31,0.091668,4
+Daniel Durant,31,0.039572,4
+Shangela,31,0.03153,3
+Jason Lewis,31,0.03029,4
+Heidi D'Amelio,31,0.010969,8
+Vinny Guadagnino,31,0.002674,4
+Sam Champion,31,0.0,4
+Harry Jowsey,32,1.0,4
+Barry Williams,32,0.923226,4
+Xochitl Gomez,32,0.772033,4
+Jason Mraz,32,0.725114,4
+Mira Sorvino,32,0.626253,4
+Jamie Lynn Spears,32,0.614511,4
+Alyson Hannigan,32,0.488157,4
+Ariana Madix,32,0.474596,4
+Mauricio Umansky,32,0.356087,4
+Matt Walsh,32,0.348969,4
+Adrian Peterson,32,0.308194,4
+Lele Pons,32,0.226004,4
+Charity Lawson,32,0.06337,4
+Tyson Beckford,32,0.0,4
+Anna Delvey,33,1.0,4
+Ilona Maher,33,0.750998,4
+Danny Amendola,33,0.52097,4
+Eric Roberts,33,0.460158,4
+Brooks Nader,33,0.445423,4
+Jenn Tran,33,0.316197,4
+Tori Spelling,33,0.312368,4
+Chandler Kinney,33,0.279818,4
+Stephen Nedoroscik,33,0.20067,4
+Reginald VelJohnson,33,0.165156,5
+Joey Graziadei,33,0.133342,4
+Phaedra Parks,33,0.119825,4
+Dwight Howard ,33,0.0,4
+Robert Irwin,34,1.0,4
+Dylan Efron,34,0.390111,4
+Alix Earle,34,0.376626,4
+Elaine Hendrix,34,0.270183,4
+Whitney Leavitt,34,0.248162,4
+Andy Richter,34,0.235816,4
+Danielle Fishel,34,0.208433,4
+Hilaria Baldwin,34,0.204865,4
+Corey Feldman,34,0.200416,4
+Jen Affleck,34,0.18835,4
+Jordan Chiles,34,0.122879,4
+Scott Hoying,34,0.021927,4
+Lauren Jauregui,34,0.017779,4
+Baron Davis,34,0.0,4

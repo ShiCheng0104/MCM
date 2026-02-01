@@ -7,6 +7,7 @@ import sys
 import pandas as pd
 import numpy as np
 from datetime import datetime
+import argparse
 
 # 添加项目根目录到路径
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -16,6 +17,7 @@ from src.data_preprocessing import DataPreprocessor, load_and_preprocess
 from src.consistency_check import ConsistencyChecker, run_consistency_check
 from src.uncertainty_measure import UncertaintyAnalyzer, run_uncertainty_analysis
 from models.precise_vote_model import PreciseVoteModel
+from models.bayesian_elimination_model import BayesianEliminationModel
 from visualization.plots import VotePlotter
 
 
@@ -29,8 +31,20 @@ def print_header():
     print("="*70 + "\n")
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="DWTS 观众投票估计与可视化")
+    parser.add_argument(
+        "--model",
+        choices=["precise", "bayesian"],
+        default="precise",
+        help="选择模型：precise=精确反推（默认），bayesian=贝叶斯淘汰似然推断",
+    )
+    return parser.parse_args()
+
+
 def main():
     """主函数"""
+    args = parse_args()
     print_header()
     
     # ========================================
@@ -54,13 +68,25 @@ def main():
     print()
     
     # ========================================
-    # 2. 训练精确投票反推模型
+    # 2. 训练模型
     # ========================================
-    print("[2/5] 训练精确投票反推模型...")
+    if args.model == 'bayesian':
+        print("[2/5] 训练贝叶斯淘汰概率模型...")
+    else:
+        print("[2/5] 训练精确投票反推模型...")
     print("-" * 50)
-    
-    # 使用精确投票反推模型（严格按照排名法/百分比法）
-    model = PreciseVoteModel(random_seed=ModelConfig.RANDOM_SEED)
+
+    if args.model == 'bayesian':
+        model = BayesianEliminationModel(
+            n_samples=ModelConfig.MCMC_SAMPLES,
+            n_tune=ModelConfig.MCMC_TUNE,
+            n_chains=ModelConfig.MCMC_CHAINS,
+            random_seed=ModelConfig.RANDOM_SEED,
+        )
+    else:
+        # 使用精确投票反推模型（严格按照排名法/百分比法）
+        model = PreciseVoteModel(random_seed=ModelConfig.RANDOM_SEED)
+
     model.fit(weekly_data, elimination_info)
     # 获取模型在训练阶段的验证结果
     elim_results = model.predict_elimination(weekly_data, elimination_info)
@@ -180,9 +206,14 @@ def main():
     print("  分析完成！结果汇总")
     print("="*70)
     
-    print(f"\n  【精确投票反推模型】")
-    print(f"  ├─ 使用排名法赛季: 1-2, 28-34")
-    print(f"  └─ 使用百分比法赛季: 3-27")
+    if args.model == 'bayesian':
+        print(f"\n  【贝叶斯淘汰概率模型】")
+        print(f"  ├─ 观测: 每周淘汰事实")
+        print(f"  └─ 推断: log(投票) 的后验参数")
+    else:
+        print(f"\n  【精确投票反推模型】")
+        print(f"  ├─ 使用排名法赛季: 1-2, 28-34")
+        print(f"  └─ 使用百分比法赛季: 3-27")
     
     print(f"\n  【舞伴效应 Top 3】")
     sorted_partners = sorted(model.partner_effects.items(), key=lambda x: x[1], reverse=True)

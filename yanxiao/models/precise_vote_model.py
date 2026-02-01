@@ -8,9 +8,15 @@
 核心思路：
 - 已知：评委得分、谁被淘汰
 - 求解：观众投票（使被淘汰者的综合得分最低/排名最高）
+
+扩展特征：
+- 观众人数：反映可参与投票的人数基数
+- Google Trends：反映名人热度，按季度归一化（0-1）
 """
 import numpy as np
 import pandas as pd
+import os
+import warnings
 from typing import Dict, List, Tuple, Optional
 from scipy.optimize import minimize, differential_evolution, LinearConstraint
 from scipy.stats import rankdata
@@ -34,6 +40,10 @@ class PreciseVoteModel:
     精确投票反推模型
     
     关键：根据淘汰结果反推出满足约束的观众投票
+    
+    扩展特征：
+    - 观众人数 (viewers): 影响投票基数，观众多则投票总量大
+    - 名人热度 (popularity): Google Trends归一化值，热度高的名人更易获得投票
     """
     
     def __init__(self, random_seed: int = 42):
@@ -53,10 +63,18 @@ class PreciseVoteModel:
         # 全局参数
         self.base_vote_share = 0.5  # 基础投票份额
         self.score_influence = 0.3  # 评分对投票的影响
+        self.popularity_influence = 0.25  # 热度对投票的影响权重
+        self.viewers_influence = 0.15  # 观众人数对投票的影响权重
         
         # 标准化参数
         self.age_mean = 0
         self.age_std = 1
+        self.viewers_mean = 0
+        self.viewers_std = 1
+        
+        # 外部数据缓存
+        self.google_trends_data = None  # {(celebrity, season): normalized_average}
+        self.viewership_data = None  # {season: {week: viewers}}
         
         # 结果存储
         self.results_df = None
@@ -67,7 +85,14 @@ class PreciseVoteModel:
         """训练模型"""
         print("正在训练精确投票反推模型...")
         
-        # 1. 学习投票偏好（舞伴/行业效应）
+        # 0. 加载外部数据（Google Trends + 观众人数）
+        self._load_google_trends_data()
+        self._load_viewership_data()
+        
+        # 0.5 将外部数据合并到weekly_data
+        self._merge_external_data(weekly_data)
+        
+        # 1. 学习投票偏好（舞伴/行业效应 + 热度/观众效应）
         self._learn_vote_preferences(weekly_data, elimination_info)
         
         # 2. 对每个周次反推投票
@@ -77,6 +102,180 @@ class PreciseVoteModel:
         
         self.is_fitted = True
         print("模型训练完成!")
+    
+    def _load_google_trends_data(self):
+        """加载Google Trends数据"""
+        print("  正在加载Google Trends数据...")
+        
+        # 尝试多个可能的路径
+        possible_paths = [
+            'MCM/Googletrends/google_trends_summary.csv',
+            'Googletrends/google_trends_summary.csv',
+            '../Googletrends/google_trends_summary.csv',
+            'MCM/google_trends_summary.csv',
+        ]
+        
+        trends_df = None
+        for path in possible_paths:
+            if os.path.exists(path):
+                try:
+                    trends_df = pd.read_csv(path)
+                    print(f"    从 {path} 加载了 {len(trends_df)} 条Google Trends记录")
+                    break
+                except Exception as e:
+                    print(f"    警告: 读取 {path} 失败: {e}")
+        
+        if trends_df is None:
+            print("    警告: 无法加载Google Trends数据，将使用默认值0")
+            self.google_trends_data = {}
+            return
+        
+        # 构建查找字典 {(celebrity_name, season): normalized_average}
+        self.google_trends_data = {}
+        for _, row in trends_df.iterrows():
+            key = (row['celebrity_name'], row['season'])
+            self.google_trends_data[key] = row['normalized_average']
+        
+        print(f"    成功加载 {len(self.google_trends_data)} 条名人热度数据")
+    
+    def _load_viewership_data(self):
+        """加载观众人数数据"""
+        print("  正在加载观众人数数据...")
+        
+        # 尝试多个可能的路径
+        possible_dirs = [
+            'MCM/收视率数据/processed',
+            '收视率数据/processed',
+            '../收视率数据/processed',
+        ]
+        
+        viewership_dir = None
+        for d in possible_dirs:
+            if os.path.exists(d):
+                viewership_dir = d
+                break
+        
+        if viewership_dir is None:
+            print("    警告: 无法找到观众人数数据目录，将使用默认值")
+            self.viewership_data = {}
+            return
+        
+        self.viewership_data = {}  # {season: {week: viewers}}
+        
+        for season in range(1, 35):
+            # 优先读取merged文件，否则读取普通文件
+            merged_file = os.path.join(viewership_dir, f'processed_ratings_{season}_merged.csv')
+            normal_file = os.path.join(viewership_dir, f'processed_ratings_{season}.csv')
+            
+            file_to_read = merged_file if os.path.exists(merged_file) else normal_file
+            
+            if os.path.exists(file_to_read):
+                try:
+                    df = pd.read_csv(file_to_read, usecols=['week', 'viewers'])
+                    self.viewership_data[season] = {}
+                    
+                    for _, row in df.iterrows():
+                        week = row['week']
+                        viewers_str = str(row['viewers'])
+                        
+                        # 处理逗号分割的多次播出数据（merged文件）
+                        if ',' in viewers_str:
+                            # 取多次播出的总和（投票可能来自多次播出的观众）
+                            viewer_values = [float(v.strip()) for v in viewers_str.split(',')]
+                            total_viewers = np.sum(viewer_values)
+                        else:
+                            total_viewers = float(viewers_str)
+                        
+                        self.viewership_data[season][week] = total_viewers
+                        
+                except Exception as e:
+                    print(f"    警告: 读取Season {season}观众数据失败: {e}")
+        
+        # 补充缺失的第12和31季数据（用相邻季度平均值）
+        for missing_season in [12, 31]:
+            if missing_season not in self.viewership_data:
+                print(f"    补充Season {missing_season}缺失数据（使用相邻季度平均值）")
+                
+                prev_season = missing_season - 1
+                next_season = missing_season + 1
+                
+                if prev_season in self.viewership_data and next_season in self.viewership_data:
+                    self.viewership_data[missing_season] = {}
+                    
+                    all_weeks = set(self.viewership_data[prev_season].keys()) | \
+                               set(self.viewership_data[next_season].keys())
+                    
+                    for week in all_weeks:
+                        prev_val = self.viewership_data[prev_season].get(week, None)
+                        next_val = self.viewership_data[next_season].get(week, None)
+                        
+                        if prev_val is not None and next_val is not None:
+                            self.viewership_data[missing_season][week] = (prev_val + next_val) / 2
+                        elif prev_val is not None:
+                            self.viewership_data[missing_season][week] = prev_val
+                        elif next_val is not None:
+                            self.viewership_data[missing_season][week] = next_val
+        
+        print(f"    成功加载 {len(self.viewership_data)} 个季度的观众人数数据")
+    
+    def _merge_external_data(self, weekly_data: pd.DataFrame):
+        """将外部数据合并到weekly_data"""
+        print("  正在合并外部数据...")
+        
+        # 确定名人列名
+        name_col = 'celebrity_name' if 'celebrity_name' in weekly_data.columns else 'celebrity'
+        
+        # 合并Google Trends数据（popularity）
+        popularity_list = []
+        for _, row in weekly_data.iterrows():
+            celeb = row[name_col]
+            season = row['season']
+            key = (celeb, season)
+            
+            if key in self.google_trends_data:
+                popularity_list.append(self.google_trends_data[key])
+            else:
+                popularity_list.append(0.0)  # 缺失则为0
+        
+        weekly_data['popularity'] = popularity_list
+        
+        # 用季度内中位数填充缺失值
+        for season in weekly_data['season'].unique():
+            season_mask = weekly_data['season'] == season
+            season_median = weekly_data.loc[season_mask, 'popularity'].median()
+            if pd.notna(season_median) and season_median > 0:
+                missing_mask = season_mask & (weekly_data['popularity'] == 0)
+                weekly_data.loc[missing_mask, 'popularity'] = season_median
+        
+        pop_coverage = (weekly_data['popularity'] > 0).mean()
+        print(f"    Google Trends数据覆盖率: {pop_coverage:.1%}")
+        
+        # 合并观众人数数据（viewers）
+        viewers_list = []
+        for _, row in weekly_data.iterrows():
+            season = row['season']
+            week = row['week']
+            
+            if season in self.viewership_data and week in self.viewership_data[season]:
+                viewers_list.append(self.viewership_data[season][week])
+            else:
+                viewers_list.append(np.nan)
+        
+        weekly_data['viewers'] = viewers_list
+        
+        # 填充缺失值（用全局中位数）
+        median_viewers = weekly_data['viewers'].median()
+        weekly_data['viewers'] = weekly_data['viewers'].fillna(median_viewers)
+        
+        # 标准化观众人数
+        self.viewers_mean = weekly_data['viewers'].mean()
+        self.viewers_std = weekly_data['viewers'].std()
+        if self.viewers_std == 0:
+            self.viewers_std = 1
+        
+        viewers_coverage = weekly_data['viewers'].notna().mean()
+        print(f"    观众人数数据覆盖率: {viewers_coverage:.1%}")
+        print(f"    观众人数范围: {weekly_data['viewers'].min():.1f} - {weekly_data['viewers'].max():.1f} 百万")
         
     def _learn_vote_preferences(self, weekly_data: pd.DataFrame, 
                                 elimination_info: pd.DataFrame):
@@ -84,6 +283,8 @@ class PreciseVoteModel:
         学习投票偏好：哪些舞伴/行业能获得更多投票支持
         
         方法：统计各舞伴/行业的"超预期存活率"
+        
+        扩展：考虑名人热度和观众人数的影响
         """
         print("  学习投票偏好...")
         
@@ -94,6 +295,11 @@ class PreciseVoteModel:
         
         partner_stats = {}  # {partner: [survive_boost, ...]}
         industry_stats = {}
+        popularity_boosts = []  # 热度对存活的影响
+        viewers_effects = []  # 观众人数对存活的影响
+        
+        # 确定名人列名
+        name_col = 'celebrity_name' if 'celebrity_name' in weekly_data.columns else 'celebrity'
         
         for (season, week), group in weekly_data.groupby(['season', 'week']):
             elim = elimination_info[
@@ -111,22 +317,28 @@ class PreciseVoteModel:
             scores = group['total_score'].values
             score_ranks = n - rankdata(scores, method='ordinal') + 1  # 1=最高分
             
+            # 获取该周的观众人数（用于分析观众人数与投票的关系）
+            week_viewers = group['viewers'].mean() if 'viewers' in group.columns else 0
+            
             for idx, (_, row) in enumerate(group.iterrows()):
-                name = row['celebrity_name']
+                name = row[name_col]
                 partner = row.get('ballroom_partner', 'Unknown')
                 industry = row.get('celebrity_industry', 'Unknown')
                 score_rank = score_ranks[idx]
+                popularity = row.get('popularity', 0)
                 
                 # 超预期存活：评分低但没被淘汰
                 # 负向超预期：评分高但被淘汰
-                expected_elim_rank = n  # 预期最低分被淘汰
-                
                 if name in eliminated_names:
                     # 被淘汰：计算"提前淘汰程度"
                     boost = -(n - score_rank) / n  # 评分越高，被淘汰越意外
+                    # 热度高的人被淘汰更意外
+                    popularity_boosts.append((popularity, -1))  # 淘汰
                 else:
                     # 存活：计算"超预期存活程度"
                     boost = (score_rank - 1) / n  # 评分越低，存活越意外
+                    # 热度高的人存活是预期的
+                    popularity_boosts.append((popularity, 1))  # 存活
                 
                 # 记录
                 if partner not in partner_stats:
@@ -145,6 +357,20 @@ class PreciseVoteModel:
         for industry, boosts in industry_stats.items():
             self.industry_effects[industry] = np.mean(boosts) - overall_mean
         
+        # 学习热度对存活的影响（正相关说明热度高更易存活）
+        if popularity_boosts:
+            high_pop = [outcome for (pop, outcome) in popularity_boosts if pop > 0.5]
+            low_pop = [outcome for (pop, outcome) in popularity_boosts if pop <= 0.5]
+            
+            high_survival_rate = np.mean([1 if o > 0 else 0 for o in high_pop]) if high_pop else 0.5
+            low_survival_rate = np.mean([1 if o > 0 else 0 for o in low_pop]) if low_pop else 0.5
+            
+            self.popularity_effect = high_survival_rate - low_survival_rate
+            print(f"    热度效应: 高热度存活率={high_survival_rate:.1%}, 低热度存活率={low_survival_rate:.1%}")
+            print(f"    热度提升存活率: {self.popularity_effect:+.1%}")
+        else:
+            self.popularity_effect = 0
+        
         # 打印效应
         sorted_partners = sorted(self.partner_effects.items(), key=lambda x: x[1], reverse=True)
         print(f"    舞伴效应 (Top 5, 正值=更多投票支持):")
@@ -158,21 +384,35 @@ class PreciseVoteModel:
     
     def _solve_all_weeks(self, weekly_data: pd.DataFrame, 
                          elimination_info: pd.DataFrame):
-        """对每个周次反推投票"""
+        """
+        对每个周次反推投票
+        
+        扩展：考虑观众人数对投票总量的影响，以及名人热度对投票份额的影响
+        """
         print("  反推各周次投票...")
         
         results = []
         success_count = 0
         total_count = 0        
-        failed_weeks = []  # 记录失败的周次        
+        failed_weeks = []  # 记录失败的周次
+        
+        # 确定名人列名
+        name_col = 'celebrity_name' if 'celebrity_name' in weekly_data.columns else 'celebrity'
+        
         for (season, week), group in weekly_data.groupby(['season', 'week']):
             elim = elimination_info[
                 (elimination_info['season'] == season) & 
                 (elimination_info['week'] == week)
             ]
             
+            # 获取该周的观众人数（用于计算投票总量）
+            week_viewers = group['viewers'].mean() if 'viewers' in group.columns else 20.0
+            # 基于观众人数估算投票总量（假设投票率约5%，观众单位为百万）
+            estimated_total_votes = week_viewers * 1_000_000 * 0.05  # 百万观众 * 5%投票率
+            estimated_total_votes = max(estimated_total_votes, 500_000)  # 至少50万票
+            
             if len(elim) == 0:
-                # 无淘汰周次：使用基线模型 + 先验偏好预测投票
+                # 无淘汰周次：使用基线模型 + 先验偏好 + 热度预测投票
                 method = 'rank' if season in SEASONS_RANK_METHOD else 'percent'
                 
                 # 准备选手数据
@@ -180,18 +420,22 @@ class PreciseVoteModel:
                 for _, row in group.iterrows():
                     partner = row.get('ballroom_partner', 'Unknown')
                     industry = row.get('celebrity_industry', 'Unknown')
+                    popularity = row.get('popularity', 0)
+                    
                     prior_boost = (
                         self.partner_effects.get(partner, 0) +
                         self.industry_effects.get(industry, 0)
                     )
                     contestants_no_elim.append({
-                        'name': row['celebrity_name'],
+                        'name': row[name_col],
                         'score': row['total_score'],
-                        'prior_boost': prior_boost
+                        'prior_boost': prior_boost,
+                        'popularity': popularity
                     })
                 
                 scores = np.array([c['score'] for c in contestants_no_elim])
                 prior_boosts = np.array([c['prior_boost'] for c in contestants_no_elim])
+                popularities = np.array([c['popularity'] for c in contestants_no_elim])
                 
                 # 方法1：基于评分的幂次关系（alpha=1.2）
                 if self.baseline_model is not None:
@@ -206,21 +450,29 @@ class PreciseVoteModel:
                 prior_adjusted = score_based * (1 + prior_boosts * 0.3)
                 prior_adjusted = prior_adjusted / np.sum(prior_adjusted)
                 
-                # 混合：基线70% + 先验30%
-                vote_shares_est = 0.7 * base_shares + 0.3 * prior_adjusted
+                # 方法3：结合热度调整（热度高获得更多投票）
+                popularity_factor = 1 + popularities * self.popularity_influence
+                popularity_adjusted = base_shares * popularity_factor
+                popularity_adjusted = popularity_adjusted / np.sum(popularity_adjusted)
+                
+                # 综合：基线50% + 先验20% + 热度30%
+                vote_shares_est = (0.5 * base_shares + 
+                                  0.2 * prior_adjusted + 
+                                  0.3 * popularity_adjusted)
                 vote_shares_est = vote_shares_est / np.sum(vote_shares_est)
                 
-                total_votes = 1_000_000
                 for i, c in enumerate(contestants_no_elim):
                     results.append({
                         'season': season,
                         'week': week,
                         'celebrity': c['name'],
                         'total_score': c['score'],
-                        'estimated_votes': vote_shares_est[i] * total_votes,
+                        'estimated_votes': int(round(vote_shares_est[i] * estimated_total_votes)),
                         'vote_share': vote_shares_est[i],
                         'method': method,
-                        'is_eliminated': False
+                        'is_eliminated': False,
+                        'popularity': c['popularity'],
+                        'viewers': week_viewers
                     })
                 continue
             
@@ -232,18 +484,21 @@ class PreciseVoteModel:
             for _, row in group.iterrows():
                 partner = row.get('ballroom_partner', 'Unknown')
                 industry = row.get('celebrity_industry', 'Unknown')
+                popularity = row.get('popularity', 0)
                 
-                # 先验投票偏好
+                # 先验投票偏好（结合舞伴/行业效应 + 热度效应）
                 prior_boost = (
                     self.partner_effects.get(partner, 0) +
-                    self.industry_effects.get(industry, 0)
+                    self.industry_effects.get(industry, 0) +
+                    popularity * self.popularity_influence  # 热度越高，投票越多
                 )
                 
                 contestants.append({
-                    'name': row['celebrity_name'],
+                    'name': row[name_col],
                     'score': row['total_score'],
-                    'is_eliminated': row['celebrity_name'] in eliminated_names,
+                    'is_eliminated': row[name_col] in eliminated_names,
                     'prior_boost': prior_boost,
+                    'popularity': popularity,
                     'partner': partner,
                     'industry': industry
                 })
@@ -254,13 +509,13 @@ class PreciseVoteModel:
                 # 无淘汰周次：使用多种方法预测投票
                 scores = np.array([c['score'] for c in contestants])
                 prior_boosts = np.array([c['prior_boost'] for c in contestants])
+                popularities = np.array([c['popularity'] for c in contestants])
                 
-                # 方法1：基于评分的幂次关系（alpha=1.2模拟评分对投票的非线性影响）
+                # 方法1：基于评分的幂次关系
                 if self.baseline_model is not None:
                     base_votes = self.baseline_model.estimate_votes(scores, total_votes=1_000_000)
                     base_shares = base_votes / 1_000_000
                 else:
-                    # 降级方案：评分的1.2次幂
                     base_votes_raw = np.power(scores, 1.2)
                     base_shares = base_votes_raw / np.sum(base_votes_raw)
                 
@@ -269,38 +524,46 @@ class PreciseVoteModel:
                 prior_adjusted = score_based * (1 + prior_boosts * 0.3)
                 prior_adjusted = prior_adjusted / np.sum(prior_adjusted)
                 
-                # 混合两种方法：基线模型70% + 先验调整30%
-                vote_shares_est = 0.7 * base_shares + 0.3 * prior_adjusted
+                # 方法3：热度调整
+                popularity_factor = 1 + popularities * self.popularity_influence
+                popularity_adjusted = base_shares * popularity_factor
+                popularity_adjusted = popularity_adjusted / np.sum(popularity_adjusted)
+                
+                # 综合
+                vote_shares_est = 0.5 * base_shares + 0.2 * prior_adjusted + 0.3 * popularity_adjusted
                 vote_shares_est = vote_shares_est / np.sum(vote_shares_est)
                 
-                total_votes = 1_000_000
                 for i, c in enumerate(contestants):
                     results.append({
                         'season': season,
                         'week': week,
                         'celebrity': c['name'],
                         'total_score': c['score'],
-                        'estimated_votes': vote_shares_est[i] * total_votes,
+                        'estimated_votes': int(round(vote_shares_est[i] * estimated_total_votes)),
                         'vote_share': vote_shares_est[i],
                         'method': method,
-                        'is_eliminated': False  # 无淘汰
+                        'is_eliminated': False,
+                        'popularity': c['popularity'],
+                        'viewers': week_viewers
                     })
                 continue
             
-            # 反推投票
+            # 反推投票（传入热度信息）
             vote_shares, success = self._solve_votes_for_week(contestants, method)
             
             if success:
                 success_count += 1
             else:
                 failed_weeks.append((season, week))
-                # 优化失败：使用备用方法估计（基于评分和先验）
+                # 优化失败：使用备用方法估计（基于评分、先验和热度）
                 scores_arr = np.array([c['score'] for c in contestants])
                 prior_boosts = np.array([c['prior_boost'] for c in contestants])
+                popularities = np.array([c['popularity'] for c in contestants])
                 
-                # 备用估计：评分比例 × (1 + 先验)
+                # 备用估计：评分比例 × (1 + 先验) × (1 + 热度)
                 score_based = scores_arr / np.sum(scores_arr)
-                vote_shares = score_based * (1 + prior_boosts * 0.3)
+                popularity_factor = 1 + popularities * self.popularity_influence
+                vote_shares = score_based * (1 + prior_boosts * 0.3) * popularity_factor
                 vote_shares = vote_shares / np.sum(vote_shares)
             
             # 所有周次都存储到week_results（包括失败的）
@@ -308,16 +571,14 @@ class PreciseVoteModel:
                 'contestants': contestants,
                 'vote_shares': vote_shares,
                 'method': method,
-                'success': success
+                'success': success,
+                'viewers': week_viewers
             }
                 
             total_count += 1
             
-            # 假设总投票100万
-            total_votes = 1_000_000
-            
             for i, c in enumerate(contestants):
-                votes = vote_shares[i] * total_votes if vote_shares is not None else np.nan
+                votes = int(round(vote_shares[i] * estimated_total_votes)) if vote_shares is not None else np.nan
                 results.append({
                     'season': season,
                     'week': week,
@@ -327,7 +588,9 @@ class PreciseVoteModel:
                     'vote_share': vote_shares[i] if vote_shares is not None else np.nan,
                     'method': method,
                     'is_eliminated': c['is_eliminated'],
-                    'optimization_success': success  # 标记是否优化成功
+                    'optimization_success': success,
+                    'popularity': c['popularity'],
+                    'viewers': week_viewers
                 })
         
         print(f"    反推成功: {success_count}/{total_count} 周次")
@@ -345,16 +608,14 @@ class PreciseVoteModel:
         """
         为单周反推投票份额
         
-        核心思路：
-        1. 首先基于评委得分、先验偏好计算基础投票份额（保持合理性）
-        2. 然后通过优化微调，确保满足淘汰约束（保证一致性）
-        3. 如果优化失败，使用约束调整法直接修正
-        
         约束：被淘汰者的综合得分必须是最低的（排名法）或最低的（百分比法）
+        
+        扩展：将名人热度纳入先验估计
         """
         n = len(contestants)
         scores = np.array([c['score'] for c in contestants])
         prior_boosts = np.array([c['prior_boost'] for c in contestants])
+        popularities = np.array([c.get('popularity', 0) for c in contestants])
         is_eliminated = np.array([c['is_eliminated'] for c in contestants])
         
         # 被淘汰者索引
@@ -364,282 +625,105 @@ class PreciseVoteModel:
         if len(elim_indices) == 0:
             return None, False
         
-        # ==================== 第一步：计算基础投票份额 ====================
-        # 基于评委得分和先验偏好，体现"评委得分高→观众投票多"的合理关系
-        base_votes = self._compute_base_votes(scores, prior_boosts)
-        
-        # ==================== 第二步：优化微调，满足约束 ====================
-        vote_shares, opt_success = self._optimize_with_constraints(
-            scores, base_votes, prior_boosts, is_eliminated, 
-            elim_indices, surv_indices, method
-        )
-        
-        # 验证约束是否满足
-        success = self._verify_elimination(scores, vote_shares, is_eliminated, method)
-        
-        # ==================== 第三步：如果优化失败，使用约束调整法 ====================
-        if not success:
-            vote_shares = self._adjust_for_constraints(
-                scores, vote_shares, is_eliminated, elim_indices, surv_indices, method
-            )
-            success = self._verify_elimination(scores, vote_shares, is_eliminated, method)
-        
-        return vote_shares, success
-    
-    def _compute_base_votes(self, scores: np.ndarray, prior_boosts: np.ndarray) -> np.ndarray:
-        """
-        计算基础投票份额
-        
-        考虑因素：
-        1. 评委得分：得分越高，观众投票越多（幂次关系）
-        2. 先验偏好：舞伴效应、行业效应
-        """
-        # 评分对投票的非线性影响（alpha=1.2表示高分选手获得更多投票）
-        score_effect = np.power(scores, 1.2)
-        score_effect = score_effect / np.sum(score_effect)
-        
-        # 先验偏好调整
-        prior_effect = 1 + prior_boosts * 0.3
-        prior_effect = np.maximum(prior_effect, 0.1)  # 确保正值
-        
-        # 综合基础投票
-        base_votes = score_effect * prior_effect
-        base_votes = base_votes / np.sum(base_votes)
-        
-        return base_votes
-    
-    def _optimize_with_constraints(self, scores: np.ndarray, base_votes: np.ndarray,
-                                    prior_boosts: np.ndarray, is_eliminated: np.ndarray,
-                                    elim_indices: np.ndarray, surv_indices: np.ndarray,
-                                    method: str) -> Tuple[np.ndarray, bool]:
-        """
-        使用优化方法微调投票份额，满足淘汰约束
-        
-        目标：在保持投票份额接近基础值的同时，确保淘汰约束满足
-        """
-        n = len(scores)
-        
         def objective(vote_shares):
             """
-            目标函数：最小化与基础投票的偏差 + 约束违反惩罚
+            目标：使投票份额接近先验（基于评分+热度），同时满足淘汰约束
+            
+            扩展：先验中考虑热度因素
             """
-            # 1. 正则化损失：保持接近基础投票（体现评分对投票的影响）
-            reg_loss = np.sum((vote_shares - base_votes) ** 2)
+            # 基于评分和热度的先验估计
+            score_based = scores / np.sum(scores)
             
-            # 2. 约束违反惩罚
-            constraint_violation = self._compute_constraint_violation(
-                scores, vote_shares, is_eliminated, elim_indices, surv_indices, method
-            )
+            # 热度调整：热度高的人预期获得更多投票
+            popularity_factor = 1 + popularities * self.popularity_influence
             
-            # 使用高惩罚权重确保约束满足
-            return reg_loss + 10000 * constraint_violation
+            # 先验投票份额 = 评分比例 × (1 + 舞伴/行业效应) × 热度因子
+            prior_votes = score_based * (1 + prior_boosts) * popularity_factor
+            prior_votes = prior_votes / np.sum(prior_votes)
+            
+            # L2正则化损失
+            reg_loss = np.sum((vote_shares - prior_votes) ** 2)
+            
+            # 淘汰约束违反惩罚
+            if method == 'rank':
+                # 排名法：使用可微分的软排名近似
+                score_softrank = np.zeros(n)
+                vote_softrank = np.zeros(n)
+                temperature = 0.1  # 温度参数，越小越接近真实排名
+                
+                for i in range(n):
+                    for j in range(n):
+                        if i != j:
+                            score_softrank[i] += 1 / (1 + np.exp((scores[j] - scores[i]) / temperature))
+                            vote_softrank[i] += 1 / (1 + np.exp((vote_shares[j] - vote_shares[i]) / temperature))
+                
+                # 综合软排名（越大 = 越差）
+                combined_softrank = (n - score_softrank) + (n - vote_softrank)
+                
+                elim_combined = combined_softrank[elim_indices]
+                surv_combined = combined_softrank[surv_indices]
+                
+                # 惩罚：确保所有被淘汰者的综合排名都大于所有存活者
+                constraint_violation = 0
+                for ec in elim_combined:
+                    for sc in surv_combined:
+                        if ec <= sc:
+                            constraint_violation += (sc - ec + 0.5) ** 2
+            else:
+                combined = self._compute_combined_percent(scores, vote_shares)
+                elim_combined = combined[elim_indices]
+                surv_combined = combined[surv_indices]
+                
+                # 惩罚：如果有存活者的combined_percent <= 被淘汰者
+                constraint_violation = 0
+                for ec in elim_combined:
+                    for sc in surv_combined:
+                        if sc <= ec:
+                            constraint_violation += (ec - sc + 0.01) ** 2
+            
+            return reg_loss + 1000 * constraint_violation
         
-        # 初始值：从基础投票开始
-        x0 = base_votes.copy()
-        
-        # 边界
+        # 初始值：基于评分、先验偏好和热度
+        score_based = scores / np.sum(scores)
+        popularity_factor = 1 + popularities * self.popularity_influence
+        x0 = score_based * (1 + prior_boosts * 0.5) * popularity_factor
+        x0 = x0 / np.sum(x0)
+
+        # 边界：每个份额在[lb, ub]之间
         eps = 1e-6
-        lb = 1e-4
-        ub = 1.0 - 1e-4
+        lb = 1e-3
+        ub = 1.0 - 1e-3
         bounds = [(lb, ub)] * n
+
+        # 确保初始值严格在边界内部
         x0 = np.clip(x0, lb + eps, ub - eps)
+        # 再次归一化确保和为1
+        x0 = x0 / np.sum(x0)
+        # 最终裁剪确保边界
+        x0 = np.clip(x0, lb, ub)
         
         # 约束：份额之和为1
         constraints = {'type': 'eq', 'fun': lambda x: np.sum(x) - 1}
         
-        # 优化
+        # 优化（抑制边界警告）
         with warnings.catch_warnings():
-            warnings.simplefilter("ignore")
+            warnings.filterwarnings('ignore', message='Values in x were outside bounds')
             result = minimize(
                 objective,
                 x0,
                 method='SLSQP',
                 bounds=bounds,
                 constraints=constraints,
-                options={'maxiter': 5000, 'ftol': 1e-10, 'eps': 1e-9}
+                options={'maxiter': 500, 'ftol': 1e-8, 'eps': 1e-8}
             )
         
         vote_shares = result.x
         vote_shares = vote_shares / np.sum(vote_shares)  # 确保和为1
         
-        return vote_shares, result.success
-    
-    def _compute_constraint_violation(self, scores: np.ndarray, vote_shares: np.ndarray,
-                                       is_eliminated: np.ndarray,
-                                       elim_indices: np.ndarray, surv_indices: np.ndarray,
-                                       method: str) -> float:
-        """
-        计算约束违反程度
-        """
-        n = len(scores)
+        # 验证约束是否满足
+        success = self._verify_elimination(scores, vote_shares, is_eliminated, method)
         
-        if method == 'rank':
-            # 排名法：使用真实排名计算（更精确）
-            score_ranks = rankdata(-scores, method='average')  # 评分高=排名小
-            vote_ranks = rankdata(-vote_shares, method='average')  # 投票高=排名小
-            
-            combined_ranks = score_ranks + vote_ranks
-            
-            elim_combined = combined_ranks[elim_indices]
-            surv_combined = combined_ranks[surv_indices]
-            
-            # 被淘汰者的综合排名应该比所有存活者都大（数值大=排名差）
-            violation = 0
-            margin = 0.5  # 安全边际
-            for ec in elim_combined:
-                for sc in surv_combined:
-                    if ec <= sc + margin:
-                        # 被淘汰者综合排名应该 > 存活者综合排名
-                        violation += (sc - ec + margin + 1) ** 2
-            
-            # 额外惩罚：确保被淘汰者投票份额足够低
-            for ei in elim_indices:
-                for si in surv_indices:
-                    if vote_shares[ei] >= vote_shares[si]:
-                        violation += (vote_shares[ei] - vote_shares[si] + 0.01) ** 2 * 10
-        else:
-            # 百分比法：直接计算综合百分比
-            combined = self._compute_combined_percent(scores, vote_shares)
-            
-            elim_combined = combined[elim_indices]
-            surv_combined = combined[surv_indices]
-            
-            # 被淘汰者的综合百分比应该比所有存活者都小
-            violation = 0
-            for ec in elim_combined:
-                for sc in surv_combined:
-                    if sc <= ec:
-                        violation += (ec - sc + 0.01) ** 2
-        
-        return violation
-    
-    def _adjust_for_constraints(self, scores: np.ndarray, vote_shares: np.ndarray,
-                                 is_eliminated: np.ndarray,
-                                 elim_indices: np.ndarray, surv_indices: np.ndarray,
-                                 method: str) -> np.ndarray:
-        """
-        约束调整法：当优化失败时，直接调整投票份额以满足约束
-        
-        策略：保持存活者的相对顺序，只调整被淘汰者的份额使其排名最差
-        """
-        n = len(scores)
-        adjusted_shares = vote_shares.copy()
-        
-        if method == 'rank':
-            # ==================== 排名法：直接构造确保被淘汰者综合排名最大 ====================
-            # 综合排名 = 评委排名 + 观众排名，数值最大者被淘汰
-            # 策略：给被淘汰者分配最低的观众投票，使其观众排名最差（数值最大）
-            
-            score_ranks = rankdata(-scores, method='ordinal')  # 评分最高=1
-            n_elim = len(elim_indices)
-            n_surv = len(surv_indices)
-            
-            # 计算存活者中最差的综合排名上限
-            # 存活者需要的最大综合排名 = n - n_elim（被淘汰者占据最后n_elim个位置）
-            max_surv_combined = 2 * n - n_elim  # 存活者中综合排名的理论上限
-            
-            # 给被淘汰者分配最低的观众投票份额
-            # 这样他们的观众排名将是 n_surv+1, n_surv+2, ..., n（最差的n_elim个）
-            
-            # 被淘汰者按评委排名排序（评委分高的需要更低的投票来补偿）
-            elim_by_score = sorted(elim_indices, key=lambda i: score_ranks[i])
-            
-            # 分配投票份额
-            # 存活者保持相对顺序，但确保最低的存活者投票也高于最高的被淘汰者投票
-            
-            # 存活者的最低投票份额基准
-            if n_surv > 0:
-                surv_min_vote = 0.02  # 存活者最低也有2%
-                surv_vote_range = 0.98 - surv_min_vote * n_surv  # 存活者可分配范围
-                
-                # 存活者按原投票份额的相对顺序分配
-                surv_original = adjusted_shares[surv_indices]
-                surv_order = np.argsort(np.argsort(surv_original))  # 相对排序
-                
-                # 按相对顺序分配存活者投票
-                for idx, surv_idx in enumerate(surv_indices):
-                    rank_in_surv = surv_order[idx]
-                    # 投票份额：基础 + 按排序分配的增量
-                    adjusted_shares[surv_idx] = surv_min_vote + (rank_in_surv + 1) * surv_vote_range / n_surv
-            
-            # 被淘汰者获得极小份额，确保观众排名最差
-            # 评委分越高的被淘汰者，需要越低的投票来确保综合排名最大
-            elim_base_vote = 0.001  # 被淘汰者基础份额
-            for rank_idx, elim_idx in enumerate(elim_by_score):
-                # 评委分高的（score_ranks小的）获得更低的投票
-                # 这样即使评委排名好，观众排名差也能保证综合排名最大
-                adjusted_shares[elim_idx] = elim_base_vote * (0.5 ** rank_idx)
-            
-            # 强制验证并修正
-            # 计算当前综合排名
-            vote_ranks = rankdata(-adjusted_shares, method='ordinal')
-            combined_ranks = score_ranks + vote_ranks
-            
-            # 检查是否所有被淘汰者的综合排名都大于所有存活者
-            elim_min_combined = np.min(combined_ranks[elim_indices])
-            surv_max_combined = np.max(combined_ranks[surv_indices]) if n_surv > 0 else 0
-            
-            if elim_min_combined <= surv_max_combined:
-                # 仍不满足，使用极端构造法
-                # 直接设置：被淘汰者获得最低的n_elim个投票份额
-                all_shares = np.zeros(n)
-                
-                # 存活者按评分比例分配95%的总份额
-                surv_total = 0.95
-                surv_scores = scores[surv_indices]
-                surv_shares = surv_scores / np.sum(surv_scores) * surv_total
-                all_shares[surv_indices] = surv_shares
-                
-                # 被淘汰者平分剩余5%，但按评委排名反向（评委分高→投票更低）
-                elim_total = 0.05
-                elim_score_ranks = score_ranks[elim_indices]
-                # 评委排名好（小）的获得更少投票
-                elim_weights = elim_score_ranks.astype(float)  # 排名大→权重大→投票多
-                elim_weights = elim_weights / np.sum(elim_weights)
-                all_shares[elim_indices] = elim_weights * elim_total * 0.1  # 进一步压缩
-                
-                adjusted_shares = all_shares
-                
-                # 再次验证
-                vote_ranks = rankdata(-adjusted_shares, method='ordinal')
-                combined_ranks = score_ranks + vote_ranks
-                elim_min_combined = np.min(combined_ranks[elim_indices])
-                surv_max_combined = np.max(combined_ranks[surv_indices]) if n_surv > 0 else 0
-                
-                if elim_min_combined <= surv_max_combined:
-                    # 最终兜底：给被淘汰者分配递减的极小值
-                    for i, elim_idx in enumerate(sorted(elim_indices, key=lambda x: score_ranks[x])):
-                        adjusted_shares[elim_idx] = 1e-6 * (0.1 ** i)
-        
-        else:
-            # 百分比法：确保被淘汰者的综合百分比最低
-            score_pcts = scores / np.sum(scores)
-            
-            if len(surv_indices) > 0:
-                # 计算当前存活者的最低综合百分比
-                current_combined = score_pcts + vote_shares
-                min_surv_combined = np.min(current_combined[surv_indices])
-                
-                # 调整被淘汰者的投票份额
-                for idx in elim_indices:
-                    elim_score_pct = score_pcts[idx]
-                    
-                    # 需要的投票份额：使综合百分比低于存活者最低值
-                    # combined_pct = score_pct + vote_pct < min_surv_combined
-                    # vote_pct < min_surv_combined - score_pct
-                    target_vote_pct = min_surv_combined - elim_score_pct - 0.02
-                    
-                    if target_vote_pct > 0:
-                        adjusted_shares[idx] = target_vote_pct
-                    else:
-                        # 如果被淘汰者评委分太高，需要极小的投票份额
-                        adjusted_shares[idx] = 0.001
-        
-        # 归一化
-        adjusted_shares = np.maximum(adjusted_shares, 1e-8)  # 确保正值
-        adjusted_shares = adjusted_shares / np.sum(adjusted_shares)
-        
-        return adjusted_shares
+        return vote_shares, success
     
     def _compute_combined_rank(self, scores: np.ndarray, vote_shares: np.ndarray, n: int) -> np.ndarray:
         """
