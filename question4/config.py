@@ -101,10 +101,10 @@ FIGURE_DPI = 300
 FIGURE_SIZE = (12, 8)
 
 COLORS = {
-    'rank_method': '#2E86AB',
-    'percent_method': '#A23B72', 
-    'new_system': '#F18F01',
-    'optimal': '#28A745',
-    'danger': '#DC3545',
-    'neutral': '#6C757D',
+    'rank_method': '#264653',
+    'percent_method': '#2a9d8e', 
+    'new_system': '#f3a261',
+    'optimal': '#e9c46b',
+    'danger': '#e86f52',
+    'neutral': '#264653', # 保持与主色调一致或使用中性深色
 }
