@@ -1000,11 +1000,13 @@ class PreciseVoteModel:
             scores = group['total_score'].tolist()
             # 使用vote_share而不是estimated_votes，避免四舍五入导致的排名变化
             votes = group['vote_share'].tolist()
+            popularities = group['popularity'].tolist() if 'popularity' in group.columns else [0] * len(names)
             
             estimates[(season, week)] = {
                 'names': names,
                 'scores': scores,
-                'votes': votes
+                'votes': votes,
+                'popularities': popularities
             }
         
         return estimates
