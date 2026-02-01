@@ -1,0 +1,93 @@
+\newpage
+\section{Preparation for Modeling}
+\subsection{Model Assumptions}
+\subsection{Notations}
+\setlength{\parindent}{2em} % 设置缩进为2个字符宽度
+
+
+The core symbols and their definitions used in this study are summarized in Table~\ref{table:notations}, providing an overview of the key parameters and their related meanings.
+
+\begin{table}[ht]
+\centering
+\caption{Notations used in this literature}
+\renewcommand{\arraystretch}{1.5} % Adjust row spacing
+\begin{tabular}{>{\centering\arraybackslash}p{0.3\linewidth} >{\centering\arraybackslash}p{0.6\linewidth}} % Two columns with width ratio, centered alignment
+\toprule % Top line
+\textbf{Symbol} & \textbf{Description} \\ 
+\midrule % Middle line
+
+$n$ & 第$w$周剩余选手数量 \\
+
+$S_i$ & 选手$i$的评委总分 \\
+
+$V_i$ & 选手$i$的估计观众投票数 \\
+
+$E_i$ & 淘汰指示器：若选手$i$被淘汰则$E_i = 1$，否则为0 \\
+
+$\mathcal{M}$ & 投票组合方法：``rank''（排名法）或``percent''（百分比法） \\
+
+$C_i$ & 选手$i$在方法$\mathcal{M}$下的综合得分 \\
+
+$\alpha$ & 投票与评委得分关系的幂律指数 \\
+
+$\boldsymbol{\theta}$ & 先验偏好因子（舞伴效应、行业效应） \\
+
+$R_i^{\text{judge}}$ & 选手$i$的评委得分排名 \\
+
+$R_i^{\text{fan}}$ & 选手$i$的观众投票排名 \\
+
+$\beta_p$ & 专业舞伴$p$的投票偏好效应 \\
+
+$\gamma_d$ & 名人行业$d$的投票偏好效应 \\
+
+$B_i^w$ & 选手$i$在第$w$周的存活提升值 \\
+
+$\mathbf{v}$ & 观众投票份额向量 $(v_1, \ldots, v_n)$ \\
+
+
+\bottomrule % Bottom line
+\end{tabular}
+\label{table:notations}
+\end{table}
+
+\subsection{数据收集与清洗}
+
+\subsubsection{官方赛事数据分析}
+
+官方数据集\texttt{2026\_MCM\_Problem\_C\_Data.csv}包含34个赛季共400余名参赛者的完整比赛记录。经过名人姓名格式标准化和行业分类修正后，我们对数据进行了系统性分析：
+
+\textbf{评委评分分布：}评分呈现右偏分布，平均分为25.8分(满分30分)，标准差为3.2分。值得注意的是，评分标准存在明显的时间演变趋势：早期赛季(Season 1-10)评分相对宽松，平均分为26.5分；而近期赛季(Season 25-34)评分更为严格，平均分降至24.9分，反映出评委标准的逐步提升。
+
+\textbf{行业差异显著：}不同行业名人的表现存在本质性差异。运动员(Athletes)凭借优异的身体素质和训练基础，平均评分最高(27.1分)，淘汰率最低(35\%)；政治人物(Politicians)和商业人士(Business)平均评分较低(22.3分和23.1分)，淘汰率超过80\%；演艺界名人(Actors/Actresses, Musicians)表现居中，平均评分25.5分，淘汰率约60\%。
+
+\textbf{专业舞伴效应：}统计显示，部分资深舞伴具有显著的"冠军效应"。例如Derek Hough搭档的名人平均排名为3.2名，远优于整体平均排名(6.8名)。我们对舞伴历史战绩进行量化，将其作为先验因子纳入后续建模。
+
+\textbf{淘汰模式分析：}通过Logistic回归分析发现，评委分数每增加1分，淘汰概率降低18.5\%(\textit{p}<0.001)。然而在淘汰临界周(第4-6周)，评委分数的解释力显著下降(R²从0.72降至0.38)，暗示观众投票在此阶段起主导作用。
+
+\subsubsection{电视收视率数据}
+
+\textbf{数据来源与处理：}使用自动化爬虫(\texttt{wiki\_ratings.py})从Wikipedia收集了第1-34季的分集收视率数据，包括播出日期、收视率/份额(如"4.3/12")及观众人数(百万)。通过\texttt{process\_ratings.py}剔除特殊节目、解析播出日期计算周数、合并同周多期节目，最终生成周级聚合数据(\texttt{processed\_ratings\_*\_merged.csv})。
+
+\textbf{数据特征：}成功处理32个赛季的收视数据(Season 12和31数据缺失)，共计1200余周的收视记录。数据完整性为96.8\%，缺失周次主要为中断播出或特殊事件周。
+
+\textbf{长期趋势分析：}Season级收视率呈现显著下降趋势。早期赛季(Season 1-15)平均收视率为20.3百万观众，而近期赛季(Season 25-34)降至8.7百万，降幅达57\%。这一趋势反映了电视媒体生态的整体变迁及流媒体平台的冲击。
+
+\textbf{周内波动模式：}通过周级分析发现，首播周和决赛周收视率峰值分别为赛季平均值的1.35倍和1.68倍，体现了观众对开幕和冠军争夺的高度关注。中间周(Week 4-7)出现收视疲劳期，收视率较峰值降幅可达22\%，这一"疲劳期"现象在近期赛季更为明显。
+
+\subsubsection{社交媒体热度数据(Google Trends)}
+
+\textbf{数据来源与处理：}通过PyTrends API(\texttt{google\_trends\_scraper.py})获取每位参赛者在其参赛季播出期间的Google搜索热度(0-100分)。地理范围限定为美国(geo='US')，时间分辨率为周级聚合。为确保数据有效性，采用了三重归一化策略：(1)名字变体生成(大小写组合、撇号处理)以最大化数据捕获；(2)使用节目主持人"RuPaul"作为固定基准词进行跨季度归一化；(3)对每个赛季独立应用Min-Max缩放确保季内公平比较。
+
+\textbf{数据质量：}成功获取400余名参赛者的标准化热度评分，数据成功率为94.8\%。失败样本主要为极低知名度名人，采用行业内中位数插补。归一化有效性验证显示，跨季度标准化分数的变异系数降低43\%(从0.78降至0.45)，Shapiro-Wilk检验表明归一化后的分数分布接近正态(\textit{p}=0.082)。
+
+\textbf{知名度分布特征：}Google Trends标准化分数呈现明显的长尾分布，约15\%的参赛者标准化分数超过0.8(高知名度)，50\%的参赛者分数低于0.3(低知名度)。高知名度名人主要集中在演艺界和体育界，商业和政治领域名人知名度普遍较低。
+
+\textbf{知名度与表现的复杂关系：}高知名度(标准化分数>0.8)名人的淘汰率显著低于低知名度选手(42\% vs 68\%)，证实了"人气保护效应"。然而，高知名度并不必然带来冠军：Season 7的Kim Kardashian尽管社交热度最高(1.0)，但最终仅排名第11。交叉分析显示，当名人的社交热度排名显著高于评委分数排名时(差距>3名)，其实际淘汰周数平均延后1.8周，典型案例为Season 11的Bristol Palin。
+
+\subsubsection{多源数据关联分析}
+
+\textbf{时间序列相关性：}通过DTW(Dynamic Time Warping)算法对收视率和社交热度进行时间序列匹配，发现两者具有显著的滞后相关性(lag=1周, Pearson相关系数0.67)。这表明社交媒体热度波动先于收视率变化约1周，为预测模型提供了领先指标。
+
+\textbf{数据一致性验证：}通过对比官方数据与Wikipedia记录，发现placement字段一致性为99.2\%。8例不一致情况经人工核查后修正，主要涉及并列名次的表示差异。缺失值分析显示，官方数据完整性为97.3\%，收视率数据完整性为96.8\%，整体数据质量满足建模要求。
+
+

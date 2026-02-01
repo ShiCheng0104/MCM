@@ -1,0 +1,18 @@
+feature,importance
+week,0.4825119267926309
+age,0.1763524727969729
+partner_experience,0.13177050586079747
+remaining_contestants,0.10469628713820654
+industry_simplified_Social Media,0.02221486867552462
+industry_simplified_TV Personality,0.01985269055263486
+industry_simplified_Athlete,0.015624515435631717
+industry_simplified_Singer/Musician,0.010989305762898405
+is_domestic,0.007181872432260976
+industry_simplified_Other,0.007097350506307053
+age_group_Middle (36-45),0.005222363389081153
+industry_simplified_Comedian,0.004709206666425743
+age_group_Mature (46-55),0.004312367801326958
+age_group_Prime (26-35),0.0039377580994658335
+age_group_Senior (>55),0.00185440522299218
+industry_simplified_Model,0.00122048362925983
+industry_simplified_News/Journalist,0.00045161923758275544
