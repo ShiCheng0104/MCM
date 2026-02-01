@@ -18,47 +18,51 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3}社交媒体热度数据(Google Trends)}{5}{subsubsection.2.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.4}多源数据关联分析}{6}{subsubsection.2.3.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}问题1：观众投票估计模型}{7}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}问题剖析与建模策略}{7}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}投票组合方法}{7}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}基线模型：幂律投票假设}{7}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}精确反推模型：约束优化框架}{8}{subsection.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.1}投票偏好因子的学习}{8}{subsubsection.3.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2}优化问题的数学构建}{8}{subsubsection.3.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.3}SLSQP算法求解}{9}{subsubsection.3.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}模型评估与集成策略}{9}{subsection.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.1}一致性度量体系}{9}{subsubsection.3.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.2}集成策略的实现}{10}{subsubsection.3.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.3}不确定性的传播}{10}{subsubsection.3.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.4}双视角可解释性}{10}{subsubsection.3.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}问题2：投票方法对比与推荐}{11}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}子问题2.1：两种方法的结果对比与观众投票偏向性}{11}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}反事实模拟分析}{11}{subsubsection.4.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}问题理解与建模思路}{7}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1}问题本质}{7}{subsubsection.3.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2}整体建模框架}{7}{subsubsection.3.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}双层框架的数学实现}{7}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}层1：基线先验模型}{7}{subsubsection.3.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces 第20季第5周：评委得分（绿）、Google热度（黄）、预测投票（蓝）的雷达图对比}}{8}{figure.1}\protected@file@percent }
+\newlabel{fig:s20w5_radar}{{1}{8}{第20季第5周：评委得分（绿）、Google热度（黄）、预测投票（蓝）的雷达图对比}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}层2：精确反推模型}{8}{subsubsection.3.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces 模型整体性能：91.7\%精确预测淘汰者，98.5\%识别危险区}}{9}{figure.2}\protected@file@percent }
+\newlabel{fig:prediction_accuracy}{{2}{9}{模型整体性能：91.7\%精确预测淘汰者，98.5\%识别危险区}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}层3：不确定性量化}{9}{subsubsection.3.2.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces 不确定性分布：39.2\%高确定性，60.8\%中等确定性，存在选手/周次间差异}}{9}{figure.3}\protected@file@percent }
+\newlabel{fig:uncertainty_dist}{{3}{9}{不确定性分布：39.2\%高确定性，60.8\%中等确定性，存在选手/周次间差异}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}问题1的完整回答}{10}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}问题1.1回答：一致性度量}{10}{subsubsection.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}问题1.2回答：确定性度量}{10}{subsubsection.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}问题2：投票方法对比与推荐}{10}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}子问题2.1：两种方法的结果对比与观众投票偏向性}{10}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}反事实模拟分析}{10}{subsubsection.4.1.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}关键发现}{11}{subsubsection.4.1.2}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces 两种方法的结果对比}}{11}{table.2}\protected@file@percent }
 \newlabel{tab:method_agreement}{{2}{11}{两种方法的结果对比}{table.2}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces 观众投票偏向性对比}}{11}{table.3}\protected@file@percent }
 \newlabel{tab:fan_bias}{{3}{11}{观众投票偏向性对比}{table.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}子问题2.1答案}{12}{subsubsection.4.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}子问题2.2：争议性选手案例深度分析}{12}{subsection.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}问题重述}{12}{subsubsection.4.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}四位争议选手的基本数据}{12}{subsubsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}子问题2.1答案}{11}{subsubsection.4.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}子问题2.2：争议性选手案例深度分析}{11}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}问题重述}{11}{subsubsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}四位争议选手的基本数据}{11}{subsubsection.4.2.2}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces 四位争议选手的核心统计数据}}{12}{table.4}\protected@file@percent }
 \newlabel{tab:controversy_summary}{{4}{12}{四位争议选手的核心统计数据}{table.4}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}案例深度剖析：四位选手逐一对比}{12}{subsubsection.4.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4}四位争议选手的基本数据}{13}{subsubsection.4.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4}四位争议选手的基本数据}{12}{subsubsection.4.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.5}案例分析}{12}{subsubsection.4.2.5}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces 四位争议选手的核心统计（"底2"指综合排名最后两名的周次数）}}{13}{table.5}\protected@file@percent }
 \newlabel{tab:controversy_summary}{{5}{13}{四位争议选手的核心统计（"底2"指综合排名最后两名的周次数）}{table.5}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.5}案例分析}{13}{subsubsection.4.2.5}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Bristol Palin在两种方法下的关键周次表现}}{13}{table.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.6}评委裁决机制的影响}{13}{subsubsection.4.2.6}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces 评委裁决机制下的生存概率模拟}}{14}{table.7}\protected@file@percent }
-\newlabel{tab:tiebreaker_survival}{{7}{14}{评委裁决机制下的生存概率模拟}{table.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces 评委裁决机制下的生存概率模拟}}{13}{table.7}\protected@file@percent }
+\newlabel{tab:tiebreaker_survival}{{7}{13}{评委裁决机制下的生存概率模拟}{table.7}{}}
+\bibcite{bib4}{1}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.7}子问题2.2答案}{14}{subsubsection.4.2.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.8}推荐方案}{14}{subsubsection.4.2.8}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.9}选择百分比法的理由}{14}{subsubsection.4.2.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.10}保留评委裁决机制的理由}{14}{subsubsection.4.2.10}\protected@file@percent }
-\bibcite{bib4}{1}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.11}子问题2.3答案}{15}{subsubsection.4.2.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.11}子问题2.3答案}{14}{subsubsection.4.2.11}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {5}Sensitivity Analysis}{15}{section.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6}Model Evaluation and Promotion}{15}{section.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Model Evaluation}{15}{subsection.6.1}\protected@file@percent }

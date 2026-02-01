@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  1 FEB 2026 14:06
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  1 FEB 2026 14:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -875,30 +875,46 @@ Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
 [6]
 
 LaTeX Font Warning: Font shape `TU/STSong(0)/m/it' undefined
-(Font)              using `TU/STSong(0)/m/n' instead on input line 12.
+(Font)              using `TU/STSong(0)/m/n' instead on input line 21.
 
 
 
 [7]
+File: ../yanxiao/outputs/figures/radar_s20_w5.png Graphic file (type bmp)
+<../yanxiao/outputs/figures/radar_s20_w5.png>
+File: ../yanxiao/outputs/figures/accuracy_summary.png Graphic file (type bmp)
+<../yanxiao/outputs/figures/accuracy_summary.png>
 
-[8]
-
-[9]
-
-[10]
-
-[11]
-
-[12]
-Missing character: There is no ⭐ (U+2B50) in font [lmroman12-regular]:mapping=tex-text;!
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[13]) (../sections/5.Sensitivity Analysis.tex
+[8]
+File: ../yanxiao/outputs/figures/uncertainty_distribution.png Graphic file (type bmp)
+<../yanxiao/outputs/figures/uncertainty_distribution.png>
 
-[14]) (../sections/6.Model Evaluation and Promotion.tex) (../sections/7.Conclusions.tex) (../sections/8.References.tex) (../sections/9.Appendices.tex) (../sections/10.AI.tex
+
+[9]
+
+[10]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[11]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Missing character: There is no ⭐ (U+2B50) in font [lmroman12-regular]:mapping=tex-text;!
+
+
+[12]
+
+[13]) (../sections/5.Sensitivity Analysis.tex) (../sections/6.Model Evaluation and Promotion.tex) (../sections/7.Conclusions.tex) (../sections/8.References.tex
+
+[14]) (../sections/9.Appendices.tex) (../sections/10.AI.tex
 
 [15]
 LaTeX Font Info:    Trying to load font information for TU+pcr on input line 8.
@@ -930,20 +946,14 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: F56891C98C778FF0B35642AAA440742F;6511
-(rerunfilecheck)             After:  DB8E9648E7EAD4940D00BA88D5FE0CC9;7032.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 18FA25340FACED871D8B9C6AE95646A7;6789.
  ) 
 Here is how much of TeX's memory you used:
- 19803 strings out of 473832
- 400408 string characters out of 5729482
- 1093620 words of memory out of 5000000
- 42429 multiletter control sequences out of 15000+600000
+ 19816 strings out of 473832
+ 400837 string characters out of 5729482
+ 1094079 words of memory out of 5000000
+ 42437 multiletter control sequences out of 15000+600000
  599305 words of font info for 183 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  87i,16n,93p,570b,2004s stack positions out of 10000i,1000n,20000p,200000b,200000s
