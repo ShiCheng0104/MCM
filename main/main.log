@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  2 FEB 2026 17:10
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  2 FEB 2026 17:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1031,11 +1031,6 @@ LaTeX Font Info:    Trying to load font information for U+txsyc on input line 70
 File: utxsyc.fd 2000/12/15 v3.1
 )
 
-LaTeX Font Warning: Font shape `TU/STSong(0)/b/n' undefined
-(Font)              using `TU/STSong(0)/m/n' instead on input line 70.
-
-
-
 [1
 
 ]
@@ -1046,6 +1041,11 @@ Package xeCJK Warning: Unknown CJK family `\CJKsfdefault' is being ignored.
 (xeCJK)                it.
 
 (./main.toc
+
+LaTeX Font Warning: Font shape `TU/STSong(0)/b/n' undefined
+(Font)              using `TU/STSong(0)/m/n' instead on input line 13.
+
+
 
 [1])
 \tf@toc=\write6
@@ -1069,10 +1069,6 @@ LaTeX Font Warning: Font shape `TU/STSong(0)/m/it' undefined
 ))
 
 [4] (../sections/2.Preparation for Modeling.tex
-Missing character: There is no ▼ (U+25BC) in font [lmroman12-bold]:mapping=tex-text;!
-Missing character: There is no ▲ (U+25B2) in font [lmroman12-bold]:mapping=tex-text;!
-Missing character: There is no ▼ (U+25BC) in font [lmroman12-bold]:mapping=tex-text;!
-Missing character: There is no ▲ (U+25B2) in font [lmroman12-bold]:mapping=tex-text;!
 
 Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
 (xeCJK)                
@@ -1238,10 +1234,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  30629 strings out of 473832
  646018 string characters out of 5729482
- 1304008 words of memory out of 5000000
+ 1304201 words of memory out of 5000000
  53014 multiletter control sequences out of 15000+600000
  599313 words of font info for 184 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 87i,16n,93p,616b,2002s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,16n,93p,659b,2002s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on main.pdf (28 pages).
