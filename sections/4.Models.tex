@@ -39,9 +39,9 @@
 \hat{V}_i^{\text{prior}} = V_{\text{total}} \cdot \frac{S_i^\alpha \cdot (1 + \theta_i) \cdot (1 + w_p p_i) \cdot (1 + w_v v_i)}{\sum_j [S_j^\alpha \cdot (1 + \theta_j) \cdot (1 + w_p p_j) \cdot (1 + w_v v_j)]}
 \end{equation}
 
-图~\ref{fig:s20w5_radar}展示第20季第5周的典型案例，验证了先验模型的核心机制：Rumer Willis凭借极高Google热度（黄线峰值）获得最高预测投票（深蓝线），尽管评委分仅中等（绿线）；Riker Lynch因评委分和热度双低被准确预测为淘汰者。这印证了观众投票\textit{并非单纯追随评委}，而是综合表演与魅力的双维度权衡。
+第20季第5周的典型案例验证了先验模型的核心机制：Rumer Willis凭借极高Google热度（黄线峰值）获得最高预测投票（深蓝线），尽管评委分仅中等（绿线）；Riker Lynch因评委分和热度双低被准确预测为淘汰者。这印证了观众投票\textit{并非单纯追随评委}，而是综合表演与魅力的双维度权衡。图~\ref{fig:s20w5_radar}展示了该对比结果。
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.6\textwidth]{../yanxiao/outputs/figures/radar_s20_w5.png}
 \caption{第20季第5周：评委得分（绿）、Google热度（黄）、预测投票（蓝）的雷达图对比}
@@ -213,14 +213,21 @@ Bobby Bones & 27 & \textbf{1} & 9 & 2周 & 2周 & 2周 & 否 \\
 
 \textbf{Bobby Bones}（第27季，冠军）：9周中5次观众排名第1，平均票份额14-16\%（远超正常10-12\%）。图~\ref{fig:bobby_trajectory}显示他在两种方法下的轨迹几乎完全重合，观众优势\textbf{压倒性强大}，在任何方法下都能夺冠。
 
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{../question2/outputs/figures/bobby_bones_trajectory.png}
+\caption{Bobby Bones的生存轨迹：观众投票优势压倒性强大}
+\label{fig:bobby_trajectory}
+\end{figure}
+
 \subsubsection{评委裁决机制的影响}
 
 第28季起引入评委裁决机制：用综合得分确定底部两名，评委投票决定淘汰谁（假设评委倾向保护高分者）。图~\ref{fig:controversy_heatmap}以热图展示该机制对四位选手的影响。
 
-\begin{figure}[h]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=0.85\textwidth]{../question2/outputs/figures/controversy_heatmap_comparison.png}
-\caption{评委裁决机制的影响：热图显示四位选手在不同方法+机制组合下的生存概率}
+\caption{评委裁决机制的影响：热图显示四位选手在不同方法+机制组合下的粉丝与评委评分差距}
 \label{fig:controversy_heatmap}
 \end{figure}
 
