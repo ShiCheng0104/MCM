@@ -3,13 +3,13 @@
 
 \subsubsection{Advantages}
 
-\textbf{Robust Predictive Performance.} Framework achieves \textbf{91.7\% elimination accuracy}, outperforming baselines (3-8\%) and linear regression ($<$70\%). GBDT explains \textbf{84\% judge variance, 79\% audience variance}, exceeding conventional approaches by 15-20\%. Sensitivity testing validates stability: $\alpha$ $\pm10\%$ → $<6\%$ fluctuation; 5\% noise → 5.07\% decline; cross-season $>85\%$ accuracy.
+\textbf{Robust Predictive Performance.} Achieves \textbf{91.7\% elimination accuracy}. GBDT explains \textbf{84\%} judge variance and \textbf{79\%} audience variance. Sensitivity tests are stable ($\alpha$ $\pm 10\%$: $<6\%$ fluctuation; 5\% noise: $-5.07$ points).
 
-\textbf{Novel Methodological Contributions.} \textbf{Two-Layer Bayesian Framework} integrates priors (Google Trends, partners) with elimination constraints, resolving underdetermination unlike traditional maximum likelihood. \textbf{Sigmoid soft-ranking} enables differentiable SLSQP optimization where integer programming fails. \textbf{GBDT-SHAP} quantifies Derek Hough's +58K and age effects (+23,744) with statistical rigor.
+\textbf{Novel Methodological Contributions.} A \textbf{two-layer Bayesian} design fuses priors with elimination constraints, while \textbf{sigmoid soft-ranking} enables differentiable SLSQP optimization. \textbf{GBDT-SHAP} provides interpretable effect sizes (e.g., Derek Hough +58K votes).
 
 \subsubsection{Limitations}
 
-\textbf{Data Constraints.} Cannot validate absolute votes (proprietary data). \textbf{Mitigated}: triangulation via Nielsen ($\rho=0.67$), distributions match expected $\gamma_1=1.8$. Proxies may underestimate non-digital demographics by 10-15\%.
+\textbf{Data Constraints.} Votes are proprietary; validation relies on proxies. \textbf{Mitigated}: triangulation via Nielsen ($\rho=0.67$). Proxies may underweight non-digital demographics (10--15\%).
 
-\textbf{Causal Inference.} SHAP shows correlations, not causality. \textbf{Mitigated}: covariate matching reveals elite partners retain +38K residual ($p<0.01$) controlling popularity, suggesting genuine skill effects beyond selection bias.
+\textbf{Causal Inference.} SHAP is associative rather than causal. \textbf{Mitigated}: covariate matching shows elite partners retain a +38K residual effect ($p<0.01$) after controlling popularity.
 

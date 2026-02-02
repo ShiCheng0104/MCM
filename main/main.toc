@@ -12,8 +12,8 @@
 \contentsline {subsubsection}{\numberline {3.1.2}Overall Modeling Framework}{6}{subsubsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.2}Mathematical Implementation of the Two-Layer Framework}{7}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Layer 1: Baseline Prior Model}{7}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Layer 2: Precise Inverse Inference Model}{7}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Layer 3: Uncertainty Quantification}{8}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.2}Layer 2: Precise Inverse Inference Model}{8}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Layer 3: Uncertainty Quantification}{9}{subsubsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.3}Complete Answer to Problem 1}{10}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Answer to Problem 1.1: Consistency Metrics}{10}{subsubsection.3.3.1}%
 \contentsline {subsubsection}{\numberline {3.3.2}Answer to Problem 1.2: Certainty Metrics}{10}{subsubsection.3.3.2}%
@@ -43,19 +43,17 @@
 \contentsline {subsection}{\numberline {6.2}System Mechanism Design}{19}{subsection.6.2}%
 \contentsline {subsubsection}{\numberline {6.2.1}Mechanism 1: Phase-Adaptive Dynamic Weighting}{19}{subsubsection.6.2.1}%
 \contentsline {subsubsection}{\numberline {6.2.2}Mechanism 2: Controversy Reward}{19}{subsubsection.6.2.2}%
-\contentsline {subsubsection}{\numberline {6.2.3}Mechanism 3: Vote Gap Amplifier and Combined Scoring}{20}{subsubsection.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.3}Mechanism 3: Vote Gap Amplifier and Combined Scoring}{19}{subsubsection.6.2.3}%
 \contentsline {subsection}{\numberline {6.3}System Evaluation and Data Validation}{20}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Adoption Recommendations}{21}{subsection.6.4}%
-\contentsline {subsubsection}{\numberline {6.4.1}Why Should Production Teams Adopt This System?}{21}{subsubsection.6.4.1}%
-\contentsline {subsubsection}{\numberline {6.4.2}How to Implement This System?}{21}{subsubsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.5}Complete Answer to Problem 4}{22}{subsection.6.5}%
-\contentsline {section}{\numberline {7}Sensitivity Analysis}{22}{section.7}%
+\contentsline {subsection}{\numberline {6.4}Adoption Recommendations}{20}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Complete Answer to Problem 4}{21}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Sensitivity Analysis}{21}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Problems 1 \& 2: Vote Estimation Model Parameter Sensitivity}{22}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Problem 3: Feature Importance Robust Validation}{23}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Problem 4: Dramatic Arc System Parameter Tradeoffs}{23}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Cross-Model Uncertainty Quantification}{24}{subsection.7.4}%
-\contentsline {section}{\numberline {8}Model Evaluation and Promotion}{24}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Model Evaluation}{24}{subsection.8.1}%
-\contentsline {subsubsection}{\numberline {8.1.1}Advantages}{24}{subsubsection.8.1.1}%
-\contentsline {subsubsection}{\numberline {8.1.2}Limitations}{24}{subsubsection.8.1.2}%
-\contentsline {section}{\numberline {9}Memorandum}{25}{section.9}%
+\contentsline {subsection}{\numberline {7.2}Problem 3: Feature Importance Robust Validation}{22}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Problem 4: Dramatic Arc System Parameter Tradeoffs}{22}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Cross-Model Uncertainty Quantification}{23}{subsection.7.4}%
+\contentsline {section}{\numberline {8}Model Evaluation and Promotion}{23}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Model Evaluation}{23}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Advantages}{23}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}Limitations}{23}{subsubsection.8.1.2}%
+\contentsline {section}{\numberline {9}Memorandum}{23}{section.9}%

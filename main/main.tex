@@ -46,9 +46,28 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning,fit,calc}
 
+% Float placement control (for Figures 4/5)
+\usepackage{float}
+
 % 目录间距调整
 \usepackage{tocloft}
 \setlength{\cftbeforesecskip}{2pt}  % 减少section前的间距
+
+% 答案高亮环境（灰色背景，无边框）
+\usepackage[most]{tcolorbox}
+\newtcolorbox{answerbox}{
+  enhanced,
+  breakable,
+    colback=gray!15,
+    colframe=gray!15,
+    boxrule=0pt,
+    arc=0pt,
+    left=3pt, right=3pt, top=3pt, bottom=3pt,
+    boxsep=0pt,
+  sharp corners,
+  before skip=6pt,
+  after skip=6pt
+}
 
 % 添加中文支持
 \usepackage{xeCJK}
