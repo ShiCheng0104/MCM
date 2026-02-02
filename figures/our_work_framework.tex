@@ -1,0 +1,149 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows, positioning, backgrounds, fit, calc}
+
+\definecolor{lightblue}{RGB}{173,216,230}
+\definecolor{lightyellow}{RGB}{255,255,204}
+\definecolor{lightgreen}{RGB}{204,255,204}
+\definecolor{lightpink}{RGB}{255,204,229}
+\definecolor{lightorange}{RGB}{255,229,204}
+
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=0.8cm, text centered, draw=black, fill=lightblue!60, rounded corners, font=\small\bfseries]
+\tikzstyle{method} = [rectangle, minimum width=2.5cm, minimum height=0.7cm, text centered, draw=black, fill=lightgreen!40, font=\footnotesize]
+\tikzstyle{data} = [rectangle, minimum width=2.5cm, minimum height=0.7cm, text centered, draw=black, fill=lightyellow!80, font=\footnotesize]
+\tikzstyle{result} = [rectangle, minimum width=2.5cm, minimum height=0.7cm, text centered, draw=black, fill=lightpink!60, font=\footnotesize]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{dashedarrow} = [thick,->,>=stealth,dashed]
+
+\begin{document}
+\begin{tikzpicture}[node distance=0.6cm and 0.8cm]
+
+% Problem 1: 观众投票估计
+\begin{scope}[local bounding box=problem1]
+    \node[process] (p1title) {\textbf{Problem 1: 观众投票估计}};
+    
+    \node[data, below=of p1title, xshift=-2.5cm] (p1data1) {评委得分\\Judge Scores};
+    \node[data, below=of p1title, xshift=2.5cm] (p1data2) {特征数据\\Features};
+    
+    \node[method, below=of p1data1, xshift=0cm, yshift=-0.3cm] (p1method1) {幂律投票假设\\Power Law};
+    \node[method, below=of p1data2, xshift=0cm, yshift=-0.3cm] (p1method2) {多源融合\\Multi-Source};
+    
+    \node[process, below=of p1title, yshift=-3.5cm] (p1bayes) {贝叶斯框架\\Bayesian Framework};
+    
+    \node[method, below=of p1bayes, xshift=-2cm] (p1opt) {约束优化\\Constrained Opt};
+    \node[method, below=of p1bayes, xshift=2cm] (p1mc) {不确定性量化\\Uncertainty};
+    
+    \node[result, below=of p1bayes, yshift=-2cm] (p1result) {\textbf{投票估计}\\Vote Estimates};
+    \node[result, below=of p1result, font=\scriptsize] (p1metric) {准确率: 91.7\%\\CV: 0.117};
+    
+    \draw[arrow] (p1data1) -- (p1method1);
+    \draw[arrow] (p1data2) -- (p1method2);
+    \draw[arrow] (p1method1) -- (p1bayes);
+    \draw[arrow] (p1method2) -- (p1bayes);
+    \draw[arrow] (p1bayes) -- (p1opt);
+    \draw[arrow] (p1bayes) -- (p1mc);
+    \draw[arrow] (p1opt) -- (p1result);
+    \draw[arrow] (p1mc) -- (p1result);
+    \draw[arrow] (p1result) -- (p1metric);
+\end{scope}
+
+% Problem 2: 投票方法对比
+\begin{scope}[local bounding box=problem2, xshift=8.5cm]
+    \node[process] (p2title) {\textbf{Problem 2: 投票方法对比}};
+    
+    \node[data, below=of p2title, yshift=-0.5cm] (p2data) {投票估计 + 评委得分\\Vote Estimates + Scores};
+    
+    \node[method, below=of p2data, xshift=-2cm] (p2rank) {排名法\\Rank Method};
+    \node[method, below=of p2data, xshift=2cm] (p2percent) {百分比法\\Percent Method};
+    
+    \node[process, below=of p2data, yshift=-2.5cm] (p2compare) {差异分析\\Difference Analysis};
+    
+    \node[result, below=of p2compare, xshift=-2cm] (p2case) {争议案例\\Controversies};
+    \node[result, below=of p2compare, xshift=2cm] (p2rec) {方法推荐\\Recommendation};
+    
+    \draw[arrow] (p2data) -- (p2rank);
+    \draw[arrow] (p2data) -- (p2percent);
+    \draw[arrow] (p2rank) -- (p2compare);
+    \draw[arrow] (p2percent) -- (p2compare);
+    \draw[arrow] (p2compare) -- (p2case);
+    \draw[arrow] (p2compare) -- (p2rec);
+\end{scope}
+
+% Problem 3: 影响因素分析
+\begin{scope}[local bounding box=problem3, yshift=-10cm]
+    \node[process] (p3title) {\textbf{Problem 3: 影响因素分析}};
+    
+    \node[data, below=of p3title, yshift=-0.5cm] (p3data) {投票估计 + 选手特征\\Votes + Features};
+    
+    \node[method, below=of p3data, xshift=-3cm, yshift=-0.3cm] (p3reg) {回归分析\\Regression};
+    \node[method, below=of p3data, xshift=0cm, yshift=-0.3cm] (p3rf) {随机森林\\Random Forest};
+    \node[method, below=of p3data, xshift=3cm, yshift=-0.3cm] (p3shap) {SHAP解释\\SHAP};
+    
+    \node[process, below=of p3data, yshift=-2.5cm] (p3effect) {效应量化\\Effect Quantification};
+    
+    \node[result, below=of p3effect, xshift=-2cm] (p3judge) {评委得分影响\\Judge Impact};
+    \node[result, below=of p3effect, xshift=2cm] (p3fan) {观众投票影响\\Fan Impact};
+    
+    \node[result, below=of p3effect, yshift=-2cm] (p3comp) {双重影响机制\\Dual Mechanism};
+    
+    \draw[arrow] (p3data) -- (p3reg);
+    \draw[arrow] (p3data) -- (p3rf);
+    \draw[arrow] (p3data) -- (p3shap);
+    \draw[arrow] (p3reg) -- (p3effect);
+    \draw[arrow] (p3rf) -- (p3effect);
+    \draw[arrow] (p3shap) -- (p3effect);
+    \draw[arrow] (p3effect) -- (p3judge);
+    \draw[arrow] (p3effect) -- (p3fan);
+    \draw[arrow] (p3judge) -- (p3comp);
+    \draw[arrow] (p3fan) -- (p3comp);
+\end{scope}
+
+% Problem 4: 新系统设计
+\begin{scope}[local bounding box=problem4, xshift=8.5cm, yshift=-10cm]
+    \node[process] (p4title) {\textbf{Problem 4: 新系统设计}};
+    
+    \node[data, below=of p4title, yshift=-0.5cm] (p4data) {历史数据 + 分析结果\\Historical + Analysis};
+    
+    \node[process, below=of p4data, yshift=-0.8cm] (p4design) {动态加权系统\\Dynamic Weighting};
+    
+    \node[method, below=of p4design, xshift=-2.5cm, yshift=-0.3cm] (p4stage) {阶段权重\\Stage Weights};
+    \node[method, below=of p4design, xshift=0cm, yshift=-0.3cm] (p4protect) {技术保护\\Protection};
+    \node[method, below=of p4design, xshift=2.5cm, yshift=-0.3cm] (p4contro) {争议处理\\Controversy};
+    
+    \node[result, below=of p4design, yshift=-2.5cm] (p4sim) {历史回测\\Simulation};
+    
+    \node[result, below=of p4sim] (p4eval) {公平性+观赏性\\Fairness+Excitement};
+    
+    \draw[arrow] (p4data) -- (p4design);
+    \draw[arrow] (p4design) -- (p4stage);
+    \draw[arrow] (p4design) -- (p4protect);
+    \draw[arrow] (p4design) -- (p4contro);
+    \draw[arrow] (p4stage) -- (p4sim);
+    \draw[arrow] (p4protect) -- (p4sim);
+    \draw[arrow] (p4contro) -- (p4sim);
+    \draw[arrow] (p4sim) -- (p4eval);
+\end{scope}
+
+% Cross-problem connections
+\draw[dashedarrow, color=blue!60, line width=1.2pt] (p1result) to[out=0, in=180] (p2data);
+\draw[dashedarrow, color=blue!60, line width=1.2pt] (p1result) to[out=-45, in=90] (p3data);
+\draw[dashedarrow, color=blue!60, line width=1.2pt] (p2rec) to[out=-90, in=45] (p4data);
+\draw[dashedarrow, color=blue!60, line width=1.2pt] (p3comp) to[out=0, in=180] (p4data);
+
+% Background boxes
+\begin{pgfonlayer}{background}
+    \node[draw=orange!80, fill=lightorange!20, rounded corners, line width=1.5pt, 
+          fit=(p1title)(p1metric), inner sep=0.4cm, label=above:{\textcolor{orange!80}{\textbf{阶段1: 数据重构}}}] {};
+    \node[draw=green!70, fill=lightgreen!15, rounded corners, line width=1.5pt, 
+          fit=(p2title)(p2rec), inner sep=0.4cm, label=above:{\textcolor{green!70}{\textbf{阶段2: 方法评估}}}] {};
+    \node[draw=purple!70, fill=lightpink!15, rounded corners, line width=1.5pt, 
+          fit=(p3title)(p3comp), inner sep=0.4cm, label=above:{\textcolor{purple!70}{\textbf{阶段3: 机制分析}}}] {};
+    \node[draw=red!70, fill=lightpink!20, rounded corners, line width=1.5pt, 
+          fit=(p4title)(p4eval), inner sep=0.4cm, label=above:{\textcolor{red!70}{\textbf{阶段4: 系统优化}}}] {};
+\end{pgfonlayer}
+
+% Title
+\node[font=\Large\bfseries, above=1cm of p1title, xshift=4.25cm] {Framework of Our Work};
+
+\end{tikzpicture}
+\end{document}
