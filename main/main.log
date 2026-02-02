@@ -1080,4 +1080,177 @@ LaTeX Font Info:    Trying to load font information for U+txsyb on input line 71
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 71.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 71.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Trying to load font information for U+txmia on input line 71.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/utxmia.fd
+File: utxmia.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    Trying to load font information for U+txsyc on input line 71.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/utxsyc.fd
+File: utxsyc.fd 2000/12/15 v3.1
+)
+
+[1
+
+]
+
+
+Package xeCJK Warning: Unknown CJK family `\CJKsfdefault' is being ignored.
+(xeCJK)                
+(xeCJK)                Try to use `\setCJKsansfont[<...>]{<...>}' to define
+(xeCJK)                it.
+
+[2] (./main.toc
+
+[1]
+
+[2])
+\tf@toc=\write6
+\openout6 = `main.toc'.
+
+
+
+[3] (../sections/1.Introduction.tex
+File: ../figures/2.png Graphic file (type bmp)
+<../figures/2.png>
+
+Underfull \hbox (badness 2005) in paragraph at lines 15--16
+\TU/lmr/m/n/12 professional dancers in weekly competitions.
+ []
+
+
+Underfull \hbox (badness 1629) in paragraph at lines 15--16
+\TU/lmr/m/n/12 The show combines judge scores and audi-
+ []
+
+
+
+[4] (../figures/our_work_flowchart.tikz.tex
+\pgf@layerbox@bg=\box81
+\pgf@layerboxsaved@bg=\box82
+))
+
+[5] (../sections/2.Preparation for Modeling.tex
+
+[6] (../figures/data_pipeline.tikz.tex)
+
+[7]) (../sections/4.Models.tex
+
+[8]
+File: ../yanxiao/outputs/figures/radar_s20_w5.png Graphic file (type bmp)
+<../yanxiao/outputs/figures/radar_s20_w5.png>
+
+
+[9]
+File: ../yanxiao/outputs/figures/accuracy_summary.png Graphic file (type bmp)
+<../yanxiao/outputs/figures/accuracy_summary.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[10]
+File: ../yanxiao/outputs/figures/uncertainty_distribution.png Graphic file (type bmp)
+<../yanxiao/outputs/figures/uncertainty_distribution.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Font Warning: Font shape `TU/STSong(0)/b/n' undefined
+(Font)              using `TU/STSong(0)/m/n' instead on input line 112.
+
+
+
+[11]
+
+[12]
+File: ../question2/outputs/figures/method_comparison_overview.png Graphic file (type bmp)
+<../question2/outputs/figures/method_comparison_overview.png>
+
+
+[13]
+File: ../question2/outputs/figures/controversy_trajectories.png Graphic file (type bmp)
+<../question2/outputs/figures/controversy_trajectories.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: ../question2/outputs/figures/controversy_heatmap_comparison.png Graphic file (type bmp)
+<../question2/outputs/figures/controversy_heatmap_comparison.png>
+
+
+[14]
+Missing character: There is no ⭐ (U+2B50) in font [lmroman12-regular]:mapping=tex-text;!
+
+
+[15]
+
+[16]
+
+[17]
+File: ../question3/outputs/figures/shap_summary_combined.png Graphic file (type bmp)
+<../question3/outputs/figures/shap_summary_combined.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (25.84183pt too wide) in paragraph at lines 332--333
+\TU/lmr/m/n/12 +48K). Derek Hough’s 17-season record with 6 championships, combining ”technique+popularity”
+ []
+
+
+
+[18]
+File: ../question3/outputs/figures/nomogram_combined.png Graphic file (type bmp)
+<../question3/outputs/figures/nomogram_combined.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[19]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (77.0295pt too wide) in paragraph at lines 398--409
+ [][] 
+ []
+
+
+
+[20]
+
+[21]
+File: ../question4/outputs/figures/dramatic_arc_weights.png Graphic file (type bmp)
+<../question4/outputs/figures/dramatic_arc_weights.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[22]
+
+[23]) (../sections/5.Sensitivity Analysis.tex
+
+[24]
+File: ../model_evaluation/outputs/figures/sensitivity/tornado_diagram.png Graphic file (type bmp)
+<../model_evalu
