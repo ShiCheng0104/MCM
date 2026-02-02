@@ -3,9 +3,9 @@
 \begin{ReportAiUse}{6}
 
 \bibitem{AI1}
-GitHub Copilot (Claude Opus 4.5, 2026年2月版本)\\
-\textbf{查询1:} 我们提出了使用贝叶斯方法估计DWTS粉丝投票数的思路。由于数据集中只有淘汰结果而没有具体投票数，需要从淘汰模式反推投票分布。请帮助实现这个贝叶斯投票估计模型。\\
-\textbf{输出:} AI根据我们的思路实现了层次贝叶斯模型代码框架：
+GitHub Copilot (Claude Opus 4.5, February 2026 version)\\
+\textbf{Query 1:} We proposed using Bayesian methods to estimate DWTS fan vote counts. Since the dataset contains only elimination outcomes without specific vote tallies, we need to reverse-engineer voting distributions from elimination patterns. Please help implement this Bayesian vote estimation model.\\
+\textbf{Output:} AI implemented the hierarchical Bayesian model code framework based on our approach:
 \begin{lstlisting}[language=python]
 class BayesianVoteModel:
     def __init__(self, weekly_data):
@@ -25,12 +25,12 @@ class BayesianVoteModel:
         vote_estimates = self._bayesian_update(scores, eliminated)
         return vote_estimates
 \end{lstlisting}
-AI实现的这个代码框架成功地将我们的理论思路转化为可执行的模型，后续我们对参数进行了调优和验证。
+AI's code framework successfully converted our theoretical approach into an executable model; we subsequently performed parameter tuning and validation.
 
 \bibitem{AI2}
-GitHub Copilot (Claude Opus 4.5, 2026年2月版本)\\
-\textbf{查询2:} 我们设计了使用随机森林分析名人特征（年龄、行业、搭档经验）对比赛表现影响的方案。请实现特征重要性分析的代码，包括模型训练和结果排序。\\
-\textbf{输出:} AI实现了我们设计的特征重要性分析框架：
+GitHub Copilot (Claude Opus 4.5, February 2026 version)\\
+\textbf{Query 2:} We designed a random forest approach to analyze how celebrity features (age, industry, partner experience) influence competition performance. Please implement feature importance analysis code, including model training and result ranking.\\
+\textbf{Output:} AI implemented our designed feature importance analysis framework:
 \begin{lstlisting}[language=python]
 class RandomForestAnalyzer:
     def __init__(self, data):
@@ -45,12 +45,12 @@ class RandomForestAnalyzer:
         }).sort_values('importance', ascending=False)
         return importance
 \end{lstlisting}
-基于AI实现的代码，我们成功分析出\texttt{week}（0.48）、\texttt{age}（0.18）和\texttt{partner\_experience}（0.13）是评委打分的关键因素。
+Using AI-implemented code, we successfully identified \texttt{week} (0.48), \texttt{age} (0.18), and \texttt{partner\_experience} (0.13) as critical factors for judge scoring.
 
 \bibitem{AI3}
-GitHub Copilot (Claude Opus 4.5, 2026年2月版本)\\
-\textbf{查询3:} 我们设计了一个动态加权投票系统（戏剧弧线系统），核心思路是：早期偏重评委分（52\%），中期平衡（50-50），后期偏重观众票（48\%）。请实现这个三阶段动态权重系统的代码。\\
-\textbf{输出:} AI根据我们的设计方案实现了系统代码：
+GitHub Copilot (Claude Opus 4.5, February 2026 version)\\
+\textbf{Query 3:} We designed a dynamic weighted voting system (Dramatic Arc System), with core logic: early stage emphasizes judge scores (52\%), mid-stage balances (50-50), late-stage emphasizes audience votes (48\%). Please implement code for this three-phase dynamic weighting system.\\
+\textbf{Output:} AI implemented system code based on our design:
 \begin{lstlisting}[language=python]
 class DramaticArcSystem(VotingSystem):
     def get_weights(self, week_num, total_weeks):
@@ -63,12 +63,12 @@ class DramaticArcSystem(VotingSystem):
             judge_weight = 0.48
         return judge_weight, 1 - judge_weight
 \end{lstlisting}
-AI实现的代码成功体现了我们的设计理念，经过后续调优，该系统达到了86\%的公平性和11.1\%的争议率。
+AI's implementation successfully embodied our design philosophy; after subsequent tuning, the system achieved 86\% fairness and 11.1\% controversy rate.
 
 \bibitem{AI4}
-GitHub Copilot (Claude Opus 4.5, 2026年2月版本)\\
-\textbf{查询4:} 我们设计了综合敏感性分析方案，包括参数扰动分析和蒙特卡罗模拟。请实现这个分析框架的代码，能够系统性地测试各参数对模型结果的影响。\\
-\textbf{输出:} AI实现了我们设计的多方法敏感性分析框架：
+GitHub Copilot (Claude Opus 4.5, February 2026 version)\\
+\textbf{Query 4:} We designed a comprehensive sensitivity analysis framework, including parameter perturbation analysis and Monte Carlo simulation. Please implement code for this analytical framework capable of systematically testing each parameter's impact on model outcomes.\\
+\textbf{Output:} AI implemented our designed multi-method sensitivity analysis framework:
 \begin{lstlisting}[language=python]
 class SensitivityAnalyzer:
     def parameter_sensitivity(self, param_name, values):
@@ -94,9 +94,9 @@ class SensitivityAnalyzer:
 \end{lstlisting}
 
 \bibitem{AI5}
-GitHub Copilot (Claude Opus 4.5, 2026年2月版本)\\
-\textbf{查询5:} 需要创建高质量的图表展示我们的分析结果。请实现可视化函数，包括：系统对比的条形图（4个子图展示Fairness、Excitement、Consistency、Simplicity）、权重变化曲线图、敏感性分析的龙卷风图等。图表需要publication-quality，DPI 300。\\
-\textbf{输出:} AI实现了我们需要的可视化代码：
+GitHub Copilot (Claude Opus 4.5, February 2026 version)\\
+\textbf{Query 5:} Need to create high-quality charts displaying our analysis results. Please implement visualization functions including: system comparison bar charts (4 subplots showing Fairness, Excitement, Consistency, Simplicity), weight evolution curves, tornado diagrams for sensitivity analysis, etc. Charts must be publication-quality, 300 DPI.\\
+\textbf{Output:} AI implemented our required visualization code:
 \begin{lstlisting}[language=python]
 def plot_system_comparison(comparison_df, save_path):
     fig, axes = plt.subplots(2, 2, figsize=(14, 10))
@@ -112,22 +112,22 @@ def plot_system_comparison(comparison_df, save_path):
     plt.tight_layout()
     plt.savefig(save_path, dpi=300, bbox_inches='tight')
 \end{lstlisting}
-AI生成的可视化代码产生了符合论文要求的高质量图表，清晰展示了我们的研究结果。
+AI-generated visualization code produced publication-quality charts meeting our requirements, clearly presenting our research findings.
 
 \bibitem{AI6}
-GitHub Copilot (Claude Opus 4.5, 2026年2月版本)\\
-\textbf{查询6:} 代码运行时出现ValueError: The truth value of a Series is ambiguous。错误出现在争议奖金计算部分，使用了min()函数比较Series。请帮助定位并修复这个bug。\\
-\textbf{输出:} AI快速识别了问题并提供了修复方案：
+GitHub Copilot (Claude Opus 4.5, February 2026 version)\\
+\textbf{Query 6:} Code execution encountered ValueError: The truth value of a Series is ambiguous. Error occurs in controversy bonus calculation section using min() function to compare Series. Please help locate and fix this bug.\\
+\textbf{Output:} AI rapidly identified the issue and provided fix:
 \begin{lstlisting}[language=python]
-# 原始有bug的代码:
+# Original buggy code:
 df.loc[df['is_controversial'], 'bonus'] = min(
-    df['score_gap'] * 0.15, 0.08)  # 错误: 比较Series
+    df['score_gap'] * 0.15, 0.08)  # Error: comparing Series
 
-# 修复后的代码:
+# Fixed code:
 controversial_mask = df['is_controversial']
 df.loc[controversial_mask, 'bonus'] = np.minimum(
     df.loc[controversial_mask, 'score_gap'] * 0.15, 0.08)
 \end{lstlisting}
-AI的修复解决了我们的问题，改用\texttt{np.minimum()}进行逐元素比较，使代码能够正确处理pandas Series对象。
+AI's fix resolved our issue by switching to \texttt{np.minimum()} for element-wise comparison, enabling correct pandas Series object handling.
 
 \end{ReportAiUse}

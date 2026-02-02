@@ -1,17 +1,17 @@
 \section{Preparation for Modeling}
 \subsection{Model Assumptions}
 
-考虑到现实中的实际问题总是包含许多复杂因素，首先，我们需要做出合理的假设来简化模型，每个假设紧随其相应的解释：
+Real-world problems invariably involve numerous complexities. To simplify our models, we establish the following assumptions, each accompanied by its rationale:
 
-\noindent\textbf{$\blacktriangledown$ 假设1：} 模型关注的是选手间的相对投票份额而非绝对票数，单周内总投票量的波动不影响相对比例估计。
+\noindent\textbf{$\blacktriangledown$ Assumption 1:} The model focuses on relative vote shares among contestants rather than absolute vote counts; fluctuations in weekly total vote volume do not affect relative proportional estimation.
 
-\noindent\textbf{$\blacktriangle$ 解释：} 由于各周的总投票量受收视率、宣传力度等因素影响而波动，但选手之间的相对投票比例 $v_i = V_i / \sum_j V_j$ 更稳定且直接决定淘汰结果。这一归一化处理使得模型能够在不知道绝对票数的情况下准确预测淘汰结果，也符合节目组公布的"投票份额"而非"绝对票数"的惯例。
+\noindent\textbf{$\blacktriangle$ Rationale:} Weekly total vote volumes fluctuate due to factors such as viewership ratings and promotional intensity. However, the relative vote proportion $v_i = V_i / \sum_j V_j$ among contestants remains more stable and directly determines elimination outcomes. This normalization enables accurate elimination prediction without knowledge of absolute vote counts and aligns with the show's convention of disclosing ``vote shares'' rather than ``absolute tallies.''
 
 \vspace{0.3em}
 
-\noindent\textbf{$\blacktriangledown$ 假设2：} 观众投票行为与评委得分和名人特征相关，遵循幂律关系 $V_i \propto S_i^\alpha$。
+\noindent\textbf{$\blacktriangledown$ Assumption 2:} Audience voting behavior correlates with judge scores and celebrity attributes, following a power-law relationship $V_i \propto S_i^\alpha$.
 
-\noindent\textbf{$\blacktriangle$ 解释：} 我们的分析表明，观众投票既不是纯随机的，也不是简单跟随评委得分。通过网格搜索校准得到的幂律指数 $\alpha = 1.2$ 捕捉到了"马太效应"（高分选手获得超比例支持），同时名人特征（年龄、行业、舞伴）提供了额外的预测能力。这一假设使得从已知信息反推观众投票成为可能。
+\noindent\textbf{$\blacktriangle$ Rationale:} Our analysis reveals that audience voting is neither purely random nor simply mimetic of judge scores. The power-law exponent $\alpha = 1.2$, calibrated via grid search, captures the ``Matthew effect'' wherein high-scoring contestants receive disproportionate support. Concurrently, celebrity attributes (age, industry, professional partner) provide additional predictive power. This assumption renders feasible the inverse inference of audience votes from observable data.
 
 \subsection{Notations}
 \setlength{\parindent}{2em} % 设置缩进为2个字符宽度
@@ -28,33 +28,33 @@ The core symbols and their definitions used in this study are summarized in Tabl
 \textbf{Symbol} & \textbf{Description} \\ 
 \midrule % Middle line
 
-$n$ & 第$w$周剩余选手数量 \\
+$n$ & Number of remaining contestants in week $w$ \\
 
-$S_i$ & 选手$i$的评委总分 \\
+$S_i$ & Total judge score for contestant $i$ \\
 
-$V_i$ & 选手$i$的估计观众投票数 \\
+$V_i$ & Estimated audience vote count for contestant $i$ \\
 
-$E_i$ & 淘汰指示器：若选手$i$被淘汰则$E_i = 1$，否则为0 \\
+$E_i$ & Elimination indicator: $E_i = 1$ if contestant $i$ is eliminated, 0 otherwise \\
 
-$\mathcal{M}$ & 投票组合方法：``rank''（排名法）或``percent''（百分比法） \\
+$\mathcal{M}$ & Voting combination method: ``rank'' (rank-based) or ``percent'' (percentage-based) \\
 
-$C_i$ & 选手$i$在方法$\mathcal{M}$下的综合得分 \\
+$C_i$ & Combined score for contestant $i$ under method $\mathcal{M}$ \\
 
-$\alpha$ & 投票与评委得分关系的幂律指数 \\
+$\alpha$ & Power-law exponent relating votes to judge scores \\
 
-$\boldsymbol{\theta}$ & 先验偏好因子（舞伴效应、行业效应） \\
+$\boldsymbol{\theta}$ & Prior preference factors (partner effect, industry effect) \\
 
-$R_i^{\text{judge}}$ & 选手$i$的评委得分排名 \\
+$R_i^{\text{judge}}$ & Judge score rank for contestant $i$ \\
 
-$R_i^{\text{fan}}$ & 选手$i$的观众投票排名 \\
+$R_i^{\text{fan}}$ & Audience vote rank for contestant $i$ \\
 
-$\beta_p$ & 专业舞伴$p$的投票偏好效应 \\
+$\beta_p$ & Vote preference effect for professional partner $p$ \\
 
-$\gamma_d$ & 名人行业$d$的投票偏好效应 \\
+$\gamma_d$ & Vote preference effect for celebrity industry $d$ \\
 
-$B_i^w$ & 选手$i$在第$w$周的存活提升值 \\
+$B_i^w$ & Survival boost value for contestant $i$ in week $w$ \\
 
-$\mathbf{v}$ & 观众投票份额向量 $(v_1, \ldots, v_n)$ \\
+$\mathbf{v}$ & Audience vote share vector $(v_1, \ldots, v_n)$ \\
 
 
 \bottomrule % Bottom line
@@ -62,44 +62,44 @@ $\mathbf{v}$ & 观众投票份额向量 $(v_1, \ldots, v_n)$ \\
 \label{table:notations}
 \end{table}
 
-\subsection{数据收集与清洗}
+\subsection{Data Collection and Preprocessing}
 
-\subsubsection{官方赛事数据分析}
+\subsubsection{Official Competition Data Analysis}
 
-官方数据集\texttt{2026\_MCM\_Problem\_C\_Data.csv}包含34个赛季共400余名参赛者的完整比赛记录。经过名人姓名格式标准化和行业分类修正后，我们对数据进行了系统性分析：
+The official dataset \texttt{2026\_MCM\_Problem\_C\_Data.csv} contains comprehensive competition records for over 400 contestants across 34 seasons. Following standardization of celebrity name formats and correction of industry classifications, we conducted systematic data analysis:
 
-\textbf{评委评分分布：}评分呈现右偏分布，平均分为25.8分(满分30分)，标准差为3.2分。值得注意的是，评分标准存在明显的时间演变趋势：早期赛季(Season 1-10)评分相对宽松，平均分为26.5分；而近期赛季(Season 25-34)评分更为严格，平均分降至24.9分，反映出评委标准的逐步提升。
+\textbf{Judge Score Distribution:} Scores exhibit a right-skewed distribution with a mean of 25.8 points (out of 30 maximum) and standard deviation of 3.2 points. Notably, scoring standards demonstrate clear temporal evolution: early seasons (Seasons 1--10) employed relatively lenient scoring with a mean of 26.5 points, whereas recent seasons (Seasons 25--34) adopted stricter standards with means declining to 24.9 points, reflecting gradual elevation of judging criteria.
 
-\textbf{行业差异显著：}不同行业名人的表现存在本质性差异。运动员凭借优异的身体素质和训练基础，平均评分最高(27.1分)，淘汰率最低(35\%)；政治人物和商业人士平均评分较低(22.3分和23.1分)，淘汰率超过80\%；演艺界名人表现居中，平均评分25.5分，淘汰率约60\%。
+\textbf{Pronounced Industry Disparities:} Celebrity performance varies fundamentally across industries. Athletes, leveraging superior physical conditioning and training foundations, achieve the highest average scores (27.1 points) and lowest elimination rates (35\%); politicians and business figures score lower on average (22.3 and 23.1 points, respectively) with elimination rates exceeding 80\%; entertainment industry celebrities exhibit intermediate performance with average scores of 25.5 points and elimination rates around 60\%.
 
-\textbf{专业舞伴效应：}统计显示，部分资深舞伴具有显著的"冠军效应"。例如Derek Hough搭档的名人平均排名为3.2名，远优于整体平均排名(6.8名)。我们对舞伴历史战绩进行量化，将其作为先验因子纳入后续建模。
+\textbf{Professional Partner Effects:} Statistics reveal that certain veteran partners exhibit significant ``championship effects.'' For instance, celebrities partnered with Derek Hough achieve an average placement of 3.2, substantially outperforming the overall mean placement of 6.8. We quantify partner historical track records as prior factors incorporated into subsequent modeling.
 
-\textbf{淘汰模式分析：}通过Logistic回归分析发现，评委分数每增加1分，淘汰概率降低18.5\%(\textit{p}<0.001)。然而在淘汰临界周(第4-6周)，评委分数的解释力显著下降(R²从0.72降至0.38)，暗示观众投票在此阶段起主导作用。
+\textbf{Elimination Pattern Analysis:} Logistic regression analysis reveals that each 1-point increase in judge scores reduces elimination probability by 18.5\% (\textit{p}<0.001). However, during critical elimination weeks (Weeks 4--6), judge score explanatory power declines markedly ($R^2$ from 0.72 to 0.38), suggesting audience votes assume dominant influence during this phase.
 
-\subsubsection{电视收视率数据}
+\subsubsection{Television Viewership Data}
 
-\textbf{数据来源与处理：}使用自动化爬虫(\texttt{wiki\_ratings.py})从Wikipedia收集了第1-34季的分集收视率数据，包括播出日期、收视率/份额(如"4.3/12")及观众人数(百万)。通过\texttt{process\_ratings.py}剔除特殊节目、解析播出日期计算周数、合并同周多期节目，最终生成周级聚合数据(\texttt{processed\_ratings\_*\_merged.csv})。在脚本处理数据后，部分格式进行了手动调整。
+\textbf{Data Source and Processing:} Using automated web scraping (\texttt{wiki\_ratings.py}), we collected episode-level viewership data for Seasons 1--34 from Wikipedia, including air dates, ratings/shares (e.g., ``4.3/12''), and audience size (in millions). Through \texttt{process\_ratings.py}, we filtered special programming, parsed air dates to compute week numbers, and merged multi-episode weeks, ultimately generating week-level aggregated data (\texttt{processed\_ratings\_*\_merged.csv}). Following script processing, certain formats underwent manual refinement.
 
-\textbf{数据特征：}成功处理32个赛季的收视数据(Season 12和31数据缺失)，共计1200余周的收视记录。数据完整性为96.8\%，缺失周次主要为中断播出或特殊事件周。
+\textbf{Data Characteristics:} Successfully processed viewership data for 32 seasons (Seasons 12 and 31 data unavailable), comprising over 1,200 weeks of viewership records. Data completeness stands at 96.8\%, with missing weeks primarily attributable to broadcast interruptions or special event weeks.
 
-\textbf{长期趋势分析：}Season级收视率呈现显著下降趋势。早期赛季(Season 1-15)平均收视率为20.3百万观众，而近期赛季(Season 25-34)降至8.7百万，降幅达57\%。这一趋势反映了电视媒体生态的整体变迁及流媒体平台的冲击。
+\textbf{Long-term Trend Analysis:} Season-level viewership exhibits marked decline. Early seasons (Seasons 1--15) averaged 20.3 million viewers, whereas recent seasons (Seasons 25--34) declined to 8.7 million---a 57\% reduction. This trend reflects broader shifts in television media ecology and the impact of streaming platforms.
 
-\textbf{周内波动模式：}通过周级分析发现，首播周和决赛周收视率峰值分别为赛季平均值的1.35倍和1.68倍，体现了观众对开幕和冠军争夺的高度关注。中间周(Week 4-7)出现收视疲劳期，收视率较峰值降幅可达22\%，这一"疲劳期"现象在近期赛季更为明显。
+\textbf{Within-Season Fluctuation Patterns:} Week-level analysis reveals that premiere and finale weeks achieve viewership peaks of 1.35$\times$ and 1.68$\times$ season averages, respectively, demonstrating heightened audience engagement with openings and championship competitions. Mid-season weeks (Weeks 4--7) experience viewership fatigue, with ratings declining up to 22\% from peaks; this ``fatigue period'' phenomenon intensifies in recent seasons.
 
-\subsubsection{社交媒体热度数据(Google Trends)}
+\subsubsection{Social Media Trending Data (Google Trends)}
 
-\textbf{数据来源与处理：}通过PyTrends API(\texttt{google\_trends\_scraper.py})获取每位参赛者在其参赛季播出期间的Google搜索热度(0-100分)。地理范围限定为美国(geo='US')，时间分辨率为周级聚合。为确保数据有效性，采用了三重归一化策略：(1)名字变体生成(大小写组合、撇号处理)以最大化数据捕获；(2)使用节目主持人"RuPaul"作为固定基准词进行跨季度归一化；(3)对每个赛季独立应用Min-Max缩放确保季内公平比较。
+\textbf{Data Source and Processing:} Via the PyTrends API (\texttt{google\_trends\_scraper.py}), we retrieved Google search interest scores (0--100 scale) for each contestant during their competitive season. Geographic scope was restricted to the United States (geo=`US') with week-level temporal resolution. To ensure data validity, we employed a triple normalization strategy: (1) name variant generation (case combinations, apostrophe handling) to maximize data capture; (2) use of show host ``RuPaul'' as a fixed baseline term for cross-season normalization; (3) independent Min-Max scaling per season to ensure within-season fair comparison.
 
-\textbf{数据质量：}成功获取400余名参赛者的标准化热度评分，数据成功率为94.8\%。失败样本主要为极低知名度名人，采用行业内中位数插补。归一化有效性验证显示，跨季度标准化分数的变异系数降低43\%(从0.78降至0.45)，Shapiro-Wilk检验表明归一化后的分数分布接近正态(\textit{p}=0.082)。
+\textbf{Data Quality:} Successfully obtained standardized popularity scores for over 400 contestants, achieving a 94.8\% data capture rate. Failed samples primarily comprised extremely low-profile celebrities, for whom industry-specific median imputation was applied. Normalization efficacy validation demonstrates that cross-season standardized score coefficient of variation decreased by 43\% (from 0.78 to 0.45); Shapiro-Wilk testing indicates post-normalization score distributions approximate normality (\textit{p}=0.082).
 
-\textbf{知名度分布特征：}Google Trends标准化分数呈现明显的长尾分布，约15\%的参赛者标准化分数超过0.8(高知名度)，50\%的参赛者分数低于0.3(低知名度)。高知名度名人主要集中在演艺界和体育界，商业和政治领域名人知名度普遍较低。
+\textbf{Popularity Distribution Characteristics:} Google Trends standardized scores exhibit pronounced long-tail distribution, with approximately 15\% of contestants exceeding 0.8 (high popularity) and 50\% below 0.3 (low popularity). High-profile celebrities concentrate in entertainment and sports sectors, while business and political figures exhibit universally lower visibility.
 
-\textbf{知名度与表现的复杂关系：}高知名度(标准化分数>0.8)名人的淘汰率显著低于低知名度选手(42\% vs 68\%)，证实了"人气保护效应"。然而，高知名度并不必然带来冠军：Season 7的Kim Kardashian尽管社交热度最高(1.0)，但最终仅排名第11。交叉分析显示，当名人的社交热度排名显著高于评委分数排名时(差距>3名)，其实际淘汰周数平均延后1.8周，典型案例为Season 11的Bristol Palin。
+\textbf{Complex Popularity-Performance Relationship:} High-popularity (standardized score $>$0.8) celebrities experience significantly lower elimination rates than low-profile contestants (42\% vs.\ 68\%), confirming a ``popularity protection effect.'' However, high visibility does not guarantee championship: Season 7's Kim Kardashian, despite maximal social trending (1.0), placed merely 11th. Cross-tabulation analysis reveals that when celebrities' social trending ranks substantially exceed their judge score ranks (gap $>$3 positions), actual elimination is delayed by an average of 1.8 weeks, with Season 11's Bristol Palin exemplifying this pattern.
 
-\subsubsection{多源数据关联分析}
+\subsubsection{Multi-Source Data Correlation Analysis}
 
-\textbf{时间序列相关性：}通过DTW(Dynamic Time Warping)算法对收视率和社交热度进行时间序列匹配，发现两者具有显著的滞后相关性(lag=1周, Pearson相关系数0.67)。这表明社交媒体热度波动先于收视率变化约1周，为预测模型提供了领先指标。
+\textbf{Time Series Correlation:} Applying Dynamic Time Warping (DTW) algorithms to align viewership ratings and social trending, we identify significant lagged correlation (lag=1 week, Pearson correlation coefficient 0.67). This indicates social media trending fluctuations precede viewership changes by approximately one week, providing a leading indicator for predictive models.
 
-\textbf{数据一致性验证：}通过对比官方数据与Wikipedia记录，发现placement字段一致性为99.2\%。8例不一致情况经人工核查后修正，主要涉及并列名次的表示差异。缺失值分析显示，官方数据完整性为97.3\%，收视率数据完整性为96.8\%，整体数据质量满足建模要求。
+\textbf{Data Consistency Validation:} Cross-referencing official data against Wikipedia records reveals 99.2\% consistency in placement fields. Eight discrepancies, manually verified and corrected, primarily involved tied rank representation differences. Missing value analysis indicates official data completeness of 97.3\% and viewership data completeness of 96.8\%, with overall data quality satisfying modeling requirements.
 
 

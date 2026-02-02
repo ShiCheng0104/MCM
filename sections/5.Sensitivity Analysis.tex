@@ -1,26 +1,26 @@
 \section{Sensitivity Analysis}
 
-为评估模型对参数扰动和数据噪声的鲁棒性，我们对四个问题的核心模型进行了系统性敏感性分析。图~\ref{fig:tornado_sensitivity}的龙卷风图直观展示了各类参数对模型性能的影响范围，条形长度代表敏感度强弱。
+To evaluate model robustness against parameter perturbations and data noise, we conducted systematic sensitivity analysis across core models for all four problems. The tornado diagram in Figure~\ref{fig:tornado_sensitivity} intuitively demonstrates parameter impact ranges on model performance, with bar length representing sensitivity magnitude.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.95\textwidth]{../model_evaluation/outputs/figures/sensitivity/tornado_diagram.png}
-\caption{参数敏感性龙卷风图。横轴表示相对基准性能的偏离程度，条形越长表示该参数对模型性能影响越大。Q3的周次特征（week）敏感性最高，Q1的数据噪声和模型参数敏感性较低，Q4的争议奖励参数展现出明显的公平性-观赏性权衡}
+\caption{Parameter Sensitivity Tornado Diagram. Horizontal axis indicates deviation from baseline performance; longer bars signify greater parameter impact. Q3's week feature exhibits highest sensitivity; Q1's data noise and model parameters show low sensitivity; Q4's controversy reward parameter demonstrates pronounced fairness-entertainment tradeoff}
 \label{fig:tornado_sensitivity}
 \end{figure}
 
-\subsection{问题1和2：投票估计模型的参数敏感性}
+\subsection{Problems 1 \& 2: Vote Estimation Model Parameter Sensitivity}
 
-对幂律指数$\alpha$（基准值1.2）施加$\pm 10\%$的扰动，观察淘汰预测准确率的变化。结果显示模型高度稳健：$\alpha$在$[1.08, 1.32]$区间变化时，准确率维持在$[82.2\%, 87.5\%]$，标准差仅0.01，证明模型对超参数选择不敏感。如图~\ref{fig:tornado_sensitivity}右侧所示，模型参数（Q1: Model Parameters）的敏感性条形最短，表明该模型具有极强的参数鲁棒性。进一步的数据噪声实验表明，当评委得分叠加5\%的高斯噪声时，准确率仅下降5.07\%（从85.0\%降至79.9\%），在10\%噪声下仍保持74.8\%，验证了双层贝叶斯框架的抗噪能力。
+Imposing $\pm 10\%$ perturbations on power-law exponent $\alpha$ (baseline 1.2), we observe elimination prediction accuracy changes. Results demonstrate high robustness: when $\alpha$ varies within $[1.08, 1.32]$, accuracy maintains $[82.2\%, 87.5\%]$ with standard deviation merely 0.01, proving insensitivity to hyperparameter selection. As shown in Figure~\ref{fig:tornado_sensitivity} right side, the model parameter bar (Q1: Model Parameters) is shortest, indicating extreme parameter robustness. Further data noise experiments reveal that with 5\% Gaussian noise added to judge scores, accuracy declines only 5.07\% (from 85.0\% to 79.9\%); even under 10\% noise, accuracy sustains 74.8\%, validating the two-layer Bayesian framework's noise resistance.
 
-\subsection{问题3：特征重要性的稳健验证}
+\subsection{Problem 3: Feature Importance Robust Validation}
 
-通过逐一剔除特征并重新训练GBDT模型，量化各特征的边际贡献。\textbf{关键发现}：如图~\ref{fig:tornado_sensitivity}左侧所示，周次（Q3: week）的敏感性条形最长，跨越约40\%的性能范围，远超其他所有参数。定量分析显示，周次剔除导致$R^2$从0.700骤降至0.316（下降54.9\%），证明其在捕捉赛季进程的技术难度演变中不可替代；年龄（age）和舞伴（partner）的敏感性居中，剔除后$R^2$分别降至0.556和0.596（下降20.6\%和14.9\%），印证了体能-年龄关联和舞伴效应的重要性；行业（industry）和赛季（season）的边际贡献相对较小（5.7\%和9.1\%）。这种稳定的特征层级在10次蒙特卡洛交叉验证中保持一致，标准差$< 0.03$。
+Through sequential feature ablation and GBDT model retraining, we quantify each feature's marginal contribution. \textbf{Key Finding}: As illustrated in Figure~\ref{fig:tornado_sensitivity} left side, the week feature (Q3: week) bar is longest, spanning approximately 40\% performance range, far exceeding all other parameters. Quantitative analysis shows week removal causes $R^2$ to plummet from 0.700 to 0.316 (54.9\% decline), proving its irreplaceability in capturing technical difficulty evolution across season progression; age and partner exhibit intermediate sensitivity, with ablation reducing $R^2$ to 0.556 and 0.596 respectively (20.6\% and 14.9\% declines), corroborating importance of stamina-age correlation and partner effects; industry and season contribute relatively modestly (5.7\% and 9.1\%). This stable feature hierarchy maintains consistency across 10 Monte Carlo cross-validations, with standard deviation $< 0.03$.
 
-\subsection{问题4：戏剧弧系统的参数权衡}
+\subsection{Problem 4: Dramatic Arc System Parameter Tradeoffs}
 
-对三个核心参数进行网格搜索敏感性分析。图~\ref{fig:tornado_sensitivity}中间的红色条形（Q4参数）展现出中等敏感性，反映了系统设计的灵活性与可控性：（1）\textbf{争议奖励上限}（controversy\_bonus）：从5\%增至25\%，公平性得分从0.875线性下降至0.775，观赏性得分从0.700跃升至0.900，15\%为帕累托最优点（综合得分0.808）；（2）\textbf{后期观众权重}（vote\_weight\_late）：从50\%增至70\%，公平性与观赏性呈现明显的反向权衡，60\%-65\%区间综合得分最高（0.796-0.799）；（3）\textbf{安全区阈值}（safety\_zone）：阈值过高（0.7）导致过度保守（公平性0.890但观赏性仅0.690），阈值0.4在两者间取得平衡（综合得分0.801）。蒙特卡洛模拟（1000次）显示，在推荐参数组合下，系统综合得分的95\%置信区间为$[0.745, 0.969]$，标准差0.057，证明设计的鲁棒性。
+Grid search sensitivity analysis conducted across three core parameters. Red bars in Figure~\ref{fig:tornado_sensitivity} center (Q4 parameters) exhibit moderate sensitivity, reflecting system design flexibility and controllability: (1) \textbf{Controversy Reward Cap} (controversy\_bonus): Increasing from 5\% to 25\%, fairness score linearly declines from 0.875 to 0.775, while entertainment score surges from 0.700 to 0.900; 15\% represents Pareto optimum (composite score 0.808). (2) \textbf{Late-Stage Audience Weight} (vote\_weight\_late): Increasing from 50\% to 70\%, fairness and entertainment exhibit pronounced inverse tradeoff; 60\%-65\% interval achieves highest composite scores (0.796-0.799). (3) \textbf{Safety Zone Threshold} (safety\_zone): Excessive threshold (0.7) induces over-conservatism (fairness 0.890 but entertainment merely 0.690); threshold 0.4 balances both (composite score 0.801). Monte Carlo simulation (1000 iterations) demonstrates that under recommended parameter combination, system composite score 95\% confidence interval spans $[0.745, 0.969]$ with standard deviation 0.057, validating design robustness.
 
-\subsection{跨模型不确定性量化}
+\subsection{Cross-Model Uncertainty Quantification}
 
-通过1000次蒙特卡洛采样评估三个核心模型的整体不确定性：问题1投票估计模型均值0.849、标准差0.049、95\%置信区间$[0.753, 0.942]$；问题3因素分析模型$R^2$均值0.699、标准差0.078、置信区间$[0.548, 0.856]$；问题4戏剧弧系统均值0.851、标准差0.057、置信区间$[0.745, 0.969]$。所有模型的变异系数$< 0.12$，表明在合理的不确定性范围内，模型预测稳定可靠。龙卷风图的整体布局验证了我们的设计哲学：问题1和问题4保持低敏感性以确保稳定性，问题3的高敏感性则反映了特征工程的精准性——核心特征（week）贡献巨大，边缘特征可灵活调整。
+Through 1000 Monte Carlo samples, we assess overall uncertainty across three core models: Problem 1 vote estimation model mean 0.849, standard deviation 0.049, 95\% confidence interval $[0.753, 0.942]$; Problem 3 factor analysis model $R^2$ mean 0.699, standard deviation 0.078, confidence interval $[0.548, 0.856]$; Problem 4 Dramatic Arc system mean 0.851, standard deviation 0.057, confidence interval $[0.745, 0.969]$. All models exhibit coefficient of variation $< 0.12$, indicating stable and reliable predictions within reasonable uncertainty bounds. The tornado diagram's overall layout validates our design philosophy: Problems 1 and 4 maintain low sensitivity ensuring stability, while Problem 3's high sensitivity reflects feature engineering precision---core features (week) contribute massively, peripheral features remain flexibly adjustable.

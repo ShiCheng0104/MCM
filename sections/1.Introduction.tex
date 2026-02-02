@@ -12,29 +12,29 @@
     \vspace{-10pt}
 \end{wrapfigure}
 
-自2005年起,《与星共舞》(DWTS)已播出34季,将名人与专业舞者配对参赛。节目采用"评委打分+观众投票"双重机制,但\textbf{观众票数从未公开}。34季中使用了两种组合方法:\textit{排名法}和\textit{百分比法},且多次出现评委低分选手凭观众高票晋级的争议(如Jerry Rice、Bobby Bones)。选手背景(运动员、歌手、年龄、性别)及社交媒体热度\cite{googletrends}显著影响结果。
+Since 2005, \textit{Dancing with the Stars} (DWTS) has aired 34 seasons, pairing celebrities with professional dancers in weekly competitions. The show employs a dual mechanism combining judge scores and audience votes to determine weekly eliminations, yet \textbf{audience vote tallies remain classified}. Over 34 seasons, two distinct combination methods have been utilized---the \textit{rank-based} and \textit{percentage-based} approaches---with recurring controversies where low-scoring contestants advanced through high audience support (e.g., Jerry Rice, Bobby Bones). Contestant characteristics (athletic background, entertainment industry, age, gender) and social media prominence\cite{googletrends} exert substantial influence on outcomes.
 
-本研究聚焦\textbf{不完全信息博弈}场景:在观众投票不可观测条件下反推票数分布,量化组合方法影响,并设计更优投票系统。基于2005-2026年34季数据,采用贝叶斯推断、机器学习和博弈论方法揭开投票"黑箱"\cite{dwts_wiki}。
-
-
+This study addresses an \textbf{incomplete information game} scenario: reconstructing the latent distribution of audience votes from observable elimination data, quantifying the differential impacts of combination methods, and engineering an improved voting protocol. Leveraging data spanning 34 seasons (2005--2026), we employ Bayesian inference, machine learning, and game-theoretic frameworks to demystify the voting ``black box''\cite{dwts_wiki}.
 
 
 
-\subsection{The Description of the Problem}
 
-本问题聚焦于《与星共舞》(Dancing with the Stars, DWTS)节目的投票机制分析。在该竞技真人秀中，名人选手与专业舞者配对表演，通过评委打分和观众投票的组合决定每周淘汰结果。然而，观众投票数据作为商业机密从未公开，且节目在34季中采用了不同的投票组合规则。核心挑战在于：在观众投票未知的情况下，如何评估投票系统的公平性并提出优化方案。
 
-具体任务包括：
+\subsection{Problem Description}
+
+This problem focuses on analyzing the voting mechanism of \textit{Dancing with the Stars} (DWTS). In this competitive reality show, celebrity contestants partner with professional dancers to perform weekly routines, with outcomes determined by a combination of judge scores and audience votes. However, audience voting data remains proprietary and undisclosed, while the show has employed varying vote-combination protocols across 34 seasons. The central challenge lies in evaluating the fairness of these voting systems and proposing optimization strategies under conditions of incomplete vote observability.
+
+Specific tasks include:
 \begin{itemize}
-    \item \textbf{观众投票估算：}构建数学模型，基于评委得分、选手特征和淘汰结果反向推断每位选手的观众投票数。评估估算结果与实际淘汰情况的一致性，并量化估算的不确定性。
+    \item \textbf{Audience Vote Estimation:} Construct mathematical models to inversely infer each contestant's audience vote totals from judge scores, contestant attributes, and elimination outcomes. Assess the consistency between estimated votes and actual eliminations, while quantifying estimation uncertainty.
     
-    \item \textbf{投票方法对比：}对比分析节目使用的两种组合方法——基于排名法和基于百分比法在各赛季产生的结果差异。针对争议案例(如Jerry Rice、Bobby Bones等评委低分但观众高票的选手)，评估方法选择和评委复议机制对最终排名的影响，并推荐未来赛季的最优方法。
+    \item \textbf{Voting Method Comparison:} Conduct comparative analysis of the two combination methods employed---rank-based and percentage-based approaches---examining result divergence across seasons. For controversial cases (e.g., Jerry Rice, Bobby Bones, who advanced despite low judge scores but high audience support), evaluate how methodological choice and judge deliberation mechanisms impact final rankings, and recommend optimal approaches for future seasons.
     
-    \item \textbf{影响因素分析：}构建模型量化专业舞者经验、名人年龄、行业背景等因素对比赛结果的影响。分析这些因素对评委得分和观众投票的作用机制是否存在差异。
+    \item \textbf{Influence Factor Analysis:} Develop models to quantify the impact of professional partner experience, celebrity age, and industry background on competition outcomes. Analyze whether these factors exhibit differential mechanisms of influence on judge scores versus audience votes.
     
-    \item \textbf{新系统设计：}提出一种更"公平"或更具观赏性的投票组合系统。通过历史数据模拟验证新系统的有效性，并为制作方提供可操作的实施建议。
+    \item \textbf{New System Design:} Propose an alternative vote-combination system that enhances either ``fairness'' or entertainment value. Validate the efficacy of the proposed system through historical data simulation and provide actionable implementation recommendations for producers.
     
-    \item \textbf{报告撰写：}提交不超过25页的分析报告及1-2页备忘录，为DWTS制作方提供关于投票组合方式影响的总结和未来赛季的决策建议。
+    \item \textbf{Report Deliverables:} Submit an analytical report not exceeding 25 pages, accompanied by a 1--2 page memorandum, summarizing the impact of vote-combination methodologies and offering decision guidance for future DWTS seasons.
 \end{itemize}
 
 

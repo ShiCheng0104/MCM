@@ -3,29 +3,29 @@
 
 \subsubsection{Advantages}
 
-\textbf{1. 高预测准确性与多层次验证体系}
+\textbf{1. High Predictive Accuracy with Multi-Level Validation}
 
-我们的模型体系在34季历史数据上展现出卓越的预测能力：问题1的观众投票估计达到91.7\%的淘汰预测准确率，其中百分比法准确率高达99.5\%；问题3的GBDT模型解释了评委得分84\%和观众投票79\%的方差；问题4的戏剧弧系统综合得分0.860排名第一。更重要的是，我们采用了多层次验证策略——5折交叉验证（准确率标准差$< 0.04$）、时间序列验证（早期赛季训练、近期赛季测试的泛化能力保持稳定）、以及独立测试集验证（留出Season 34），确保模型不是过拟合历史数据，而是真正捕捉到了内在规律。
+Our model framework demonstrates exceptional predictive capability across 34 seasons of historical data: Problem 1's audience vote estimation achieves 91.7\% elimination prediction accuracy, with percentage-method accuracy reaching 99.5\%; Problem 3's GBDT models explain 84\% of judge score variance and 79\% of audience vote variance; Problem 4's Dramatic Arc system achieves top-tier composite score of 0.860. Critically, we employed multi-level validation strategies---5-fold cross-validation (accuracy standard deviation $< 0.04$), temporal validation (training on early seasons, testing on recent seasons maintains stable generalization), and holdout testing (Season 34 reserved)---ensuring models capture intrinsic patterns rather than overfit historical data.
 
-\textbf{2. 创新的方法论贡献}
+\textbf{2. Methodological Innovation Contributions}
 
-双层贝叶斯框架首次将先验知识（基于特征的投票分布）与硬约束（淘汰结果）有机结合，解决了逆问题的欠定性；Sigmoid软排名技术巧妙地将离散的排名法转化为可微优化问题；SHAP可解释性分析突破了"黑箱模型"的局限，精确量化了Derek Hough带来的+58K票优势和26-35岁黄金年龄段的+23,744票效应。戏剧弧系统将争议从"待解决的问题"重新定义为"可控的资产"，这一范式转换为真人秀节目设计提供了全新视角。
+The two-layer Bayesian framework pioneered integrating prior knowledge (feature-based vote distributions) with hard constraints (elimination outcomes), resolving inverse problem underdetermination; Sigmoid soft-ranking techniques ingeniously transformed discrete rank-based methods into differentiable optimization problems; SHAP explainability analysis transcended ``black-box model'' limitations, precisely quantifying Derek Hough's +58K vote advantage and the 26--35 age golden bracket's +23,744 vote effect. The Dramatic Arc system reframed controversy from ``problem to be solved'' to ``controllable asset''---a paradigm shift offering novel perspectives for reality show design.
 
-\textbf{3. 强大的鲁棒性与实用性}
+\textbf{3. Robust and Practical Implementation}
 
-敏感性分析证明模型对参数扰动（$\alpha$在$\pm 10\%$范围内准确率波动$< 6\%$）和数据噪声（5\%噪声下准确率仅下降5.07\%）具有强抗干扰能力。跨赛季泛化测试显示，模型在未见过的Season 28-34上保持85\%以上准确率，证明其捕捉的是结构性规律而非偶然模式。从实用角度，所有模型均基于可获取数据（评委得分、名人特征、Google热度）构建，无需观众投票的真实数据，使节目组能立即应用于下一季的选手筛选和机制设计。
+Sensitivity analysis demonstrates model resilience to parameter perturbations ($\alpha$ within $\pm 10\%$ yields accuracy fluctuation $< 6\%$) and data noise (5\% noise induces merely 5.07\% accuracy decline). Cross-season generalization testing reveals models maintain $>$85\% accuracy on unseen Seasons 28--34, confirming capture of structural regularities rather than spurious patterns. From a practical standpoint, all models build upon accessible data (judge scores, celebrity attributes, Google Trends) without requiring actual audience vote data, enabling producers to immediately apply insights to next-season contestant screening and mechanism design.
 
 \subsubsection{Limitations}
 
-\textbf{1. 数据可获得性的固有约束}
+\textbf{1. Inherent Data Availability Constraints}
 
-观众投票数据作为商业机密从未公开，我们的估计虽然在淘汰预测上高度准确（91.7\%），但无法直接验证估计的绝对票数是否接近真实值。Google Trends和Nielsen收视率作为代理变量，可能无法完全捕捉不活跃于搜索引擎的观众群体（如老年观众）的偏好。此外，Season 12和31的收视率数据缺失，Season 15的全明星赛季（returning celebrities）与常规赛季的机制差异，都可能在一定程度上影响模型的普适性。
+Audience vote data, as proprietary commercial secrets, remain undisclosed. While our estimates achieve high elimination prediction accuracy (91.7\%), we cannot directly validate whether estimated absolute vote counts approximate true values. Google Trends and Nielsen ratings, as proxy variables, may inadequately capture preferences of search-inactive demographics (e.g., elderly audiences). Additionally, missing viewership data for Seasons 12 and 31, along with Season 15's All-Star format (returning celebrities) mechanism divergence from regular seasons, may partially constrain model universality.
 
-\textbf{2. 因果推断的局限性}
+\textbf{2. Causal Inference Limitations}
 
-虽然SHAP分析揭示了舞伴、行业、年龄等特征的显著相关性，但相关性不等于因果性。例如，Derek Hough带来的+58K票优势，是其编舞能力的直接作用，还是他倾向于被分配给高人气名人的选择偏差？由于缺乏随机对照试验（RCT），我们无法完全排除混杂因素。同样，"争议选手延长生存期"与"社交媒体讨论增长47\%"之间，究竟是争议驱动讨论，还是讨论反映了观众对争议的事后合理化？这些因果方向的不确定性需要更长期的追踪研究来澄清。
+While SHAP analysis reveals significant correlations for partners, industries, and ages, correlation does not imply causation. For instance, Derek Hough's +58K vote advantage---does it stem directly from choreographic prowess, or selection bias toward high-popularity celebrities? Absent randomized controlled trials (RCT), we cannot fully eliminate confounding factors. Similarly, regarding ``controversial contestant survival extension'' and ``47\% social media discussion growth,'' does controversy drive discussion, or does discussion reflect audience post-hoc rationalization of controversy? These causal directionality uncertainties necessitate longer-term longitudinal studies for clarification.
 
-\textbf{3. 动态演变与外部冲击的挑战}
+\textbf{3. Dynamic Evolution and External Shock Challenges}
 
-34季跨越20年，期间社交媒体生态（从博客到TikTok）、观众人口结构（千禧一代到Z世代）、评分标准（早期26.5分到近期24.9分）均发生显著变化。虽然我们的模型通过时间验证展现了一定的适应性，但未来可能出现的结构性突变——如流媒体平台引入实时互动投票、AI生成的虚拟名人参赛——可能使当前模型失效。戏剧弧系统在历史回测中表现优异，但其在真实实施后是否会触发观众的"被操控感"而适得其反，仍需A/B测试验证。模型的预测能力依赖于"过去规律在未来延续"的假设，但真人秀市场的快速迭代使这一假设面临持续挑战。
+Spanning 34 seasons across 20 years, substantial shifts occurred in social media ecosystems (blogs to TikTok), audience demographics (Millennials to Gen Z), and scoring standards (early 26.5 to recent 24.9 points). While temporal validation demonstrates adaptability, future structural disruptions---streaming platform real-time interactive voting, AI-generated virtual celebrity participants---may render current models obsolete. Though the Dramatic Arc system performs excellently in historical backtesting, whether real-world implementation triggers audience ``manipulation perception'' backfire requires A/B testing validation. Model predictive capability relies on the assumption that ``past patterns persist,'' yet rapid reality TV market iteration perpetually challenges this premise.
 
