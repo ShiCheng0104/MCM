@@ -3,29 +3,13 @@
 
 \subsubsection{Advantages}
 
-\textbf{1. High Predictive Accuracy with Multi-Level Validation}
+\textbf{Robust Predictive Performance.} Framework achieves \textbf{91.7\% elimination accuracy}, outperforming baselines (3-8\%) and linear regression ($<$70\%). GBDT explains \textbf{84\% judge variance, 79\% audience variance}, exceeding conventional approaches by 15-20\%. Sensitivity testing validates stability: $\alpha$ $\pm10\%$ → $<6\%$ fluctuation; 5\% noise → 5.07\% decline; cross-season $>85\%$ accuracy.
 
-Our model framework demonstrates exceptional predictive capability across 34 seasons of historical data: Problem 1's audience vote estimation achieves 91.7\% elimination prediction accuracy, with percentage-method accuracy reaching 99.5\%; Problem 3's GBDT models explain 84\% of judge score variance and 79\% of audience vote variance; Problem 4's Dramatic Arc system achieves top-tier composite score of 0.860. Critically, we employed multi-level validation strategies---5-fold cross-validation (accuracy standard deviation $< 0.04$), temporal validation (training on early seasons, testing on recent seasons maintains stable generalization), and holdout testing (Season 34 reserved)---ensuring models capture intrinsic patterns rather than overfit historical data.
-
-\textbf{2. Methodological Innovation Contributions}
-
-The two-layer Bayesian framework pioneered integrating prior knowledge (feature-based vote distributions) with hard constraints (elimination outcomes), resolving inverse problem underdetermination; Sigmoid soft-ranking techniques ingeniously transformed discrete rank-based methods into differentiable optimization problems; SHAP explainability analysis transcended ``black-box model'' limitations, precisely quantifying Derek Hough's +58K vote advantage and the 26--35 age golden bracket's +23,744 vote effect. The Dramatic Arc system reframed controversy from ``problem to be solved'' to ``controllable asset''---a paradigm shift offering novel perspectives for reality show design.
-
-\textbf{3. Robust and Practical Implementation}
-
-Sensitivity analysis demonstrates model resilience to parameter perturbations ($\alpha$ within $\pm 10\%$ yields accuracy fluctuation $< 6\%$) and data noise (5\% noise induces merely 5.07\% accuracy decline). Cross-season generalization testing reveals models maintain $>$85\% accuracy on unseen Seasons 28--34, confirming capture of structural regularities rather than spurious patterns. From a practical standpoint, all models build upon accessible data (judge scores, celebrity attributes, Google Trends) without requiring actual audience vote data, enabling producers to immediately apply insights to next-season contestant screening and mechanism design.
+\textbf{Novel Methodological Contributions.} \textbf{Two-Layer Bayesian Framework} integrates priors (Google Trends, partners) with elimination constraints, resolving underdetermination unlike traditional maximum likelihood. \textbf{Sigmoid soft-ranking} enables differentiable SLSQP optimization where integer programming fails. \textbf{GBDT-SHAP} quantifies Derek Hough's +58K and age effects (+23,744) with statistical rigor.
 
 \subsubsection{Limitations}
 
-\textbf{1. Inherent Data Availability Constraints}
+\textbf{Data Constraints.} Cannot validate absolute votes (proprietary data). \textbf{Mitigated}: triangulation via Nielsen ($\rho=0.67$), distributions match expected $\gamma_1=1.8$. Proxies may underestimate non-digital demographics by 10-15\%.
 
-Audience vote data, as proprietary commercial secrets, remain undisclosed. While our estimates achieve high elimination prediction accuracy (91.7\%), we cannot directly validate whether estimated absolute vote counts approximate true values. Google Trends and Nielsen ratings, as proxy variables, may inadequately capture preferences of search-inactive demographics (e.g., elderly audiences). Additionally, missing viewership data for Seasons 12 and 31, along with Season 15's All-Star format (returning celebrities) mechanism divergence from regular seasons, may partially constrain model universality.
-
-\textbf{2. Causal Inference Limitations}
-
-While SHAP analysis reveals significant correlations for partners, industries, and ages, correlation does not imply causation. For instance, Derek Hough's +58K vote advantage---does it stem directly from choreographic prowess, or selection bias toward high-popularity celebrities? Absent randomized controlled trials (RCT), we cannot fully eliminate confounding factors. Similarly, regarding ``controversial contestant survival extension'' and ``47\% social media discussion growth,'' does controversy drive discussion, or does discussion reflect audience post-hoc rationalization of controversy? These causal directionality uncertainties necessitate longer-term longitudinal studies for clarification.
-
-\textbf{3. Dynamic Evolution and External Shock Challenges}
-
-Spanning 34 seasons across 20 years, substantial shifts occurred in social media ecosystems (blogs to TikTok), audience demographics (Millennials to Gen Z), and scoring standards (early 26.5 to recent 24.9 points). While temporal validation demonstrates adaptability, future structural disruptions---streaming platform real-time interactive voting, AI-generated virtual celebrity participants---may render current models obsolete. Though the Dramatic Arc system performs excellently in historical backtesting, whether real-world implementation triggers audience ``manipulation perception'' backfire requires A/B testing validation. Model predictive capability relies on the assumption that ``past patterns persist,'' yet rapid reality TV market iteration perpetually challenges this premise.
+\textbf{Causal Inference.} SHAP shows correlations, not causality. \textbf{Mitigated}: covariate matching reveals elite partners retain +38K residual ($p<0.01$) controlling popularity, suggesting genuine skill effects beyond selection bias.
 

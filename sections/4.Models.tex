@@ -90,7 +90,7 @@ This heterogeneity validates our Bayesian approach: rather than falsely claiming
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.85\textwidth]{../yanxiao/outputs/figures/uncertainty_distribution.png}
+\includegraphics[width=0.6\textwidth]{../yanxiao/outputs/figures/uncertainty_distribution.png}
 \caption{Uncertainty Distribution: 39.2\% High Certainty, 60.8\% Moderate Certainty, with Contestant/Week Variation. Histogram (left) shows right-skewed CV distribution; scatter plot (right) reveals negative correlation between constraint margin and uncertainty}
 \label{fig:uncertainty_dist}
 \end{figure}
@@ -104,11 +104,9 @@ This heterogeneity validates our Bayesian approach: rather than falsely claiming
 \vspace{0.3em}
 \noindent\textbf{【Problem 1.1 Answer】Does the model correctly estimate votes yielding consistent elimination outcomes?}
 
-\textbf{Answer: Yes, our model demonstrates remarkable consistency.}
+\textbf{Answer: Yes.} Across 337 weeks (Seasons 1-33), the framework achieves \textbf{91.7\% exact match accuracy} (309/337) and \textbf{98.5\% bottom-2 accuracy}, substantially exceeding random baselines (3-8\%).
 
-Across 337 competition weeks (Seasons 1-33), the two-layer Bayesian framework achieves \textbf{91.7\% exact match accuracy} (309/337 weeks), correctly predicting the precise eliminated contestant from judge scores and features alone---substantially exceeding random baselines (3-8\%). When relaxing to \textbf{bottom-2 accuracy}, coverage reaches 98.5\%, confirming the framework reliably identifies at-risk contestants even in ambiguous cases.
-
-Performance varies by voting method: \textbf{percentage-based} (Seasons 1-9) yields 99.5\% accuracy, while \textbf{rank-based} (post-Season 10) achieves 68.2\%. This disparity reflects structural differences---percentage methods preserve vote magnitude information (25\% vs 15\%), tightening constraints, whereas rank-ordinal methods (1st, 2nd, 3rd) discard quantitative gaps. Nonetheless, 68.2\% still far outperforms chance, validating the prior model's robustness under reduced observational information.
+Performance varies by method: \textbf{percentage-based} (Seasons 1-9) yields 99.5\%, \textbf{rank-based} (post-Season 10) 68.2\%. This reflects structural differences---percentage methods preserve vote magnitudes, tightening constraints; rank-ordinal methods discard quantitative gaps. Both outperform chance, validating framework robustness.
 \vspace{0.3em}
 \end{minipage}%
 }
@@ -120,11 +118,9 @@ Performance varies by voting method: \textbf{percentage-based} (Seasons 1-9) yie
 \vspace{0.3em}
 \noindent\textbf{【Problem 1.2 Answer】What is the certainty of vote estimates? Is it uniform across contestants/weeks?}
 
-\textbf{Answer: Overall high certainty, with systematic contextual variation.}
+\textbf{Answer: High certainty overall, non-uniform across contexts.} Analyzing 2,185 samples via Coefficient of Variation (CV $= \sigma_i/\mu_i$): \textbf{median CV = 0.117}, \textbf{39.2\% high certainty} (CV$<$0.10), \textbf{60.8\% moderate} (0.10$\leq$CV$<$0.20), \textit{zero low-certainty samples} (CV$\geq$0.20).
 
-Quantifying uncertainty via \textbf{Coefficient of Variation} (CV $= \sigma_i/\mu_i$) across 2,185 samples, we observe \textbf{median CV = 0.117} (moderate certainty), with \textbf{39.2\% high certainty} (CV$<$0.10) and \textbf{60.8\% moderate} (0.10$\leq$CV$<$0.20). Critically, \textit{no low-certainty samples} (CV$\geq$0.20) exist, confirming framework robustness even under minimal constraints.
-
-Certainty is \textbf{not uniform}---multivariate regression identifies three predictors: \textbf{(1) Contestant count} ($r = -0.34$, $p<0.001$): more competitors $\rightarrow$ richer constraints $\rightarrow$ tighter posteriors; \textbf{(2) Score dispersion} ($r = -0.28$, $p<0.01$): wider gaps $\rightarrow$ clearer separation $\rightarrow$ higher certainty; \textbf{(3) Constraint margins} ($r = -0.52$, $p<0.001$, strongest): large elimination margins (5\% combined score gap) powerfully narrow feasible spaces, while razor-thin margins (0.5\% gap) permit multiple solutions, elevating uncertainty. This heterogeneity validates our approach: the model \textit{honestly reflects epistemic limitations}, providing context-calibrated reliability indicators alongside point estimates.
+Certainty varies by context---three predictors emerge: \textbf{(1) Contestant count} ($r=-0.34$): more competitors $\rightarrow$ tighter posteriors; \textbf{(2) Score dispersion} ($r=-0.28$): wider gaps $\rightarrow$ higher certainty; \textbf{(3) Constraint margins} ($r=-0.52$, strongest): large elimination margins narrow feasible spaces, razor-thin margins elevate uncertainty. The model thus provides context-calibrated reliability indicators.
 \vspace{0.3em}
 \end{minipage}%
 }
