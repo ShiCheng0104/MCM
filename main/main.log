@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  2 FEB 2026 21:20
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  2 FEB 2026 21:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -921,68 +921,7 @@ Package fontspec Info:
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
 (fontspec)             <->"STSong/OT:script=hani;language=dflt;"
 
- (./main.aux
-
-./main.aux:29: LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.29 <
-      <<<<<< HEAD
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: Label `fig:s20w5_radar' multiply defined.
-
-
-LaTeX Warning: Label `fig:prediction_accuracy' multiply defined.
-
-
-LaTeX Warning: Label `fig:uncertainty_dist' multiply defined.
-
-
-LaTeX Warning: Label `fig:method_overview' multiply defined.
-
-
-LaTeX Warning: Label `tab:controversy_summary' multiply defined.
-
-
-LaTeX Warning: Label `fig:controversy_trajectories' multiply defined.
-
-
-LaTeX Warning: Label `fig:controversy_heatmap' multiply defined.
-
-
-LaTeX Warning: Label `tab:partner_effect' multiply defined.
-
-
-LaTeX Warning: Label `fig:q3_shap_summary' multiply defined.
-
-
-LaTeX Warning: Label `fig:q3_nomogram' multiply defined.
-
-
-LaTeX Warning: Label `tab:industry_effect' multiply defined.
-
-
-LaTeX Warning: Label `tab:age_effect' multiply defined.
-
-
-LaTeX Warning: Label `tab:judge_vs_fan' multiply defined.
-
-
-LaTeX Warning: Label `fig:q4_weights' multiply defined.
-
-
-LaTeX Warning: Label `fig:tornado_sensitivity' multiply defined.
-
-
-LaTeX Warning: Label `LastPage' multiply defined.
-
-)
+ (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 68.
@@ -1062,12 +1001,7 @@ Package hyperref Info: Link coloring OFF on input line 68.
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
-
-Overfull \hbox (174.75441pt too wide) in paragraph at lines 29--69
-\TU/lmr/m/n/12 7ca850efd591ef3e40775d4be6f288451d33e8a4       «««< HEAD  =======  »»»> 7ca850efd591ef3e40775d4be6f288451d33e8a4
- []
-
-(../sections/0.abstract.tex)
+ (../sections/0.abstract.tex)
 LaTeX Font Info:    Trying to load font information for OT1+txr on input line 71.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
@@ -1101,23 +1035,20 @@ File: utxsyc.fd 2000/12/15 v3.1
 
 ]
 
-
 Package xeCJK Warning: Unknown CJK family `\CJKsfdefault' is being ignored.
 (xeCJK)                
 (xeCJK)                Try to use `\setCJKsansfont[<...>]{<...>}' to define
 (xeCJK)                it.
 
-[2] (./main.toc
+(./main.toc
 
-[1]
-
-[2])
+[1])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
 
 
-[3] (../sections/1.Introduction.tex
+[2] (../sections/1.Introduction.tex
 File: ../figures/2.png Graphic file (type bmp)
 <../figures/2.png>
 
@@ -1132,23 +1063,23 @@ Underfull \hbox (badness 1629) in paragraph at lines 15--16
 
 
 
-[4] (../figures/our_work_flowchart.tikz.tex
+[3] (../figures/our_work_flowchart.tikz.tex
 \pgf@layerbox@bg=\box81
 \pgf@layerboxsaved@bg=\box82
 ))
 
-[5] (../sections/2.Preparation for Modeling.tex
+[4] (../sections/2.Preparation for Modeling.tex
 
-[6] (../figures/data_pipeline.tikz.tex)
+[5] (../figures/data_pipeline.tikz.tex)
 
-[7]) (../sections/4.Models.tex
+[6]) (../sections/4.Models.tex
 
-[8]
+[7]
 File: ../yanxiao/outputs/figures/radar_s20_w5.png Graphic file (type bmp)
 <../yanxiao/outputs/figures/radar_s20_w5.png>
 
 
-[9]
+[8]
 File: ../yanxiao/outputs/figures/accuracy_summary.png Graphic file (type bmp)
 <../yanxiao/outputs/figures/accuracy_summary.png>
 
@@ -1157,7 +1088,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[10]
+[9]
 File: ../yanxiao/outputs/figures/uncertainty_distribution.png Graphic file (type bmp)
 <../yanxiao/outputs/figures/uncertainty_distribution.png>
 
@@ -1170,14 +1101,14 @@ LaTeX Font Warning: Font shape `TU/STSong(0)/b/n' undefined
 
 
 
-[11]
+[10]
 
-[12]
+[11]
 File: ../question2/outputs/figures/method_comparison_overview.png Graphic file (type bmp)
 <../question2/outputs/figures/method_comparison_overview.png>
 
 
-[13]
+[12]
 File: ../question2/outputs/figures/controversy_trajectories.png Graphic file (type bmp)
 <../question2/outputs/figures/controversy_trajectories.png>
 
@@ -1188,15 +1119,15 @@ File: ../question2/outputs/figures/controversy_heatmap_comparison.png Graphic fi
 <../question2/outputs/figures/controversy_heatmap_comparison.png>
 
 
-[14]
+[13]
 Missing character: There is no ⭐ (U+2B50) in font [lmroman12-regular]:mapping=tex-text;!
 
+
+[14]
 
 [15]
 
 [16]
-
-[17]
 File: ../question3/outputs/figures/shap_summary_combined.png Graphic file (type bmp)
 <../question3/outputs/figures/shap_summary_combined.png>
 
@@ -1213,7 +1144,7 @@ Overfull \hbox (25.84183pt too wide) in paragraph at lines 332--333
 
 
 
-[18]
+[17]
 File: ../question3/outputs/figures/nomogram_combined.png Graphic file (type bmp)
 <../question3/outputs/figures/nomogram_combined.png>
 
@@ -1225,20 +1156,25 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[19]
+[18]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (77.0295pt too wide) in paragraph at lines 398--409
- [][] 
+Underfull \hbox (badness 10000) in paragraph at lines 402--403
+[]|\TU/lmr/m/n/10 Popularity amplification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 403--403
+[]|\TU/lmr/m/n/10 Social media influencers
  []
 
 
 
-[20]
+[19]
 
-[21]
+[20]
 File: ../question4/outputs/figures/dramatic_arc_weights.png Graphic file (type bmp)
 <../question4/outputs/figures/dramatic_arc_weights.png>
 
@@ -1247,10 +1183,90 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[22]
+[21]
 
-[23]) (../sections/5.Sensitivity Analysis.tex
+[22]) (../sections/5.Sensitivity Analysis.tex
+
+[23]
+File: ../model_evaluation/outputs/figures/sensitivity/tornado_diagram.png Graphic file (type bmp)
+<../model_evaluation/outputs/figures/sensitivity/tornado_diagram.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 
 [24]
-File: ../model_evaluation/outputs/figures/sensitivity/tornado_diagram.png Graphic file (type bmp)
-<../model_evalu
+
+[25]) (../sections/6.Model Evaluation and Promotion.tex) (../sections/7.Memorandum.tex
+
+[26]
+Overfull \hbox (7.105pt too wide) in paragraph at lines 3--7
+\TU/lmr/bx/n/12 Subject: \TU/lmr/m/n/12 Voting Mechanism Optimization—Strategic Recommendations for Enhancing View-
+ []
+
+
+Overfull \hbox (17.817pt too wide) in paragraph at lines 14--15
+\TU/lmr/m/n/12 demonstrate percentage-method enables audiences to tangibly experience ”every vote matters”—
+ []
+
+
+
+[27]) (../sections/8.References.tex
+
+Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
+(xeCJK)                
+(xeCJK)                Try to use `\setCJKmonofont[<...>]{<...>}' to define
+(xeCJK)                it.
+
+
+Underfull \hbox (badness 1092) in paragraph at lines 14--17
+[]\TU/lmr/m/n/12 Wikipedia contributors. (2026). \TU/lmr/m/it/12 Dancing with the Stars (American TV series)\TU/lmr/m/n/12 .
+ []
+
+
+
+[28]) (../sections/10.AI.tex
+
+[29]
+LaTeX Font Info:    Trying to load font information for TU+pcr on input line 9.
+LaTeX Font Info:    No file TUpcr.fd. on input line 9.
+
+
+LaTeX Font Warning: Font shape `TU/pcr/m/n' undefined
+(Font)              using `TU/lmr/m/n' instead on input line 9.
+
+
+LaTeX Font Warning: Font shape `TU/pcr/b/n' undefined
+(Font)              using `TU/pcr/m/n' instead on input line 10.
+
+
+
+[30
+
+]
+
+[31])
+
+[32] (./main.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2022/08/05>
+ ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 6BF1C5DC83458E6FC56CCC153378A964;9433.
+ ) 
+Here is how much of TeX's memory you used:
+ 30360 strings out of 473832
+ 621084 string characters out of 5729482
+ 1378090 words of memory out of 5000000
+ 52742 multiletter control sequences out of 15000+600000
+ 599297 words of font info for 182 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 87i,16n,93p,1551b,1388s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on main.pdf (33 pages).
