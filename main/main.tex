@@ -46,6 +46,10 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning,fit,calc}
 
+% 目录间距调整
+\usepackage{tocloft}
+\setlength{\cftbeforesecskip}{2pt}  % 减少section前的间距
+
 % 添加中文支持
 \usepackage{xeCJK}
 \setCJKmainfont{STSong}  % 华文宋体，macOS默认字体
@@ -71,7 +75,17 @@ Unveiling Hidden Preferences via Bayesian Engine}}
 \maketitle
 \newpage
 \setcounter{tocdepth}{2}  % 目录只显示到二级标题（section和subsection）
+
+% 调整目录间距
+{
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+\setlength{\itemsep}{0pt}
+\renewcommand{\baselinestretch}{0.85}
 \tableofcontents
+}
+\thispagestyle{fancy}  % 确保目录页有页码
+
 \newpage
 \input{../sections/1.Introduction}
 \newpage
