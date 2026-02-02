@@ -166,13 +166,11 @@ Among the 75 inconsistent weeks, we define "audience-favoring" as eliminating co
 \end{minipage}%
 }
 
-\subsection{Sub-question 2.2: In-Depth Analysis of Controversial Contestants}
-
 \subsection{Sub-question 2.2: Controversial Contestant Case Analysis}
 
 \textit{For four controversial contestants with judge-audience opinion divergence (Jerry Rice, Billy Ray Cyrus, Bristol Palin, Bobby Bones), does voting method choice alter outcomes? What impact would an additional \textbf{judge choice mechanism} have (judges choose which of the bottom two couples to eliminate each week)?}
 
-Figure~\ref{fig:controversy_trajectories} illustrates complete survival trajectories for the four controversial contestants. \textbf{Core Finding}: Bristol Palin is the \textit{only} contestant sensitive to method choice; the other three exhibit essentially identical performance under both methods.
+Figure~\ref{fig:controversy_trajectories} summarizes weekly trajectories for four controversial contestants. For brevity, we highlight \textbf{Bobby Bones} as the representative anomaly case; the remaining cases are summarized in one line below (details: see Answer).
 
 \begin{figure}[h]
 \centering
@@ -181,7 +179,7 @@ Figure~\ref{fig:controversy_trajectories} illustrates complete survival trajecto
 \label{fig:controversy_trajectories}
 \end{figure}
 
-To further interpret these anomalous/controversial cases, Figure~\ref{fig:controversy_heatmap} visualizes the judge--audience discrepancy patterns that underlie sustained controversy and repeated "bottom-two" appearances.
+Figure~\ref{fig:controversy_heatmap} visualizes judge--audience discrepancy patterns behind sustained controversy.
 
 \begin{figure}[htb]
 \centering
@@ -212,19 +210,13 @@ Bobby Bones & 27 & \textbf{1} & 9 & 2 & 2 & 2 & No \\
 \end{table}
 }
 
-\textbf{Jerry Rice} (Season 2, Runner-up): Both methods predict he should have been eliminated in Week 7 (judge rank 4/4, audience rank 4/4), yet he survived. The controversy is \textbf{method-independent}---a data anomaly.
+\textbf{Jerry Rice, Billy Ray Cyrus, and Bristol Palin (brief).} Jerry Rice and Billy Ray Cyrus are largely method-insensitive (with Jerry exhibiting an apparent historical anomaly), while Bristol Palin is the main method-sensitive case (see Answer to Sub-question 2.2).
 
-\textbf{Billy Ray Cyrus} (Season 4, 5th Place): Bottom-two frequency identical under both methods (4 weeks). Week 6 audience ranking surged to 1/7 extending survival, but Week 8 both methods predict elimination. Method handling \textbf{essentially identical}.
-
-\textbf{Bristol Palin} (Season 11, 3rd Place) ⭐: The case \textbf{most demonstrating method divergence}. In critical Weeks 6-7, her judge rankings bottomed out (6/7, 6/6), yet audience rankings remained middling (3/7, 3/6). Percentage-method leveraged her 15.3\% audience vote share to offset her 13.5\% judge score deficit, positioning her at moderate safety (3/7); rank-based method erased numerical advantages, placing her in greater danger (5/7). Conclusion: \textbf{Method-sensitive contestant}---percentage-method facilitated her 3rd-place finish.
-
-\textbf{Bobby Bones} (Season 27, Champion): Ranked 1st in audience votes for 5 of 9 weeks, average vote share 14-16\% (far exceeding typical 10-12\%). Under both methods his trajectory is nearly identical---an \textbf{overwhelmingly dominant} audience advantage that wins under either rule.
+\textbf{Bobby Bones (key anomaly case).} Bobby ranks 1st in audience votes for 5 of 9 weeks with an average 14--16\% share, which dominates both rule formulations and yields near-identical trajectories under rank-based and percentage-based methods; the heatmap confirms persistent judge--audience divergence consistent with a popularity-driven win.
 
 \subsubsection{Impact of Judge Choice (Bottom-Two Decision)}
 
-Starting in Season 28, DWTS introduced an additional \textbf{judge choice mechanism}: after the combined score identifies the \textbf{bottom two} couples, judges \textbf{choose} which of the two is eliminated. In our counterfactual simulation, we assume judges tend to protect the higher-scoring performer.
-
-\textbf{Key finding}: This judge-choice layer is projected to alter outcomes in approximately \textbf{19.2\%} of weeks. It disproportionately disadvantages contestants who repeatedly enter the bottom two with low judge scores (e.g., Jerry Rice survival probability drops to 5--9\%, Bristol Palin to about 10\%). Overall, the mechanism dampens extreme \textit{audience dominance} while preserving a performance-quality baseline.
+Starting in Season 28, DWTS adds a \textbf{judge choice mechanism}: after identifying the \textbf{bottom two} couples, judges \textbf{choose} which couple is eliminated (we assume judges tend to protect the higher-scoring performer). Quantitative impacts are summarized in the Answer to Sub-question 2.2 (Q2).
 
 \subsubsection{Answer to Sub-question 2.2}
 
@@ -250,7 +242,7 @@ Starting in Season 28, DWTS introduced an additional \textbf{judge choice mechan
 
 \subsection{Sub-question 2.3: Recommended Approach}
 
-Based on preceding analysis, we recommend the \textbf{percentage-method + judge choice (bottom-two decision)} combination. Percentage-method surpasses rank-based in information fidelity (preserving proportional information versus discretization), exhibits significantly stronger audience alignment (61.6\% audience-favoring), and demonstrates higher historical outcome matching (58.8\% vs 53.1\%)---positioning it as the optimal primary voting method. However, pure percentage-method may enable technically weak yet extremely popular contestants (e.g., Bristol Palin) to completely disregard judge assessments. Thus, judge choosing from the bottom two serves as a critical safeguard---impacting approximately 19\% of weeks, remaining inactive when 80\% consensus exists, and activating during pronounced disagreements to balance entertainment with professionalism. Key implementation requirement: Judge votes must be publicly announced in real-time with rationale explanations, enhancing both dramatic value and transparency.
+Recommendation summary (details: see Answer to Sub-question 2.3): adopt the \textbf{percentage-method + judge choice (bottom-two decision)} combination, with transparent real-time disclosure of judge votes and rationale.
 
 \subsubsection{Answer to Sub-question 2.3}
 
