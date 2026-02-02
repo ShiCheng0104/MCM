@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.5.26)  2 FEB 2026 21:17
+=======
 This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  2 FEB 2026 20:59
+>>>>>>> 7ca850efd591ef3e40775d4be6f288451d33e8a4
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1061,17 +1065,33 @@ Underfull \hbox (badness 1629) in paragraph at lines 15--16
 \TU/lmr/m/n/12 The show combines judge scores and audi-
  []
 
-
-
 [3] (../figures/our_work_flowchart.tikz.tex
+<<<<<<< HEAD
+\pgf@layerbox@bg=\box80
+\pgf@layerboxsaved@bg=\box81
+)) [4]
+(../sections/2.Preparation for Modeling.tex
+=======
 \pgf@layerbox@bg=\box81
 \pgf@layerboxsaved@bg=\box82
 ))
 
 [4] (../sections/2.Preparation for Modeling.tex (../figures/data_pipeline.tikz.tex)
+>>>>>>> 7ca850efd591ef3e40775d4be6f288451d33e8a4
 
 [5]) (../sections/4.Models.tex
 
+<<<<<<< HEAD
+[5] [6]) (../sections/4.Models.tex [7] [8]
+File: ../yanxiao/outputs/figures/radar_s20_w5.png Graphic file (type bmp)
+<../yanxiao/outputs/figures/radar_s20_w5.png>
+ [9]
+File: ../yanxiao/outputs/figures/accuracy_summary.png Graphic file (type bmp)
+<../yanxiao/outputs/figures/accuracy_summary.png>
+ [10]
+File: ../yanxiao/outputs/figures/uncertainty_distribution.png Graphic file (typ
+e bmp)
+=======
 [6]
 
 [7]
@@ -1090,6 +1110,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [9]
 File: ../yanxiao/outputs/figures/uncertainty_distribution.png Graphic file (type bmp)
+>>>>>>> 7ca850efd591ef3e40775d4be6f288451d33e8a4
 <../yanxiao/outputs/figures/uncertainty_distribution.png>
 
 
@@ -1099,6 +1120,19 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Font Warning: Font shape `TU/STSong(0)/b/n' undefined
 (Font)              using `TU/STSong(0)/m/n' instead on input line 112.
 
+<<<<<<< HEAD
+[11]
+File: ../question2/outputs/figures/method_comparison_overview.png Graphic file 
+(type bmp)
+<../question2/outputs/figures/method_comparison_overview.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[12]
+File: ../question2/outputs/figures/controversy_trajectories.png Graphic file (t
+ype bmp)
+=======
 
 
 [10]
@@ -1110,11 +1144,37 @@ File: ../question2/outputs/figures/method_comparison_overview.png Graphic file (
 
 [12]
 File: ../question2/outputs/figures/controversy_trajectories.png Graphic file (type bmp)
+>>>>>>> 7ca850efd591ef3e40775d4be6f288451d33e8a4
 <../question2/outputs/figures/controversy_trajectories.png>
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
+[13]
+File: ../question2/outputs/figures/controversy_heatmap_comparison.png Graphic f
+ile (type bmp)
+<../question2/outputs/figures/controversy_heatmap_comparison.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[14]
+Missing character: There is no ⭐ (U+2B50) in font [lmroman12-regular]:mapping=t
+ex-text;!
+[15] [16] [17]
+File: ../question3/outputs/figures/shap_summary_combined.png Graphic file (type
+ bmp)
+<../question3/outputs/figures/shap_summary_combined.png>
+ [18]
+Overfull \hbox (25.84183pt too wide) in paragraph at lines 332--333
+\TU/lmr/m/n/12 +48K). Derek Hough’s 17-season record with 6 championships, comb
+ining ”technique+popularity”
+ []
+
+File: ../question3/outputs/figures/nomogram_combined.png Graphic file (type bmp
+)
+=======
 Missing character: There is no ⭐ (U+2B50) in font [lmroman12-regular]:mapping=tex-text;!
 
 
@@ -1148,11 +1208,20 @@ Overfull \hbox (25.84183pt too wide) in paragraph at lines 330--331
 
 [17]
 File: ../question3/outputs/figures/nomogram_combined.png Graphic file (type bmp)
+>>>>>>> 7ca850efd591ef3e40775d4be6f288451d33e8a4
 <../question3/outputs/figures/nomogram_combined.png>
-
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
+[19]
+Missing character: There is no ≤ (U+2264) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ≤ (U+2264) in font [lmroman12-regular]:mapping=t
+ex-text;!
+
+Overfull \hbox (77.0295pt too wide) in paragraph at lines 398--409
+=======
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1164,12 +1233,22 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Overfull \hbox (77.0295pt too wide) in paragraph at lines 396--407
+>>>>>>> 7ca850efd591ef3e40775d4be6f288451d33e8a4
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
+[20] [21]
+File: ../question4/outputs/figures/dramatic_arc_weights.png Graphic file (type 
+bmp)
+<../question4/outputs/figures/dramatic_arc_weights.png>
+ [22] [23]) (../sections/5.Sensitivity Analysis.tex [24]
+File: ../model_evaluation/outputs/figures/sensitivity/tornado_diagram.png Graph
+ic file (type bmp)
+=======
 
 
 [19]
@@ -1189,11 +1268,16 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [23]
 File: ../model_evaluation/outputs/figures/sensitivity/tornado_diagram.png Graphic file (type bmp)
+>>>>>>> 7ca850efd591ef3e40775d4be6f288451d33e8a4
 <../model_evaluation/outputs/figures/sensitivity/tornado_diagram.png>
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
+[25] [26]) (../sections/6.Model Evaluation and Promotion.tex)
+(../sections/7.Memorandum.tex [27]
+=======
 
 
 [24]
@@ -1201,11 +1285,20 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [25]) (../sections/6.Model Evaluation and Promotion.tex) (../sections/7.Memorandum.tex
 
 [26]
+>>>>>>> 7ca850efd591ef3e40775d4be6f288451d33e8a4
 Overfull \hbox (7.105pt too wide) in paragraph at lines 3--7
 \TU/lmr/bx/n/12 Subject: \TU/lmr/m/n/12 Voting Mechanism Optimization—Strategic Recommendations for Enhancing View-
  []
 
 
+<<<<<<< HEAD
+Overfull \hbox (17.817pt too wide) in paragraph at lines 14--15
+\TU/lmr/m/n/12 demonstrate percentage-method enables audiences to tangibly expe
+rience ”every vote matters”—
+ []
+
+[28]) (../sections/8.References.tex
+=======
 Overfull \hbox (10.34581pt too wide) in paragraph at lines 14--15
 []\TU/lmr/m/n/12 First, we recommend adopting a \TU/lmr/bx/n/12 percentage-method combined with judge tiebreak-
  []
@@ -1220,15 +1313,20 @@ Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
 (xeCJK)                it.
 
 
+>>>>>>> 7ca850efd591ef3e40775d4be6f288451d33e8a4
 Underfull \hbox (badness 1092) in paragraph at lines 14--17
 []\TU/lmr/m/n/12 Wikipedia contributors. (2026). \TU/lmr/m/it/12 Dancing with the Stars (American TV series)\TU/lmr/m/n/12 .
  []
 
+<<<<<<< HEAD
+[29]) (../sections/10.AI.tex [30]
+=======
 
 
 [28]) (../sections/10.AI.tex
 
 [29]
+>>>>>>> 7ca850efd591ef3e40775d4be6f288451d33e8a4
 LaTeX Font Info:    Trying to load font information for TU+pcr on input line 9.
 LaTeX Font Info:    No file TUpcr.fd. on input line 9.
 
@@ -1240,6 +1338,11 @@ LaTeX Font Warning: Font shape `TU/pcr/m/n' undefined
 LaTeX Font Warning: Font shape `TU/pcr/b/n' undefined
 (Font)              using `TU/pcr/m/n' instead on input line 10.
 
+<<<<<<< HEAD
+[31
+
+] [32]) [33] (./main.aux)
+=======
 
 
 [30
@@ -1249,6 +1352,7 @@ LaTeX Font Warning: Font shape `TU/pcr/b/n' undefined
 [31])
 
 [32] (./main.aux)
+>>>>>>> 7ca850efd591ef3e40775d4be6f288451d33e8a4
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
@@ -1264,6 +1368,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: AAFB0B7E49D20FE94FF6D6F2FB6C6C00;9433.
  ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
+ 30601 strings out of 474773
+ 632528 string characters out of 5761289
+ 2086842 words of memory out of 5000000
+ 52066 multiletter control sequences out of 15000+600000
+ 598521 words of font info for 181 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 87i,16n,93p,1522b,1431s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on main.pdf (34 pages).
+=======
  30358 strings out of 473832
  621056 string characters out of 5729482
  1378464 words of memory out of 5000000
@@ -1273,3 +1388,4 @@ Here is how much of TeX's memory you used:
  87i,16n,93p,1524b,1415s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on main.pdf (33 pages).
+>>>>>>> 7ca850efd591ef3e40775d4be6f288451d33e8a4

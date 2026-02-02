@@ -91,7 +91,7 @@ This heterogeneity validates our Bayesian approach: rather than falsely claiming
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.6\textwidth]{../yanxiao/outputs/figures/uncertainty_distribution.png}
-\caption{Uncertainty Distribution: 39.2\% High Certainty, 60.8\% Moderate Certainty, with Contestant/Week Variation. Histogram (left) shows right-skewed CV distribution; scatter plot (right) reveals negative correlation between constraint margin and uncertainty}
+\caption{Uncertainty Distribution: 39.2\% High Certainty, 60.8\% Moderate Certainty, with Contestant/Week Variation. }
 \label{fig:uncertainty_dist}
 \end{figure}
 
@@ -129,7 +129,7 @@ Certainty varies by context---three predictors emerge: \textbf{(1) Contestant co
 
 \subsection{Problem Interpretation and Analytical Framework}
 
-Leveraging audience vote estimates from Problem 1, we conduct systematic comparison of two vote-combination methods, addressing three sub-questions: (1) What differences emerge in method outcomes? Which favors audience preferences more? (2) Are controversial contestant outcomes method-sensitive? What role does judge tiebreaking play? (3) Which method should be recommended?
+Leveraging audience vote estimates from Problem 1, we conduct systematic comparison of two vote-combination methods, addressing three sub-questions: (1) What differences emerge in method outcomes? Which favors audience preferences more? (2) Are controversial contestant outcomes method-sensitive? How would adding an additional judge-decision mechanism (judges choose which of the bottom two couples to eliminate each week) impact outcomes? (3) Which method should be recommended?
 
 We employ a \textbf{counterfactual simulation framework}: For 337 historical weeks, using estimated audience votes $\hat{V}_i$, we separately compute elimination outcomes under rank-based and percentage-based methods, comparing along three dimensions: (1) \textbf{Consistency}: Proportion of weeks yielding identical results; (2) \textbf{Bias}: When inconsistent, which method aligns more closely with audience votes; (3) \textbf{Controversy}: Survival trajectories of four historically controversial contestants under different methods.
 
@@ -142,7 +142,7 @@ Figure~\ref{fig:method_overview} demonstrates overall performance across 337 wee
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.85\textwidth]{../question2/outputs/figures/method_comparison_overview.png}
-\caption{Overall Method Comparison: 77.7\% Consistency, 22.3\% Divergence, Percentage-Method Shows Higher Actual Alignment}
+\caption{Overall Method Comparison: 77.7\% Consistency, 22.3\% Divergence}
 \label{fig:method_overview}
 \end{figure}
 
@@ -170,15 +170,24 @@ Among the 75 inconsistent weeks, we define "audience-favoring" as eliminating co
 
 \subsection{Sub-question 2.2: Controversial Contestant Case Analysis}
 
-\textit{For four controversial contestants with judge-audience opinion divergence (Jerry Rice, Billy Ray Cyrus, Bristol Palin, Bobby Bones), does voting method choice alter outcomes? What impact does judge tiebreaking (selecting from bottom two) have?}
+\textit{For four controversial contestants with judge-audience opinion divergence (Jerry Rice, Billy Ray Cyrus, Bristol Palin, Bobby Bones), does voting method choice alter outcomes? What impact would an additional \textbf{judge choice mechanism} have (judges choose which of the bottom two couples to eliminate each week)?}
 
 Figure~\ref{fig:controversy_trajectories} illustrates complete survival trajectories for the four controversial contestants. \textbf{Core Finding}: Bristol Palin is the \textit{only} contestant sensitive to method choice; the other three exhibit essentially identical performance under both methods.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.9\textwidth]{../question2/outputs/figures/controversy_trajectories.png}
-\caption{Weekly Trajectories of Four Controversial Contestants: Combined Ranking Evolution Over Time}
+\caption{Weekly Trajectories of Four Controversial Contestants}
 \label{fig:controversy_trajectories}
+\end{figure}
+
+To further interpret these anomalous/controversial cases, Figure~\ref{fig:controversy_heatmap} visualizes the judge--audience discrepancy patterns that underlie sustained controversy and repeated "bottom-two" appearances.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.85\textwidth]{../question2/outputs/figures/controversy_heatmap_comparison.png}
+\caption{Heatmap of the judge--audience gap for four controversial contestants}
+\label{fig:controversy_heatmap}
 \end{figure}
 
 \subsubsection{Comparative Case Analysis}
@@ -198,7 +207,7 @@ Bristol Palin & 11 & 3 & 10 & 5 & 3 & 3 & \textbf{Yes} \\
 Bobby Bones & 27 & \textbf{1} & 9 & 2 & 2 & 2 & No \\
 \hline
 \end{tabular}
-\caption{Core statistics for four controversial contestants ("bottom2" counts weeks in combined bottom two)}
+\caption{Core statistics for four controversial contestants}
 \label{tab:controversy_summary}
 \end{table}
 }
@@ -211,18 +220,11 @@ Bobby Bones & 27 & \textbf{1} & 9 & 2 & 2 & 2 & No \\
 
 \textbf{Bobby Bones} (Season 27, Champion): Ranked 1st in audience votes for 5 of 9 weeks, average vote share 14-16\% (far exceeding typical 10-12\%). Under both methods his trajectory is nearly identical---an \textbf{overwhelmingly dominant} audience advantage that wins under either rule.
 
-\subsubsection{Impact of Judge Tiebreaking}
+\subsubsection{Impact of Judge Choice (Bottom-Two Decision)}
 
-Beginning in Season 28, the show introduced a \textbf{judge tiebreaking mechanism}: the combined score identifies the bottom two contestants, after which the judges vote to determine who is eliminated (we assume judges systematically favor protecting the higher-scoring performer). Figure~\ref{fig:controversy_heatmap} summarizes how this mechanism would affect the four controversial contestants.
+Starting in Season 28, DWTS introduced an additional \textbf{judge choice mechanism}: after the combined score identifies the \textbf{bottom two} couples, judges \textbf{choose} which of the two is eliminated. In our counterfactual simulation, we assume judges tend to protect the higher-scoring performer.
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.85\textwidth]{../question2/outputs/figures/controversy_heatmap_comparison.png}
-\caption{Impact of Judge Tiebreaking: Heatmap of the vote--score gap for four controversial contestants under alternative voting methods and with/without judge intervention}
-\label{fig:controversy_heatmap}
-\end{figure}
-
-\textbf{Key finding}: Judge tiebreaking is projected to alter outcomes in approximately \textbf{19.2\%} of weeks. In particular, it substantially disadvantages controversial contestants who frequently fall into the bottom two and receive comparatively low judge scores (e.g., Jerry Rice's survival probability decreases to 5--9\%, and Bristol Palin's to about 10\%). Furthermore, this mechanism moderates extreme \textit{audience dominance} and helps preserve performance-based standards.
+\textbf{Key finding}: This judge-choice layer is projected to alter outcomes in approximately \textbf{19.2\%} of weeks. It disproportionately disadvantages contestants who repeatedly enter the bottom two with low judge scores (e.g., Jerry Rice survival probability drops to 5--9\%, Bristol Palin to about 10\%). Overall, the mechanism dampens extreme \textit{audience dominance} while preserving a performance-quality baseline.
 
 \subsubsection{Answer to Sub-question 2.2}
 
@@ -239,16 +241,16 @@ Beginning in Season 28, the show introduced a \textbf{judge tiebreaking mechanis
     \item \textbf{The other three contestants}: Largely method-insensitive. Both methods predict Jerry Rice's elimination in the relevant week despite his survival (an apparent historical anomaly), while Billy Ray Cyrus and Bobby Bones exhibit similar audience-advantage dynamics under either method.
 \end{itemize}
 
-\textbf{Q2: What impact does judge tiebreaking have?}
+\textbf{Q2: What impact does the judge choice mechanism (choosing from the bottom two) have?}
 
-\textbf{Answer}: The effect is substantial (about 19.2\% of weeks would change). It disproportionately disadvantages controversial contestants who reach the bottom two with low judge scores (Jerry Rice survival probability drops to 5--9\%, and Bristol Palin to about 10\%). Overall, judge tiebreaking moderates extreme \textit{audience dominance} and helps uphold performance standards.
+\textbf{Answer}: The effect is substantial (about 19.2\% of weeks would change). It disproportionately disadvantages controversial contestants who repeatedly reach the bottom two with low judge scores (Jerry Rice survival probability drops to 5--9\%, and Bristol Palin to about 10\%). Overall, judge choosing moderates extreme \textit{audience dominance} and helps uphold performance standards.
 \vspace{0.3em}
 \end{minipage}%
 }
 
 \subsection{Sub-question 2.3: Recommended Approach}
 
-Based on preceding analysis, we recommend the \textbf{percentage-method + judge tiebreaking} combination. Percentage-method surpasses rank-based in information fidelity (preserving proportional information versus discretization), exhibits significantly stronger audience alignment (61.6\% audience-favoring), and demonstrates higher historical outcome matching (58.8\% vs 53.1\%)---positioning it as the optimal primary voting method. However, pure percentage-method may enable technically weak yet extremely popular contestants (e.g., Bristol Palin) to completely disregard judge assessments. Thus, judge tiebreaking serves as a critical safeguard---impacting approximately 19\% of weeks, remaining inactive when 80\% consensus exists, with judge intervention during the 20\% pronounced disagreements, achieving balanced entertainment-professionalism equilibrium. Key implementation requirement: Judge votes must be publicly announced in real-time with rationale explanations, enhancing both dramatic value and transparency.
+Based on preceding analysis, we recommend the \textbf{percentage-method + judge choice (bottom-two decision)} combination. Percentage-method surpasses rank-based in information fidelity (preserving proportional information versus discretization), exhibits significantly stronger audience alignment (61.6\% audience-favoring), and demonstrates higher historical outcome matching (58.8\% vs 53.1\%)---positioning it as the optimal primary voting method. However, pure percentage-method may enable technically weak yet extremely popular contestants (e.g., Bristol Palin) to completely disregard judge assessments. Thus, judge choosing from the bottom two serves as a critical safeguard---impacting approximately 19\% of weeks, remaining inactive when 80\% consensus exists, and activating during pronounced disagreements to balance entertainment with professionalism. Key implementation requirement: Judge votes must be publicly announced in real-time with rationale explanations, enhancing both dramatic value and transparency.
 
 \subsubsection{Answer to Sub-question 2.3}
 
@@ -261,7 +263,7 @@ Based on preceding analysis, we recommend the \textbf{percentage-method + judge 
 
 \textbf{Answer}: Percentage-method. Rationale: (1) Preserves numerical disparity information; (2) More audience-oriented (61.6\%), aligning with entertainment positioning; (3) Higher historical outcome alignment (58.8\% vs 53.1\%).
 
-\textbf{Q2: Should judge tiebreaking be incorporated?}
+\textbf{Q2: Should a judge choice mechanism (choosing from the bottom two) be incorporated?}
 
 \textbf{Answer}: Yes, recommended to retain. Rationale: (1) Upholds quality baseline; (2) Balanced intervention (impacts 19\% of outcomes); (3) Transparent implementation enhances dramatic appeal. Critical requirement: Judge votes must be announced publicly in real-time with explanations.
 \vspace{0.3em}
@@ -487,7 +489,7 @@ Dramatic Arc system exhibits pronounced advantages across entertainment value, f
 
 \subsubsection{How to Implement This System?}
 
-Implementation strategy encompasses three tiers. Communication tier: Pre-competition promotion should emphasize "progressively growing audience power" as core selling point, utilizing visualization curves enabling intuitive audience perception of escalating participation value; during competition, real-time display current weight ratios, specially highlighting contestants receiving "controversy rewards," rendering rules transparently visible; when controversy erupts, hosts should proactively guide discussion of judge-audience opinion divergence, social media synchronously pushing comparison videos, transforming disagreement into sustainable topic fermentation sources. Technical tier: System formulas remain concise, enabling real-time calculation and display during live broadcasts, fully compatible with existing voting infrastructure without additional technical investment; establish contingency protocols---when weekly controversy rate abnormally surges ($> 30\%$), automatically trigger judge tiebreaking, ensuring program maintains control. Risk management tier: Recommend three-season transition plan---Season 1 as pilot phase activating only dynamic weighting, observing effects; Season 2 fine-tuning controversy reward trigger thresholds based on feedback; Season 3 fully implementing all mechanisms. This incremental strategy both adequately tests the system and controls brand risk within acceptable bounds.
+Implementation strategy encompasses three tiers. Communication tier: Pre-competition promotion should emphasize "progressively growing audience power" as core selling point, utilizing visualization curves enabling intuitive audience perception of escalating participation value; during competition, real-time display current weight ratios, specially highlighting contestants receiving "controversy rewards," rendering rules transparently visible; when controversy erupts, hosts should proactively guide discussion of judge-audience opinion divergence, social media synchronously pushing comparison videos, transforming disagreement into sustainable topic fermentation sources. Technical tier: System formulas remain concise, enabling real-time calculation and display during live broadcasts, fully compatible with existing voting infrastructure without additional technical investment; establish contingency protocols---when weekly controversy rate abnormally surges ($> 30\%$), automatically trigger a \textbf{judge bottom-two choice safeguard}, ensuring program maintains control. Risk management tier: Recommend three-season transition plan---Season 1 as pilot phase activating only dynamic weighting, observing effects; Season 2 fine-tuning controversy reward trigger thresholds based on feedback; Season 3 fully implementing all mechanisms. This incremental strategy both adequately tests the system and controls brand risk within acceptable bounds.
 
 \subsection{Complete Answer to Problem 4}
 
