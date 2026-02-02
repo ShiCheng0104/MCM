@@ -1,65 +1,66 @@
-\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Background}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}The Description of the Problem}{3}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Our work}{3}{subsection.1.3}%
-\contentsline {section}{\numberline {2}Preparation for Modeling}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Model Assumptions}{4}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Notations}{4}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}数据收集与清洗}{4}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}官方赛事数据分析}{4}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}电视收视率数据}{5}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}社交媒体热度数据(Google Trends)}{6}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.4}多源数据关联分析}{6}{subsubsection.2.3.4}%
-\contentsline {section}{\numberline {3}问题1：观众投票估计模型}{6}{section.3}%
-\contentsline {subsection}{\numberline {3.1}问题理解与建模思路}{6}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}问题本质}{6}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}整体建模框架}{7}{subsubsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.2}双层框架的数学实现}{7}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}层1：基线先验模型}{7}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}层2：精确反推模型}{8}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}层3：不确定性量化}{8}{subsubsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}问题1的完整回答}{9}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}问题1.1回答：一致性度量}{9}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}问题1.2回答：确定性度量}{10}{subsubsection.3.3.2}%
-\contentsline {section}{\numberline {4}问题2：投票方法对比与推荐}{10}{section.4}%
-\contentsline {subsection}{\numberline {4.1}问题理解与分析框架}{10}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}子问题2.1：方法差异与观众偏向性}{10}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}子问题2.1答案}{11}{subsubsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.3}子问题2.2：争议性选手案例深度分析}{11}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}子问题2.2：争议选手案例分析}{11}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}案例对比分析}{11}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}评委裁决机制的影响}{12}{subsubsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.4.3}子问题2.2答案}{13}{subsubsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.5}子问题2.3：推荐方案}{13}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}子问题2.3答案}{13}{subsubsection.4.5.1}%
-\contentsline {section}{\numberline {5}问题3：影响因素分析——舞伴与名人特征的作用机制}{14}{section.5}%
-\contentsline {subsection}{\numberline {5.1}问题理解与研究框架}{14}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}建模方法与核心发现}{14}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}特征体系与模型设计}{14}{subsubsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2}SHAP特征重要性分析}{14}{subsubsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.3}三大影响因素的深度剖析}{14}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}因素1：专业舞伴——技术提升器与人气放大器}{14}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}因素2：名人行业——自带粉丝基础的力量}{15}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}因素3：年龄——青春魅力与成熟稳重的博弈}{16}{subsubsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.4}评委与观众的差异化视角}{16}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}问题3的完整回答}{17}{subsection.5.5}%
-\contentsline {section}{\numberline {6}问题4：新投票系统设计——戏剧弧投票系统}{17}{section.6}%
-\contentsline {subsection}{\numberline {6.1}问题理解与设计理念}{17}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}系统机制设计}{17}{subsection.6.2}%
-\contentsline {subsubsection}{\numberline {6.2.1}机制1：阶段性动态权重}{17}{subsubsection.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.2}机制2：争议奖励}{18}{subsubsection.6.2.2}%
-\contentsline {subsubsection}{\numberline {6.2.3}机制3：投票差距放大器与综合得分}{18}{subsubsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.3}系统评估与数据验证}{18}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}采用建议}{19}{subsection.6.4}%
-\contentsline {subsubsection}{\numberline {6.4.1}为什么制作方应采用这个系统？}{19}{subsubsection.6.4.1}%
-\contentsline {subsubsection}{\numberline {6.4.2}如何实施这个系统？}{19}{subsubsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.5}问题4的完整回答}{20}{subsection.6.5}%
-\contentsline {section}{\numberline {7}Sensitivity Analysis}{20}{section.7}%
-\contentsline {section}{\numberline {8}Model Evaluation and Promotion}{20}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Model Evaluation}{20}{subsection.8.1}%
-\contentsline {subsubsection}{\numberline {8.1.1}Advantages}{20}{subsubsection.8.1.1}%
-\contentsline {subsubsection}{\numberline {8.1.2}Limitations}{20}{subsubsection.8.1.2}%
-\contentsline {subsection}{\numberline {8.2}Future Work}{20}{subsection.8.2}%
-\contentsline {subsubsection}{\numberline {8.2.1}Model extension}{20}{subsubsection.8.2.1}%
-\contentsline {subsubsection}{\numberline {8.2.2}Model application}{20}{subsubsection.8.2.2}%
-\contentsline {section}{\numberline {9}Conclusions}{20}{section.9}%
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Background}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}The Description of the Problem}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Our work}{5}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Preparation for Modeling}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Model Assumptions}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Notations}{6}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}数据收集与清洗}{6}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}官方赛事数据分析}{6}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}电视收视率数据}{7}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}社交媒体热度数据(Google Trends)}{8}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}多源数据关联分析}{8}{subsubsection.2.3.4}%
+\contentsline {section}{\numberline {3}问题1：观众投票估计模型}{8}{section.3}%
+\contentsline {subsection}{\numberline {3.1}问题理解与建模思路}{8}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}问题本质}{8}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}整体建模框架}{9}{subsubsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}双层框架的数学实现}{9}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}层1：基线先验模型}{9}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}层2：精确反推模型}{9}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}层3：不确定性量化}{11}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}问题1的完整回答}{11}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}问题1.1回答：一致性度量}{11}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}问题1.2回答：确定性度量}{12}{subsubsection.3.3.2}%
+\contentsline {section}{\numberline {4}问题2：投票方法对比与推荐}{12}{section.4}%
+\contentsline {subsection}{\numberline {4.1}问题理解与分析框架}{12}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}子问题2.1：方法差异与观众偏向性}{12}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}子问题2.1答案}{13}{subsubsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.3}子问题2.2：争议性选手案例深度分析}{13}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}子问题2.2：争议选手案例分析}{13}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}案例对比分析}{13}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}评委裁决机制的影响}{14}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}子问题2.2答案}{15}{subsubsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.5}子问题2.3：推荐方案}{15}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}子问题2.3答案}{15}{subsubsection.4.5.1}%
+\contentsline {section}{\numberline {5}问题3：影响因素分析——舞伴与名人特征的作用机制}{16}{section.5}%
+\contentsline {subsection}{\numberline {5.1}问题理解与研究框架}{16}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}建模方法与核心发现}{16}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}特征体系与模型设计}{16}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}SHAP特征重要性分析}{16}{subsubsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.3}三大影响因素的深度剖析}{16}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}因素1：专业舞伴——技术提升器与人气放大器}{16}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}因素2：名人行业——自带粉丝基础的力量}{17}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}因素3：年龄——青春魅力与成熟稳重的博弈}{18}{subsubsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.4}评委与观众的差异化视角}{18}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}问题3的完整回答}{19}{subsection.5.5}%
+\contentsline {section}{\numberline {6}问题4：新投票系统设计——戏剧弧投票系统}{19}{section.6}%
+\contentsline {subsection}{\numberline {6.1}问题理解与设计理念}{19}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}系统机制设计}{19}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}机制1：阶段性动态权重}{19}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}机制2：争议奖励}{20}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}机制3：投票差距放大器与综合得分}{20}{subsubsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.3}系统评估与数据验证}{20}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}采用建议}{21}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}为什么制作方应采用这个系统？}{21}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}如何实施这个系统？}{21}{subsubsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.5}问题4的完整回答}{22}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Sensitivity Analysis}{22}{section.7}%
+\contentsline {subsection}{\numberline {7.1}问题1和2：投票估计模型的参数敏感性}{22}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}问题3：特征重要性的稳健验证}{22}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}问题4：戏剧弧系统的参数权衡}{23}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}跨模型不确定性量化}{23}{subsection.7.4}%
+\contentsline {section}{\numberline {8}Model Evaluation and Promotion}{24}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Model Evaluation}{24}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Advantages}{24}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}Limitations}{24}{subsubsection.8.1.2}%
+\contentsline {section}{\numberline {9}Memorandum}{25}{section.9}%

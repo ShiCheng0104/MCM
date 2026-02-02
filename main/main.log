@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.5.26)  2 FEB 2026 16:08
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.5.26)  2 FEB 2026 16:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -691,16 +691,24 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \l__lipsum_b_int=\count321
 
 (d:/texlive/2024/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex))
+(d:/texlive/2024/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen193
+\WF@size=\dimen194
+\c@WF@wrappedlines=\count322
+\WF@box=\box66
+\WF@everypar=\toks44
+Package: wrapfig 2003/01/31  v 3.6
+)
 (d:/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (d:/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (d:/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks44
-\pgfutil@tempdima=\dimen193
-\pgfutil@tempdimb=\dimen194
+\pgfutil@everybye=\toks45
+\pgfutil@tempdima=\dimen195
+\pgfutil@tempdimb=\dimen196
 )
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box66
+\pgfutil@abb=\box67
 )
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/pgf.revision.tex)
@@ -714,33 +722,33 @@ Package: pgf 2023-01-15 v3.1.10 (3.1.10)
 Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks45
-\pgfkeys@temptoks=\toks46
+\pgfkeys@pathtoks=\toks46
+\pgfkeys@temptoks=\toks47
 
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.co
 de.tex
-\pgfkeys@tmptoks=\toks47
+\pgfkeys@tmptoks=\toks48
 ))
-\pgf@x=\dimen195
-\pgf@y=\dimen196
-\pgf@xa=\dimen197
-\pgf@ya=\dimen198
-\pgf@xb=\dimen199
-\pgf@yb=\dimen256
-\pgf@xc=\dimen257
-\pgf@yc=\dimen258
-\pgf@xd=\dimen259
-\pgf@yd=\dimen260
+\pgf@x=\dimen197
+\pgf@y=\dimen198
+\pgf@xa=\dimen199
+\pgf@ya=\dimen256
+\pgf@xb=\dimen257
+\pgf@yb=\dimen258
+\pgf@xc=\dimen259
+\pgf@yc=\dimen260
+\pgf@xd=\dimen261
+\pgf@yd=\dimen262
 \w@pgf@writea=\write4
 \r@pgf@reada=\read3
-\c@pgf@counta=\count322
-\c@pgf@countb=\count323
-\c@pgf@countc=\count324
-\c@pgf@countd=\count325
-\t@pgf@toka=\toks48
-\t@pgf@tokb=\toks49
-\t@pgf@tokc=\toks50
-\pgf@sys@id@count=\count326
+\c@pgf@counta=\count323
+\c@pgf@countb=\count324
+\c@pgf@countc=\count325
+\c@pgf@countd=\count326
+\t@pgf@toka=\toks49
+\t@pgf@tokb=\toks50
+\t@pgf@tokc=\toks51
+\pgf@sys@id@count=\count327
  (d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -755,12 +763,12 @@ File: pgfsys-dvipdfmx.def 2023-01-15 v3.1.10 (3.1.10)
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
 File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 )
-\pgfsys@objnum=\count327
+\pgfsys@objnum=\count328
 )))
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count328
-\pgfsyssoftpath@bigbuffer@items=\count329
+\pgfsyssoftpath@smallbuffer@items=\count329
+\pgfsyssoftpath@bigbuffer@items=\count330
 )
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -770,12 +778,12 @@ Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen261
-\pgfmath@count=\count330
-\pgfmath@box=\box67
-\pgfmath@toks=\toks51
-\pgfmath@stack@operand=\toks52
-\pgfmath@stack@operation=\toks53
+\pgfmath@dimen=\dimen263
+\pgfmath@count=\count331
+\pgfmath@box=\box68
+\pgfmath@toks=\toks52
+\pgfmath@stack@operand=\toks53
+\pgfmath@stack@operation=\toks54
 )
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.te
@@ -796,56 +804,56 @@ x)
 etics.code.tex)
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count331
+\c@pgfmathroundto@lastzeros=\count332
 ))
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@picminx=\dimen262
-\pgf@picmaxx=\dimen263
-\pgf@picminy=\dimen264
-\pgf@picmaxy=\dimen265
-\pgf@pathminx=\dimen266
-\pgf@pathmaxx=\dimen267
-\pgf@pathminy=\dimen268
-\pgf@pathmaxy=\dimen269
-\pgf@xx=\dimen270
-\pgf@xy=\dimen271
-\pgf@yx=\dimen272
-\pgf@yy=\dimen273
-\pgf@zx=\dimen274
-\pgf@zy=\dimen275
+\pgf@picminx=\dimen264
+\pgf@picmaxx=\dimen265
+\pgf@picminy=\dimen266
+\pgf@picmaxy=\dimen267
+\pgf@pathminx=\dimen268
+\pgf@pathmaxx=\dimen269
+\pgf@pathminy=\dimen270
+\pgf@pathmaxy=\dimen271
+\pgf@xx=\dimen272
+\pgf@xy=\dimen273
+\pgf@yx=\dimen274
+\pgf@yy=\dimen275
+\pgf@zx=\dimen276
+\pgf@zy=\dimen277
 )
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.cod
 e.tex
 File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@path@lastx=\dimen276
-\pgf@path@lasty=\dimen277
+\pgf@path@lastx=\dimen278
+\pgf@path@lasty=\dimen279
 )
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.te
 x
 File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@shorten@end@additional=\dimen278
-\pgf@shorten@start@additional=\dimen279
+\pgf@shorten@end@additional=\dimen280
+\pgf@shorten@start@additional=\dimen281
 )
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfpic=\box68
-\pgf@hbox=\box69
-\pgf@layerbox@main=\box70
-\pgf@picture@serial@count=\count332
+\pgfpic=\box69
+\pgf@hbox=\box70
+\pgf@layerbox@main=\box71
+\pgf@picture@serial@count=\count333
 )
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code
 .tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgflinewidth=\dimen280
+\pgflinewidth=\dimen282
 )
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.c
 ode.tex
 File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@pt@x=\dimen281
-\pgf@pt@y=\dimen282
-\pgf@pt@temp=\dimen283
+\pgf@pt@x=\dimen283
+\pgf@pt@y=\dimen284
+\pgf@pt@temp=\dimen285
 )
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -859,20 +867,20 @@ File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowsep=\dimen284
+\pgfarrowsep=\dimen286
 )
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@max=\dimen285
-\pgf@sys@shading@range@num=\count333
-\pgf@shadingcount=\count334
+\pgf@max=\dimen287
+\pgf@sys@shading@range@num=\count334
+\pgf@shadingcount=\count335
 )
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfexternal@startupbox=\box71
+\pgfexternal@startupbox=\box72
 ) (d:/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -887,7 +895,7 @@ File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.te
 x
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box72
+\pgfnodeparttextbox=\box73
 )
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -895,8 +903,8 @@ File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (d:/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.st
 y
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen286
-\pgf@nodesepend=\dimen287
+\pgf@nodesepstart=\dimen288
+\pgf@nodesepend=\dimen289
 )
 (d:/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.st
 y
@@ -908,10 +916,10 @@ Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
-\pgffor@iter=\dimen288
-\pgffor@skip=\dimen289
-\pgffor@stack=\toks54
-\pgffor@toks=\toks55
+\pgffor@iter=\dimen290
+\pgffor@skip=\dimen291
+\pgffor@stack=\toks55
+\pgffor@toks=\toks56
 ))
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
@@ -919,33 +927,33 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.co
 de.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count335
-\pgfplotmarksize=\dimen290
+\pgf@plot@mark@count=\count336
+\pgfplotmarksize=\dimen292
 )
-\tikz@lastx=\dimen291
-\tikz@lasty=\dimen292
-\tikz@lastxsaved=\dimen293
-\tikz@lastysaved=\dimen294
-\tikz@lastmovetox=\dimen295
-\tikz@lastmovetoy=\dimen296
-\tikzleveldistance=\dimen297
-\tikzsiblingdistance=\dimen298
-\tikz@figbox=\box73
-\tikz@figbox@bg=\box74
-\tikz@tempbox=\box75
-\tikz@tempbox@bg=\box76
-\tikztreelevel=\count336
-\tikznumberofchildren=\count337
-\tikznumberofcurrentchild=\count338
-\tikz@fig@count=\count339
+\tikz@lastx=\dimen293
+\tikz@lasty=\dimen294
+\tikz@lastxsaved=\dimen295
+\tikz@lastysaved=\dimen296
+\tikz@lastmovetox=\dimen297
+\tikz@lastmovetoy=\dimen298
+\tikzleveldistance=\dimen299
+\tikzsiblingdistance=\dimen300
+\tikz@figbox=\box74
+\tikz@figbox@bg=\box75
+\tikz@tempbox=\box76
+\tikz@tempbox@bg=\box77
+\tikztreelevel=\count337
+\tikznumberofchildren=\count338
+\tikznumberofcurrentchild=\count339
+\tikz@fig@count=\count340
 
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count340
-\pgfmatrixcurrentcolumn=\count341
-\pgf@matrix@numberofcolumns=\count342
+\pgfmatrixcurrentrow=\count341
+\pgfmatrixcurrentcolumn=\count342
+\pgf@matrix@numberofcolumns=\count343
 )
-\tikz@expandcount=\count343
+\tikz@expandcount=\count344
 
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
 brarytopaths.code.tex
@@ -954,10 +962,10 @@ File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.cod
 e.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen299
-\pgfarrowlength=\dimen300
-\pgfarrowwidth=\dimen301
-\pgfarrowlinewidth=\dimen302
+\pgfarrowinset=\dimen301
+\pgfarrowlength=\dimen302
+\pgfarrowwidth=\dimen303
+\pgfarrowlinewidth=\dimen304
 )
 (d:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
 brarypositioning.code.tex
@@ -980,18 +988,18 @@ Package: ctexhook 2022/07/14 v2.5.10 Document and package hooks (CTEX)
 (d:/texlive/2024/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate-2023-10-10
 .sty
 Package: xtemplate 2023-10-10 L3 Experimental prototype document functions
-\l__xtemplate_tmp_dim=\dimen303
-\l__xtemplate_tmp_int=\count344
+\l__xtemplate_tmp_dim=\dimen305
+\l__xtemplate_tmp_int=\count345
 \l__xtemplate_tmp_muskip=\muskip18
 \l__xtemplate_tmp_skip=\skip82
 ))
-\l__xeCJK_tmp_int=\count345
-\l__xeCJK_tmp_box=\box77
-\l__xeCJK_tmp_dim=\dimen304
+\l__xeCJK_tmp_int=\count346
+\l__xeCJK_tmp_box=\box78
+\l__xeCJK_tmp_dim=\dimen306
 \l__xeCJK_tmp_skip=\skip83
-\g__xeCJK_space_factor_int=\count346
-\l__xeCJK_begin_int=\count347
-\l__xeCJK_end_int=\count348
+\g__xeCJK_space_factor_int=\count347
+\l__xeCJK_begin_int=\count348
+\l__xeCJK_end_int=\count349
 \c__xeCJK_CJK_class_int=\XeTeXcharclass1
 \c__xeCJK_FullLeft_class_int=\XeTeXcharclass2
 \c__xeCJK_FullRight_class_int=\XeTeXcharclass3
@@ -1001,49 +1009,49 @@ Package: xtemplate 2023-10-10 L3 Experimental prototype document functions
 \c__xeCJK_CM_class_int=\XeTeXcharclass7
 \c__xeCJK_HangulJamo_class_int=\XeTeXcharclass8
 \l__xeCJK_last_skip=\skip84
-\c__xeCJK_none_node=\count349
-\g__xeCJK_node_int=\count350
-\c__xeCJK_CJK_node_dim=\dimen305
-\c__xeCJK_CJK-space_node_dim=\dimen306
-\c__xeCJK_default_node_dim=\dimen307
-\c__xeCJK_CJK-widow_node_dim=\dimen308
-\c__xeCJK_normalspace_node_dim=\dimen309
+\c__xeCJK_none_node=\count350
+\g__xeCJK_node_int=\count351
+\c__xeCJK_CJK_node_dim=\dimen307
+\c__xeCJK_CJK-space_node_dim=\dimen308
+\c__xeCJK_default_node_dim=\dimen309
+\c__xeCJK_CJK-widow_node_dim=\dimen310
+\c__xeCJK_normalspace_node_dim=\dimen311
 \c__xeCJK_default-space_node_skip=\skip85
 \l__xeCJK_ccglue_skip=\skip86
 \l__xeCJK_ecglue_skip=\skip87
 \l__xeCJK_punct_kern_skip=\skip88
-\l__xeCJK_indent_box=\box78
-\l__xeCJK_last_penalty_int=\count351
-\l__xeCJK_last_bound_dim=\dimen310
-\l__xeCJK_last_kern_dim=\dimen311
-\l__xeCJK_widow_penalty_int=\count352
+\l__xeCJK_indent_box=\box79
+\l__xeCJK_last_penalty_int=\count352
+\l__xeCJK_last_bound_dim=\dimen312
+\l__xeCJK_last_kern_dim=\dimen313
+\l__xeCJK_widow_penalty_int=\count353
 
 Package xtemplate Info: Declaring object type 'xeCJK/punctuation' taking 0
 (xtemplate)             argument(s) on line 2396.
 
-\l__xeCJK_fixed_punct_width_dim=\dimen312
-\l__xeCJK_mixed_punct_width_dim=\dimen313
-\l__xeCJK_middle_punct_width_dim=\dimen314
-\l__xeCJK_fixed_margin_width_dim=\dimen315
-\l__xeCJK_mixed_margin_width_dim=\dimen316
-\l__xeCJK_middle_margin_width_dim=\dimen317
-\l__xeCJK_bound_punct_width_dim=\dimen318
-\l__xeCJK_bound_margin_width_dim=\dimen319
-\l__xeCJK_margin_minimum_dim=\dimen320
-\l__xeCJK_kerning_total_width_dim=\dimen321
-\l__xeCJK_same_align_margin_dim=\dimen322
-\l__xeCJK_different_align_margin_dim=\dimen323
-\l__xeCJK_kerning_margin_width_dim=\dimen324
-\l__xeCJK_kerning_margin_minimum_dim=\dimen325
-\l__xeCJK_bound_dim=\dimen326
-\l__xeCJK_reverse_bound_dim=\dimen327
-\l__xeCJK_margin_dim=\dimen328
-\l__xeCJK_minimum_bound_dim=\dimen329
-\l__xeCJK_kerning_margin_dim=\dimen330
-\g__xeCJK_family_int=\count353
-\l__xeCJK_fam_int=\count354
-\g__xeCJK_fam_allocation_int=\count355
-\l__xeCJK_verb_case_int=\count356
+\l__xeCJK_fixed_punct_width_dim=\dimen314
+\l__xeCJK_mixed_punct_width_dim=\dimen315
+\l__xeCJK_middle_punct_width_dim=\dimen316
+\l__xeCJK_fixed_margin_width_dim=\dimen317
+\l__xeCJK_mixed_margin_width_dim=\dimen318
+\l__xeCJK_middle_margin_width_dim=\dimen319
+\l__xeCJK_bound_punct_width_dim=\dimen320
+\l__xeCJK_bound_margin_width_dim=\dimen321
+\l__xeCJK_margin_minimum_dim=\dimen322
+\l__xeCJK_kerning_total_width_dim=\dimen323
+\l__xeCJK_same_align_margin_dim=\dimen324
+\l__xeCJK_different_align_margin_dim=\dimen325
+\l__xeCJK_kerning_margin_width_dim=\dimen326
+\l__xeCJK_kerning_margin_minimum_dim=\dimen327
+\l__xeCJK_bound_dim=\dimen328
+\l__xeCJK_reverse_bound_dim=\dimen329
+\l__xeCJK_margin_dim=\dimen330
+\l__xeCJK_minimum_bound_dim=\dimen331
+\l__xeCJK_kerning_margin_dim=\dimen332
+\g__xeCJK_family_int=\count354
+\l__xeCJK_fam_int=\count355
+\g__xeCJK_fam_allocation_int=\count356
+\l__xeCJK_verb_case_int=\count357
 \l__xeCJK_verb_exspace_skip=\skip89
  (d:/texlive/2024/texmf-dist/tex/latex/fontspec/fontspec.sty
 (d:/texlive/2024/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
@@ -1054,20 +1062,20 @@ Package: fontspec 2024/02/13 v2.9a Font selection for XeLaTeX and LuaLaTeX
 (d:/texlive/2024/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
 Package: fontspec-xetex 2024/02/13 v2.9a Font selection for XeLaTeX and LuaLaTe
 X
-\l__fontspec_script_int=\count357
-\l__fontspec_language_int=\count358
-\l__fontspec_strnum_int=\count359
-\l__fontspec_tmp_int=\count360
-\l__fontspec_tmpa_int=\count361
-\l__fontspec_tmpb_int=\count362
-\l__fontspec_tmpc_int=\count363
-\l__fontspec_em_int=\count364
-\l__fontspec_emdef_int=\count365
-\l__fontspec_strong_int=\count366
-\l__fontspec_strongdef_int=\count367
-\l__fontspec_tmpa_dim=\dimen331
-\l__fontspec_tmpb_dim=\dimen332
-\l__fontspec_tmpc_dim=\dimen333
+\l__fontspec_script_int=\count358
+\l__fontspec_language_int=\count359
+\l__fontspec_strnum_int=\count360
+\l__fontspec_tmp_int=\count361
+\l__fontspec_tmpa_int=\count362
+\l__fontspec_tmpb_int=\count363
+\l__fontspec_tmpc_int=\count364
+\l__fontspec_em_int=\count365
+\l__fontspec_emdef_int=\count366
+\l__fontspec_strong_int=\count367
+\l__fontspec_strongdef_int=\count368
+\l__fontspec_tmpa_dim=\dimen333
+\l__fontspec_tmpb_dim=\dimen334
+\l__fontspec_tmpc_dim=\dimen335
 
 (d:/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
@@ -1075,8 +1083,8 @@ Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 (d:/texlive/2024/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
 (d:/texlive/2024/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
 Package: xeCJK-listings 2022/08/05 v3.9.1 xeCJK patch file for listings
-\l__xeCJK_listings_max_char_int=\count368
-\l__xeCJK_listings_flag_int=\count369
+\l__xeCJK_listings_max_char_int=\count369
+\l__xeCJK_listings_flag_int=\count370
 )
 (d:/texlive/2024/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg
 File: xeCJK.cfg 2022/08/05 v3.9.1 Configuration file for xeCJK package
@@ -1107,57 +1115,57 @@ Package fontspec Info: Font family 'STSong(0)' created for font 'STSong' with
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 66.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 67.
 LaTeX Font Info:    Trying to load font information for OML+txmi on input line 
-66.
+67.
 
 (d:/texlive/2024/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 67.
 LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 
-66.
+67.
 
 (d:/texlive/2024/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 6
-6.
+7.
 
 (d:/texlive/2024/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 67.
 LaTeX Font Info:    Trying to load font information for OMX+txex on input line 
-66.
+67.
 
 (d:/texlive/2024/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 66.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 67.
 LaTeX Font Info:    Trying to load font information for U+txexa on input line 6
-6.
+7.
 
 (d:/texlive/2024/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-\c@lstlisting=\count370
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+\c@lstlisting=\count371
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1193,12 +1201,18 @@ LaTeX Font Info:    ... okay on input line 66.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 66.
+Package hyperref Info: Link coloring OFF on input line 67.
 (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
- (../sections/0.abstract.tex) [1
+
+Overfull \hbox (10.5557pt too wide) in paragraph at lines 32--68
+[]\TU/lmr/m/n/12 «««< HEAD ======= »»»> 83047e251cb440ff1029aa3826d38d1f957e714
+e [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]«««< HEAD
+ []
+
+(../sections/0.abstract.tex) [1
 
 ]
 
@@ -1251,16 +1265,33 @@ File: utxsyc.fd 2000/12/15 v3.1
 )
 
 LaTeX Font Warning: Font shape `TU/STSong(0)/b/n' undefined
-(Font)              using `TU/STSong(0)/m/n' instead on input line 13.
+(Font)              using `TU/STSong(0)/m/n' instead on input line 14.
 
-[1])
+[1] [2])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
- [2] (../sections/1.Introduction.tex
-(../figures/our_work_flowchart.tikz.tex
+ [3] (../sections/1.Introduction.tex
+File: ../figures/2.png Graphic file (type bmp)
+<../figures/2.png>
+
+
+LaTeX Font Warning: Font shape `TU/STSong(0)/m/it' undefined
+(Font)              using `TU/STSong(0)/m/n' instead on input line 15.
+
+
+LaTeX Warning: Citation `googletrends' on page 4 undefined on input line 15.
+
+
+LaTeX Warning: Citation `dwts_wiki' on page 4 undefined on input line 17.
+
+
+LaTeX Warning: Reference `fig:our-work-flow' on page 4 undefined on input line 
+43.
+
+[4] (../figures/our_work_flowchart.tikz.tex
 ! Misplaced alignment tab character &.
-l.29   Cleaning &
+l.30   Cleaning &
                   alignment: names, weeks, missing seasons
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1269,37 +1300,36 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-)) [3] (../sections/2.Preparation for Modeling.tex
+)) [5] (../sections/2.Preparation for Modeling.tex
+Missing character: There is no ▼ (U+25BC) in font [lmroman12-bold]:mapping=tex-
+text;!
+Missing character: There is no ▲ (U+25B2) in font [lmroman12-bold]:mapping=tex-
+text;!
+Missing character: There is no ▼ (U+25BC) in font [lmroman12-bold]:mapping=tex-
+text;!
+Missing character: There is no ▲ (U+25B2) in font [lmroman12-bold]:mapping=tex-
+text;!
 
 Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
 (xeCJK)                
 (xeCJK)                Try to use `\setCJKmonofont[<...>]{<...>}' to define
 (xeCJK)                it.
 
-[4] [5]) (../sections/4.Models.tex [6]
-
-LaTeX Font Warning: Font shape `TU/STSong(0)/m/it' undefined
-(Font)              using `TU/STSong(0)/m/n' instead on input line 21.
-
+[6] [7]) (../sections/4.Models.tex [8]
 File: ../yanxiao/outputs/figures/radar_s20_w5.png Graphic file (type bmp)
 <../yanxiao/outputs/figures/radar_s20_w5.png>
 
+
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[7]
+[9]
 File: ../yanxiao/outputs/figures/accuracy_summary.png Graphic file (type bmp)
 <../yanxiao/outputs/figures/accuracy_summary.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
+ [10]
 File: ../yanxiao/outputs/figures/uncertainty_distribution.png Graphic file (typ
 e bmp)
 <../yanxiao/outputs/figures/uncertainty_distribution.png>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[8] [9]
+ [11]
 File: ../question2/outputs/figures/method_comparison_overview.png Graphic file 
 (type bmp)
 <../question2/outputs/figures/method_comparison_overview.png>
@@ -1307,7 +1337,7 @@ File: ../question2/outputs/figures/method_comparison_overview.png Graphic file
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[10]
+[12]
 File: ../question2/outputs/figures/controversy_trajectories.png Graphic file (t
 ype bmp)
 <../question2/outputs/figures/controversy_trajectories.png>
@@ -1315,11 +1345,11 @@ ype bmp)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[11]
+[13]
 Missing character: There is no ⭐ (U+2B50) in font [lmroman12-regular]:mapping=t
 ex-text;!
 
-LaTeX Warning: Reference `fig:bobby_trajectory' on page 12 undefined on input l
+LaTeX Warning: Reference `fig:bobby_trajectory' on page 14 undefined on input l
 ine 214.
 
 File: ../question2/outputs/figures/controversy_heatmap_comparison.png Graphic f
@@ -1328,7 +1358,7 @@ ile (type bmp)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[12] [13]
+[14] [15]
 File: ../question3/outputs/figures/shap_summary_combined.png Graphic file (type
  bmp)
 <../question3/outputs/figures/shap_summary_combined.png>
@@ -1339,7 +1369,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[14]
+[16]
 File: ../question3/outputs/figures/nomogram_combined.png Graphic file (type bmp
 )
 <../question3/outputs/figures/nomogram_combined.png>
@@ -1352,7 +1382,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 Missing character: There is no ≤ (U+2264) in font [lmroman10-regular]:mapping=t
 ex-text;!
-[15]
+[17]
 Missing character: There is no ≤ (U+2264) in font [lmroman12-regular]:mapping=t
 ex-text;!
 Missing character: There is no ≤ (U+2264) in font [lmroman10-regular]:mapping=t
@@ -1360,17 +1390,44 @@ ex-text;!
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[16] [17]
+[18] [19]
 File: ../question4/outputs/figures/dramatic_arc_weights.png Graphic file (type 
 bmp)
 <../question4/outputs/figures/dramatic_arc_weights.png>
- [18]
+ [20]
 Missing character: There is no ≥ (U+2265) in font [lmroman12-regular]:mapping=t
 ex-text;!
-) (../sections/5.Sensitivity Analysis.tex [19])
-(../sections/6.Model Evaluation and Promotion.tex)
-(../sections/7.Conclusions.tex) (../sections/8.References.tex [20])
-(../sections/9.Appendices.tex) (../sections/10.AI.tex [21]
+) (../sections/5.Sensitivity Analysis.tex [21]
+
+LaTeX Warning: Reference `fig:tornado_sensitivity' on page 22 undefined on inpu
+t line 3.
+
+File: ../model_evaluation/outputs/figures/sensitivity/tornado_diagram.png Graph
+ic file (type bmp)
+<../model_evaluation/outputs/figures/sensitivity/tornado_diagram.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `fig:tornado_sensitivity' on page 22 undefined on inpu
+t line 14.
+
+
+LaTeX Warning: Reference `fig:tornado_sensitivity' on page 22 undefined on inpu
+t line 18.
+
+
+LaTeX Warning: Reference `fig:tornado_sensitivity' on page 22 undefined on inpu
+t line 22.
+
+[22]) (../sections/6.Model Evaluation and Promotion.tex [23] [24])
+(../sections/7.Memorandum.tex [25]) (../sections/8.References.tex
+Underfull \hbox (badness 1092) in paragraph at lines 14--17
+[]\TU/lmr/m/n/12 Wikipedia contributors. (2026). \TU/lmr/m/it/12 Dancing with t
+he Stars (American TV series)\TU/lmr/m/n/12 .
+ []
+
+) (../sections/10.AI.tex [26]
 LaTeX Font Info:    Trying to load font information for TU+pcr on input line 8.
 
 LaTeX Font Info:    No file TUpcr.fd. on input line 8.
@@ -1383,9 +1440,9 @@ LaTeX Font Warning: Font shape `TU/pcr/m/n' undefined
 LaTeX Font Warning: Font shape `TU/pcr/b/n' undefined
 (Font)              using `TU/pcr/m/n' instead on input line 9.
 
-[22
+[27
 
-]) [23] (./main.aux)
+]) [28] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
@@ -1400,16 +1457,22 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9990586FB0391C4AE801A8F494469610;4918.
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 9679F651A0779986D7972B38DD2A6ED8;6131
+(rerunfilecheck)             After:  2E7331A2BC47076C0EB63236439DDCF0;5457.
  ) 
 Here is how much of TeX's memory you used:
- 30795 strings out of 474773
- 649253 string characters out of 5761289
+ 30917 strings out of 474773
+ 651987 string characters out of 5761289
  2012842 words of memory out of 5000000
- 52264 multiletter control sequences out of 15000+600000
- 598521 words of font info for 181 fonts, out of 8000000 for 9000
+ 52382 multiletter control sequences out of 15000+600000
+ 598537 words of font info for 183 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 87i,16n,93p,541b,1995s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,16n,93p,587b,1989s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (24 pages).
+Output written on main.pdf (29 pages).
