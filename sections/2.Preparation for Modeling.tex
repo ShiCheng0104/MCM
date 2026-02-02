@@ -1,47 +1,4 @@
 \section{Preparation for Modeling}
-\subsection{Model Assumptions}
-
-Real-world problems invariably involve numerous complexities. To simplify our models, we establish the following assumptions, each accompanied by its rationale:
-
-\noindent\textbf{$\blacktriangledown$ Assumption 1:} The model focuses on relative vote shares among contestants rather than absolute vote counts; fluctuations in weekly total vote volume do not affect relative proportional estimation.
-
-\noindent\textbf{$\blacktriangle$ Rationale:} Weekly total vote volumes fluctuate due to factors such as viewership ratings and promotional intensity. However, the relative vote proportion $v_i = V_i / \sum_j V_j$ among contestants remains more stable and directly determines elimination outcomes. This normalization enables accurate elimination prediction without knowledge of absolute vote counts and aligns with the show's convention of disclosing ``vote shares'' rather than ``absolute tallies.''
-
-\vspace{0.3em}
-
-\noindent\textbf{$\blacktriangledown$ Assumption 2:} Audience voting behavior correlates with judge scores and celebrity attributes, following a power-law relationship $V_i \propto S_i^\alpha$.
-
-\noindent\textbf{$\blacktriangle$ Rationale:} Our analysis reveals that audience voting is neither purely random nor simply mimetic of judge scores. The power-law exponent $\alpha = 1.2$, calibrated via grid search, captures the ``Matthew effect'' wherein high-scoring contestants receive disproportionate support. Concurrently, celebrity attributes (age, industry, professional partner) provide additional predictive power. This assumption renders feasible the inverse inference of audience votes from observable data.
-
-\subsection{Data Collection and Preprocessing}
-
-Figure~\ref{fig:data_pipeline} illustrates our multi-source fusion pipeline, integrating three data streams across 34 DWTS seasons (2005--2026) to triangulate latent voting signals.
-
-\begin{figure}[ht]
-\centering
-\resizebox{0.95\textwidth}{!}{%
-\input{../figures/data_pipeline.tikz.tex}%
-}
-\caption{Data Preprocessing Pipeline: Multi-source fusion from raw inputs to model-ready features. Blue nodes represent data sources; orange nodes indicate preprocessing operations; green node shows final validated dataset.}
-\label{fig:data_pipeline}
-\end{figure}
-
-\textbf{Key Preprocessing Rationale:}
-\begin{itemize}
-    \item \textbf{Industry Bias Elimination}: Athletes averaged 27.1 vs politicians' 22.3 points (21\% disparity). Industry-relative z-scores isolated individual merit from categorical advantages.
-    
-    \item \textbf{Temporal Drift Correction}: Scoring standards shifted 6.4\% across eras ($\mu$=26.5 early vs 24.9 recent). Season-specific standardization ensured cross-temporal comparability.
-    
-    \item \textbf{Heterogeneous Scale Fusion}: Min-Max normalization unified judge scores (10--30), Google Trends (0--100), and viewership (5--25M) to $[0,1]$, preserving relative standings critical for vote estimation.
-    
-    \item \textbf{Google Trends Normalization}: Baseline anchor (``RuPaul'') + season-internal scaling reduced CV 43\% (0.78$\rightarrow$0.45), satisfying Gaussian prior assumptions.
-\end{itemize}
-
-\textbf{Engineered Features:} Partner Experience Index (PEI) aggregates championship rate, placement, and finals appearances---Derek Hough: PEI=0.87 vs median=0.34 (155\% advantage). Temporal momentum captures score trajectories and survival duration as fan support proxies.
-
-\textbf{Validation:} Cross-source consistency 99.2\%; lag-1 correlation between Google Trends and viewership ($\rho$=0.67). \textbf{Final dataset}: 437 contestants, 2,185 observations, \textbf{96.8\% completeness, 99.2\% consistency}.
-
-
 \subsection{Notations}
 \setlength{\parindent}{2em} % 设置缩进为2个字符宽度
 
@@ -90,3 +47,46 @@ $\mathbf{v}$ & Audience vote share vector $(v_1, \ldots, v_n)$ \\
 \end{tabular}
 \label{table:notations}
 \end{table}
+\subsection{Model Assumptions}
+
+Real-world problems invariably involve numerous complexities. To simplify our models, we establish the following assumptions, each accompanied by its rationale:
+
+\noindent\textbf{$\blacktriangledown$ Assumption 1:} The model focuses on relative vote shares among contestants rather than absolute vote counts; fluctuations in weekly total vote volume do not affect relative proportional estimation.
+
+\noindent\textbf{$\blacktriangle$ Rationale:} Weekly total vote volumes fluctuate due to factors such as viewership ratings and promotional intensity. However, the relative vote proportion $v_i = V_i / \sum_j V_j$ among contestants remains more stable and directly determines elimination outcomes. This normalization enables accurate elimination prediction without knowledge of absolute vote counts and aligns with the show's convention of disclosing ``vote shares'' rather than ``absolute tallies.''
+
+\vspace{0.3em}
+
+\noindent\textbf{$\blacktriangledown$ Assumption 2:} Audience voting behavior correlates with judge scores and celebrity attributes, following a power-law relationship $V_i \propto S_i^\alpha$.
+
+\noindent\textbf{$\blacktriangle$ Rationale:} Our analysis reveals that audience voting is neither purely random nor simply mimetic of judge scores. The power-law exponent $\alpha = 1.2$, calibrated via grid search, captures the ``Matthew effect'' wherein high-scoring contestants receive disproportionate support. Concurrently, celebrity attributes (age, industry, professional partner) provide additional predictive power. This assumption renders feasible the inverse inference of audience votes from observable data.
+
+\subsection{Data Collection and Preprocessing}
+
+Figure~\ref{fig:data_pipeline} illustrates our multi-source fusion pipeline, integrating three data streams across 34 DWTS seasons (2005--2026) to triangulate latent voting signals.
+
+\begin{figure}[ht]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\input{../figures/data_pipeline.tikz.tex}%
+}
+\caption{Data Preprocessing Pipeline: Multi-source fusion from raw inputs to model-ready features. Blue nodes represent data sources; orange nodes indicate preprocessing operations; green node shows final validated dataset.}
+\label{fig:data_pipeline}
+\end{figure}
+
+\textbf{Key Preprocessing Rationale:}
+\begin{itemize}
+    \item \textbf{Industry Bias Elimination}: Athletes averaged 27.1 vs politicians' 22.3 points (21\% disparity). Industry-relative z-scores isolated individual merit from categorical advantages.
+    
+    \item \textbf{Temporal Drift Correction}: Scoring standards shifted 6.4\% across eras ($\mu$=26.5 early vs 24.9 recent). Season-specific standardization ensured cross-temporal comparability.
+    
+    \item \textbf{Heterogeneous Scale Fusion}: Min-Max normalization unified judge scores (10--30), Google Trends (0--100), and viewership (5--25M) to $[0,1]$, preserving relative standings critical for vote estimation.
+    
+    \item \textbf{Google Trends Normalization}: Baseline anchor (``RuPaul'') + season-internal scaling reduced CV 43\% (0.78$\rightarrow$0.45), satisfying Gaussian prior assumptions.
+\end{itemize}
+
+\textbf{Engineered Features:} Partner Experience Index (PEI) aggregates championship rate, placement, and finals appearances---Derek Hough: PEI=0.87 vs median=0.34 (155\% advantage). Temporal momentum captures score trajectories and survival duration as fan support proxies.
+
+\textbf{Validation:} Cross-source consistency 99.2\%; lag-1 correlation between Google Trends and viewership ($\rho$=0.67). \textbf{Final dataset}: 437 contestants, 2,185 observations, \textbf{96.8\% completeness, 99.2\% consistency}.
+
+

@@ -1,24 +1,31 @@
 % Data Preprocessing Pipeline Flowchart
+% Color palette: #264653, #2a9d8e, #e9c46b, #f3a261, #e86f52
+\definecolor{color1}{HTML}{264653}  % Deep teal
+\definecolor{color2}{HTML}{2a9d8e}  % Teal green
+\definecolor{color3}{HTML}{e9c46b}  % Golden yellow
+\definecolor{color4}{HTML}{f3a261}  % Orange
+\definecolor{color5}{HTML}{e86f52}  % Coral red
+
 \begin{tikzpicture}[
     node distance=0.8cm and 1.2cm,
     % Style definitions
     datasource/.style={
-        rectangle, rounded corners=3pt, draw=blue!70, fill=blue!10,
+        rectangle, rounded corners=3pt, draw=color1, fill=color1!15,
         minimum width=2.2cm, minimum height=1cm, align=center,
         font=\scriptsize\bfseries
     },
     process/.style={
-        rectangle, rounded corners=3pt, draw=orange!70, fill=orange!10,
+        rectangle, rounded corners=3pt, draw=color4, fill=color4!15,
         minimum width=2cm, minimum height=0.8cm, align=center,
         font=\scriptsize
     },
     output/.style={
-        rectangle, rounded corners=3pt, draw=green!70, fill=green!10,
+        rectangle, rounded corners=3pt, draw=color2, fill=color2!15,
         minimum width=2.2cm, minimum height=0.8cm, align=center,
         font=\scriptsize\bfseries
     },
-    arrow/.style={-{Stealth[scale=0.8]}, thick, draw=gray!70},
-    label/.style={font=\tiny, text=gray!80}
+    arrow/.style={-{Stealth[scale=0.8]}, thick, draw=color1!70},
+    label/.style={font=\tiny, text=color1!80}
 ]
 
 % === DATA SOURCES (Left Column) ===
@@ -63,11 +70,11 @@
 \draw[arrow] (momentum.east) -- ++(0.3,0) |- (final.west);
 
 % === STAGE LABELS ===
-\node[above=0.3cm of official, font=\scriptsize\bfseries, text=blue!70] {Data Sources};
-\node[above=0.3cm of zscore, font=\scriptsize\bfseries, text=orange!70] {Cleaning};
-\node[above=0.3cm of minmax, font=\scriptsize\bfseries, text=orange!70] {Fusion};
-\node[above=0.3cm of pei, font=\scriptsize\bfseries, text=orange!70] {Engineering};
-\node[above=0.3cm of final, font=\scriptsize\bfseries, text=green!70] {Output};
+\node[above=0.3cm of official, font=\scriptsize\bfseries, text=color1] {Data Sources};
+\node[above=0.3cm of zscore, font=\scriptsize\bfseries, text=color4] {Cleaning};
+\node[above=0.3cm of minmax, font=\scriptsize\bfseries, text=color4] {Fusion};
+\node[above=0.3cm of pei, font=\scriptsize\bfseries, text=color4] {Engineering};
+\node[above=0.3cm of final, font=\scriptsize\bfseries, text=color2] {Output};
 
 % === KEY METRICS (Bottom annotations) ===
 \node[label, below=0.2cm of official] {Temporal drift: 6.4\%};
