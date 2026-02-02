@@ -14,53 +14,53 @@
 \contentsline {subsection}{\numberline {3.1}Problem Interpretation and Modeling Approach}{9}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Problem Essence}{9}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}Overall Modeling Framework}{9}{subsubsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.2}Mathematical Implementation of the Two-Layer Framework}{10}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Layer 1: Baseline Prior Model}{10}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Layer 2: Precise Inverse Inference Model}{11}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Layer 3: Uncertainty Quantification}{12}{subsubsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}Complete Answer to Problem 1}{14}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Answer to Problem 1.1: Consistency Metrics}{14}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Answer to Problem 1.2: Certainty Metrics}{15}{subsubsection.3.3.2}%
-\contentsline {section}{\numberline {4}Problem 2: Voting Method Comparison and Recommendation}{15}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Problem Interpretation and Analytical Framework}{15}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Sub-question 2.1: Method Differences and Audience Bias}{15}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Answer to Sub-question 2.1}{16}{subsubsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.3}Sub-question 2.2: In-Depth Analysis of Controversial Contestants}{16}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Sub-question 2.2: Controversial Contestant Case Analysis}{16}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Comparative Case Analysis}{17}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}评委裁决机制的影响}{18}{subsubsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.4.3}子问题2.2答案}{19}{subsubsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.5}Sub-question 2.3: Recommended Approach}{19}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}Answer to Sub-question 2.3}{20}{subsubsection.4.5.1}%
-\contentsline {section}{\numberline {5}Problem 3: Factor Impact Analysis---Partner and Celebrity Characteristic Mechanisms}{20}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Problem Interpretation and Research Framework}{20}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Modeling Methodology and Core Findings}{20}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}Feature System and Model Design}{20}{subsubsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2}SHAP Feature Importance Analysis}{21}{subsubsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.3}In-Depth Analysis of Three Major Impact Factors}{22}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}Factor 1: Professional Partners---Technical Enhancers and Popularity Amplifiers}{22}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}Factor 2: Celebrity Industry---The Power of Built-In Fan Bases}{22}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}因素3：年龄——青春魅力与成熟稳重的博弈}{23}{subsubsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.4}Differentiated Perspectives: Judges versus Audiences}{23}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Complete Answer to Problem 3}{24}{subsection.5.5}%
-\contentsline {section}{\numberline {6}Problem 4: New Voting System Design---The Dramatic Arc Protocol}{24}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Problem Interpretation and Design Philosophy}{24}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}System Mechanism Design}{25}{subsection.6.2}%
-\contentsline {subsubsection}{\numberline {6.2.1}Mechanism 1: Phase-Adaptive Dynamic Weighting}{25}{subsubsection.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.2}Mechanism 2: Controversy Reward}{25}{subsubsection.6.2.2}%
-\contentsline {subsubsection}{\numberline {6.2.3}Mechanism 3: Vote Gap Amplifier and Combined Scoring}{26}{subsubsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.3}System Evaluation and Data Validation}{26}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Adoption Recommendations}{26}{subsection.6.4}%
-\contentsline {subsubsection}{\numberline {6.4.1}Why Should Production Teams Adopt This System?}{26}{subsubsection.6.4.1}%
-\contentsline {subsubsection}{\numberline {6.4.2}How to Implement This System?}{27}{subsubsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.5}Complete Answer to Problem 4}{28}{subsection.6.5}%
-\contentsline {section}{\numberline {7}Sensitivity Analysis}{28}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Problems 1 \& 2: Vote Estimation Model Parameter Sensitivity}{28}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Problem 3: Feature Importance Robust Validation}{29}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Problem 4: Dramatic Arc System Parameter Tradeoffs}{30}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Cross-Model Uncertainty Quantification}{30}{subsection.7.4}%
-\contentsline {section}{\numberline {8}Model Evaluation and Promotion}{30}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Model Evaluation}{30}{subsection.8.1}%
-\contentsline {subsubsection}{\numberline {8.1.1}Advantages}{30}{subsubsection.8.1.1}%
-\contentsline {subsubsection}{\numberline {8.1.2}Limitations}{31}{subsubsection.8.1.2}%
-\contentsline {section}{\numberline {9}Memorandum}{32}{section.9}%
+\contentsline {subsection}{\numberline {3.2}Mathematical Implementation of the Two-Layer Framework}{9}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Layer 1: Baseline Prior Model}{9}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Layer 2: Precise Inverse Inference Model}{10}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Layer 3: Uncertainty Quantification}{11}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Complete Answer to Problem 1}{13}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Answer to Problem 1.1: Consistency Metrics}{13}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Answer to Problem 1.2: Certainty Metrics}{13}{subsubsection.3.3.2}%
+\contentsline {section}{\numberline {4}Problem 2: Voting Method Comparison and Recommendation}{13}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Problem Interpretation and Analytical Framework}{13}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Sub-question 2.1: Method Differences and Audience Bias}{14}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Answer to Sub-question 2.1}{15}{subsubsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.3}Sub-question 2.2: In-Depth Analysis of Controversial Contestants}{15}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Sub-question 2.2: Controversial Contestant Case Analysis}{15}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Comparative Case Analysis}{15}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Impact of Judge Tiebreaking}{16}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Answer to Sub-question 2.2}{17}{subsubsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.5}Sub-question 2.3: Recommended Approach}{17}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Answer to Sub-question 2.3}{18}{subsubsection.4.5.1}%
+\contentsline {section}{\numberline {5}Problem 3: Factor Impact Analysis---Partner and Celebrity Characteristic Mechanisms}{18}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Problem Interpretation and Research Framework}{18}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Modeling Methodology and Core Findings}{19}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Feature System and Model Design}{19}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}SHAP Feature Importance Analysis}{19}{subsubsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.3}In-Depth Analysis of Three Major Impact Factors}{19}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Factor 1: Professional Partners---Technical Enhancers and Popularity Amplifiers}{19}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Factor 2: Celebrity Industry---The Power of Built-In Fan Bases}{20}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}因素3：年龄——青春魅力与成熟稳重的博弈}{21}{subsubsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.4}Differentiated Perspectives: Judges versus Audiences}{21}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Complete Answer to Problem 3}{22}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Problem 4: New Voting System Design---The Dramatic Arc Protocol}{23}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Problem Interpretation and Design Philosophy}{23}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}System Mechanism Design}{23}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Mechanism 1: Phase-Adaptive Dynamic Weighting}{23}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Mechanism 2: Controversy Reward}{23}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}Mechanism 3: Vote Gap Amplifier and Combined Scoring}{23}{subsubsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.3}System Evaluation and Data Validation}{24}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Adoption Recommendations}{24}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Why Should Production Teams Adopt This System?}{24}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}How to Implement This System?}{25}{subsubsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.5}Complete Answer to Problem 4}{26}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Sensitivity Analysis}{26}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Problems 1 \& 2: Vote Estimation Model Parameter Sensitivity}{26}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Problem 3: Feature Importance Robust Validation}{27}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Problem 4: Dramatic Arc System Parameter Tradeoffs}{28}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Cross-Model Uncertainty Quantification}{28}{subsection.7.4}%
+\contentsline {section}{\numberline {8}Model Evaluation and Promotion}{28}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Model Evaluation}{28}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Advantages}{28}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}Limitations}{29}{subsubsection.8.1.2}%
+\contentsline {section}{\numberline {9}Memorandum}{30}{section.9}%
