@@ -42,8 +42,8 @@
 \contentsline {subsection}{\numberline {6.1}Problem Interpretation and Design Philosophy}{19}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}System Mechanism Design}{19}{subsection.6.2}%
 \contentsline {subsubsection}{\numberline {6.2.1}Mechanism 1: Phase-Adaptive Dynamic Weighting}{19}{subsubsection.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.2}Mechanism 2: Controversy Reward}{19}{subsubsection.6.2.2}%
-\contentsline {subsubsection}{\numberline {6.2.3}Mechanism 3: Vote Gap Amplifier and Combined Scoring}{19}{subsubsection.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.2}Mechanism 2: Controversy Reward}{20}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}Mechanism 3: Vote Gap Amplifier and Combined Scoring}{20}{subsubsection.6.2.3}%
 \contentsline {subsection}{\numberline {6.3}System Evaluation and Data Validation}{20}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}Adoption Recommendations}{20}{subsection.6.4}%
 \contentsline {subsection}{\numberline {6.5}Complete Answer to Problem 4}{21}{subsection.6.5}%
@@ -56,4 +56,4 @@
 \contentsline {subsection}{\numberline {8.1}Model Evaluation}{23}{subsection.8.1}%
 \contentsline {subsubsection}{\numberline {8.1.1}Advantages}{23}{subsubsection.8.1.1}%
 \contentsline {subsubsection}{\numberline {8.1.2}Limitations}{23}{subsubsection.8.1.2}%
-\contentsline {section}{\numberline {9}Memorandum}{23}{section.9}%
+\contentsline {section}{\numberline {9}Memorandum}{24}{section.9}%
