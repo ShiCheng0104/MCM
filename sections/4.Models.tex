@@ -5,9 +5,9 @@
 
 \subsubsection{Problem Essence}
 
-The task requires developing mathematical models to estimate audience votes (unknown and confidential), addressing: (1) Can the model correctly estimate votes that yield actual elimination outcomes? (2) What is the certainty level of vote estimates?
+The task is to infer hidden audience votes (unknown and confidential) from observable judge scores and weekly eliminations, and to report both (1) outcome consistency and (2) estimation certainty.
 
-This constitutes a \textbf{constrained inverse problem}: given judge scores $\mathbf{S}$ and elimination outcomes $E$, inferring unknown audience votes $\mathbf{V}$. Three core challenges arise:
+This is a \textbf{constrained inverse problem}: given judge scores $\mathbf{S}$ and elimination outcomes $E$, infer unknown audience votes $\mathbf{V}$. Key challenges include:
 \begin{itemize}
     \item \textbf{Underdetermination}: $n$ unknowns correspond to only 1 elimination constraint, yielding infinite solution spaces
     \item \textbf{Rule Heterogeneity}: Rank-based (Seasons 1--2, 28--34) and percentage-based (Seasons 3--27) methods exhibit distinct mathematical forms
@@ -16,25 +16,23 @@ This constitutes a \textbf{constrained inverse problem}: given judge scores $\ma
 
 \subsubsection{Overall Modeling Framework}
 
-We employ a \textbf{Two-Layer Bayesian Framework} to resolve underdetermination and uncertainty:
+We employ a \textbf{Bayesian prior + constraint-consistent posterior} framework:
 
-\textbf{Layer 1: Prior Construction.} Leveraging judge scores, celebrity attributes (age, industry, partner), and external data (Google Trends popularity, Nielsen ratings), we construct baseline prior distributions $P(\mathbf{V}|\mathbf{S}, \text{features})$. The core insight: \textit{audience voting does not merely mimic judges}, but rather integrates performance quality with celebrity charisma.
+\textbf{Layer 1 (Prior).} Build an informative baseline vote-share prior $P(\mathbf{V}|\mathbf{S},\text{features})$ from judge scores and external signals (celebrity attributes, Google Trends, viewership).
 
-\textbf{Layer 2: Precise Inverse Inference.} For weeks with eliminations, constraint optimization solves the posterior distribution $P(\mathbf{V}|\mathbf{S}, E)$, ensuring estimated votes \textit{precisely satisfy} elimination constraints. This step refines priors into observation-consistent solutions while maintaining minimal prior deviation (regularization).
+\textbf{Layer 2 (Posterior).} Refine the prior via constrained optimization so the estimated votes satisfy observed eliminations under the season's voting rule, while deviating minimally from the prior.
 
-\textbf{Layer 3: Uncertainty Quantification.} Monte Carlo sampling generates vote estimate confidence intervals, with coefficient of variation (CV) as the certainty metric. Low CV indicates strong solution uniqueness; high CV suggests multiple vote distributions could yield identical elimination outcomes.
-
-This design leverages prior knowledge (avoiding overfitting), ensures observation consistency (satisfying hard constraints), and quantifies estimation reliability.
+\textbf{Layer 3 (Uncertainty).} Use Monte Carlo re-optimization to obtain posterior variability; report certainty via CV.
 
 \subsection{Mathematical Implementation of the Two-Layer Framework}
 
 \subsubsection{Layer 1: Baseline Prior Model}
 
-The foundation of our Bayesian framework rests upon constructing informative priors that capture audience voting psychology. Rather than assuming votes are randomly distributed or simply proportional to judge scores, we model voting behavior as a \textit{multi-factor integration process} where technical performance, celebrity charisma, and media exposure jointly shape audience preferences.
+We construct an informative prior for weekly vote shares that combines performance quality, celebrity attributes, and external popularity signals.
 
-\textbf{Vote-Score Power-Law Hypothesis.} Empirical observation across 34 seasons reveals audience votes exhibit a \textbf{power-law relationship} with judge scores, formally expressed as $V_i \propto S_i^\alpha$, where the exponent $\alpha$ encodes the \textit{degree of performance influence}. When $\alpha = 1$, votes scale linearly with scores (pure meritocracy); when $\alpha > 1$, superior performers receive disproportionately amplified support---a phenomenon sociologists term the ``Matthew effect.'' Through exhaustive grid search over $\alpha \in [0.5, 2.0]$ maximizing historical elimination prediction accuracy across all 34 seasons, we calibrate $\alpha^* = 1.2$, empirically confirming moderate amplification: a contestant scoring 20\% higher receives approximately $(1.2)^{1.2} \approx 1.24$ times (24\% more) votes, sufficient to create momentum yet not so extreme as to render competition predetermined.
+\textbf{Vote-Score Power-Law Hypothesis.} We assume a power-law relationship $V_i \propto S_i^\alpha$ and calibrate $\alpha^* = 1.2$ via grid search over $\alpha \in [0.5,2.0]$ to maximize historical elimination prediction accuracy.
 
-\textbf{Multi-Source Feature Integration.} Judge scores alone prove insufficient---audience voting inherently incorporates factors invisible to judges. We therefore integrate three external information streams: (1) \textit{Google Trends popularity} $p_i \in [0,1]$, quantifying real-time public interest through normalized search volumes; (2) \textit{Nielsen viewership trends} $v_i \in [-0.5, 0.5]$, capturing week-over-week momentum in television ratings as a proxy for growing/waning engagement; (3) \textit{Systematic preference factors} $\theta_i \in \mathbb{R}$, distilled from historical ``upset eliminations'' and ``unexpected survivals,'' encoding learned biases toward specific partners (Derek Hough: $+0.15$), industries (athletes: $+0.08$), and age brackets (26-35: $+0.12$). These factors reflect structural audience preferences transcending individual performance quality.
+\textbf{Multi-Source Feature Integration.} We incorporate (1) Google Trends popularity $p_i\in[0,1]$, (2) viewership momentum $v_i$, and (3) systematic preference factors $\theta_i$ learned from historical patterns (partner/industry/age).
 
 The integrated prior vote estimate then combines these signals multiplicatively, preserving their interactions:
 \begin{equation}
@@ -42,7 +40,7 @@ The integrated prior vote estimate then combines these signals multiplicatively,
 \end{equation}
 where $V_{\text{total}}$ denotes total audience votes cast that week (estimated via historical participation rates), the numerator computes contestant $i$'s \textit{raw vote attractiveness} by multiplying performance merit ($S_i^\alpha$) with preference amplifiers ($(1+\theta_i)$ acts as a \textit{baseline multiplier}---Derek Hough partnerships boost raw appeal by 15\%), popularity momentum ($w_p p_i$ with weight $w_p=0.3$ reflecting moderate influence), and viewership trends ($w_v v_i$ with $w_v=0.2$ capturing engagement dynamics), while the denominator normalizes to ensure vote shares sum to unity, thereby converting absolute attractiveness into relative probabilities.
 
-\textbf{Prior Validation via Canonical Cases.} Season 20 Week 5 epitomizes the prior model's predictive power: Rumer Willis, despite mediocre judge scores (green line in Figure~\ref{fig:s20w5_radar}), garnered exceptionally high Google popularity (yellow line peak at 0.85), correctly predicting maximal audience votes (dark blue line); conversely, Riker Lynch's dual-low judge scores and negligible popularity accurately forecast his elimination. This case confirms audience voting \textit{transcends mere judge mimicry}, integrating dual dimensions of technical merit and celebrity magnetism---precisely the mechanism our prior model mathematically encodes.
+\textbf{Prior Validation (Example).} Figure~\ref{fig:s20w5_radar} illustrates that high external popularity can offset modest judge scores, consistent with the multiplicative prior design.
 
 \begin{figure}[htbp]
 \centering
@@ -55,11 +53,11 @@ where $V_{\text{total}}$ denotes total audience votes cast that week (estimated 
 
 For weeks with eliminations, the prior estimates---while incorporating rich external information---remain insufficiently constrained to guarantee precise alignment with observed elimination outcomes. We therefore refine these priors through constrained optimization, formulating the inverse problem as a \textit{minimal deviation principle}: among all vote distributions satisfying elimination constraints, select the one closest to our information-rich prior.
 
-\textbf{Mathematical Formulation.} Let $\mathbf{v} = (v_1, \ldots, v_n)$ denote the normalized vote shares to be estimated, and $\mathbf{v}^{\text{prior}}$ our Layer 1 baseline predictions. We seek the posterior distribution by solving:
+\textbf{Mathematical Formulation.} Let $\mathbf{v} = (v_1, \ldots, v_n)$ denote the normalized vote shares and $\mathbf{v}^{\text{prior}}$ the Layer 1 prior. We solve:
 \begin{equation}
 \min_{\mathbf{v}} \|\mathbf{v} - \mathbf{v}^{\text{prior}}\|_2^2 + \lambda \cdot \mathcal{L}_{\text{elim}}(\mathbf{v}), \quad \text{s.t.} \sum v_i = 1, v_i \in [0.001, 0.999]
 \end{equation}
-where the first term $\|\mathbf{v} - \mathbf{v}^{\text{prior}}\|_2^2$ acts as a \textit{regularizer}, anchoring solutions to our information-rich priors and preventing overfitting to single-week noise; $\mathcal{L}_{\text{elim}}(\mathbf{v})$ represents the \textit{elimination constraint penalty}, enforcing that the eliminated contestant $k$ must occupy the bottom position (rank-based) or lowest combined percentage (percentage-based); the hyperparameter $\lambda = 1000$ ensures constraint satisfaction takes absolute precedence over prior adherence, reflecting the logical priority that physical observations (eliminations) must supersede probabilistic beliefs (priors).
+where $\mathcal{L}_{\text{elim}}(\mathbf{v})$ enforces the observed elimination under the applicable voting rule and $\lambda=1000$ prioritizes constraint satisfaction.
 
 \textbf{Handling Rule Heterogeneity via Soft Ranking.} The rank-based method's discrete combinatorial nature poses optimization challenges. We introduce \textbf{Sigmoid soft-ranking} to render it continuously differentiable:
 \begin{equation}
@@ -67,9 +65,7 @@ where the first term $\|\mathbf{v} - \mathbf{v}^{\text{prior}}\|_2^2$ acts as a 
 \end{equation}
 where $T = 0.1$ governs smoothness---lower $T$ approximates hard ranking more closely, while maintaining gradient continuity. For contestant $i$, $\text{SoftRank}_i$ computes how many competitors $j$ score higher (via summing sigmoids), yielding a differentiable proxy for discrete ranks. The percentage-based method, being inherently continuous, requires no such transformation.
 
-\textbf{Algorithmic Implementation and Rationale.} We employ the \textbf{Sequential Least Squares Programming (SLSQP)} algorithm for its superior handling of equality constraints ($\sum v_i = 1$) in non-linear, non-convex spaces characteristic of soft-ranking functions. SLSQP's quadratic subproblem approximations prove particularly effective when combining smooth objectives (L2 regularization) with complex non-linear penalties (elimination constraints), outperforming gradient descent and quasi-Newton methods in preliminary benchmarking. The optimization pipeline proceeds as follows:
-
-\textit{First}, initialize $\mathbf{v}^{(0)} = \mathbf{v}^{\text{prior}}$ to leverage our carefully constructed baseline. \textit{Subsequently}, iteratively refine via SLSQP (maximum 500 iterations, convergence tolerance $10^{-6}$), with each step balancing prior adherence and constraint satisfaction. \textit{Finally}, validate that the converged solution $\mathbf{v}^*$ achieves near-zero elimination penalty ($\mathcal{L}_{\text{elim}} < 10^{-4}$), confirming successful constraint enforcement.
+\textbf{Optimization.} We solve the constrained problem using \textbf{SLSQP} initialized at $\mathbf{v}^{\text{prior}}$.
 
 Testing across 337 valid weeks spanning 34 seasons, Figure~\ref{fig:prediction_accuracy} demonstrates overall performance: \textbf{91.7\% exact match accuracy}, confirming the model successfully reconstructed vote distributions highly consistent with actual elimination outcomes. Percentage-method accuracy (99.5\%) significantly exceeds rank-based accuracy (68.2\%), attributable to the continuity properties that facilitate optimizer convergence.
 
@@ -86,9 +82,7 @@ While Layer 2 produces point estimates $\mathbf{v}^*$ satisfying elimination con
 
 \textbf{Certainty Metric Design.} We adopt the \textbf{Coefficient of Variation} (CV) as our certainty measure, defined as $\text{CV}_i = \sigma_i/\mu_i$, where $\mu_i$ represents the mean estimated vote share for contestant $i$ across Monte Carlo samples, and $\sigma_i$ quantifies standard deviation. The CV elegantly normalizes uncertainty relative to magnitude---a low CV (e.g., 0.05) signifies \textit{tight posterior concentration}, indicating the elimination constraint strongly determines voting patterns; conversely, high CV (e.g., 0.20) reveals \textit{posterior diffusion}, suggesting multiple vote configurations could plausibly generate the observed outcome. Unlike absolute standard deviation, CV remains interpretable across contestants with vastly different vote magnitudes.
 
-\textbf{Monte Carlo Sampling Protocol.} For each week, we generate $N=1000$ posterior samples by:
-
-\textit{First}, perturbing the prior $\mathbf{v}^{\text{prior}}$ with Gaussian noise ($\mathcal{N}(0, 0.05^2)$) to explore the feasible solution space around our information-rich baseline. \textit{Subsequently}, re-solving the Layer 2 optimization from each perturbed initialization, yielding a distribution of constraint-satisfying solutions $\{\mathbf{v}^{(1)}, \ldots, \mathbf{v}^{(N)}\}$. \textit{Finally}, computing empirical statistics: $\mu_i = \frac{1}{N}\sum_{k=1}^N v_i^{(k)}$ and $\sigma_i = \sqrt{\frac{1}{N-1}\sum_{k=1}^N (v_i^{(k)} - \mu_i)^2}$, from which CV follows directly.
+\textbf{Monte Carlo Sampling Protocol.} For each week we generate $N=1000$ posterior samples by perturbing $\mathbf{v}^{\text{prior}}$ (Gaussian noise) and re-solving Layer 2, then computing $(\mu_i,\sigma_i)$ and CV.
 
 \textbf{Uncertainty Distribution and Contextual Factors.} Analyzing 2,185 contestant-week samples, Figure~\ref{fig:uncertainty_dist} reveals CV distribution: median 0.117 (moderate certainty), with 39.2\% exhibiting high certainty (CV$<$0.10) and 60.8\% moderate certainty. Crucially, \textbf{certainty is \textit{not uniform} across competitive contexts}. Multivariate regression analysis identifies three significant predictors: (1) \textit{Contestant count} ($r = -0.34$): More competitors $\rightarrow$ richer constraint information $\rightarrow$ tighter posteriors; (2) \textit{Score dispersion} ($r = -0.28$): Wider performance gaps $\rightarrow$ clearer separation $\rightarrow$ reduced ambiguity; (3) \textit{Constraint margins} ($r = -0.52$, strongest predictor): When the eliminated contestant's combined score substantially trails second-worst (large margin), the elimination constraint powerfully narrows the feasible vote space, yielding high-certainty estimates. Conversely, razor-thin eliminations (e.g., 0.5\% combined score difference) leave posteriors relatively unconstrained, manifesting as elevated CV.
 
@@ -96,7 +90,7 @@ This heterogeneity validates our Bayesian approach: rather than falsely claiming
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.85\textwidth]{../yanxiao/outputs/figures/uncertainty_distribution.png}
+\includegraphics[width=0.6\textwidth]{../yanxiao/outputs/figures/uncertainty_distribution.png}
 \caption{Uncertainty Distribution: 39.2\% High Certainty, 60.8\% Moderate Certainty, with Contestant/Week Variation. Histogram (left) shows right-skewed CV distribution; scatter plot (right) reveals negative correlation between constraint margin and uncertainty}
 \label{fig:uncertainty_dist}
 \end{figure}
@@ -110,11 +104,9 @@ This heterogeneity validates our Bayesian approach: rather than falsely claiming
 \vspace{0.3em}
 \noindent\textbf{【Problem 1.1 Answer】Does the model correctly estimate votes yielding consistent elimination outcomes?}
 
-\textbf{Answer: Yes, our model demonstrates remarkable consistency.}
+\textbf{Answer: Yes.} Across 337 weeks (Seasons 1-33), the framework achieves \textbf{91.7\% exact match accuracy} (309/337) and \textbf{98.5\% bottom-2 accuracy}, substantially exceeding random baselines (3-8\%).
 
-Across 337 competition weeks (Seasons 1-33), the two-layer Bayesian framework achieves \textbf{91.7\% exact match accuracy} (309/337 weeks), correctly predicting the precise eliminated contestant from judge scores and features alone---substantially exceeding random baselines (3-8\%). When relaxing to \textbf{bottom-2 accuracy}, coverage reaches 98.5\%, confirming the framework reliably identifies at-risk contestants even in ambiguous cases.
-
-Performance varies by voting method: \textbf{percentage-based} (Seasons 1-9) yields 99.5\% accuracy, while \textbf{rank-based} (post-Season 10) achieves 68.2\%. This disparity reflects structural differences---percentage methods preserve vote magnitude information (25\% vs 15\%), tightening constraints, whereas rank-ordinal methods (1st, 2nd, 3rd) discard quantitative gaps. Nonetheless, 68.2\% still far outperforms chance, validating the prior model's robustness under reduced observational information.
+Performance varies by method: \textbf{percentage-based} (Seasons 1-9) yields 99.5\%, \textbf{rank-based} (post-Season 10) 68.2\%. This reflects structural differences---percentage methods preserve vote magnitudes, tightening constraints; rank-ordinal methods discard quantitative gaps. Both outperform chance, validating framework robustness.
 \vspace{0.3em}
 \end{minipage}%
 }
@@ -126,11 +118,9 @@ Performance varies by voting method: \textbf{percentage-based} (Seasons 1-9) yie
 \vspace{0.3em}
 \noindent\textbf{【Problem 1.2 Answer】What is the certainty of vote estimates? Is it uniform across contestants/weeks?}
 
-\textbf{Answer: Overall high certainty, with systematic contextual variation.}
+\textbf{Answer: High certainty overall, non-uniform across contexts.} Analyzing 2,185 samples via Coefficient of Variation (CV $= \sigma_i/\mu_i$): \textbf{median CV = 0.117}, \textbf{39.2\% high certainty} (CV$<$0.10), \textbf{60.8\% moderate} (0.10$\leq$CV$<$0.20), \textit{zero low-certainty samples} (CV$\geq$0.20).
 
-Quantifying uncertainty via \textbf{Coefficient of Variation} (CV $= \sigma_i/\mu_i$) across 2,185 samples, we observe \textbf{median CV = 0.117} (moderate certainty), with \textbf{39.2\% high certainty} (CV$<$0.10) and \textbf{60.8\% moderate} (0.10$\leq$CV$<$0.20). Critically, \textit{no low-certainty samples} (CV$\geq$0.20) exist, confirming framework robustness even under minimal constraints.
-
-Certainty is \textbf{not uniform}---multivariate regression identifies three predictors: \textbf{(1) Contestant count} ($r = -0.34$, $p<0.001$): more competitors $\rightarrow$ richer constraints $\rightarrow$ tighter posteriors; \textbf{(2) Score dispersion} ($r = -0.28$, $p<0.01$): wider gaps $\rightarrow$ clearer separation $\rightarrow$ higher certainty; \textbf{(3) Constraint margins} ($r = -0.52$, $p<0.001$, strongest): large elimination margins (5\% combined score gap) powerfully narrow feasible spaces, while razor-thin margins (0.5\% gap) permit multiple solutions, elevating uncertainty. This heterogeneity validates our approach: the model \textit{honestly reflects epistemic limitations}, providing context-calibrated reliability indicators alongside point estimates.
+Certainty varies by context---three predictors emerge: \textbf{(1) Contestant count} ($r=-0.34$): more competitors $\rightarrow$ tighter posteriors; \textbf{(2) Score dispersion} ($r=-0.28$): wider gaps $\rightarrow$ higher certainty; \textbf{(3) Constraint margins} ($r=-0.52$, strongest): large elimination margins narrow feasible spaces, razor-thin margins elevate uncertainty. The model thus provides context-calibrated reliability indicators.
 \vspace{0.3em}
 \end{minipage}%
 }
@@ -193,22 +183,25 @@ Figure~\ref{fig:controversy_trajectories} illustrates complete survival trajecto
 
 \subsubsection{Comparative Case Analysis}
 
+{\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.1}
 \begin{table}[h]
 \centering
-\small
+\scriptsize
 \begin{tabular}{lccccccc}
 \hline
-\textbf{Contestant} & \textbf{Season} & \textbf{Rank} & \textbf{Weeks} & \textbf{Lowest Score Weeks} & \textbf{Rank-Bottom2} & \textbf{Percent-Bottom2} & \textbf{Method Sensitive} \\
+\textbf{Contestant} & \textbf{Season} & \textbf{Final} & \textbf{Weeks} & \textbf{Lowest-score wks} & \textbf{Rank bottom2} & \textbf{Percent bottom2} & \textbf{Sensitive} \\
 \hline
-Jerry Rice & 2 & 2 & 8 & 2 weeks & 3 weeks & 4 weeks & No \\
-Billy Ray Cyrus & 4 & 5 & 8 & 3 weeks & 4 weeks & 4 weeks & No \\
-Bristol Palin & 11 & 3 & 10 & 5 weeks & 3 weeks & 3 weeks & \textbf{Yes} \\
-Bobby Bones & 27 & \textbf{1} & 9 & 2 weeks & 2 weeks & 2 weeks & No \\
+Jerry Rice & 2 & 2 & 8 & 2 & 3 & 4 & No \\
+Billy Ray Cyrus & 4 & 5 & 8 & 3 & 4 & 4 & No \\
+Bristol Palin & 11 & 3 & 10 & 5 & 3 & 3 & \textbf{Yes} \\
+Bobby Bones & 27 & \textbf{1} & 9 & 2 & 2 & 2 & No \\
 \hline
 \end{tabular}
-\caption{Core Statistics for Four Controversial Contestants ("Bottom2" indicates weeks in combined bottom two positions)}
+\caption{Core statistics for four controversial contestants ("bottom2" counts weeks in combined bottom two)}
 \label{tab:controversy_summary}
 \end{table}
+}
 
 \textbf{Jerry Rice} (Season 2, Runner-up): Both methods predict he should have been eliminated in Week 7 (judge rank 4/4, audience rank 4/4), yet he survived. The controversy is \textbf{method-independent}---a data anomaly.
 
@@ -216,46 +209,39 @@ Bobby Bones & 27 & \textbf{1} & 9 & 2 weeks & 2 weeks & 2 weeks & No \\
 
 \textbf{Bristol Palin} (Season 11, 3rd Place) ⭐: The case \textbf{most demonstrating method divergence}. In critical Weeks 6-7, her judge rankings bottomed out (6/7, 6/6), yet audience rankings remained middling (3/7, 3/6). Percentage-method leveraged her 15.3\% audience vote share to offset her 13.5\% judge score deficit, positioning her at moderate safety (3/7); rank-based method erased numerical advantages, placing her in greater danger (5/7). Conclusion: \textbf{Method-sensitive contestant}---percentage-method facilitated her 3rd-place finish.
 
-\textbf{Bobby Bones} (Season 27, Champion): Ranked 1st in audience votes for 5 of 9 weeks, average vote share 14-16\% (far exceeding typical 10-12\%). Figure~\ref{fig:bobby_trajectory} shows his trajectories under both methods nearly perfectly overlap---audience advantage \textbf{overwhelmingly dominant}, winning under any method.
+\textbf{Bobby Bones} (Season 27, Champion): Ranked 1st in audience votes for 5 of 9 weeks, average vote share 14-16\% (far exceeding typical 10-12\%). Under both methods his trajectory is nearly identical---an \textbf{overwhelmingly dominant} audience advantage that wins under either rule.
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.8\textwidth]{../question2/outputs/figures/bobby_bones_trajectory.png}
-\caption{Bobby Bones' Survival Trajectory: Overwhelmingly Dominant Audience Vote Advantage}
-\label{fig:bobby_trajectory}
-\end{figure}
+\subsubsection{Impact of Judge Tiebreaking}
 
-\subsubsection{评委裁决机制的影响}
-
-第28季起引入评委裁决机制：用综合得分确定底部两名，评委投票决定淘汰谁（假设评委倾向保护高分者）。图~\ref{fig:controversy_heatmap}以热图展示该机制对四位选手的影响。
+Beginning in Season 28, the show introduced a \textbf{judge tiebreaking mechanism}: the combined score identifies the bottom two contestants, after which the judges vote to determine who is eliminated (we assume judges systematically favor protecting the higher-scoring performer). Figure~\ref{fig:controversy_heatmap} summarizes how this mechanism would affect the four controversial contestants.
 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.85\textwidth]{../question2/outputs/figures/controversy_heatmap_comparison.png}
-\caption{评委裁决机制的影响：热图显示四位选手在不同方法+机制组合下的粉丝与评委评分差距}
+\caption{Impact of Judge Tiebreaking: Heatmap of the vote--score gap for four controversial contestants under alternative voting methods and with/without judge intervention}
 \label{fig:controversy_heatmap}
 \end{figure}
 
-\textbf{关键发现}：评委裁决机制预计改变约\textbf{19.2\%}周次的结果，对频繁处于底部且评委分低的争议选手产生显著不利影响（Jerry Rice存活概率降至5-9\%，Bristol Palin降至10\%）。该机制有效制衡"观众主导"，维护技术标准。
+\textbf{Key finding}: Judge tiebreaking is projected to alter outcomes in approximately \textbf{19.2\%} of weeks. In particular, it substantially disadvantages controversial contestants who frequently fall into the bottom two and receive comparatively low judge scores (e.g., Jerry Rice's survival probability decreases to 5--9\%, and Bristol Palin's to about 10\%). Furthermore, this mechanism moderates extreme \textit{audience dominance} and helps preserve performance-based standards.
 
-\subsubsection{子问题2.2答案}
+\subsubsection{Answer to Sub-question 2.2}
 
 \noindent\fcolorbox{black}{gray!10}{%
 \begin{minipage}{0.95\textwidth}
 \vspace{0.3em}
-\noindent\textbf{【子问题2.2答案】}
+\noindent\textbf{【Sub-question 2.2 Answer】}
 
-\textbf{Q1: 投票方法选择会改变争议选手的结果吗？}
+\textbf{Q1: Does the choice of voting method change outcomes for controversial contestants?}
 
-\textbf{答}：大部分不会，Bristol Palin除外。
+\textbf{Answer}: Generally no; Bristol Palin is the primary exception.
 \begin{itemize}
-    \item \textbf{Bristol Palin}：会受影响。百分比法使她在关键周次更安全，助其获季军。
-    \item \textbf{其他三位}：不受影响。Jerry Rice两种方法都预测淘汰但存活（数据异常）；Billy Ray和Bobby Bones的观众优势在两种方法下表现相同。
+    \item \textbf{Bristol Palin}: Method-sensitive. The percentage method provides greater protection in pivotal weeks and plausibly contributes to her third-place finish.
+    \item \textbf{The other three contestants}: Largely method-insensitive. Both methods predict Jerry Rice's elimination in the relevant week despite his survival (an apparent historical anomaly), while Billy Ray Cyrus and Bobby Bones exhibit similar audience-advantage dynamics under either method.
 \end{itemize}
 
 \textbf{Q2: What impact does judge tiebreaking have?}
 
-\textbf{Answer}: Significant impact (19.2\% of weeks with altered outcomes), disadvantaging controversial contestants (Jerry Rice survival probability drops to 5-9\%, Bristol Palin to 10\%). The mechanism effectively balances "audience dominance," upholding technical standards.
+\textbf{Answer}: The effect is substantial (about 19.2\% of weeks would change). It disproportionately disadvantages controversial contestants who reach the bottom two with low judge scores (Jerry Rice survival probability drops to 5--9\%, and Bristol Palin to about 10\%). Overall, judge tiebreaking moderates extreme \textit{audience dominance} and helps uphold performance standards.
 \vspace{0.3em}
 \end{minipage}%
 }
