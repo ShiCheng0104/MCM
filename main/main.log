@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  2 FEB 2026 23:00
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  3 FEB 2026 01:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1170,7 +1170,7 @@ Package xeCJK Warning: Unknown CJK family `\CJKsfdefault' is being ignored.
 (xeCJK)                Try to use `\setCJKsansfont[<...>]{<...>}' to define
 (xeCJK)                it.
 
-[1] (../sections/1.Introduction.tex
+[2] (../sections/1.Introduction.tex
 File: ../figures/2.png Graphic file (type bmp)
 <../figures/2.png>
 
@@ -1185,18 +1185,16 @@ Underfull \hbox (badness 1629) in paragraph at lines 15--16
 
 
 
-[2] (../figures/our_work_flowchart.tikz.tex
+[3] (../figures/our_work_flowchart.tikz.tex
 \pgf@layerbox@bg=\box96
 \pgf@layerboxsaved@bg=\box97
 ))
 
-[3] (../sections/2.Preparation for Modeling.tex
+[4] (../sections/2.Preparation for Modeling.tex
 
-[4] (../figures/data_pipeline.tikz.tex)
+[5] (../figures/data_pipeline.tikz.tex)
 
-[5]) (../sections/4.Models.tex
-
-[6]
+[6]) (../sections/4.Models.tex
 File: ../yanxiao/outputs/figures/radar_s20_w5.png Graphic file (type bmp)
 <../yanxiao/outputs/figures/radar_s20_w5.png>
 
@@ -1206,42 +1204,37 @@ File: ../yanxiao/outputs/figures/radar_s20_w5.png Graphic file (type bmp)
 [8]
 File: ../yanxiao/outputs/figures/accuracy_summary.png Graphic file (type bmp)
 <../yanxiao/outputs/figures/accuracy_summary.png>
-
-
-[9]
 File: ../yanxiao/outputs/figures/uncertainty_distribution.png Graphic file (type bmp)
 <../yanxiao/outputs/figures/uncertainty_distribution.png>
 
 
-LaTeX Font Warning: Font shape `TU/STSong(0)/b/n' undefined
-(Font)              using `TU/STSong(0)/m/n' instead on input line 103.
-
-
+[9]
 
 [10]
-File: ../question2/outputs/figures/method_comparison_overview.png Graphic file (type bmp)
-<../question2/outputs/figures/method_comparison_overview.png>
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Font Warning: Font shape `TU/STSong(0)/b/n' undefined
+(Font)              using `TU/STSong(0)/m/n' instead on input line 101.
 
 
 
 [11]
+File: ../question2/outputs/figures/method_comparison_overview.png Graphic file (type bmp)
+<../question2/outputs/figures/method_comparison_overview.png>
+
+
+[12]
 File: ../question2/outputs/figures/controversy_trajectories.png Graphic file (type bmp)
 <../question2/outputs/figures/controversy_trajectories.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 File: ../question2/outputs/figures/controversy_heatmap_comparison.png Graphic file (type bmp)
 <../question2/outputs/figures/controversy_heatmap_comparison.png>
 
 
-[12]
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 
 [13]
-Overfull \hbox (28.18906pt too wide) in paragraph at lines 229--230
+Overfull \hbox (28.18906pt too wide) in paragraph at lines 227--228
 []\TU/lmr/m/n/12 Recommendation summary (details: see Answer to Sub-question 2.3): adopt the \TU/lmr/bx/n/12 percentage-
  []
 
@@ -1255,43 +1248,35 @@ File: ../question3/outputs/figures/shap_summary_combined.png Graphic file (type 
 
 
 [16]
+
+[17]
 File: ../question3/outputs/figures/nomogram_combined.png Graphic file (type bmp)
 <../question3/outputs/figures/nomogram_combined.png>
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 368--369
+Underfull \hbox (badness 10000) in paragraph at lines 366--367
 []|\TU/lmr/m/n/10 Popularity amplification
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 369--369
+Underfull \hbox (badness 10000) in paragraph at lines 367--367
 []|\TU/lmr/m/n/10 Social media influencers
  []
 
 
 
-[17]
-
 [18]
+
+[19]
 File: ../question4/outputs/figures/dramatic_arc_weights.png Graphic file (type bmp)
 <../question4/outputs/figures/dramatic_arc_weights.png>
 
 
-[19]
+[20]
 
-[20]) (../sections/5.Sensitivity Analysis.tex
+[21]) (../sections/5.Sensitivity Analysis.tex
 File: ../model_evaluation/outputs/figures/sensitivity/tornado_diagram.png Graphic file (type bmp)
 <../model_evaluation/outputs/figures/sensitivity/tornado_diagram.png>
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[21]
 
 [22]) (../sections/6.Model Evaluation and Promotion.tex) (../sections/7.Memorandum.tex
 
@@ -1315,7 +1300,7 @@ Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
 (xeCJK)                it.
 
 
-Underfull \hbox (badness 1092) in paragraph at lines 17--20
+Underfull \hbox (badness 1092) in paragraph at lines 13--16
 []\TU/lmr/m/n/12 Wikipedia contributors. (2026). \TU/lmr/m/it/12 Dancing with the Stars (American TV series)\TU/lmr/m/n/12 .
  []
 
@@ -1351,15 +1336,15 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E1F2986EEC21FC1A818747A4AAE89D04;8989.
+(rerunfilecheck)             Checksum: E229372BC337A269C3C376A8ECAF0524;8772.
  ) 
 Here is how much of TeX's memory you used:
- 35698 strings out of 473832
- 770534 string characters out of 5729482
- 1568397 words of memory out of 5000000
- 58002 multiletter control sequences out of 15000+600000
+ 35717 strings out of 473832
+ 771796 string characters out of 5729482
+ 1566742 words of memory out of 5000000
+ 58021 multiletter control sequences out of 15000+600000
  599289 words of font info for 181 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  87i,16n,96p,1387b,1388s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (29 pages).
+Output written on main.pdf (28 pages).

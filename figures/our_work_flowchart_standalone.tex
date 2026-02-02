@@ -1,0 +1,12 @@
+% Standalone wrapper to compile figures/our_work_flowchart.tikz.tex into a PDF
+% Usage:
+%   latexmk -pdf -xelatex -interaction=nonstopmode figures/our_work_flowchart_standalone.tex
+\documentclass[tikz,border=6pt]{standalone}
+
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc}
+
+\begin{document}
+\input{figures/our_work_flowchart.tikz.tex}
+\end{document}

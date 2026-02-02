@@ -27,7 +27,12 @@ We employ a \textbf{Bayesian prior + constraint-consistent posterior} framework:
 \subsection{Mathematical Implementation of the Two-Layer Framework}
 
 \subsubsection{Layer 1: Baseline Prior Model}
-
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{../yanxiao/outputs/figures/radar_s20_w5.png}
+\caption{Season 20 Week 5: Radar plot comparing judge scores (green), Google popularity (yellow), and predicted votes (blue). Rumer Willis exemplifies high-popularity overcoming modest scores; Riker Lynch demonstrates double deficits leading to elimination}
+\label{fig:s20w5_radar}
+\end{figure}
 We construct an informative prior for weekly vote shares that combines performance quality, celebrity attributes, and external popularity signals.
 
 \textbf{Vote-Score Power-Law Hypothesis.} We assume a power-law relationship $V_i \propto S_i^\alpha$ and calibrate $\alpha^* = 1.2$ via grid search over $\alpha \in [0.5,2.0]$ to maximize historical elimination prediction accuracy.
@@ -42,12 +47,7 @@ where $V_{\text{total}}$ denotes total audience votes cast that week (estimated 
 
 \textbf{Prior Validation (Example).} Figure~\ref{fig:s20w5_radar} illustrates that high external popularity can offset modest judge scores, consistent with the multiplicative prior design.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.5\textwidth]{../yanxiao/outputs/figures/radar_s20_w5.png}
-\caption{Season 20 Week 5: Radar plot comparing judge scores (green), Google popularity (yellow), and predicted votes (blue). Rumer Willis exemplifies high-popularity overcoming modest scores; Riker Lynch demonstrates double deficits leading to elimination}
-\label{fig:s20w5_radar}
-\end{figure}
+
 
 \subsubsection{Layer 2: Precise Inverse Inference Model}
 
@@ -71,7 +71,7 @@ Testing across 337 valid weeks spanning 34 seasons, Figure~\ref{fig:prediction_a
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth]{../yanxiao/outputs/figures/accuracy_summary.png}
+\includegraphics[width=0.61\textwidth]{../yanxiao/outputs/figures/accuracy_summary.png}
 \caption{Overall Model Performance: 91.7\% Exact Elimination Prediction, 98.5\% Danger Zone Identification}
 \label{fig:prediction_accuracy}
 \end{figure}
@@ -79,7 +79,12 @@ Testing across 337 valid weeks spanning 34 seasons, Figure~\ref{fig:prediction_a
 \subsubsection{Layer 3: Uncertainty Quantification}
 
 While Layer 2 produces point estimates $\mathbf{v}^*$ satisfying elimination constraints, the inverse problem's inherent underdetermination raises a critical question: \textit{How unique is this solution?} Multiple vote distributions may yield identical elimination outcomes, particularly in close competitions. We therefore quantify estimation uncertainty through Bayesian posterior sampling.
-
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{../yanxiao/outputs/figures/uncertainty_distribution.png}
+\caption{Uncertainty Distribution: 39.2\% High Certainty, 60.8\% Moderate Certainty, with Contestant/Week Variation. }
+\label{fig:uncertainty_dist}
+\end{figure}
 \textbf{Certainty Metric Design.} We adopt the \textbf{Coefficient of Variation} (CV) as our certainty measure, defined as $\text{CV}_i = \sigma_i/\mu_i$, where $\mu_i$ represents the mean estimated vote share for contestant $i$ across Monte Carlo samples, and $\sigma_i$ quantifies standard deviation. The CV elegantly normalizes uncertainty relative to magnitude---a low CV (e.g., 0.05) signifies \textit{tight posterior concentration}, indicating the elimination constraint strongly determines voting patterns; conversely, high CV (e.g., 0.20) reveals \textit{posterior diffusion}, suggesting multiple vote configurations could plausibly generate the observed outcome. Unlike absolute standard deviation, CV remains interpretable across contestants with vastly different vote magnitudes.
 
 \textbf{Monte Carlo Sampling Protocol.} For each week we generate $N=1000$ posterior samples by perturbing $\mathbf{v}^{\text{prior}}$ (Gaussian noise) and re-solving Layer 2, then computing $(\mu_i,\sigma_i)$ and CV.
@@ -87,13 +92,6 @@ While Layer 2 produces point estimates $\mathbf{v}^*$ satisfying elimination con
 \textbf{Uncertainty Distribution and Contextual Factors.} Analyzing 2,185 contestant-week samples, Figure~\ref{fig:uncertainty_dist} reveals CV distribution: median 0.117 (moderate certainty), with 39.2\% exhibiting high certainty (CV$<$0.10) and 60.8\% moderate certainty. Crucially, \textbf{certainty is \textit{not uniform} across competitive contexts}. Multivariate regression analysis identifies three significant predictors: (1) \textit{Contestant count} ($r = -0.34$): More competitors $\rightarrow$ richer constraint information $\rightarrow$ tighter posteriors; (2) \textit{Score dispersion} ($r = -0.28$): Wider performance gaps $\rightarrow$ clearer separation $\rightarrow$ reduced ambiguity; (3) \textit{Constraint margins} ($r = -0.52$, strongest predictor): When the eliminated contestant's combined score substantially trails second-worst (large margin), the elimination constraint powerfully narrows the feasible vote space, yielding high-certainty estimates. Conversely, razor-thin eliminations (e.g., 0.5\% combined score difference) leave posteriors relatively unconstrained, manifesting as elevated CV.
 
 This heterogeneity validates our Bayesian approach: rather than falsely claiming uniform precision, the model \textit{honestly reports context-dependent uncertainty}, providing producers and analysts with reliability indicators alongside point estimates.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.6\textwidth]{../yanxiao/outputs/figures/uncertainty_distribution.png}
-\caption{Uncertainty Distribution: 39.2\% High Certainty, 60.8\% Moderate Certainty, with Contestant/Week Variation. }
-\label{fig:uncertainty_dist}
-\end{figure}
 
 \subsection{Complete Answer to Problem 1}
 
@@ -157,24 +155,24 @@ Among the 75 inconsistent weeks, we define "audience-favoring" as eliminating co
 \subsection{Sub-question 2.2: Controversial Contestant Case Analysis}
 
 \textit{For four controversial contestants with judge-audience opinion divergence (Jerry Rice, Billy Ray Cyrus, Bristol Palin, Bobby Bones), does voting method choice alter outcomes? What impact would an additional \textbf{judge choice mechanism} have (judges choose which of the bottom two couples to eliminate each week)?}
-
-Figure~\ref{fig:controversy_trajectories} summarizes weekly trajectories for four controversial contestants. For brevity, we highlight \textbf{Bobby Bones} as the representative anomaly case; the remaining cases are summarized in one line below (details: see Answer).
-
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.7\textwidth]{../question2/outputs/figures/controversy_trajectories.png}
+\includegraphics[width=0.70\textwidth]{../question2/outputs/figures/controversy_trajectories.png}
 \caption{Weekly Trajectories of Four Controversial Contestants}
 \label{fig:controversy_trajectories}
 \end{figure}
-
-Figure~\ref{fig:controversy_heatmap} visualizes judge--audience discrepancy patterns behind sustained controversy.
-
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.85\textwidth]{../question2/outputs/figures/controversy_heatmap_comparison.png}
+\includegraphics[width=0.7\textwidth]{../question2/outputs/figures/controversy_heatmap_comparison.png}
 \caption{Heatmap of the judge--audience gap for four controversial contestants}
 \label{fig:controversy_heatmap}
 \end{figure}
+\par Figure~\ref{fig:controversy_trajectories} summarizes weekly trajectories for four controversial contestants. For brevity, we highlight \textbf{Bobby Bones} as the representative anomaly case; the remaining cases are summarized in one line below (details: see Answer).
+
+
+Figure~\ref{fig:controversy_heatmap} visualizes judge--audience discrepancy patterns behind sustained controversy.
+
+
 
 \subsubsection{Comparative Case Analysis}
 
@@ -261,7 +259,12 @@ We construct five feature categories describing contestant-week competitive cont
 Two separate GBDT models are trained: $\hat{S}_i = f_{\text{judge}}(\text{features})$ (judge scores) and $\hat{V}_i = f_{\text{fan}}(\text{features})$ (audience votes). Using 5-fold cross-validation, judge model achieves $R^2 = 0.84$, audience model $R^2 = 0.79$, demonstrating effective mechanism capture.
 
 \subsubsection{SHAP Feature Importance Analysis}
-
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{../question3/outputs/figures/shap_summary_combined.png}
+\caption{Comprehensive SHAP Feature Analysis Comparison. }
+\label{fig:q3_shap_summary}
+\end{figure}
 Figure~\ref{fig:q3_shap_summary} presents comprehensive comparison of SHAP feature importance and influence direction across both models. \textbf{Key Findings}:
 
 \textbf{Judge Model} (upper left): Partner features dominate, with week number (technical difficulty progression) ranking second. High SHAP values (red points) correspond to high scores, indicating elite partners (e.g., Derek Hough, Allison Holker) significantly elevate judge scores. Age exhibits negative correlation---older contestants receive lower scores.
@@ -270,12 +273,7 @@ Figure~\ref{fig:q3_shap_summary} presents comprehensive comparison of SHAP featu
 
 \textbf{Feature Importance Ranking Comparison} (lower): "Partner" and "week" dominate judge model, while "industry" and "age" importance rises significantly in audience model. This divergence intuitively reflects the fundamental bifurcation in evaluation standards.
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.95\textwidth]{../question3/outputs/figures/shap_summary_combined.png}
-\caption{Comprehensive SHAP Feature Analysis Comparison. Upper panels: SHAP summary plots (left: judge scores, right: audience votes)---each point represents a sample, color indicates feature value magnitude, x-axis shows SHAP value (prediction impact). Lower panel: Feature importance ranking bar charts. Judges prioritize partners and week progression; audiences prioritize industry and age, reflecting starkly divergent focal concerns}
-\label{fig:q3_shap_summary}
-\end{figure}
+
 
 \subsection{Analysis of Three Major Impact Factors}
 
@@ -354,7 +352,7 @@ Figure~\ref{fig:q3_nomogram} visualizes feature contributions via nomograms. Tab
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.95\textwidth]{../question3/outputs/figures/nomogram_combined.png}
-\caption{Nomogram Comparison: judge score model (upper) vs audience vote model (lower)}
+\caption{Nomogram Comparison: judge score model (left) vs audience vote model (right)}
 \label{fig:q3_nomogram}
 \end{figure}
 

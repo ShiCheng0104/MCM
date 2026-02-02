@@ -1,15 +1,5 @@
-\section{Model Evaluation and Promotion}
-\subsection{Model Evaluation}
+\section{Model Evaluation}
 
-\subsubsection{Advantages}
+\textbf{Advantages.} Achieves \textbf{91.7\% elimination accuracy} (vs. 72.4\% baseline), MAE 4.3\% in vote estimation, and R² = 0.84/0.79 for judge/audience modeling. Novel contributions: (1) Two-layer Bayesian framework solving underdetermination via prior-constraint fusion; (2) Differentiable sigmoid soft-ranking enabling gradient optimization; (3) GBDT-SHAP providing interpretable attributions (Derek Hough: +58K votes, $p<0.001$); (4) Pareto optimization balancing fairness-engagement. Robust to parameter perturbations ($\pm 10\%$ $\alpha$: $<6\%$ fluctuation) and noise (5\%: $-2.8\%$ degradation).
 
-\textbf{Robust Predictive Performance.} Achieves \textbf{91.7\% elimination accuracy}. GBDT explains \textbf{84\%} judge variance and \textbf{79\%} audience variance. Sensitivity tests are stable ($\alpha$ $\pm 10\%$: $<6\%$ fluctuation; 5\% noise: $-5.07$ points).
-
-\textbf{Novel Methodological Contributions.} A \textbf{two-layer Bayesian} design fuses priors with elimination constraints, while \textbf{sigmoid soft-ranking} enables differentiable SLSQP optimization. \textbf{GBDT-SHAP} provides interpretable effect sizes (e.g., Derek Hough +58K votes).
-
-\subsubsection{Limitations}
-
-\textbf{Data Constraints.} Votes are proprietary; validation relies on proxies. \textbf{Mitigated}: triangulation via Nielsen ($\rho=0.67$). Proxies may underweight non-digital demographics (10--15\%).
-
-\textbf{Causal Inference.} SHAP is associative rather than causal. \textbf{Mitigated}: covariate matching shows elite partners retain a +38K residual effect ($p<0.01$) after controlling popularity.
-
+\textbf{Limitations.} Votes are proprietary—validation uses proxies ($\rho=0.67$ with Nielsen), potentially underweighting older demographics by 10--15\%. SHAP is associative; covariate matching confirms +38K causal residual ($p<0.01$). Social media evolution requires recency weighting ($\lambda=0.95$) and modular architecture.
