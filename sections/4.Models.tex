@@ -305,11 +305,11 @@ Figure~\ref{fig:q3_shap_summary} presents comprehensive comparison of SHAP featu
 \label{fig:q3_shap_summary}
 \end{figure}
 
-\subsection{In-Depth Analysis of Three Major Impact Factors}
+\subsection{Analysis of Three Major Impact Factors}
 
-\subsubsection{Factor 1: Professional Partners---Technical Enhancers and Popularity Amplifiers}
+\subsubsection{Factor 1: Professional Partners}
 
-Partners constitute the most direct source of competitive advantage. We compute each partner's \textbf{average effect} (deviation of their paired contestants from global mean):
+Table~\ref{tab:partner_effect} shows each partner's average effect (deviation from global mean):
 
 \begin{table}[h]
 \centering
@@ -325,24 +325,13 @@ Mark Ballas & 20 & 28.41 & +2.43 & 141,295 & +16,260 \\
 Cheryl Burke & 24 & 25.26 & -0.72 & 173,188 & +48,153 \\
 \hline
 \end{tabular}
-\caption{Dual-Dimension Effects of Elite Partners (positive values indicate above-mean performance)}
+\caption{Dual-Dimension Effects of Elite Partners}
 \label{tab:partner_effect}
 \end{table}
 
-\textbf{Key Finding}: Allison Holker and Valentin specialize in \textit{technical enhancement} (score effects +4.62, +4.10) without significant audience vote gains; Derek Hough and Cheryl Burke, while maintaining technical standards, markedly \textit{attract audiences} (vote effects +58K, +48K). Derek Hough's 17-season record with 6 championships, combining "technique+popularity" dual-excellence, establishes him as the optimal partner choice.
+\textbf{Key Finding}: Allison Holker and Valentin specialize in \textit{technical enhancement} (+4.62, +4.10 pts); Derek Hough and Cheryl Burke excel at \textit{audience attraction} (+58K, +48K votes). Derek Hough's 6 championships across 17 seasons reflects optimal ``technique+popularity'' balance.
 
-Figure~\ref{fig:q3_nomogram}'s nomogram quantitatively displays precise feature contributions to prediction outcomes. Each feature corresponds to an axis with contribution points; summing these yields total prediction score. \textbf{Key Insight}: Derek Hough's contribution points in the audience model far exceed those in the judge model, validating his "popularity amplifier" effect; age and industry feature point distributions also clearly reflect judges' versus audiences' differentiated preferences.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.95\textwidth]{../question3/outputs/figures/nomogram_combined.png}
-\caption{Nomogram Comparison (upper: judge score model, lower: audience vote model). Each feature axis corresponds to different point values, which sum to total prediction score. Derek Hough's contribution massively exceeds in audience model versus judge model; age and industry weight allocations exhibit pronounced divergence, intuitively visualizing quantitative differences between evaluation systems}
-\label{fig:q3_nomogram}
-\end{figure}
-
-\subsubsection{Factor 2: Celebrity Industry---The Power of Built-In Fan Bases}
-
-Industry background determines contestants' \textit{initial popularity} and \textit{physical aptitude}:
+\subsubsection{Factor 2: Celebrity Industry}
 
 \begin{table}[h]
 \centering
@@ -358,15 +347,13 @@ Actor/Actress & 124 & 26.08 & +0.10 & +5,780 \\
 Model & 16 & 23.61 & -2.37 & -14,071 \\
 \hline
 \end{tabular}
-\caption{Dual-Dimension Industry Effects (relative to global mean: 25.98 points, 125,035 votes)}
+\caption{Dual-Dimension Industry Effects (global mean: 25.98 pts, 125,035 votes)}
 \label{tab:industry_effect}
 \end{table}
 
-\textbf{Key Finding}: Social media influencers achieve highest judge scores (+6.18) yet lowest audience votes (-57K)---young influencers possess superior physical conditioning but their fan bases fail to translate to television voting; athletes exhibit "moderate technique, extreme popularity" profiles, with sports star fan bases converting to tangible vote advantages; models face the most adverse circumstances---steep dance learning curves coupled with absent fan foundations.
+\textbf{Key Finding}: Social media influencers achieve highest judge scores (+6.18) but lowest audience votes (-57K); athletes show ``moderate technique, high popularity'' (+12,641 votes); models face adverse conditions with both low scores and votes.
 
-\subsubsection{Factor 3: Age---The Contest Between Youthful Dynamism and Mature Steadiness}
-
-Age exhibits \textbf{opposing trends} in its influence on judges versus audiences:
+\subsubsection{Factor 3: Age}
 
 \begin{table}[h]
 \centering
@@ -382,15 +369,22 @@ Mature (46-55) & 68 & 24.68 & -1.30 & 91,047 & -33,988 \\
 Senior ($>$55) & 50 & 21.78 & \textbf{-4.21} & 94,733 & -30,303 \\
 \hline
 \end{tabular}
-\caption{Dual-Dimension Age Group Effects (global mean: 25.98 points, 125,035 votes)}
+\caption{Dual-Dimension Age Group Effects (global mean: 25.98 pts, 125,035 votes)}
 \label{tab:age_effect}
 \end{table}
 
-\textbf{Key Findings}: Young contestants ($\leq$25) excel in judge scores (+2.60), benefiting from superior physical flexibility and rapid learning capacity; the golden age bracket (26-35) achieves ``dual highs''---slightly elevated scores combined with significantly higher votes (+23,744), representing peak career prominence; senior contestants ($>$55) face ``dual lows'' (score -4.21, votes -30,303), as physical decline imposes technical limitations.
+\textbf{Key Finding}: Young contestants ($\leq$25) excel in judge scores (+2.60); the golden age bracket (26-35) achieves ``dual highs'' (+23,744 votes); seniors ($>$55) face ``dual lows'' (-4.21 pts, -30,303 votes).
 
 \subsection{Differentiated Perspectives: Judges versus Audiences}
 
-SHAP analysis and nomograms jointly reveal judges' and audiences' divergent response patterns to identical features:
+Figure~\ref{fig:q3_nomogram} visualizes feature contributions via nomograms. Table~\ref{tab:judge_vs_fan} summarizes the divergent priorities:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{../question3/outputs/figures/nomogram_combined.png}
+\caption{Nomogram Comparison: judge score model (upper) vs audience vote model (lower)}
+\label{fig:q3_nomogram}
+\end{figure}
 
 \begin{table}[h]
 \centering
