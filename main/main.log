@@ -921,7 +921,68 @@ Package fontspec Info:
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
 (fontspec)             <->"STSong/OT:script=hani;language=dflt;"
 
- (./main.aux)
+ (./main.aux
+
+./main.aux:29: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 <
+      <<<<<< HEAD
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Label `fig:s20w5_radar' multiply defined.
+
+
+LaTeX Warning: Label `fig:prediction_accuracy' multiply defined.
+
+
+LaTeX Warning: Label `fig:uncertainty_dist' multiply defined.
+
+
+LaTeX Warning: Label `fig:method_overview' multiply defined.
+
+
+LaTeX Warning: Label `tab:controversy_summary' multiply defined.
+
+
+LaTeX Warning: Label `fig:controversy_trajectories' multiply defined.
+
+
+LaTeX Warning: Label `fig:controversy_heatmap' multiply defined.
+
+
+LaTeX Warning: Label `tab:partner_effect' multiply defined.
+
+
+LaTeX Warning: Label `fig:q3_shap_summary' multiply defined.
+
+
+LaTeX Warning: Label `fig:q3_nomogram' multiply defined.
+
+
+LaTeX Warning: Label `tab:industry_effect' multiply defined.
+
+
+LaTeX Warning: Label `tab:age_effect' multiply defined.
+
+
+LaTeX Warning: Label `tab:judge_vs_fan' multiply defined.
+
+
+LaTeX Warning: Label `fig:q4_weights' multiply defined.
+
+
+LaTeX Warning: Label `fig:tornado_sensitivity' multiply defined.
+
+
+LaTeX Warning: Label `LastPage' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 68.
@@ -1001,7 +1062,12 @@ Package hyperref Info: Link coloring OFF on input line 68.
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
- (../sections/0.abstract.tex)
+
+Overfull \hbox (174.75441pt too wide) in paragraph at lines 29--69
+\TU/lmr/m/n/12 7ca850efd591ef3e40775d4be6f288451d33e8a4       «««< HEAD  =======  »»»> 7ca850efd591ef3e40775d4be6f288451d33e8a4
+ []
+
+(../sections/0.abstract.tex)
 LaTeX Font Info:    Trying to load font information for OT1+txr on input line 71.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
@@ -1014,259 +1080,4 @@ LaTeX Font Info:    Trying to load font information for U+txsyb on input line 71
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 71.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
-File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 71.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ulasy.fd
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
-LaTeX Font Info:    Trying to load font information for U+txmia on input line 71.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/utxmia.fd
-File: utxmia.fd 2000/12/15 v3.1
-)
-LaTeX Font Info:    Trying to load font information for U+txsyc on input line 71.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/utxsyc.fd
-File: utxsyc.fd 2000/12/15 v3.1
-)
-
-[1
-
-]
-
-Package xeCJK Warning: Unknown CJK family `\CJKsfdefault' is being ignored.
-(xeCJK)                
-(xeCJK)                Try to use `\setCJKsansfont[<...>]{<...>}' to define
-(xeCJK)                it.
-
-(./main.toc
-
-[1])
-\tf@toc=\write6
-\openout6 = `main.toc'.
-
-
-
-[2] (../sections/1.Introduction.tex
-File: ../figures/2.png Graphic file (type bmp)
-<../figures/2.png>
-
-Underfull \hbox (badness 2005) in paragraph at lines 15--16
-\TU/lmr/m/n/12 professional dancers in weekly competitions.
- []
-
-
-Underfull \hbox (badness 1629) in paragraph at lines 15--16
-\TU/lmr/m/n/12 The show combines judge scores and audi-
- []
-
-
-
-[3] (../figures/our_work_flowchart.tikz.tex
-\pgf@layerbox@bg=\box81
-\pgf@layerboxsaved@bg=\box82
-))
-
-[4] (../sections/2.Preparation for Modeling.tex
-
-[5] (../figures/data_pipeline.tikz.tex)
-
-[6]) (../sections/4.Models.tex
-
-[7]
-File: ../yanxiao/outputs/figures/radar_s20_w5.png Graphic file (type bmp)
-<../yanxiao/outputs/figures/radar_s20_w5.png>
-
-
-[8]
-File: ../yanxiao/outputs/figures/accuracy_summary.png Graphic file (type bmp)
-<../yanxiao/outputs/figures/accuracy_summary.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[9]
-File: ../yanxiao/outputs/figures/uncertainty_distribution.png Graphic file (type bmp)
-<../yanxiao/outputs/figures/uncertainty_distribution.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Font Warning: Font shape `TU/STSong(0)/b/n' undefined
-(Font)              using `TU/STSong(0)/m/n' instead on input line 112.
-
-
-
-[10]
-
-[11]
-File: ../question2/outputs/figures/method_comparison_overview.png Graphic file (type bmp)
-<../question2/outputs/figures/method_comparison_overview.png>
-
-
-[12]
-File: ../question2/outputs/figures/controversy_trajectories.png Graphic file (type bmp)
-<../question2/outputs/figures/controversy_trajectories.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-Missing character: There is no ⭐ (U+2B50) in font [lmroman12-regular]:mapping=tex-text;!
-
-
-[13]
-File: ../question2/outputs/figures/controversy_heatmap_comparison.png Graphic file (type bmp)
-<../question2/outputs/figures/controversy_heatmap_comparison.png>
-
-
-[14]
-Overfull \hbox (13.64183pt too wide) in paragraph at lines 251--252
-[]\TU/lmr/m/n/12 Based on preceding analysis, we recommend the \TU/lmr/bx/n/12 percentage-method + judge tiebreak-
- []
-
-
-
-[15]
-
-[16]
-File: ../question3/outputs/figures/shap_summary_combined.png Graphic file (type bmp)
-<../question3/outputs/figures/shap_summary_combined.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (25.84183pt too wide) in paragraph at lines 330--331
-\TU/lmr/m/n/12 +48K). Derek Hough’s 17-season record with 6 championships, combining ”technique+popularity”
- []
-
-
-
-[17]
-File: ../question3/outputs/figures/nomogram_combined.png Graphic file (type bmp)
-<../question3/outputs/figures/nomogram_combined.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[18]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (77.0295pt too wide) in paragraph at lines 396--407
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[19]
-
-[20]
-File: ../question4/outputs/figures/dramatic_arc_weights.png Graphic file (type bmp)
-<../question4/outputs/figures/dramatic_arc_weights.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[21]
-
-[22]) (../sections/5.Sensitivity Analysis.tex
-
-[23]
-File: ../model_evaluation/outputs/figures/sensitivity/tornado_diagram.png Graphic file (type bmp)
-<../model_evaluation/outputs/figures/sensitivity/tornado_diagram.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[24]
-
-[25]) (../sections/6.Model Evaluation and Promotion.tex) (../sections/7.Memorandum.tex
-
-[26]
-Overfull \hbox (7.105pt too wide) in paragraph at lines 3--7
-\TU/lmr/bx/n/12 Subject: \TU/lmr/m/n/12 Voting Mechanism Optimization—Strategic Recommendations for Enhancing View-
- []
-
-
-Overfull \hbox (10.34581pt too wide) in paragraph at lines 14--15
-[]\TU/lmr/m/n/12 First, we recommend adopting a \TU/lmr/bx/n/12 percentage-method combined with judge tiebreak-
- []
-
-
-
-[27]) (../sections/8.References.tex
-
-Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
-(xeCJK)                
-(xeCJK)                Try to use `\setCJKmonofont[<...>]{<...>}' to define
-(xeCJK)                it.
-
-
-Underfull \hbox (badness 1092) in paragraph at lines 14--17
-[]\TU/lmr/m/n/12 Wikipedia contributors. (2026). \TU/lmr/m/it/12 Dancing with the Stars (American TV series)\TU/lmr/m/n/12 .
- []
-
-
-
-[28]) (../sections/10.AI.tex
-
-[29]
-LaTeX Font Info:    Trying to load font information for TU+pcr on input line 9.
-LaTeX Font Info:    No file TUpcr.fd. on input line 9.
-
-
-LaTeX Font Warning: Font shape `TU/pcr/m/n' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 9.
-
-
-LaTeX Font Warning: Font shape `TU/pcr/b/n' undefined
-(Font)              using `TU/pcr/m/n' instead on input line 10.
-
-
-
-[30
-
-]
-
-[31])
-
-[32] (./main.aux)
- ***********
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2022/08/05>
- ***********
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6BF1C5DC83458E6FC56CCC153378A964;9433.
- ) 
-Here is how much of TeX's memory you used:
- 30360 strings out of 473832
- 621084 string characters out of 5729482
- 1378465 words of memory out of 5000000
- 52742 multiletter control sequences out of 15000+600000
- 599297 words of font info for 182 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 87i,16n,93p,1524b,1415s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-Output written on main.pdf (33 pages).
+LaTeX Font Info:    Trying to load font information
