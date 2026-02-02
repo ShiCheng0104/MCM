@@ -7,6 +7,7 @@ import matplotlib.patches as mpatches
 import numpy as np
 import pandas as pd
 import os
+from cycler import cycler
 
 from config import FIGURES_DIR, PLOT_CONFIG
 
@@ -19,6 +20,8 @@ def setup_plot_style():
     plt.rcParams['font.size'] = PLOT_CONFIG['font_size']
     plt.rcParams['axes.titlesize'] = 14
     plt.rcParams['axes.labelsize'] = 12
+    if 'palette' in PLOT_CONFIG:
+        plt.rcParams['axes.prop_cycle'] = cycler(color=PLOT_CONFIG['palette'])
 
 
 def plot_model_comparison_radar(summaries, save_path=None):
@@ -35,7 +38,7 @@ def plot_model_comparison_radar(summaries, save_path=None):
     angles = np.linspace(0, 2*np.pi, n_cats, endpoint=False).tolist()
     angles += angles[:1]  # 闭合
     
-    colors = list(PLOT_CONFIG['colors'].values())
+    palette = PLOT_CONFIG.get('palette', list(PLOT_CONFIG['colors'].values()))
     
     for i, (name, summary) in enumerate(summaries.items()):
         # 提取各维度分数（归一化到0-1）
@@ -47,8 +50,9 @@ def plot_model_comparison_radar(summaries, save_path=None):
         ]
         values += values[:1]
         
-        ax.plot(angles, values, 'o-', linewidth=2, label=name, color=colors[i % len(colors)])
-        ax.fill(angles, values, alpha=0.25, color=colors[i % len(colors)])
+        color = PLOT_CONFIG['colors'].get(name, palette[i % len(palette)])
+        ax.plot(angles, values, 'o-', linewidth=2, label=name, color=color)
+        ax.fill(angles, values, alpha=0.25, color=color)
     
     ax.set_xticks(angles[:-1])
     ax.set_xticklabels(categories)
@@ -74,10 +78,11 @@ def plot_cross_validation_comparison(cv_results, save_path=None):
     models = list(cv_results.keys())
     positions = range(len(models))
     
+    palette = PLOT_CONFIG.get('palette', list(PLOT_CONFIG['colors'].values()))
     for i, (model, result) in enumerate(cv_results.items()):
         if 'fold_scores' in result:
             bp = ax1.boxplot([result['fold_scores']], positions=[i], widths=0.6)
-            color = list(PLOT_CONFIG['colors'].values())[i % 4]
+            color = PLOT_CONFIG['colors'].get(model, palette[i % len(palette)])
             for element in ['boxes', 'whiskers', 'fliers', 'means', 'medians', 'caps']:
                 plt.setp(bp[element], color=color)
     
@@ -97,7 +102,7 @@ def plot_cross_validation_comparison(cv_results, save_path=None):
         std = result.get('std_accuracy', result.get('r2_std', 0))
         means.append(mean)
         errors.append(1.96 * std)  # 95% CI
-        colors.append(list(PLOT_CONFIG['colors'].values())[i % 4])
+        colors.append(PLOT_CONFIG['colors'].get(model, palette[i % len(palette)]))
     
     bars = ax2.bar(models, means, yerr=errors, capsize=5, color=colors, alpha=0.7)
     ax2.set_ylabel('Mean Score')
@@ -123,11 +128,11 @@ def plot_sensitivity_analysis(sensitivity_results, save_path=None):
             means = [r['mean_accuracy'] for r in results]
             stds = [r['std_accuracy'] for r in results]
             
-            color = PLOT_CONFIG['colors'].get(model, '#333333')
+            color = PLOT_CONFIG['colors'].get(model, PLOT_CONFIG['colors'].get('Q1', '#333333'))
             ax.errorbar(perturbations, means, yerr=stds, 
                        marker='o', label=model, capsize=5, color=color)
     
-    ax.axhline(y=0.5, color='gray', linestyle='--', alpha=0.5, label='Baseline')
+    ax.axhline(y=0.5, color=PLOT_CONFIG['colors'].get('baseline', '#264653'), linestyle='--', alpha=0.35, label='Baseline')
     ax.set_xlabel('Parameter Perturbation')
     ax.set_ylabel('Accuracy')
     ax.set_title('Sensitivity Analysis: Model Robustness to Parameter Changes')
@@ -153,8 +158,11 @@ def plot_temporal_validation(temporal_results, save_path=None):
     x = np.arange(len(models))
     width = 0.35
     
-    bars1 = ax.bar(x - width/2, train_scores, width, label='Train (Early Seasons)', color='#3498db')
-    bars2 = ax.bar(x + width/2, test_scores, width, label='Test (Recent Seasons)', color='#e74c3c')
+    palette = PLOT_CONFIG.get('palette', ['#264653', '#2a9d8e', '#e9c46b', '#f3a261', '#e86f52'])
+    train_color = palette[0]
+    test_color = palette[-1]
+    bars1 = ax.bar(x - width/2, train_scores, width, label='Train (Early Seasons)', color=train_color)
+    bars2 = ax.bar(x + width/2, test_scores, width, label='Test (Recent Seasons)', color=test_color)
     
     ax.set_ylabel('Accuracy')
     ax.set_title('Temporal Validation: Generalization Across Time')
@@ -278,8 +286,9 @@ def plot_comprehensive_dashboard(all_results, save_path=None):
     table.scale(1.2, 1.8)
     
     # 设置表头样式
+    header_color = PLOT_CONFIG['colors'].get('Q1', '#264653')
     for i in range(len(table_data[0])):
-        table[(0, i)].set_facecolor('#2c3e50')
+        table[(0, i)].set_facecolor(header_color)
         table[(0, i)].set_text_props(color='white', fontweight='bold')
     
     ax4.set_title('Evaluation Summary', pad=20)
@@ -325,7 +334,10 @@ def plot_promotion_analysis(promotion_data, save_path=None):
     ax2 = axes[1]
     extensions = ['Other Shows', 'Other Sports', 'Elections', 'Competitions']
     extensibility = [0.9, 0.7, 0.5, 0.85]
-    colors = ['#2ecc71' if e > 0.7 else '#f39c12' if e > 0.5 else '#e74c3c' for e in extensibility]
+    high = PLOT_CONFIG['colors'].get('Q2', '#2a9d8e')
+    mid = PLOT_CONFIG['colors'].get('Q3', '#e9c46b')
+    low = PLOT_CONFIG['colors'].get('Q4', '#e86f52')
+    colors = [high if e > 0.7 else mid if e > 0.5 else low for e in extensibility]
     
     bars = ax2.barh(extensions, extensibility, color=colors)
     ax2.set_xlabel('Extensibility Score')
@@ -342,7 +354,7 @@ def plot_promotion_analysis(promotion_data, save_path=None):
         'User Interface': 0.1,
     }
     
-    colors = plt.cm.Blues(np.linspace(0.4, 0.8, len(improvements)))
+    colors = PLOT_CONFIG.get('palette', ['#264653', '#2a9d8e', '#e9c46b', '#f3a261', '#e86f52'])[:len(improvements)]
     wedges, texts, autotexts = ax3.pie(list(improvements.values()), 
                                         labels=list(improvements.keys()),
                                         autopct='%1.0f%%', colors=colors)

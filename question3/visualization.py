@@ -6,12 +6,35 @@ import seaborn as sns
 import numpy as np
 import pandas as pd
 from config import FIGURES_DIR, FIGURE_DPI, FIGURE_SIZE, COLORS
+from matplotlib.colors import LinearSegmentedColormap
 import os
 
 # 设置中文字体和样式
 plt.rcParams['font.sans-serif'] = ['SimHei', 'DejaVu Sans']
 plt.rcParams['axes.unicode_minus'] = False
 plt.style.use('seaborn-v0_8-whitegrid')
+
+
+def _get_mcm_colormaps():
+    """基于配色.md 构建顺序/发散色带"""
+    seq = LinearSegmentedColormap.from_list(
+        'mcm_seq',
+        [COLORS['primary'], COLORS['secondary'], COLORS['accent'], COLORS['neutral'], COLORS['success']],
+        N=256,
+    )
+    # 发散：负值(primary) -> 0(accent) -> 正值(success)
+    div = LinearSegmentedColormap.from_list(
+        'mcm_div',
+        [COLORS['primary'], COLORS['accent'], COLORS['success']],
+        N=256,
+    )
+    # 排名：好(secondary) -> 中(accent) -> 差(success)
+    rank = LinearSegmentedColormap.from_list(
+        'mcm_rank',
+        [COLORS['secondary'], COLORS['accent'], COLORS['success']],
+        N=256,
+    )
+    return seq, div, rank
 
 
 def save_figure(fig, filename):
@@ -93,7 +116,8 @@ def plot_industry_effect(industry_effects):
     
     # 平均名次
     ax1 = axes[0, 0]
-    colors = plt.cm.RdYlGn_r(np.linspace(0.2, 0.8, len(df)))
+    seq_cmap, div_cmap, rank_cmap = _get_mcm_colormaps()
+    colors = rank_cmap(np.linspace(0.15, 0.95, len(df)))
     bars = ax1.barh(df['industry'], df['avg_placement'], color=colors)
     ax1.set_xlabel('Average Placement (Lower is Better)')
     ax1.set_title('Average Placement by Industry', fontsize=12, fontweight='bold')
@@ -117,7 +141,7 @@ def plot_industry_effect(industry_effects):
     ax4 = axes[1, 1]
     scatter = ax4.scatter(df['score_effect'], df['vote_effect']/1000, 
                          s=df['num_celebrities']*20, alpha=0.7, c=df['avg_placement'],
-                         cmap='RdYlGn_r')
+                         cmap=rank_cmap)
     
     for i, row in df.iterrows():
         ax4.annotate(row['industry'], (row['score_effect'], row['vote_effect']/1000),
@@ -141,7 +165,8 @@ def plot_feature_importance(importance_df, target_name, top_n=15):
     
     fig, ax = plt.subplots(figsize=(10, 8))
     
-    colors = plt.cm.Blues(np.linspace(0.4, 0.9, len(df)))[::-1]
+    seq_cmap, div_cmap, rank_cmap = _get_mcm_colormaps()
+    colors = seq_cmap(np.linspace(0.25, 0.95, len(df)))[::-1]
     bars = ax.barh(df['feature'], df['importance'], color=colors)
     
     ax.set_xlabel('Importance', fontsize=11)
@@ -211,13 +236,14 @@ def plot_effect_heatmap(effect_comparison):
     fig, axes = plt.subplots(1, 2, figsize=(16, 6))
     
     # 评委得分效应热力图
-    sns.heatmap(pivot_score, annot=True, fmt='.1f', cmap='RdBu_r', center=0,
+    seq_cmap, div_cmap, rank_cmap = _get_mcm_colormaps()
+    sns.heatmap(pivot_score, annot=True, fmt='.1f', cmap=div_cmap, center=0,
                ax=axes[0], cbar_kws={'label': 'Score Effect'})
     axes[0].set_title('Judge Score Effect by Factor', fontsize=12, fontweight='bold')
     
     # 观众投票效应热力图（标准化）
     pivot_vote_norm = pivot_vote / 1000  # 转换为千
-    sns.heatmap(pivot_vote_norm, annot=True, fmt='.1f', cmap='RdBu_r', center=0,
+    sns.heatmap(pivot_vote_norm, annot=True, fmt='.1f', cmap=div_cmap, center=0,
                ax=axes[1], cbar_kws={'label': 'Vote Effect (×1000)'})
     axes[1].set_title('Fan Vote Effect by Factor', fontsize=12, fontweight='bold')
     

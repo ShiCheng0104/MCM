@@ -14,7 +14,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from model_evaluation.config import EVALUATION_CONFIG, DATA_PATH, Q1_PATH, Q3_PATH
+from model_evaluation.config import EVALUATION_CONFIG, DATA_PATH, Q1_PATH, Q3_PATH, PLOT_CONFIG
 
 
 class SensitivityAnalyzer:
@@ -24,6 +24,8 @@ class SensitivityAnalyzer:
         self.results = {}
         self.output_dir = Path(__file__).parent / 'outputs'
         self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.figures_dir = self.output_dir / 'figures' / 'sensitivity'
+        self.figures_dir.mkdir(parents=True, exist_ok=True)
         
     def parameter_sensitivity(self, model_type='Q1'):
         """参数敏感性分析"""
@@ -251,6 +253,12 @@ class SensitivityAnalyzer:
         """可视化敏感性分析结果"""
         if not self.results:
             self.run_full_analysis()
+
+        # 统一配色（见配色.md）
+        palette = PLOT_CONFIG.get('palette', ['#264653', '#2a9d8e', '#e9c46b', '#f3a261', '#e86f52'])
+        colors_cfg = PLOT_CONFIG.get('colors', {})
+        sns.set_theme(style='whitegrid')
+        sns.set_palette(palette)
         
         fig, axes = plt.subplots(2, 3, figsize=(16, 10))
         fig.suptitle('Comprehensive Sensitivity Analysis', fontsize=14, fontweight='bold')
@@ -259,14 +267,16 @@ class SensitivityAnalyzer:
         ax1 = axes[0, 0]
         if 'Q1_parameter_sensitivity' in self.results:
             data = pd.DataFrame(self.results['Q1_parameter_sensitivity'])
+            q1_color = colors_cfg.get('Q1', palette[0])
+            baseline_color = colors_cfg.get('baseline', palette[0])
             ax1.errorbar(data['perturbation_value'], data['mean_accuracy'], 
                         yerr=data['std_accuracy'], marker='o', capsize=5, 
-                        color='#3498db', linewidth=2, markersize=8)
-            ax1.axhline(y=0.85, color='red', linestyle='--', alpha=0.7, label='Baseline')
+                        color=q1_color, linewidth=2, markersize=8)
+            ax1.axhline(y=0.85, color=baseline_color, linestyle='--', alpha=0.5, label='Baseline')
             ax1.fill_between(data['perturbation_value'], 
                            data['mean_accuracy'] - data['std_accuracy'],
                            data['mean_accuracy'] + data['std_accuracy'],
-                           alpha=0.2, color='#3498db')
+                           alpha=0.2, color=q1_color)
             ax1.set_xlabel('Parameter Perturbation')
             ax1.set_ylabel('Accuracy')
             ax1.set_title('Q1/Q2: Parameter Sensitivity', fontweight='bold')
@@ -277,8 +287,15 @@ class SensitivityAnalyzer:
         ax2 = axes[0, 1]
         if 'Q1_data_sensitivity' in self.results:
             data = pd.DataFrame(self.results['Q1_data_sensitivity'])
-            ax2.bar(data['noise_level'], data['mean_accuracy'], 
-                   color='#2ecc71', alpha=0.8, edgecolor='darkgreen')
+            q2_color = colors_cfg.get('Q2', palette[1])
+            edge = colors_cfg.get('Q1', palette[0])
+            ax2.bar(
+                data['noise_level'],
+                data['mean_accuracy'],
+                color=q2_color,
+                alpha=0.8,
+                edgecolor=edge,
+            )
             ax2.errorbar(range(len(data)), data['mean_accuracy'], 
                         yerr=data['std_accuracy'], fmt='none', capsize=5, color='black')
             ax2.set_xlabel('Noise Level')
@@ -291,7 +308,10 @@ class SensitivityAnalyzer:
         ax3 = axes[0, 2]
         if 'Q3_feature_sensitivity' in self.results:
             data = pd.DataFrame(self.results['Q3_feature_sensitivity'])
-            colors = ['#e74c3c' if d > 10 else '#f39c12' if d > 5 else '#2ecc71' 
+            high = colors_cfg.get('Q4', palette[-1])
+            mid = colors_cfg.get('accent', palette[3])
+            low = colors_cfg.get('Q2', palette[1])
+            colors = [high if d > 10 else mid if d > 5 else low 
                      for d in data['relative_drop']]
             bars = ax3.barh(data['removed_feature'], data['r2_drop'], color=colors, alpha=0.8)
             ax3.set_xlabel('R² Drop')
@@ -309,12 +329,36 @@ class SensitivityAnalyzer:
             data = self.results['Q4_threshold_sensitivity']
             if 'safety_zone' in data:
                 df = pd.DataFrame(data['safety_zone'])
-                ax4.plot(df['value'], df['fairness'], 'o-', label='Fairness', 
-                        color='#2ecc71', linewidth=2, markersize=8)
-                ax4.plot(df['value'], df['excitement'], 's-', label='Excitement', 
-                        color='#e74c3c', linewidth=2, markersize=8)
-                ax4.plot(df['value'], df['composite'], '^-', label='Composite', 
-                        color='#9b59b6', linewidth=2, markersize=8)
+                fairness_c = colors_cfg.get('Q2', palette[1])
+                excitement_c = colors_cfg.get('Q4', palette[-1])
+                composite_c = colors_cfg.get('Q3', palette[2])
+                ax4.plot(
+                    df['value'],
+                    df['fairness'],
+                    'o-',
+                    label='Fairness',
+                    color=fairness_c,
+                    linewidth=2,
+                    markersize=8,
+                )
+                ax4.plot(
+                    df['value'],
+                    df['excitement'],
+                    's-',
+                    label='Excitement',
+                    color=excitement_c,
+                    linewidth=2,
+                    markersize=8,
+                )
+                ax4.plot(
+                    df['value'],
+                    df['composite'],
+                    '^-',
+                    label='Composite',
+                    color=composite_c,
+                    linewidth=2,
+                    markersize=8,
+                )
                 ax4.set_xlabel('Safety Zone Threshold')
                 ax4.set_ylabel('Score')
                 ax4.set_title('Q4: Safety Zone Sensitivity', fontweight='bold')
@@ -327,12 +371,34 @@ class SensitivityAnalyzer:
             data = self.results['Q4_threshold_sensitivity']
             if 'controversy_bonus' in data:
                 df = pd.DataFrame(data['controversy_bonus'])
-                ax5.plot(df['value'], df['fairness'], 'o-', label='Fairness', 
-                        color='#2ecc71', linewidth=2, markersize=8)
-                ax5.plot(df['value'], df['excitement'], 's-', label='Excitement', 
-                        color='#e74c3c', linewidth=2, markersize=8)
-                ax5.fill_between(df['value'], df['fairness'], df['excitement'], 
-                               alpha=0.2, color='#f39c12')
+                fairness_c = colors_cfg.get('Q2', palette[1])
+                excitement_c = colors_cfg.get('Q4', palette[-1])
+                fill_c = colors_cfg.get('accent', palette[3])
+                ax5.plot(
+                    df['value'],
+                    df['fairness'],
+                    'o-',
+                    label='Fairness',
+                    color=fairness_c,
+                    linewidth=2,
+                    markersize=8,
+                )
+                ax5.plot(
+                    df['value'],
+                    df['excitement'],
+                    's-',
+                    label='Excitement',
+                    color=excitement_c,
+                    linewidth=2,
+                    markersize=8,
+                )
+                ax5.fill_between(
+                    df['value'],
+                    df['fairness'],
+                    df['excitement'],
+                    alpha=0.2,
+                    color=fill_c,
+                )
                 ax5.set_xlabel('Controversy Bonus')
                 ax5.set_ylabel('Score')
                 ax5.set_title('Q4: Controversy Bonus Trade-off', fontweight='bold')
@@ -349,7 +415,7 @@ class SensitivityAnalyzer:
             ci_highs = [self.results['monte_carlo'][m]['ci_95'][1] for m in models]
             
             x = np.arange(len(models))
-            colors = ['#3498db', '#2ecc71', '#e74c3c']
+            colors = [colors_cfg.get(m, palette[i % len(palette)]) for i, m in enumerate(models)]
             
             bars = ax6.bar(x, means, yerr=stds, capsize=8, color=colors, alpha=0.8)
             
@@ -366,11 +432,11 @@ class SensitivityAnalyzer:
             ax6.grid(True, alpha=0.3, axis='y')
         
         plt.tight_layout()
-        plt.savefig(self.output_dir / 'sensitivity_analysis.png', dpi=150, bbox_inches='tight')
-        plt.savefig(self.output_dir / 'sensitivity_analysis.pdf', bbox_inches='tight')
+        plt.savefig(self.figures_dir / 'sensitivity_analysis.png', dpi=150, bbox_inches='tight')
+        plt.savefig(self.figures_dir / 'sensitivity_analysis.pdf', bbox_inches='tight')
         plt.close()
-        
-        print(f"Visualization saved to: {self.output_dir / 'sensitivity_analysis.png'}")
+
+        print(f"Visualization saved to: {self.figures_dir / 'sensitivity_analysis.png'}")
         
         # 创建Tornado图
         self._create_tornado_diagram()
@@ -434,7 +500,13 @@ class SensitivityAnalyzer:
         tornado_df = tornado_df.sort_values('range', ascending=True)
         
         # 颜色映射
-        colors = {'Q1/Q2': '#3498db', 'Q3': '#2ecc71', 'Q4': '#e74c3c'}
+        palette = PLOT_CONFIG.get('palette', ['#264653', '#2a9d8e', '#e9c46b', '#f3a261', '#e86f52'])
+        colors_cfg = PLOT_CONFIG.get('colors', {})
+        colors = {
+            'Q1/Q2': colors_cfg.get('Q1', palette[0]),
+            'Q3': colors_cfg.get('Q3', palette[2]),
+            'Q4': colors_cfg.get('Q4', palette[-1]),
+        }
         bar_colors = [colors.get(cat, '#95a5a6') for cat in tornado_df['category']]
         
         y_pos = np.arange(len(tornado_df))
@@ -458,10 +530,10 @@ class SensitivityAnalyzer:
         ax.grid(True, alpha=0.3, axis='x')
         
         plt.tight_layout()
-        plt.savefig(self.output_dir / 'tornado_diagram.png', dpi=150, bbox_inches='tight')
+        plt.savefig(self.figures_dir / 'tornado_diagram.png', dpi=150, bbox_inches='tight')
         plt.close()
-        
-        print(f"Tornado diagram saved to: {self.output_dir / 'tornado_diagram.png'}")
+
+        print(f"Tornado diagram saved to: {self.figures_dir / 'tornado_diagram.png'}")
     
     def generate_sensitivity_report(self):
         """生成敏感性分析报告"""

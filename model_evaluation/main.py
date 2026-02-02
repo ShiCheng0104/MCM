@@ -7,7 +7,7 @@ import numpy as np
 import os
 import sys
 
-from config import (OUTPUT_DIR, FIGURES_DIR, TABLES_DIR, REPORTS_DIR, 
+from config import (OUTPUT_DIR, FIGURES_DIR, FIGURES_EVALUATION_DIR, TABLES_DIR, REPORTS_DIR, 
                    MODEL_INFO, EVALUATION_CONFIG)
 from q1_evaluation import Q1ModelEvaluator
 from q2_evaluation import Q2ModelEvaluator
@@ -144,7 +144,7 @@ def generate_visualizations(results, summaries):
     print("  - Model comparison radar chart...")
     try:
         plot_model_comparison_radar(summaries, 
-                                   os.path.join(FIGURES_DIR, 'model_radar.png'))
+                                   os.path.join(FIGURES_EVALUATION_DIR, 'model_radar.png'))
     except Exception as e:
         print(f"    Error: {e}")
     
@@ -159,7 +159,7 @@ def generate_visualizations(results, summaries):
         
         if cv_results:
             plot_cross_validation_comparison(cv_results,
-                                            os.path.join(FIGURES_DIR, 'cv_comparison.png'))
+                                            os.path.join(FIGURES_EVALUATION_DIR, 'cv_comparison.png'))
     except Exception as e:
         print(f"    Error: {e}")
     
@@ -172,7 +172,7 @@ def generate_visualizations(results, summaries):
         
         if temporal_results:
             plot_temporal_validation(temporal_results,
-                                    os.path.join(FIGURES_DIR, 'temporal_validation.png'))
+                                    os.path.join(FIGURES_EVALUATION_DIR, 'temporal_validation.png'))
     except Exception as e:
         print(f"    Error: {e}")
     
@@ -180,7 +180,7 @@ def generate_visualizations(results, summaries):
     print("  - Comprehensive dashboard...")
     try:
         plot_comprehensive_dashboard(summaries,
-                                    os.path.join(FIGURES_DIR, 'dashboard.png'))
+                                    os.path.join(FIGURES_EVALUATION_DIR, 'dashboard.png'))
     except Exception as e:
         print(f"    Error: {e}")
     
@@ -188,11 +188,11 @@ def generate_visualizations(results, summaries):
     print("  - Promotion analysis...")
     try:
         plot_promotion_analysis({},
-                               os.path.join(FIGURES_DIR, 'promotion_analysis.png'))
+                               os.path.join(FIGURES_EVALUATION_DIR, 'promotion_analysis.png'))
     except Exception as e:
         print(f"    Error: {e}")
     
-    print("  Visualizations saved to:", FIGURES_DIR)
+    print("  Visualizations saved to:", FIGURES_EVALUATION_DIR)
 
 
 def generate_report(results, summaries):

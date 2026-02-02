@@ -47,7 +47,7 @@ accuracy, robustness, generalization ability, and practical applicability.
 | cv_std | 0.0331 |
 | generalization_gap | 0.2848 |
 | ci_95_lower | 0.8826 |
-| ci_95_upper | 0.9470 |
+| ci_95_upper | 0.9508 |
 | robustness | 0.8192 |
 
 ### Q2: Method Comparison
