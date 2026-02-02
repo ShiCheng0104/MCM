@@ -15,51 +15,31 @@ Real-world problems invariably involve numerous complexities. To simplify our mo
 
 \subsection{Data Collection and Preprocessing}
 
-Multi-source fusion triangulates latent audience voting signals through observable proxies across 34 DWTS seasons (2005--2026). Table~\ref{tab:data_sources} summarizes raw inputs, preprocessing operations, and modeling utility.
+Figure~\ref{fig:data_pipeline} illustrates our multi-source fusion pipeline, integrating three data streams across 34 DWTS seasons (2005--2026) to triangulate latent voting signals.
 
-\begin{table}[h]
+\begin{figure}[ht]
 \centering
-\caption{Data Source Integration and Preprocessing Pipeline}
-\label{tab:data_sources}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}llllll@{}}
-\toprule
-\textbf{Source} & \textbf{Raw Features} & \textbf{Coverage} & \textbf{Preprocessing} & \textbf{Missing Handling} & \textbf{Modeling Use} \\ \midrule
-Official Records & Judge scores, eliminations, & 437 contestants, & Season-specific Z-score & k-NN imputation (k=5) & Bayesian prior \\
-(\texttt{.csv}) & demographics, partners & Seasons 1--34 & standardization & for 2.7\% scores & construction \\
-\midrule
-Nielsen Ratings & Viewership (millions), & 32/34 seasons, & Week-level aggregation, & Cubic spline for & Aggregate audience \\
-(Wikipedia) & ratings/shares & 1,247 weeks & log-transformation & 3.2\% gaps & engagement proxy \\
-\midrule
-Google Trends & Search interest (0--100), & 414/437 contestants & Baseline normalization & Industry-stratified & Contestant-level \\
-(PyTrends API) & contestant-level & (94.8\% capture) & via ``RuPaul'', Min-Max & median: politicians=0.12 & popularity prior \\
-& & & scaling per season & business=0.15 (5.2\%) & \\
-\bottomrule
-\end{tabular}%
+\resizebox{0.95\textwidth}{!}{%
+\input{../figures/data_pipeline.tikz.tex}%
 }
-\end{table}
+\caption{Data Preprocessing Pipeline: Multi-source fusion from raw inputs to model-ready features. Blue nodes represent data sources; orange nodes indicate preprocessing operations; green node shows final validated dataset.}
+\label{fig:data_pipeline}
+\end{figure}
 
-\subsubsection{Critical Preprocessing Operations}
+\textbf{Key Preprocessing Rationale:}
+\begin{itemize}
+    \item \textbf{Industry Bias Elimination}: Athletes averaged 27.1 vs politicians' 22.3 points (21\% disparity). Industry-relative z-scores isolated individual merit from categorical advantages.
+    
+    \item \textbf{Temporal Drift Correction}: Scoring standards shifted 6.4\% across eras ($\mu$=26.5 early vs 24.9 recent). Season-specific standardization ensured cross-temporal comparability.
+    
+    \item \textbf{Heterogeneous Scale Fusion}: Min-Max normalization unified judge scores (10--30), Google Trends (0--100), and viewership (5--25M) to $[0,1]$, preserving relative standings critical for vote estimation.
+    
+    \item \textbf{Google Trends Normalization}: Baseline anchor (``RuPaul'') + season-internal scaling reduced CV 43\% (0.78$\rightarrow$0.45), satisfying Gaussian prior assumptions.
+\end{itemize}
 
-\textbf{Cleaning: Industry Bias Elimination.} Athletes averaged 27.1 points vs politicians' 22.3 points---a 21\% structural disparity. \textit{Rationale}: Raw scores confound individual merit with categorical advantages (athletic background). Industry-relative standardization isolated true performance by comparing contestants only within their categories, enabling fair cross-industry modeling of audience preferences that operate independently of baseline physical capabilities. Result: disparities eliminated while preserving individual variation.
+\textbf{Engineered Features:} Partner Experience Index (PEI) aggregates championship rate, placement, and finals appearances---Derek Hough: PEI=0.87 vs median=0.34 (155\% advantage). Temporal momentum captures score trajectories and survival duration as fan support proxies.
 
-\textbf{Cleaning: Temporal Drift Correction.} Scoring standards shifted 6.4\% across eras (Seasons 1--10: $\mu=26.5$ vs 25--34: $\mu=24.9$, $p<0.001$). \textit{Rationale}: Comparing raw Season 3 scores (lenient era) to Season 30 scores (strict era) falsely labels identical performances as different. Season-specific standardization ensured $+1.5\sigma$ uniformly signified ``top-tier performance'' regardless of epoch, critical for cross-temporal vote estimation where audience expectations adapt to contemporary judging norms.
-
-\textbf{Fusion: Heterogeneous Scale Integration.} \textit{Rationale}: Combining judge scores (10--30 range), Google Trends (0--100), and viewership (5--25M) directly would overweight larger-scale variables in Bayesian priors. Min-Max normalization per season unified all inputs to $[0,1]$ while preserving within-season rank structure---audience votes depend on \textit{relative} standings, not absolute magnitudes. Rejected global scaling (distorts season-internal relationships) and rank transformation (discards magnitude information essential for percentage-based voting). Outliers rectified via IQR filtering and Z-score thresholding: \textbf{96.8\% completeness}.
-
-\textbf{Fusion: Imbalanced Google Trends Normalization.} \textit{Rationale}: Raw search interest exhibited extreme long-tail (15\% $>0.8$, 50\% $<0.3$), violating Gaussian prior assumptions. Cross-season baseline normalization (fixed anchor ``RuPaul'') combined with season-internal scaling reduced CV 43\% (0.78$\rightarrow$0.45), transforming skewed distributions into model-ready features (Shapiro-Wilk $p=0.08$). This approach balanced cross-season comparability with within-season discriminability---critical for identifying relative popularity within competitive cohorts.
-
-\subsubsection{Engineered Features}
-
-\textbf{Partner Experience Index (PEI).} \textit{Rationale}: Binary veteran/novice classifications discard performance quality variations. PEI aggregates championship rate (40\% weight---winning matters most), average placement (30\%---consistent excellence), and finals appearance rate (30\%---clutch performance). Derek Hough: PEI=0.87 vs median=0.34 (155\% advantage), quantifying ``partner effect'' observable in survival analysis.
-
-\textbf{Temporal Momentum.} \textit{Rationale}: Audience voting patterns respond to \textit{trajectories}, not isolated performances. Captured via cumulative score trends, week-over-week improvement velocity, and survival duration---proxy for accumulated fan support distinguishing early eliminations from finalists.
-
-\subsubsection{Validation Metrics}
-
-\textbf{Cross-Source Consistency.} Official vs Wikipedia placement reconciliation: 99.2\% agreement (8 discrepancies manually resolved). Dynamic Time Warping aligned Google Trends and viewership, revealing lag-1 correlation ($\rho=0.67$, $p<0.001$)---social media precedes TV engagement by 1 week.
-
-\textbf{Final Dataset Quality.} 437 contestants, 2,185 contestant-week observations. \textbf{Completeness: 96.8\%}, \textbf{Consistency: 99.2\%}, \textbf{Distributional Validity: 100\%} (Gaussian assumptions satisfied post-normalization).
+\textbf{Validation:} Cross-source consistency 99.2\%; lag-1 correlation between Google Trends and viewership ($\rho$=0.67). \textbf{Final dataset}: 437 contestants, 2,185 observations, \textbf{96.8\% completeness, 99.2\% consistency}.
 
 
 \subsection{Notations}

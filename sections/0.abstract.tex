@@ -1,19 +1,17 @@
 \begin{abstract}
 
-To demystify the ``black box'' of audience voting in \textit{Dancing with the Stars}, we develop a comprehensive framework addressing the \textbf{constrained inverse problem} of reconstructing unobservable fan votes across 34 seasons.
+Beyond the spotlight, millions of audience votes dictate the fate of contestants---yet these figures remain a ``black box'' shielded from public scrutiny. We develop a \textbf{Bayesian Reconstruction Engine} to unveil hidden preferences embedded within 34 seasons of observable elimination data, transforming an incomplete information game into a high-fidelity strategic roadmap.
 
-\textbf{Vote Reconstruction (Problem 1): Two-Stage Bayesian Inference Engine.} We tackle the information bottleneck by constructing informative priors through a calibrated power-law model ($V_i \propto S_i^{1.2}$) fusing judge scores, celebrity attributes, and Google Trends. By employing SLSQP constrained optimization to align estimates with elimination outcomes, our model yields a \textbf{91.7\% prediction accuracy} overall (\textbf{99.5\% for the percentage method}). A median uncertainty measure of \textbf{CV = 0.117} validates the stability of our reconstruction.
+\textbf{The Bayesian Engine: High-Fidelity Latent Recovery (Problem 1).} Our two-stage framework synthesizes judge scores, celebrity attributes, and Google Trends into information-rich priors via a calibrated power-law model ($V_i \propto S_i^{1.2}$). Using SLSQP constrained optimization, we align reconstructed votes with 337 historical eliminations, achieving an \textbf{82.4\% to 91.7\% prediction accuracy} across diverse scoring methodologies. Uncertainty quantification (Median \textbf{CV = 0.117}) confirms the engine's robustness in deciphering the latent ``soul'' of the competition.
 
-\textbf{Voting Method Evaluation (Problem 2): Counterfactual Simulation.} Rigorous backtesting reveals that the rank-based method \textbf{amplifies fan influence by 12.8\%} relative to the percentage method in high-score density scenarios. While producer intervention mechanisms (judges selecting from the bottom two) reduce upset victories by 64\%, they simultaneously decrease social media engagement by 31\%, quantifying the trade-off between fairness and excitement.
+\textbf{Mechanism Divergence \& Strategic Drift (Problems 2--3).} Counterfactual simulations reveal that rank-based scoring induces a \textbf{12.8\% amplification of fan influence} during high-score density phases, structurally facilitating ``upset'' victories. Through GBDT-SHAP analysis, we decode the fundamental tension: judges prioritize technical mastery (partner expertise explains \textbf{18.2\% variance}), while audiences favor narrative charisma (celebrity background drives \textbf{23.6\% of votes}). This ``Evaluation Drift'' across three decades highlights a transitioning equilibrium between artistry and entertainment.
 
-\textbf{Mechanism Identification (Problem 3): GBDT-SHAP Analysis.} Leveraging Gradient Boosting Decision Trees with SHAP decomposition, we uncover divergent evaluation standards: partner experience drives \textbf{18.2\% of judge scores} (prioritizing technique), whereas celebrity industry background explains \textbf{23.6\% of fan vote variance} (favoring charisma).
+\textbf{The Dramatic Arc Protocol: Engineering Engagement (Problem 4).} We propose a Phase-Adaptive System that dynamically shifts control from judges (62\% initial weight) to fans (68\% terminal weight), mimicking a classic narrative arc. A Controversy-Optimized Mechanism balances fairness with excitement, projecting \textbf{47\% engagement growth} at a calibrated \textbf{11.1\% controversy rate}. Monte Carlo validation under stochastic perturbations confirms an \textbf{89.3\% resilience rate}, ensuring stability amidst voting volatility.
 
-\textbf{System Innovation (Problem 4): The ``Dramatic Arc'' Protocol.} We propose a phase-adaptive system that dynamically shifts weights (62\% judge-led to 68\% fan-led) to mimic narrative climax. Incorporating a controversy bonus mechanism, this protocol achieves a top-tier \textbf{composite score of 0.860}. It projects \textbf{47\% growth in engagement} while maintaining an optimal \textbf{11.1\% controversy rate}. Monte Carlo simulations confirm \textbf{89.3\% accuracy retention} under stochastic perturbations.
-
-Our work delivers a \textbf{production-ready protocol} that reconciles competitive integrity with entertainment imperatives, providing quantified strategic value for reality television producers.
+\textbf{Beyond the Curtain.} Our framework delivers production-ready protocols that reconcile competitive integrity with commercial imperatives, providing a quantified blueprint for the socio-technical evolution of reality television.
 
 \begin{keywords}
-Bayesian Inverse Modeling; Constrained Optimization; SHAP Explainability; Voting System Design; Fairness-Excitement Tradeoff
+Hidden Preference Reconstruction; Bayesian Inverse Modeling; SHAP Explainability; Voting System Design; Fairness-Excitement Tradeoff
 \end{keywords}
 
 \end{abstract}
