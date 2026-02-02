@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  2 FEB 2026 19:47
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  2 FEB 2026 20:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1052,6 +1052,16 @@ Package xeCJK Warning: Unknown CJK family `\CJKsfdefault' is being ignored.
 File: ../figures/2.png Graphic file (type bmp)
 <../figures/2.png>
 
+Underfull \hbox (badness 2005) in paragraph at lines 15--16
+\TU/lmr/m/n/12 professional dancers in weekly competitions.
+ []
+
+
+Underfull \hbox (badness 1629) in paragraph at lines 15--16
+\TU/lmr/m/n/12 The show combines judge scores and audi-
+ []
+
+
 
 [3] (../figures/our_work_flowchart.tikz.tex
 \pgf@layerbox@bg=\box81
@@ -1060,8 +1070,6 @@ File: ../figures/2.png Graphic file (type bmp)
 
 [4] (../sections/2.Preparation for Modeling.tex
 
-[5]
-
 Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
 (xeCJK)                
 (xeCJK)                Try to use `\setCJKmonofont[<...>]{<...>}' to define
@@ -1069,95 +1077,78 @@ Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
 
 
 
-[6]
-Overfull \hbox (7.15701pt too wide) in paragraph at lines 73--74
-[]\TU/lmr/bx/n/12 Pronounced Industry Disparities: \TU/lmr/m/n/12 Celebrity performance varies fundamentally across
- []
+[5]
 
-
-Overfull \hbox (41.75278pt too wide) in paragraph at lines 81--82
-\TU/lmr/m/n/12 dates, ratings/shares (e.g., “4.3/12”), and audience size (in millions). Through \TU/lmtt/m/n/12 process_ratings.py\TU/lmr/m/n/12 ,
- []
-
-
-Overfull \hbox (83.91382pt too wide) in paragraph at lines 81--82
-\TU/lmr/m/n/12 multi-episode weeks, ultimately generating week-level aggregated data (\TU/lmtt/m/n/12 processed_ratings_*_merged.csv\TU/lmr/m/n/12 ).
- []
-
-
+[6]) (../sections/4.Models.tex
 
 [7]
 
-[8]) (../sections/4.Models.tex
-
-[9]
-
-[10]
+[8]
 File: ../yanxiao/outputs/figures/radar_s20_w5.png Graphic file (type bmp)
 <../yanxiao/outputs/figures/radar_s20_w5.png>
 
 
-[11]
+[9]
+
+[10]
 File: ../yanxiao/outputs/figures/accuracy_summary.png Graphic file (type bmp)
 <../yanxiao/outputs/figures/accuracy_summary.png>
 
 
-[12]
+[11]
 File: ../yanxiao/outputs/figures/uncertainty_distribution.png Graphic file (type bmp)
 <../yanxiao/outputs/figures/uncertainty_distribution.png>
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
 LaTeX Font Warning: Font shape `TU/STSong(0)/b/n' undefined
-(Font)              using `TU/STSong(0)/m/n' instead on input line 120.
+(Font)              using `TU/STSong(0)/m/n' instead on input line 118.
 
 
+
+[12]
 
 [13]
-
-[14]
-
-[15]
 File: ../question2/outputs/figures/method_comparison_overview.png Graphic file (type bmp)
 <../question2/outputs/figures/method_comparison_overview.png>
 
 
-[16]
+[14]
 File: ../question2/outputs/figures/controversy_trajectories.png Graphic file (type bmp)
 <../question2/outputs/figures/controversy_trajectories.png>
 
-Overfull \hbox (188.48354pt too wide) in paragraph at lines 199--209
+Overfull \hbox (188.48354pt too wide) in paragraph at lines 195--205
  [][] 
  []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 Missing character: There is no ⭐ (U+2B50) in font [lmroman12-regular]:mapping=tex-text;!
 
 
-[17]
+[15]
 File: ../question2/outputs/figures/bobby_bones_trajectory.png Graphic file (type bmp)
 <../question2/outputs/figures/bobby_bones_trajectory.png>
 File: ../question2/outputs/figures/controversy_heatmap_comparison.png Graphic file (type bmp)
 <../question2/outputs/figures/controversy_heatmap_comparison.png>
 
 
-[18]
-Overfull \hbox (13.64183pt too wide) in paragraph at lines 265--266
+[16]
+Overfull \hbox (13.64183pt too wide) in paragraph at lines 261--262
 []\TU/lmr/m/n/12 Based on preceding analysis, we recommend the \TU/lmr/bx/n/12 percentage-method + judge tiebreak-
  []
 
 
 
-[19]
+[17]
 
-[20]
+[18]
 File: ../question3/outputs/figures/shap_summary_combined.png Graphic file (type bmp)
 <../question3/outputs/figures/shap_summary_combined.png>
 
 
-[21]
-Overfull \hbox (25.84183pt too wide) in paragraph at lines 344--345
+[19]
+Overfull \hbox (25.84183pt too wide) in paragraph at lines 340--341
 \TU/lmr/m/n/12 +48K). Derek Hough’s 17-season record with 6 championships, combining ”technique+popularity”
  []
 
@@ -1168,11 +1159,11 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[22]
+[20]
 Missing character: There is no ≤ (U+2264) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ≤ (U+2264) in font [lmroman12-regular]:mapping=tex-text;!
 
-Overfull \hbox (77.0295pt too wide) in paragraph at lines 410--421
+Overfull \hbox (77.0295pt too wide) in paragraph at lines 406--417
  [][] 
  []
 
@@ -1181,18 +1172,18 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[23]
+[21]
 
-[24]
+[22]
 File: ../question4/outputs/figures/dramatic_arc_weights.png Graphic file (type bmp)
 <../question4/outputs/figures/dramatic_arc_weights.png>
 
 
+[23]
+
+[24]) (../sections/5.Sensitivity Analysis.tex
+
 [25]
-
-[26]) (../sections/5.Sensitivity Analysis.tex
-
-[27]
 File: ../model_evaluation/outputs/figures/sensitivity/tornado_diagram.png Graphic file (type bmp)
 <../model_evaluation/outputs/figures/sensitivity/tornado_diagram.png>
 
@@ -1201,13 +1192,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
+[26]
+
+[27]) (../sections/6.Model Evaluation and Promotion.tex
+
 [28]
 
-[29]) (../sections/6.Model Evaluation and Promotion.tex
-
-[30]
-
-[31]) (../sections/7.Memorandum.tex
+[29]) (../sections/7.Memorandum.tex
 Overfull \hbox (7.105pt too wide) in paragraph at lines 3--7
 \TU/lmr/bx/n/12 Subject: \TU/lmr/m/n/12 Voting Mechanism Optimization—Strategic Recommendations for Enhancing View-
  []
@@ -1219,16 +1210,16 @@ Overfull \hbox (10.34581pt too wide) in paragraph at lines 14--15
 
 
 
-[32]) (../sections/8.References.tex
+[30]) (../sections/8.References.tex
 Underfull \hbox (badness 1092) in paragraph at lines 14--17
 []\TU/lmr/m/n/12 Wikipedia contributors. (2026). \TU/lmr/m/it/12 Dancing with the Stars (American TV series)\TU/lmr/m/n/12 .
  []
 
 
 
-[33]) (../sections/10.AI.tex
+[31]) (../sections/10.AI.tex
 
-[34]
+[32]
 LaTeX Font Info:    Trying to load font information for TU+pcr on input line 9.
 LaTeX Font Info:    No file TUpcr.fd. on input line 9.
 
@@ -1242,13 +1233,13 @@ LaTeX Font Warning: Font shape `TU/pcr/b/n' undefined
 
 
 
-[35
+[33
 
 ]
 
-[36])
+[34])
 
-[37] (./main.aux)
+[35] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
@@ -1258,15 +1249,15 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C38C7AAB8075E8660659BB7F7D87AC47;9433.
+(rerunfilecheck)             Checksum: AAFB0B7E49D20FE94FF6D6F2FB6C6C00;9433.
  ) 
 Here is how much of TeX's memory you used:
- 30444 strings out of 473832
- 631621 string characters out of 5729482
- 1378593 words of memory out of 5000000
- 52830 multiletter control sequences out of 15000+600000
+ 30445 strings out of 473832
+ 631639 string characters out of 5729482
+ 1378176 words of memory out of 5000000
+ 52831 multiletter control sequences out of 15000+600000
  599289 words of font info for 181 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  87i,16n,93p,1524b,1416s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (38 pages).
+Output written on main.pdf (36 pages).

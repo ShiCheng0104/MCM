@@ -12,9 +12,9 @@
     \vspace{-10pt}
 \end{wrapfigure}
 
-Since 2005, \textit{Dancing with the Stars} (DWTS) has aired 34 seasons, pairing celebrities with professional dancers in weekly competitions. The show employs a dual mechanism combining judge scores and audience votes to determine weekly eliminations, yet \textbf{audience vote tallies remain classified}. Over 34 seasons, two distinct combination methods have been utilized---the \textit{rank-based} and \textit{percentage-based} approaches---with recurring controversies where low-scoring contestants advanced through high audience support (e.g., Jerry Rice, Bobby Bones). Contestant characteristics (athletic background, entertainment industry, age, gender) and social media prominence\cite{googletrends} exert substantial influence on outcomes.
+Since 2005, \textit{Dancing with the Stars} (DWTS) has aired 34 seasons, pairing celebrities with professional dancers in weekly competitions. The show combines judge scores and audience votes to determine eliminations, yet \textbf{audience vote tallies remain classified}. Two distinct combination methods---\textit{rank-based} and \textit{percentage-based}---have yielded recurring controversies where low-scoring contestants advanced through high audience support (e.g., Jerry Rice, Bobby Bones).
 
-This study addresses an \textbf{incomplete information game} scenario: reconstructing the latent distribution of audience votes from observable elimination data, quantifying the differential impacts of combination methods, and engineering an improved voting protocol. Leveraging data spanning 34 seasons (2005--2026), we employ Bayesian inference, machine learning, and game-theoretic frameworks to demystify the voting ``black box''\cite{dwts_wiki}.
+This study addresses an \textbf{incomplete information game}: reconstructing latent audience votes from observable elimination data, quantifying method impacts, and engineering improved protocols. Leveraging 34 seasons (2005--2026), we employ Bayesian inference, machine learning, and game theory to demystify the voting ``black box''\cite{dwts_wiki}.
 
 
 
@@ -22,25 +22,33 @@ This study addresses an \textbf{incomplete information game} scenario: reconstru
 
 \subsection{Problem Description}
 
-This problem focuses on analyzing the voting mechanism of \textit{Dancing with the Stars} (DWTS). In this competitive reality show, celebrity contestants partner with professional dancers to perform weekly routines, with outcomes determined by a combination of judge scores and audience votes. However, audience voting data remains proprietary and undisclosed, while the show has employed varying vote-combination protocols across 34 seasons. The central challenge lies in evaluating the fairness of these voting systems and proposing optimization strategies under conditions of incomplete vote observability.
+The central challenge lies in evaluating DWTS voting systems and proposing optimization strategies under incomplete vote observability across 34 seasons.
 
-Specific tasks include:
+\textbf{Specific tasks}:
 \begin{itemize}
-    \item \textbf{Audience Vote Estimation:} Construct mathematical models to inversely infer each contestant's audience vote totals from judge scores, contestant attributes, and elimination outcomes. Assess the consistency between estimated votes and actual eliminations, while quantifying estimation uncertainty.
+    \item \textbf{Audience Vote Estimation:} Inversely infer contestant vote totals from judge scores, attributes, and eliminations. Assess consistency and quantify uncertainty.
     
-    \item \textbf{Voting Method Comparison:} Conduct comparative analysis of the two combination methods employed---rank-based and percentage-based approaches---examining result divergence across seasons. For controversial cases (e.g., Jerry Rice, Bobby Bones, who advanced despite low judge scores but high audience support), evaluate how methodological choice and judge deliberation mechanisms impact final rankings, and recommend optimal approaches for future seasons.
+    \item \textbf{Voting Method Comparison:} Compare rank-based vs percentage-based approaches across seasons. Evaluate controversial cases (Jerry Rice, Bobby Bones) and judge deliberation impacts; recommend optimal methods.
     
-    \item \textbf{Influence Factor Analysis:} Develop models to quantify the impact of professional partner experience, celebrity age, and industry background on competition outcomes. Analyze whether these factors exhibit differential mechanisms of influence on judge scores versus audience votes.
+    \item \textbf{Influence Factor Analysis:} Quantify how partner experience, celebrity age, and industry background differentially impact judge scores vs audience votes.
     
-    \item \textbf{New System Design:} Propose an alternative vote-combination system that enhances either ``fairness'' or entertainment value. Validate the efficacy of the proposed system through historical data simulation and provide actionable implementation recommendations for producers.
+    \item \textbf{New System Design:} Propose improved vote-combination systems enhancing fairness or entertainment value. Validate via historical simulation with actionable recommendations.
     
-    \item \textbf{Report Deliverables:} Submit an analytical report not exceeding 25 pages, accompanied by a 1--2 page memorandum, summarizing the impact of vote-combination methodologies and offering decision guidance for future DWTS seasons.
+    \item \textbf{Report Deliverables:} $\leq$25-page analytical report plus 1--2 page memorandum summarizing methodology impacts and decision guidance.
 \end{itemize}
 
 
 \subsection{Our work}
 
-Figure~\ref{fig:our-work-flow} summarizes our workflow from data integration to actionable recommendations. We organize the solution into four interacting tasks: (Task 1) reconstructing hidden audience votes under real elimination constraints, (Task 2) counterfactual comparison of voting rules and controversy cases, (Task 3) identifying drivers behind judges vs audience preferences, and (Task 4) designing and backtesting an improved voting system.
+To unveil the voting dynamics of \textit{Dancing with the Stars}, we constructed an analytical pipeline centered on \textbf{Bayesian Inference} and \textbf{Interpretable Machine Learning}:
+
+\textbf{Vote Reconstruction.} We developed a \textit{Two-Stage Bayesian Engine} to infer unobservable fan votes. By leveraging SLSQP constrained optimization, we integrated judge scores with social influence priors (Google Trends), achieving \textbf{91.7\% accuracy} in historical elimination backtesting.
+
+\textbf{Mechanism Evaluation.} We executed \textit{Counterfactual Simulations} to compare rank-based and percentage-based systems. Our findings quantify how rank-based scoring amplifies fan influence by \textbf{12.8\%}, facilitating ``upset'' victories in high-score density scenarios.
+
+\textbf{Strategic Insights.} Using a \textit{GBDT-SHAP architecture}, we decomposed the drivers of audience preference. We identified a significant ``Evaluation Drift'' across 34 seasons, moving from technical precision toward narrative-driven popularity.
+
+This framework transforms abstract voting patterns into quantifiable metrics, providing actionable strategies for balancing competitive fairness with viewer engagement. Figure~\ref{fig:our-work-flow} summarizes our complete analytical workflow.
 
 \begin{figure}[ht]
 \centering

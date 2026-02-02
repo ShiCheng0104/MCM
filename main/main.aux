@@ -3,112 +3,112 @@
 \providecommand*\HyPL@Entry[1]{}
 \HyPL@Entry{0<</S/D>>}
 \HyPL@Entry{1<</S/D>>}
-\citation{googletrends}
 \citation{dwts_wiki}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{3}{section.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Background}{3}{subsection.1.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces 节目海报}}{3}{figure.1}\protected@file@percent }
 \newlabel{fig:dwts_poster}{{1}{3}{节目海报}{figure.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Problem Description}{3}{subsection.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Our work}{4}{subsection.1.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Our four-task workflow with explicit interactions: Task 1 infers hidden audience votes under real elimination constraints; Tasks 2--3 analyze rule effects and preference drivers; Task 4 synthesizes evidence into a new system and backtests it with a scorecard.}}{5}{figure.2}\protected@file@percent }
-\newlabel{fig:our-work-flow}{{2}{5}{Our four-task workflow with explicit interactions: Task 1 infers hidden audience votes under real elimination constraints; Tasks 2--3 analyze rule effects and preference drivers; Task 4 synthesizes evidence into a new system and backtests it with a scorecard}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Our work}{3}{subsection.1.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Our four-task workflow with explicit interactions: Task 1 infers hidden audience votes under real elimination constraints; Tasks 2--3 analyze rule effects and preference drivers; Task 4 synthesizes evidence into a new system and backtests it with a scorecard.}}{4}{figure.2}\protected@file@percent }
+\newlabel{fig:our-work-flow}{{2}{4}{Our four-task workflow with explicit interactions: Task 1 infers hidden audience votes under real elimination constraints; Tasks 2--3 analyze rule effects and preference drivers; Task 4 synthesizes evidence into a new system and backtests it with a scorecard}{figure.2}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Preparation for Modeling}{5}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Model Assumptions}{5}{subsection.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Notations}{6}{subsection.2.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Notations used in this literature}}{6}{table.1}\protected@file@percent }
-\newlabel{table:notations}{{1}{6}{Notations used in this literature}{table.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Data Collection and Preprocessing}{6}{subsection.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}Official Competition Data Analysis}{6}{subsubsection.2.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}Television Viewership Data}{7}{subsubsection.2.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3}Social Media Trending Data (Google Trends)}{8}{subsubsection.2.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.4}Multi-Source Data Correlation Analysis}{8}{subsubsection.2.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3}Problem 1: Audience Vote Estimation Model}{9}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Problem Interpretation and Modeling Approach}{9}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1}Problem Essence}{9}{subsubsection.3.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2}Overall Modeling Framework}{9}{subsubsection.3.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Mathematical Implementation of the Two-Layer Framework}{10}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Layer 1: Baseline Prior Model}{10}{subsubsection.3.2.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Season 20 Week 5: Radar plot comparing judge scores (green), Google popularity (yellow), and predicted votes (blue). Rumer Willis exemplifies high-popularity overcoming modest scores; Riker Lynch demonstrates double deficits leading to elimination}}{11}{figure.3}\protected@file@percent }
-\newlabel{fig:s20w5_radar}{{3}{11}{Season 20 Week 5: Radar plot comparing judge scores (green), Google popularity (yellow), and predicted votes (blue). Rumer Willis exemplifies high-popularity overcoming modest scores; Riker Lynch demonstrates double deficits leading to elimination}{figure.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Layer 2: Precise Inverse Inference Model}{11}{subsubsection.3.2.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Overall Model Performance: 91.7\% Exact Elimination Prediction, 98.5\% Danger Zone Identification}}{12}{figure.4}\protected@file@percent }
-\newlabel{fig:prediction_accuracy}{{4}{12}{Overall Model Performance: 91.7\% Exact Elimination Prediction, 98.5\% Danger Zone Identification}{figure.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Layer 3: Uncertainty Quantification}{12}{subsubsection.3.2.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Uncertainty Distribution: 39.2\% High Certainty, 60.8\% Moderate Certainty, with Contestant/Week Variation. Histogram (left) shows right-skewed CV distribution; scatter plot (right) reveals negative correlation between constraint margin and uncertainty}}{14}{figure.5}\protected@file@percent }
-\newlabel{fig:uncertainty_dist}{{5}{14}{Uncertainty Distribution: 39.2\% High Certainty, 60.8\% Moderate Certainty, with Contestant/Week Variation. Histogram (left) shows right-skewed CV distribution; scatter plot (right) reveals negative correlation between constraint margin and uncertainty}{figure.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Complete Answer to Problem 1}{14}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Answer to Problem 1.1: Consistency Metrics}{14}{subsubsection.3.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Answer to Problem 1.2: Certainty Metrics}{15}{subsubsection.3.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Problem 2: Voting Method Comparison and Recommendation}{15}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Problem Interpretation and Analytical Framework}{15}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Sub-question 2.1: Method Differences and Audience Bias}{15}{subsection.4.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Overall Method Comparison: 77.7\% Consistency, 22.3\% Divergence, Percentage-Method Shows Higher Actual Alignment}}{16}{figure.6}\protected@file@percent }
-\newlabel{fig:method_overview}{{6}{16}{Overall Method Comparison: 77.7\% Consistency, 22.3\% Divergence, Percentage-Method Shows Higher Actual Alignment}{figure.6}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Answer to Sub-question 2.1}{16}{subsubsection.4.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Sub-question 2.2: In-Depth Analysis of Controversial Contestants}{16}{subsection.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Sub-question 2.2: Controversial Contestant Case Analysis}{16}{subsection.4.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Weekly Trajectories of Four Controversial Contestants: Combined Ranking Evolution Over Time}}{17}{figure.7}\protected@file@percent }
-\newlabel{fig:controversy_trajectories}{{7}{17}{Weekly Trajectories of Four Controversial Contestants: Combined Ranking Evolution Over Time}{figure.7}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Comparative Case Analysis}{17}{subsubsection.4.4.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Core Statistics for Four Controversial Contestants ("Bottom2" indicates weeks in combined bottom two positions)}}{17}{table.2}\protected@file@percent }
-\newlabel{tab:controversy_summary}{{2}{17}{Core Statistics for Four Controversial Contestants ("Bottom2" indicates weeks in combined bottom two positions)}{table.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Bobby Bones' Survival Trajectory: Overwhelmingly Dominant Audience Vote Advantage}}{18}{figure.8}\protected@file@percent }
-\newlabel{fig:bobby_trajectory}{{8}{18}{Bobby Bones' Survival Trajectory: Overwhelmingly Dominant Audience Vote Advantage}{figure.8}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}评委裁决机制的影响}{18}{subsubsection.4.4.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces 评委裁决机制的影响：热图显示四位选手在不同方法+机制组合下的粉丝与评委评分差距}}{19}{figure.9}\protected@file@percent }
-\newlabel{fig:controversy_heatmap}{{9}{19}{评委裁决机制的影响：热图显示四位选手在不同方法+机制组合下的粉丝与评委评分差距}{figure.9}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.3}子问题2.2答案}{19}{subsubsection.4.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Sub-question 2.3: Recommended Approach}{19}{subsection.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}Answer to Sub-question 2.3}{20}{subsubsection.4.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Problem 3: Factor Impact Analysis---Partner and Celebrity Characteristic Mechanisms}{20}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Problem Interpretation and Research Framework}{20}{subsection.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Modeling Methodology and Core Findings}{20}{subsection.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Feature System and Model Design}{20}{subsubsection.5.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}SHAP Feature Importance Analysis}{21}{subsubsection.5.2.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Comprehensive SHAP Feature Analysis Comparison. Upper panels: SHAP summary plots (left: judge scores, right: audience votes)---each point represents a sample, color indicates feature value magnitude, x-axis shows SHAP value (prediction impact). Lower panel: Feature importance ranking bar charts. Judges prioritize partners and week progression; audiences prioritize industry and age, reflecting starkly divergent focal concerns}}{21}{figure.10}\protected@file@percent }
-\newlabel{fig:q3_shap_summary}{{10}{21}{Comprehensive SHAP Feature Analysis Comparison. Upper panels: SHAP summary plots (left: judge scores, right: audience votes)---each point represents a sample, color indicates feature value magnitude, x-axis shows SHAP value (prediction impact). Lower panel: Feature importance ranking bar charts. Judges prioritize partners and week progression; audiences prioritize industry and age, reflecting starkly divergent focal concerns}{figure.10}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}In-Depth Analysis of Three Major Impact Factors}{22}{subsection.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}Factor 1: Professional Partners---Technical Enhancers and Popularity Amplifiers}{22}{subsubsection.5.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Dual-Dimension Effects of Elite Partners (positive values indicate above-mean performance)}}{22}{table.3}\protected@file@percent }
-\newlabel{tab:partner_effect}{{3}{22}{Dual-Dimension Effects of Elite Partners (positive values indicate above-mean performance)}{table.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}Factor 2: Celebrity Industry---The Power of Built-In Fan Bases}{22}{subsubsection.5.3.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Dual-Dimension Industry Effects (relative to global mean: 25.98 points, 125,035 votes)}}{22}{table.4}\protected@file@percent }
-\newlabel{tab:industry_effect}{{4}{22}{Dual-Dimension Industry Effects (relative to global mean: 25.98 points, 125,035 votes)}{table.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Nomogram Comparison (upper: judge score model, lower: audience vote model). Each feature axis corresponds to different point values, which sum to total prediction score. Derek Hough's contribution massively exceeds in audience model versus judge model; age and industry weight allocations exhibit pronounced divergence, intuitively visualizing quantitative differences between evaluation systems}}{23}{figure.11}\protected@file@percent }
-\newlabel{fig:q3_nomogram}{{11}{23}{Nomogram Comparison (upper: judge score model, lower: audience vote model). Each feature axis corresponds to different point values, which sum to total prediction score. Derek Hough's contribution massively exceeds in audience model versus judge model; age and industry weight allocations exhibit pronounced divergence, intuitively visualizing quantitative differences between evaluation systems}{figure.11}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.3}因素3：年龄——青春魅力与成熟稳重的博弈}{23}{subsubsection.5.3.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces 年龄组的双维效应（全局均值：25.98分，125,035票）}}{23}{table.5}\protected@file@percent }
-\newlabel{tab:age_effect}{{5}{23}{年龄组的双维效应（全局均值：25.98分，125,035票）}{table.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Differentiated Perspectives: Judges versus Audiences}{23}{subsection.5.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Differentiated Evaluation Standards: Judges versus Audiences}}{24}{table.6}\protected@file@percent }
-\newlabel{tab:judge_vs_fan}{{6}{24}{Differentiated Evaluation Standards: Judges versus Audiences}{table.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Complete Answer to Problem 3}{24}{subsection.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Problem 4: New Voting System Design---The Dramatic Arc Protocol}{24}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Problem Interpretation and Design Philosophy}{24}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}System Mechanism Design}{25}{subsection.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}Mechanism 1: Phase-Adaptive Dynamic Weighting}{25}{subsubsection.6.2.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Dynamic Weight Distribution in Dramatic Arc System. Judge weight (dark gray) progressively declines from early 62\% to late-stage 32\%, audience weight (light green) correspondingly rises to 68\%, with three-phase division simulating television narrative pacing}}{25}{figure.12}\protected@file@percent }
-\newlabel{fig:q4_weights}{{12}{25}{Dynamic Weight Distribution in Dramatic Arc System. Judge weight (dark gray) progressively declines from early 62\% to late-stage 32\%, audience weight (light green) correspondingly rises to 68\%, with three-phase division simulating television narrative pacing}{figure.12}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}Mechanism 2: Controversy Reward}{25}{subsubsection.6.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.3}Mechanism 3: Vote Gap Amplifier and Combined Scoring}{26}{subsubsection.6.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}System Evaluation and Data Validation}{26}{subsection.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Adoption Recommendations}{26}{subsection.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1}Why Should Production Teams Adopt This System?}{26}{subsubsection.6.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.2}How to Implement This System?}{27}{subsubsection.6.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Complete Answer to Problem 4}{28}{subsection.6.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Sensitivity Analysis}{28}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Problems 1 \& 2: Vote Estimation Model Parameter Sensitivity}{28}{subsection.7.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Parameter Sensitivity Tornado Diagram. Horizontal axis indicates deviation from baseline performance; longer bars signify greater parameter impact. Q3's week feature exhibits highest sensitivity; Q1's data noise and model parameters show low sensitivity; Q4's controversy reward parameter demonstrates pronounced fairness-entertainment tradeoff}}{29}{figure.13}\protected@file@percent }
-\newlabel{fig:tornado_sensitivity}{{13}{29}{Parameter Sensitivity Tornado Diagram. Horizontal axis indicates deviation from baseline performance; longer bars signify greater parameter impact. Q3's week feature exhibits highest sensitivity; Q1's data noise and model parameters show low sensitivity; Q4's controversy reward parameter demonstrates pronounced fairness-entertainment tradeoff}{figure.13}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Problem 3: Feature Importance Robust Validation}{29}{subsection.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Problem 4: Dramatic Arc System Parameter Tradeoffs}{30}{subsection.7.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Cross-Model Uncertainty Quantification}{30}{subsection.7.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}Model Evaluation and Promotion}{30}{section.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Model Evaluation}{30}{subsection.8.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.1}Advantages}{30}{subsubsection.8.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.2}Limitations}{31}{subsubsection.8.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {9}Memorandum}{32}{section.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Data Collection and Preprocessing}{5}{subsection.2.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Data Source Integration and Preprocessing Pipeline}}{5}{table.1}\protected@file@percent }
+\newlabel{tab:data_sources}{{1}{5}{Data Source Integration and Preprocessing Pipeline}{table.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}Critical Preprocessing Operations}{5}{subsubsection.2.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}Engineered Features}{6}{subsubsection.2.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.3}Validation Metrics}{6}{subsubsection.2.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Notations}{7}{subsection.2.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Notations used in this literature}}{7}{table.2}\protected@file@percent }
+\newlabel{table:notations}{{2}{7}{Notations used in this literature}{table.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Problem 1: Audience Vote Estimation Model}{7}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Problem Interpretation and Modeling Approach}{7}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1}Problem Essence}{7}{subsubsection.3.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2}Overall Modeling Framework}{8}{subsubsection.3.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Mathematical Implementation of the Two-Layer Framework}{8}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Layer 1: Baseline Prior Model}{8}{subsubsection.3.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Layer 2: Precise Inverse Inference Model}{9}{subsubsection.3.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Season 20 Week 5: Radar plot comparing judge scores (green), Google popularity (yellow), and predicted votes (blue). Rumer Willis exemplifies high-popularity overcoming modest scores; Riker Lynch demonstrates double deficits leading to elimination}}{10}{figure.3}\protected@file@percent }
+\newlabel{fig:s20w5_radar}{{3}{10}{Season 20 Week 5: Radar plot comparing judge scores (green), Google popularity (yellow), and predicted votes (blue). Rumer Willis exemplifies high-popularity overcoming modest scores; Riker Lynch demonstrates double deficits leading to elimination}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Overall Model Performance: 91.7\% Exact Elimination Prediction, 98.5\% Danger Zone Identification}}{11}{figure.4}\protected@file@percent }
+\newlabel{fig:prediction_accuracy}{{4}{11}{Overall Model Performance: 91.7\% Exact Elimination Prediction, 98.5\% Danger Zone Identification}{figure.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Layer 3: Uncertainty Quantification}{11}{subsubsection.3.2.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Uncertainty Distribution: 39.2\% High Certainty, 60.8\% Moderate Certainty, with Contestant/Week Variation. Histogram (left) shows right-skewed CV distribution; scatter plot (right) reveals negative correlation between constraint margin and uncertainty}}{12}{figure.5}\protected@file@percent }
+\newlabel{fig:uncertainty_dist}{{5}{12}{Uncertainty Distribution: 39.2\% High Certainty, 60.8\% Moderate Certainty, with Contestant/Week Variation. Histogram (left) shows right-skewed CV distribution; scatter plot (right) reveals negative correlation between constraint margin and uncertainty}{figure.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Complete Answer to Problem 1}{13}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Answer to Problem 1.1: Consistency Metrics}{13}{subsubsection.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Answer to Problem 1.2: Certainty Metrics}{13}{subsubsection.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Problem 2: Voting Method Comparison and Recommendation}{13}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Problem Interpretation and Analytical Framework}{13}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Sub-question 2.1: Method Differences and Audience Bias}{14}{subsection.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Overall Method Comparison: 77.7\% Consistency, 22.3\% Divergence, Percentage-Method Shows Higher Actual Alignment}}{14}{figure.6}\protected@file@percent }
+\newlabel{fig:method_overview}{{6}{14}{Overall Method Comparison: 77.7\% Consistency, 22.3\% Divergence, Percentage-Method Shows Higher Actual Alignment}{figure.6}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Answer to Sub-question 2.1}{14}{subsubsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Sub-question 2.2: In-Depth Analysis of Controversial Contestants}{15}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Sub-question 2.2: Controversial Contestant Case Analysis}{15}{subsection.4.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Weekly Trajectories of Four Controversial Contestants: Combined Ranking Evolution Over Time}}{15}{figure.7}\protected@file@percent }
+\newlabel{fig:controversy_trajectories}{{7}{15}{Weekly Trajectories of Four Controversial Contestants: Combined Ranking Evolution Over Time}{figure.7}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Comparative Case Analysis}{15}{subsubsection.4.4.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Core Statistics for Four Controversial Contestants ("Bottom2" indicates weeks in combined bottom two positions)}}{16}{table.3}\protected@file@percent }
+\newlabel{tab:controversy_summary}{{3}{16}{Core Statistics for Four Controversial Contestants ("Bottom2" indicates weeks in combined bottom two positions)}{table.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Bobby Bones' Survival Trajectory: Overwhelmingly Dominant Audience Vote Advantage}}{16}{figure.8}\protected@file@percent }
+\newlabel{fig:bobby_trajectory}{{8}{16}{Bobby Bones' Survival Trajectory: Overwhelmingly Dominant Audience Vote Advantage}{figure.8}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}评委裁决机制的影响}{16}{subsubsection.4.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces 评委裁决机制的影响：热图显示四位选手在不同方法+机制组合下的粉丝与评委评分差距}}{17}{figure.9}\protected@file@percent }
+\newlabel{fig:controversy_heatmap}{{9}{17}{评委裁决机制的影响：热图显示四位选手在不同方法+机制组合下的粉丝与评委评分差距}{figure.9}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.3}子问题2.2答案}{17}{subsubsection.4.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Sub-question 2.3: Recommended Approach}{17}{subsection.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}Answer to Sub-question 2.3}{18}{subsubsection.4.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Problem 3: Factor Impact Analysis---Partner and Celebrity Characteristic Mechanisms}{18}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Problem Interpretation and Research Framework}{18}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Modeling Methodology and Core Findings}{18}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Feature System and Model Design}{18}{subsubsection.5.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}SHAP Feature Importance Analysis}{19}{subsubsection.5.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Comprehensive SHAP Feature Analysis Comparison. Upper panels: SHAP summary plots (left: judge scores, right: audience votes)---each point represents a sample, color indicates feature value magnitude, x-axis shows SHAP value (prediction impact). Lower panel: Feature importance ranking bar charts. Judges prioritize partners and week progression; audiences prioritize industry and age, reflecting starkly divergent focal concerns}}{19}{figure.10}\protected@file@percent }
+\newlabel{fig:q3_shap_summary}{{10}{19}{Comprehensive SHAP Feature Analysis Comparison. Upper panels: SHAP summary plots (left: judge scores, right: audience votes)---each point represents a sample, color indicates feature value magnitude, x-axis shows SHAP value (prediction impact). Lower panel: Feature importance ranking bar charts. Judges prioritize partners and week progression; audiences prioritize industry and age, reflecting starkly divergent focal concerns}{figure.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}In-Depth Analysis of Three Major Impact Factors}{20}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}Factor 1: Professional Partners---Technical Enhancers and Popularity Amplifiers}{20}{subsubsection.5.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Dual-Dimension Effects of Elite Partners (positive values indicate above-mean performance)}}{20}{table.4}\protected@file@percent }
+\newlabel{tab:partner_effect}{{4}{20}{Dual-Dimension Effects of Elite Partners (positive values indicate above-mean performance)}{table.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}Factor 2: Celebrity Industry---The Power of Built-In Fan Bases}{20}{subsubsection.5.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Dual-Dimension Industry Effects (relative to global mean: 25.98 points, 125,035 votes)}}{20}{table.5}\protected@file@percent }
+\newlabel{tab:industry_effect}{{5}{20}{Dual-Dimension Industry Effects (relative to global mean: 25.98 points, 125,035 votes)}{table.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Nomogram Comparison (upper: judge score model, lower: audience vote model). Each feature axis corresponds to different point values, which sum to total prediction score. Derek Hough's contribution massively exceeds in audience model versus judge model; age and industry weight allocations exhibit pronounced divergence, intuitively visualizing quantitative differences between evaluation systems}}{21}{figure.11}\protected@file@percent }
+\newlabel{fig:q3_nomogram}{{11}{21}{Nomogram Comparison (upper: judge score model, lower: audience vote model). Each feature axis corresponds to different point values, which sum to total prediction score. Derek Hough's contribution massively exceeds in audience model versus judge model; age and industry weight allocations exhibit pronounced divergence, intuitively visualizing quantitative differences between evaluation systems}{figure.11}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.3}因素3：年龄——青春魅力与成熟稳重的博弈}{21}{subsubsection.5.3.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces 年龄组的双维效应（全局均值：25.98分，125,035票）}}{21}{table.6}\protected@file@percent }
+\newlabel{tab:age_effect}{{6}{21}{年龄组的双维效应（全局均值：25.98分，125,035票）}{table.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Differentiated Perspectives: Judges versus Audiences}{21}{subsection.5.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Differentiated Evaluation Standards: Judges versus Audiences}}{22}{table.7}\protected@file@percent }
+\newlabel{tab:judge_vs_fan}{{7}{22}{Differentiated Evaluation Standards: Judges versus Audiences}{table.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Complete Answer to Problem 3}{22}{subsection.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Problem 4: New Voting System Design---The Dramatic Arc Protocol}{22}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Problem Interpretation and Design Philosophy}{22}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}System Mechanism Design}{23}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}Mechanism 1: Phase-Adaptive Dynamic Weighting}{23}{subsubsection.6.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Dynamic Weight Distribution in Dramatic Arc System. Judge weight (dark gray) progressively declines from early 62\% to late-stage 32\%, audience weight (light green) correspondingly rises to 68\%, with three-phase division simulating television narrative pacing}}{23}{figure.12}\protected@file@percent }
+\newlabel{fig:q4_weights}{{12}{23}{Dynamic Weight Distribution in Dramatic Arc System. Judge weight (dark gray) progressively declines from early 62\% to late-stage 32\%, audience weight (light green) correspondingly rises to 68\%, with three-phase division simulating television narrative pacing}{figure.12}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}Mechanism 2: Controversy Reward}{23}{subsubsection.6.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.3}Mechanism 3: Vote Gap Amplifier and Combined Scoring}{24}{subsubsection.6.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}System Evaluation and Data Validation}{24}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Adoption Recommendations}{24}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1}Why Should Production Teams Adopt This System?}{24}{subsubsection.6.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.2}How to Implement This System?}{25}{subsubsection.6.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Complete Answer to Problem 4}{26}{subsection.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Sensitivity Analysis}{26}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Problems 1 \& 2: Vote Estimation Model Parameter Sensitivity}{26}{subsection.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Parameter Sensitivity Tornado Diagram. Horizontal axis indicates deviation from baseline performance; longer bars signify greater parameter impact. Q3's week feature exhibits highest sensitivity; Q1's data noise and model parameters show low sensitivity; Q4's controversy reward parameter demonstrates pronounced fairness-entertainment tradeoff}}{27}{figure.13}\protected@file@percent }
+\newlabel{fig:tornado_sensitivity}{{13}{27}{Parameter Sensitivity Tornado Diagram. Horizontal axis indicates deviation from baseline performance; longer bars signify greater parameter impact. Q3's week feature exhibits highest sensitivity; Q1's data noise and model parameters show low sensitivity; Q4's controversy reward parameter demonstrates pronounced fairness-entertainment tradeoff}{figure.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Problem 3: Feature Importance Robust Validation}{27}{subsection.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Problem 4: Dramatic Arc System Parameter Tradeoffs}{28}{subsection.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Cross-Model Uncertainty Quantification}{28}{subsection.7.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Model Evaluation and Promotion}{28}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Model Evaluation}{28}{subsection.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.1}Advantages}{28}{subsubsection.8.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.2}Limitations}{29}{subsubsection.8.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Memorandum}{30}{section.9}\protected@file@percent }
 \bibcite{gelman2013bda}{1}
 \bibcite{googletrends}{2}
 \bibcite{dwts_wiki}{3}
@@ -117,11 +117,11 @@
 \bibcite{lundberg2017shap}{6}
 \bibcite{choi2012trends}{7}
 \bibcite{prillo2020softsort}{8}
-\newlabel{LastPage}{{9}{34}{Memorandum}{section*.1}{}}
+\newlabel{LastPage}{{9}{32}{Memorandum}{section*.1}{}}
 \bibcite{AI1}{1}
 \bibcite{AI2}{2}
 \bibcite{AI3}{3}
 \bibcite{AI4}{4}
 \bibcite{AI5}{5}
 \bibcite{AI6}{6}
-\gdef \@abspage@last{38}
+\gdef \@abspage@last{36}
