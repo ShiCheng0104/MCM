@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  1 FEB 2026 20:17
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.5)  2 FEB 2026 16:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -592,20 +592,27 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \g__lipsum_par_int=\count326
 \l__lipsum_a_int=\count327
 \l__lipsum_b_int=\count328
- (/usr/local/texlive/2025/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (/usr/local/texlive/2025/texmf-dist/tex/xelatex/xecjk/xeCJK.sty
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen194
+\WF@size=\dimen195
+\c@WF@wrappedlines=\count329
+\WF@box=\box67
+\WF@everypar=\toks45
+Package: wrapfig 2003/01/31  v 3.6
+) (/usr/local/texlive/2025/texmf-dist/tex/xelatex/xecjk/xeCJK.sty
 Package: xeCJK 2022/08/05 v3.9.1 Typesetting CJK scripts with XeLaTeX
  (/usr/local/texlive/2025/texmf-dist/tex/latex/ctex/ctexhook.sty
 Package: ctexhook 2022/07/14 v2.5.10 Document and package hooks (CTEX)
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
 Package: xtemplate 2024-08-16 L3 Experimental prototype document functions
 )
-\l__xeCJK_tmp_int=\count329
-\l__xeCJK_tmp_box=\box67
-\l__xeCJK_tmp_dim=\dimen194
+\l__xeCJK_tmp_int=\count330
+\l__xeCJK_tmp_box=\box68
+\l__xeCJK_tmp_dim=\dimen196
 \l__xeCJK_tmp_skip=\skip88
-\g__xeCJK_space_factor_int=\count330
-\l__xeCJK_begin_int=\count331
-\l__xeCJK_end_int=\count332
+\g__xeCJK_space_factor_int=\count331
+\l__xeCJK_begin_int=\count332
+\l__xeCJK_end_int=\count333
 \c__xeCJK_CJK_class_int=\XeTeXcharclass1
 \c__xeCJK_FullLeft_class_int=\XeTeXcharclass2
 \c__xeCJK_FullRight_class_int=\XeTeXcharclass3
@@ -615,49 +622,49 @@ Package: xtemplate 2024-08-16 L3 Experimental prototype document functions
 \c__xeCJK_CM_class_int=\XeTeXcharclass7
 \c__xeCJK_HangulJamo_class_int=\XeTeXcharclass8
 \l__xeCJK_last_skip=\skip89
-\c__xeCJK_none_node=\count333
-\g__xeCJK_node_int=\count334
-\c__xeCJK_CJK_node_dim=\dimen195
-\c__xeCJK_CJK-space_node_dim=\dimen196
-\c__xeCJK_default_node_dim=\dimen197
-\c__xeCJK_CJK-widow_node_dim=\dimen198
-\c__xeCJK_normalspace_node_dim=\dimen199
+\c__xeCJK_none_node=\count334
+\g__xeCJK_node_int=\count335
+\c__xeCJK_CJK_node_dim=\dimen197
+\c__xeCJK_CJK-space_node_dim=\dimen198
+\c__xeCJK_default_node_dim=\dimen199
+\c__xeCJK_CJK-widow_node_dim=\dimen256
+\c__xeCJK_normalspace_node_dim=\dimen257
 \c__xeCJK_default-space_node_skip=\skip90
 \l__xeCJK_ccglue_skip=\skip91
 \l__xeCJK_ecglue_skip=\skip92
 \l__xeCJK_punct_kern_skip=\skip93
-\l__xeCJK_indent_box=\box68
-\l__xeCJK_last_penalty_int=\count335
-\l__xeCJK_last_bound_dim=\dimen256
-\l__xeCJK_last_kern_dim=\dimen257
-\l__xeCJK_widow_penalty_int=\count336
+\l__xeCJK_indent_box=\box69
+\l__xeCJK_last_penalty_int=\count336
+\l__xeCJK_last_bound_dim=\dimen258
+\l__xeCJK_last_kern_dim=\dimen259
+\l__xeCJK_widow_penalty_int=\count337
 
 LaTeX template Info: Declaring template type 'xeCJK/punctuation' taking 0
 (template)           argument(s) on line 2396.
 
-\l__xeCJK_fixed_punct_width_dim=\dimen258
-\l__xeCJK_mixed_punct_width_dim=\dimen259
-\l__xeCJK_middle_punct_width_dim=\dimen260
-\l__xeCJK_fixed_margin_width_dim=\dimen261
-\l__xeCJK_mixed_margin_width_dim=\dimen262
-\l__xeCJK_middle_margin_width_dim=\dimen263
-\l__xeCJK_bound_punct_width_dim=\dimen264
-\l__xeCJK_bound_margin_width_dim=\dimen265
-\l__xeCJK_margin_minimum_dim=\dimen266
-\l__xeCJK_kerning_total_width_dim=\dimen267
-\l__xeCJK_same_align_margin_dim=\dimen268
-\l__xeCJK_different_align_margin_dim=\dimen269
-\l__xeCJK_kerning_margin_width_dim=\dimen270
-\l__xeCJK_kerning_margin_minimum_dim=\dimen271
-\l__xeCJK_bound_dim=\dimen272
-\l__xeCJK_reverse_bound_dim=\dimen273
-\l__xeCJK_margin_dim=\dimen274
-\l__xeCJK_minimum_bound_dim=\dimen275
-\l__xeCJK_kerning_margin_dim=\dimen276
-\g__xeCJK_family_int=\count337
-\l__xeCJK_fam_int=\count338
-\g__xeCJK_fam_allocation_int=\count339
-\l__xeCJK_verb_case_int=\count340
+\l__xeCJK_fixed_punct_width_dim=\dimen260
+\l__xeCJK_mixed_punct_width_dim=\dimen261
+\l__xeCJK_middle_punct_width_dim=\dimen262
+\l__xeCJK_fixed_margin_width_dim=\dimen263
+\l__xeCJK_mixed_margin_width_dim=\dimen264
+\l__xeCJK_middle_margin_width_dim=\dimen265
+\l__xeCJK_bound_punct_width_dim=\dimen266
+\l__xeCJK_bound_margin_width_dim=\dimen267
+\l__xeCJK_margin_minimum_dim=\dimen268
+\l__xeCJK_kerning_total_width_dim=\dimen269
+\l__xeCJK_same_align_margin_dim=\dimen270
+\l__xeCJK_different_align_margin_dim=\dimen271
+\l__xeCJK_kerning_margin_width_dim=\dimen272
+\l__xeCJK_kerning_margin_minimum_dim=\dimen273
+\l__xeCJK_bound_dim=\dimen274
+\l__xeCJK_reverse_bound_dim=\dimen275
+\l__xeCJK_margin_dim=\dimen276
+\l__xeCJK_minimum_bound_dim=\dimen277
+\l__xeCJK_kerning_margin_dim=\dimen278
+\g__xeCJK_family_int=\count338
+\l__xeCJK_fam_int=\count339
+\g__xeCJK_fam_allocation_int=\count340
+\l__xeCJK_verb_case_int=\count341
 \l__xeCJK_verb_exspace_skip=\skip94
  (/usr/local/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2024-08-16 L3 Experimental document command parser
@@ -665,26 +672,26 @@ Package: xparse 2024-08-16 L3 Experimental document command parser
 Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
  (/usr/local/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
 Package: fontspec-xetex 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
-\l__fontspec_script_int=\count341
-\l__fontspec_language_int=\count342
-\l__fontspec_strnum_int=\count343
-\l__fontspec_tmp_int=\count344
-\l__fontspec_tmpa_int=\count345
-\l__fontspec_tmpb_int=\count346
-\l__fontspec_tmpc_int=\count347
-\l__fontspec_em_int=\count348
-\l__fontspec_emdef_int=\count349
-\l__fontspec_strong_int=\count350
-\l__fontspec_strongdef_int=\count351
-\l__fontspec_tmpa_dim=\dimen277
-\l__fontspec_tmpb_dim=\dimen278
-\l__fontspec_tmpc_dim=\dimen279
+\l__fontspec_script_int=\count342
+\l__fontspec_language_int=\count343
+\l__fontspec_strnum_int=\count344
+\l__fontspec_tmp_int=\count345
+\l__fontspec_tmpa_int=\count346
+\l__fontspec_tmpb_int=\count347
+\l__fontspec_tmpc_int=\count348
+\l__fontspec_em_int=\count349
+\l__fontspec_emdef_int=\count350
+\l__fontspec_strong_int=\count351
+\l__fontspec_strongdef_int=\count352
+\l__fontspec_tmpa_dim=\dimen279
+\l__fontspec_tmpb_dim=\dimen280
+\l__fontspec_tmpc_dim=\dimen281
  (/usr/local/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/usr/local/texlive/2025/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
 Package: xeCJK-listings 2022/08/05 v3.9.1 xeCJK patch file for listings
-\l__xeCJK_listings_max_char_int=\count352
-\l__xeCJK_listings_flag_int=\count353
+\l__xeCJK_listings_max_char_int=\count353
+\l__xeCJK_listings_flag_int=\count354
 ) (/usr/local/texlive/2025/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg
 File: xeCJK.cfg 2022/08/05 v3.9.1 Configuration file for xeCJK package
 ))
@@ -724,43 +731,43 @@ Package fontspec Info:
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 62.
-LaTeX Font Info:    Trying to load font information for OML+txmi on input line 62.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 63.
+LaTeX Font Info:    Trying to load font information for OML+txmi on input line 63.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 62.
-LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 62.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 63.
+LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 63.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 62.
-LaTeX Font Info:    Trying to load font information for OMX+txex on input line 62.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 63.
+LaTeX Font Info:    Trying to load font information for OMX+txex on input line 63.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 62.
-LaTeX Font Info:    Trying to load font information for U+txexa on input line 62.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 63.
+LaTeX Font Info:    Trying to load font information for U+txexa on input line 63.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 62.
-LaTeX Font Info:    ... okay on input line 62.
-\c@lstlisting=\count354
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+\c@lstlisting=\count355
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -796,7 +803,7 @@ LaTeX Font Info:    ... okay on input line 62.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 62.
+Package hyperref Info: Link coloring OFF on input line 63.
 (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
@@ -847,17 +854,29 @@ LaTeX Font Warning: Font shape `TU/STSong(0)/b/n' undefined
 
 
 
-[1]
-
-[2])
+[1])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
 
 
-[3] (../sections/1.Introduction.tex)
+[2] (../sections/1.Introduction.tex
+File: ../figures/2.png Graphic file (type bmp)
+<../figures/2.png>
+
+
+LaTeX Font Warning: Font shape `TU/STSong(0)/m/it' undefined
+(Font)              using `TU/STSong(0)/m/n' instead on input line 15.
+
+)
+
+[3]
 
 [4] (../sections/2.Preparation for Modeling.tex
+Missing character: There is no ▼ (U+25BC) in font [lmroman12-bold]:mapping=tex-text;!
+Missing character: There is no ▲ (U+25B2) in font [lmroman12-bold]:mapping=tex-text;!
+Missing character: There is no ▼ (U+25BC) in font [lmroman12-bold]:mapping=tex-text;!
+Missing character: There is no ▲ (U+25B2) in font [lmroman12-bold]:mapping=tex-text;!
 
 Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
 (xeCJK)                
@@ -870,47 +889,53 @@ Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
 
 [6]) (../sections/4.Models.tex
 
-LaTeX Font Warning: Font shape `TU/STSong(0)/m/it' undefined
-(Font)              using `TU/STSong(0)/m/n' instead on input line 21.
-
-
-
 [7]
 File: ../yanxiao/outputs/figures/radar_s20_w5.png Graphic file (type bmp)
 <../yanxiao/outputs/figures/radar_s20_w5.png>
-
-
-[8]
-File: ../yanxiao/outputs/figures/accuracy_summary.png Graphic file (type bmp)
-<../yanxiao/outputs/figures/accuracy_summary.png>
-File: ../yanxiao/outputs/figures/uncertainty_distribution.png Graphic file (type bmp)
-<../yanxiao/outputs/figures/uncertainty_distribution.png>
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
+[8]
+File: ../yanxiao/outputs/figures/accuracy_summary.png Graphic file (type bmp)
+<../yanxiao/outputs/figures/accuracy_summary.png>
+
+
 [9]
+File: ../yanxiao/outputs/figures/uncertainty_distribution.png Graphic file (type bmp)
+<../yanxiao/outputs/figures/uncertainty_distribution.png>
+
 
 [10]
 File: ../question2/outputs/figures/method_comparison_overview.png Graphic file (type bmp)
 <../question2/outputs/figures/method_comparison_overview.png>
 
 
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
 [11]
 File: ../question2/outputs/figures/controversy_trajectories.png Graphic file (type bmp)
 <../question2/outputs/figures/controversy_trajectories.png>
 
-Missing character: There is no ⭐ (U+2B50) in font [lmroman12-regular]:mapping=tex-text;!
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 
 [12]
+Missing character: There is no ⭐ (U+2B50) in font [lmroman12-regular]:mapping=tex-text;!
 
 LaTeX Warning: Reference `fig:bobby_trajectory' on page 13 undefined on input line 214.
 
 File: ../question2/outputs/figures/controversy_heatmap_comparison.png Graphic file (type bmp)
 <../question2/outputs/figures/controversy_heatmap_comparison.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 
 [13]
@@ -920,33 +945,68 @@ File: ../question3/outputs/figures/shap_summary_combined.png Graphic file (type 
 <../question3/outputs/figures/shap_summary_combined.png>
 
 
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
 [15]
 File: ../question3/outputs/figures/nomogram_combined.png Graphic file (type bmp)
 <../question3/outputs/figures/nomogram_combined.png>
 
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Missing character: There is no ≤ (U+2264) in font [lmroman10-regular]:mapping=tex-text;!
+
+
+[16]
+Missing character: There is no ≤ (U+2264) in font [lmroman12-regular]:mapping=tex-text;!
 Missing character: There is no ≤ (U+2264) in font [lmroman10-regular]:mapping=tex-text;!
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-Missing character: There is no ≤ (U+2264) in font [lmroman12-regular]:mapping=tex-text;!
-
-
-[16]
-Missing character: There is no ≤ (U+2264) in font [lmroman10-regular]:mapping=tex-text;!
 
 
 [17]
+
+[18]
 File: ../question4/outputs/figures/dramatic_arc_weights.png Graphic file (type bmp)
 <../question4/outputs/figures/dramatic_arc_weights.png>
 
 
-[18]
+[19]
 Missing character: There is no ≥ (U+2265) in font [lmroman12-regular]:mapping=tex-text;!
 ) (../sections/5.Sensitivity Analysis.tex
 
-[19]) (../sections/6.Model Evaluation and Promotion.tex) (../sections/7.Conclusions.tex) (../sections/8.References.tex) (../sections/9.Appendices.tex) (../sections/10.AI.tex
-
 [20]
+File: ../model_evaluation/outputs/figures/sensitivity/tornado_diagram.png Graphic file (type bmp)
+<../model_evaluation/outputs/figures/sensitivity/tornado_diagram.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[21]) (../sections/6.Model Evaluation and Promotion.tex
+
+[22]
+
+[23]) (../sections/7.Memorandum.tex
+
+[24]) (../sections/8.References.tex
+Underfull \hbox (badness 1092) in paragraph at lines 14--17
+[]\TU/lmr/m/n/12 Wikipedia contributors. (2026). \TU/lmr/m/it/12 Dancing with the Stars (American TV series)\TU/lmr/m/n/12 .
+ []
+
+) (../sections/10.AI.tex
+
+[25]
 LaTeX Font Info:    Trying to load font information for TU+pcr on input line 8.
 LaTeX Font Info:    No file TUpcr.fd. on input line 8.
 
@@ -960,11 +1020,11 @@ LaTeX Font Warning: Font shape `TU/pcr/b/n' undefined
 
 
 
-[21
+[26
 
 ])
 
-[22] (./main.aux)
+[27] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
@@ -977,15 +1037,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B7305B32E7BCEE9245073C5F0EEDF9F9;9397.
+(rerunfilecheck)             Checksum: 2E7331A2BC47076C0EB63236439DDCF0;5457.
  ) 
 Here is how much of TeX's memory you used:
- 19937 strings out of 473832
- 407697 string characters out of 5729482
- 1097495 words of memory out of 5000000
- 42551 multiletter control sequences out of 15000+600000
+ 20036 strings out of 473832
+ 410169 string characters out of 5729482
+ 1095083 words of memory out of 5000000
+ 42647 multiletter control sequences out of 15000+600000
  599289 words of font info for 181 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 87i,16n,93p,570b,2008s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,16n,93p,616b,2002s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (23 pages).
+Output written on main.pdf (28 pages).

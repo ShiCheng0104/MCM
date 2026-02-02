@@ -40,6 +40,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{indentfirst}  %首行缩进，注释掉，首行就不再缩进。
 \usepackage{lipsum}
+\usepackage{wrapfig}  % 图文环绕宏包
 
 % 添加中文支持
 \usepackage{xeCJK}
@@ -61,10 +62,9 @@
 
 \begin{document}
 
-
 \input{../sections/0.abstract}
-
 \maketitle
+\newpage
 \setcounter{tocdepth}{2}  % 目录只显示到二级标题（section和subsection）
 \tableofcontents
 \newpage
@@ -74,9 +74,9 @@
 \input{../sections/4.Models}
 \input{../sections/5.Sensitivity Analysis}
 \input{../sections/6.Model Evaluation and Promotion}
-\input{../sections/7.Conclusions}
+\input{../sections/7.Memorandum}
 \input{../sections/8.References}
-\input{../sections/9.Appendices}
+
 \input{../sections/10.AI}
 
 \end{document}
