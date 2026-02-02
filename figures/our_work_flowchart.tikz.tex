@@ -1,0 +1,117 @@
+% Our Work flowchart (TikZ) — compact 2×2 task panels + shared input/output
+% Usage: \input{../figures/our_work_flowchart.tikz.tex}
+\begingroup
+\definecolor{DeepNavy}{HTML}{264653}
+\definecolor{Teal}{HTML}{2A9D8E}
+\definecolor{Sand}{HTML}{E9C46B}
+\definecolor{Orange}{HTML}{F3A261}
+\definecolor{Coral}{HTML}{E86F52}
+
+\begin{tikzpicture}[
+  font=\footnotesize,
+  >={Stealth[length=2.5mm,width=2.5mm]},
+  box/.style={rounded corners=3mm, draw=DeepNavy, line width=0.8pt, align=left, inner sep=8pt},
+  panel/.style={box, text width=7.2cm, fill opacity=0.9, align=left},
+  title/.style={font=\bfseries\large, text=DeepNavy},
+  arrow/.style={-Stealth, line width=1pt, draw=DeepNavy, rounded corners=3mm},
+  dashedarrow/.style={arrow, dashed},
+  lab/.style={font=\scriptsize\bfseries, text=DeepNavy, fill=white, inner sep=2pt, fill opacity=1.0},
+  badge/.style={font=\bfseries\small, text=white, fill=DeepNavy, circle, inner sep=2pt, anchor=center}
+]
+
+% Using layers to put arrows behind boxes
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main}
+
+% --- Shared Inputs (Data Hub) ---
+\node[box, fill=Teal!15, text width=16.5cm, align=center] (A) {
+  {\title{Shared Inputs (Data Hub)}}\\
+  Judges’ Scores + Weekly Eliminations \quad $\bullet$ \quad Contestant Attributes (Age/Industry/Traffic)\\
+  External Signals: Google Trends + TV Ratings \quad $\bullet$ \quad Data Cleaning \& Alignment
+};
+
+% --- Task Panels (2x2 Grid) ---
+% Increase horizontal spacing: 1.5cm gap from center for each creates a 3cm central channel
+\node[panel, fill=Sand!25, below left=1.8cm and 1.5cm of A.south] (T1) {
+  {\title{Task 1: Vote Inference}}\\[4pt]
+  \textbf{Prior:} Performance + Popularity Fusion\\
+  $\hat{V}_i \propto S_i^{\alpha}(1+\theta_i)(1+w_pp_i)(1+w_rr_i)$\\[3pt]
+  \textbf{Posterior:} Match Eliminations via SoftRank\\
+  \textbf{Uncertainty:} Monte Carlo CI \& CV Stability
+};
+
+\node[panel, fill=Orange!20, below right=1.8cm and 1.5cm of A.south] (T2) {
+  {\title{Task 2: Rule Comparison}}\\[4pt]
+  Counterfactual Simulator: Rank vs. Percent Rules\\
+  Bias Diagnostics: ``Audience-Favoring?'' Checks\\
+  Controversy Spotlight: 4 Key Cases + Trajectories\\
+  Disagreement Rate Analysis
+};
+
+\node[panel, fill=Orange!18, below=2cm of T1] (T3) {
+  {\title{Task 3: Driver Analysis}}\\[4pt]
+  Regression: Marginal Attribute Impacts\\
+  Random Forest: Feature Importance (Judges vs Audience)\\
+  SHAP Explanations for Interactability
+};
+
+\node[panel, fill=Coral!18, below=2cm of T2] (T4) {
+  {\title{Task 4: System Design}}\\[4pt]
+  Dynamic Weights (Stage-based) + Early Protection\\
+  Controversy Trigger + Judge Save (Controlled Suspense)\\
+  Fairness / Entertainment / Simplicity Scorecard
+};
+
+% --- Problem Badges (Q1-Q4) ---
+\node[badge] at (T1.north west) {Q1};
+\node[badge] at (T2.north west) {Q2};
+\node[badge] at (T3.north west) {Q3};
+\node[badge] at (T4.north west) {Q4};
+
+% --- Shared Outputs (Deliverables) ---
+\coordinate (midBottom) at ($(T3.south)!0.5!(T4.south)$);
+\node[box, fill=Coral!22, text width=16.5cm, align=center, below=1.5cm of midBottom] (B) {
+  {\title{Shared Outputs (Deliverables)}}\\
+  Inferred Votes Tables \quad $\bullet$ \quad Evidence-Based Rule Recommendations\\
+  New System Proposal \quad $\bullet$ \quad Comprehensive Backtesting Report
+};
+
+% --- Arrows (Background Layer) ---
+\begin{pgfonlayer}{bg}
+
+
+% 1. Input Flows
+\draw[arrow] (A.south -| T1) -- (T1.north);
+\draw[arrow] (A.south -| T2) -- (T2.north);
+% A -> T3 (Left side route - widened)
+\draw[arrow] (A.west) -- ++(-2.0cm,0) |- node[lab, pos=0.25]{Attributes} (T3.west);
+
+% 2. T1 Flows
+% T1 -> T2 (Across center gap)
+\draw[arrow] (T1.east) -- node[lab, midway, align=center, yshift=2pt]{Inferred\\Votes} (T2.west);
+
+% T1 -> T3 (Down)
+\draw[arrow] (T1.south) -- node[lab, midway]{Votes} (T3.north);
+
+% T1 -> T4 (Diagonal via center channel - routed to top-left of T4 to avoid clash)
+% Path: T1.East -> Right into Gap -> Down -> T4.West (Upper)
+\draw[arrow] (T1.east) ++(0, -1.0cm) -- ++(1.5cm, 0) |- node[lab, near end, right, yshift=0.8cm]{Votes} ([yshift=4mm]T4.west);
+
+% 3. T2 Flows
+\draw[arrow] (T2.south) -- node[lab, midway]{Evidence} (T4.north);
+
+% 4. T3 Flows (from T3 East to T4 West - shifted down to avoid clash)
+\draw[arrow] ([yshift=-4mm]T3.east) -- node[lab, midway]{Drivers} ([yshift=-4mm]T4.west);
+
+% 5. Output Flows
+\draw[arrow] (T2.east) -- ++(0.6cm,0) |- (B.north east);
+\draw[arrow] (T3.south) -- (B.north -| T3.south);
+\draw[arrow] (T4.south) -- (B.north -| T4.south);
+
+% 6. Feedback Loop (T4 -> T1) Outside Right
+\draw[dashedarrow] (T4.east) ++(0, -1cm) -- ++(1.2cm,0) |- node[lab, pos=0.25, rotate=90]{Iterate \& Backtest} (A.north east) -- ++(0, 0.5cm) -| (T1.north);
+
+\end{pgfonlayer}
+
+\end{tikzpicture}
+\endgroup
