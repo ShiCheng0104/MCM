@@ -1,0 +1,81 @@
+% Data Preprocessing Pipeline Flowchart
+\begin{tikzpicture}[
+    node distance=0.8cm and 1.2cm,
+    % Style definitions
+    datasource/.style={
+        rectangle, rounded corners=3pt, draw=blue!70, fill=blue!10,
+        minimum width=2.2cm, minimum height=1cm, align=center,
+        font=\scriptsize\bfseries
+    },
+    process/.style={
+        rectangle, rounded corners=3pt, draw=orange!70, fill=orange!10,
+        minimum width=2cm, minimum height=0.8cm, align=center,
+        font=\scriptsize
+    },
+    output/.style={
+        rectangle, rounded corners=3pt, draw=green!70, fill=green!10,
+        minimum width=2.2cm, minimum height=0.8cm, align=center,
+        font=\scriptsize\bfseries
+    },
+    arrow/.style={-{Stealth[scale=0.8]}, thick, draw=gray!70},
+    label/.style={font=\tiny, text=gray!80}
+]
+
+% === DATA SOURCES (Left Column) ===
+\node[datasource] (official) {Official Records\\{\tiny 437 contestants}\\{\tiny Seasons 1--34}};
+\node[datasource, below=of official] (nielsen) {Nielsen Ratings\\{\tiny 32/34 seasons}\\{\tiny 1,247 weeks}};
+\node[datasource, below=of nielsen] (google) {Google Trends\\{\tiny 94.8\% capture}\\{\tiny PyTrends API}};
+
+% === CLEANING OPERATIONS (Middle-Left) ===
+\node[process, right=1.5cm of official] (zscore) {Z-score\\Standardization};
+\node[process, right=1.5cm of nielsen] (logtrans) {Log-transform\\Aggregation};
+\node[process, right=1.5cm of google] (baseline) {Baseline Norm\\(RuPaul anchor)};
+
+% === FUSION OPERATIONS (Middle-Right) ===
+\node[process, right=1.2cm of zscore] (minmax) {Min-Max\\$[0,1]$ Scaling};
+\node[process, right=1.2cm of logtrans] (spline) {Cubic Spline\\Interpolation};
+\node[process, right=1.2cm of baseline] (stratified) {Industry-stratified\\Median Imputation};
+
+% === FEATURE ENGINEERING (Right-Center) ===
+\node[process, right=1.2cm of minmax, yshift=-0.8cm] (pei) {PEI Index\\Construction};
+\node[process, below=0.4cm of pei] (momentum) {Temporal\\Momentum};
+
+% === FINAL OUTPUT (Far Right) ===
+\node[output, right=1.2cm of pei, yshift=-0.4cm] (final) {Model-Ready\\Dataset\\{\tiny 2,185 obs}\\{\tiny 96.8\% complete}};
+
+% === ARROWS: Data Sources to Cleaning ===
+\draw[arrow] (official) -- (zscore);
+\draw[arrow] (nielsen) -- (logtrans);
+\draw[arrow] (google) -- (baseline);
+
+% === ARROWS: Cleaning to Fusion ===
+\draw[arrow] (zscore) -- (minmax);
+\draw[arrow] (logtrans) -- (spline);
+\draw[arrow] (baseline) -- (stratified);
+
+% === ARROWS: Fusion to Feature Engineering ===
+\draw[arrow] (minmax.east) -- ++(0.3,0) |- (pei.west);
+\draw[arrow] (spline.east) -- ++(0.3,0) |- (pei.west);
+\draw[arrow] (stratified.east) -- ++(0.3,0) |- (momentum.west);
+
+% === ARROWS: Feature Engineering to Output ===
+\draw[arrow] (pei) -- (final);
+\draw[arrow] (momentum.east) -- ++(0.3,0) |- (final.west);
+
+% === STAGE LABELS ===
+\node[above=0.3cm of official, font=\scriptsize\bfseries, text=blue!70] {Data Sources};
+\node[above=0.3cm of zscore, font=\scriptsize\bfseries, text=orange!70] {Cleaning};
+\node[above=0.3cm of minmax, font=\scriptsize\bfseries, text=orange!70] {Fusion};
+\node[above=0.3cm of pei, font=\scriptsize\bfseries, text=orange!70] {Engineering};
+\node[above=0.3cm of final, font=\scriptsize\bfseries, text=green!70] {Output};
+
+% === KEY METRICS (Bottom annotations) ===
+\node[label, below=0.2cm of official] {Temporal drift: 6.4\%};
+\node[label, below=0.2cm of nielsen] {Missing: 3.2\%};
+\node[label, below=0.2cm of google] {Long-tail: CV=0.78};
+
+\node[label, below=0.2cm of minmax] {Industry bias: 21\%$\rightarrow$0};
+\node[label, below=0.2cm of spline] {$R^2$=0.94};
+\node[label, below=0.2cm of stratified] {CV: 0.78$\rightarrow$0.45};
+
+\end{tikzpicture}
