@@ -56,10 +56,10 @@
 \contentsline {section}{\numberline {7}Sensitivity Analysis}{26}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Problems 1 \& 2: Vote Estimation Model Parameter Sensitivity}{26}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Problem 3: Feature Importance Robust Validation}{27}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Problem 4: Dramatic Arc System Parameter Tradeoffs}{28}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.3}Problem 4: Dramatic Arc System Parameter Tradeoffs}{27}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Cross-Model Uncertainty Quantification}{28}{subsection.7.4}%
 \contentsline {section}{\numberline {8}Model Evaluation and Promotion}{28}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Model Evaluation}{28}{subsection.8.1}%
 \contentsline {subsubsection}{\numberline {8.1.1}Advantages}{28}{subsubsection.8.1.1}%
-\contentsline {subsubsection}{\numberline {8.1.2}Limitations}{29}{subsubsection.8.1.2}%
-\contentsline {section}{\numberline {9}Memorandum}{30}{section.9}%
+\contentsline {subsubsection}{\numberline {8.1.2}Limitations}{28}{subsubsection.8.1.2}%
+\contentsline {section}{\numberline {9}Memorandum}{29}{section.9}%
